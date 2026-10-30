@@ -60,7 +60,8 @@
     send.disabled = true; send.textContent = "Envoi…";
     const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 15000);
     try {
-      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data), signal: ctrl.signal, referrerPolicy: "strict-origin-when-cross-origin" });
+      const fd = new FormData(); Object.entries(data).forEach(([k, v]) => fd.append(k, v)); // requête « simple » : pas de pré-vérification CORS
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: fd, signal: ctrl.signal, referrerPolicy: "strict-origin-when-cross-origin" });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || j.success === false) throw new Error(String(r.status));
       form.reset(); say("ok", "Demande envoyée. On vous confirme le créneau par email sous 48 h.");
