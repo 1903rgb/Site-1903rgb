@@ -34,7 +34,7 @@
 
   // Formulaire de rendez-vous
   const ENDPOINT = "https://api.web3forms.com/submit";
-  const ACCESS_KEY = ""; // clé Web3Forms (publique, liée à 1903rgb@gmail.com)
+  const ACCESS_KEY = "dae0c910-f6f4-419a-8588-f95cfcf4809e"; // clé Web3Forms (publique, liée à 1903rgb@gmail.com)
   const form = $("book"), fo = $("f-out"), send = $("f-send"), loaded = Date.now();
   const d = $("f-jour"); const t = new Date(); t.setDate(t.getDate() + 1); d.min = t.toISOString().slice(0, 10);
   const req = ["f-nom", "f-activite", "f-email"].map($);
