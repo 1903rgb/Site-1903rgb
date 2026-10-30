@@ -1,7 +1,5 @@
 # Génère index.html (site en ligne, avec CSP) et _artifact.html (aperçu claude.ai, sans CSP propre)
-import html, sys
-sys.path.insert(0, "/home/claude/portfolio/promo")
-from data import sites
+import html, json
 
 BASE = "https://1903rgb.github.io/Site-1903rgb/"   # passer à https://1903rgb.fr/ quand le domaine sera branché
 FONTCSS = "gf-edcd27a86c.css"
@@ -13,7 +11,7 @@ CAT = {"01":"commerce","02":"commerce","05":"commerce","09":"commerce","11":"com
        "03":"artisans","08":"artisans","10":"artisans","17":"artisans",
        "04":"services","06":"services","15":"services","13":"services","18":"services"}
 E = lambda x: html.escape(x.replace("'", "’"), quote=True)
-S = sites()
+S = json.load(open("src/maquettes.json", encoding="utf-8"))
 
 def card(s):
     en = s["lang"] == "EN"
