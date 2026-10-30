@@ -33,7 +33,8 @@
   });
 
   // Formulaire de rendez-vous
-  const ENDPOINT = "https://formsubmit.co/ajax/1903rgb@gmail.com"; // remplacer par l'alias FormSubmit après activation
+  const ENDPOINT = "https://api.web3forms.com/submit";
+  const ACCESS_KEY = ""; // clé Web3Forms (publique, liée à 1903rgb@gmail.com)
   const form = $("book"), fo = $("f-out"), send = $("f-send"), loaded = Date.now();
   const d = $("f-jour"); const t = new Date(); t.setDate(t.getDate() + 1); d.min = t.toISOString().slice(0, 10);
   const req = ["f-nom", "f-activite", "f-email"].map($);
@@ -52,14 +53,16 @@
     const data = Object.fromEntries(new FormData(form));
     if (data._honey || Date.now() - loaded < 3000) { form.reset(); say("ok", "Demande envoyée."); return; } // robots
     delete data._honey;
-    data._subject = "Demande de rendez-vous : " + String(data.activite).slice(0, 80);
-    data._template = "table";
-    data._blacklist = "casino, crypto, viagra, seo services, backlinks";
+    if (!ACCESS_KEY) { say("err", "Le formulaire est en cours d’activation. Écrivez-nous à 1903rgb@gmail.com ou en DM sur Instagram (@_1903rgb_)."); return; }
+    data.access_key = ACCESS_KEY;
+    data.subject = "Demande de rendez-vous : " + String(data.activite).slice(0, 80);
+    data.from_name = "Site 1903RGB";
     send.disabled = true; send.textContent = "Envoi…";
     const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 15000);
     try {
       const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data), signal: ctrl.signal, referrerPolicy: "strict-origin-when-cross-origin" });
-      if (!r.ok) throw new Error(String(r.status));
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || j.success === false) throw new Error(String(r.status));
       form.reset(); say("ok", "Demande envoyée. On vous confirme le créneau par email sous 48 h.");
     } catch (_) {
       say("err", "L’envoi n’a pas fonctionné. Écrivez-nous à 1903rgb@gmail.com ou en DM sur Instagram (@_1903rgb_).");

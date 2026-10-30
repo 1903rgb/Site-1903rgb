@@ -6,7 +6,7 @@ from data import sites
 BASE = "https://1903rgb.github.io/Site-1903rgb/"   # passer à https://1903rgb.fr/ quand le domaine sera branché
 FONTCSS = "gf-edcd27a86c.css"
 CSP = ("default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; "
-       "img-src 'self' data:; media-src 'self'; connect-src https://formsubmit.co; form-action 'self'; "
+       "img-src 'self' data:; media-src 'self'; connect-src https://api.web3forms.com; form-action 'self'; "
        "base-uri 'none'; object-src 'none'; upgrade-insecure-requests")
 CAT = {"01":"commerce","02":"commerce","05":"commerce","09":"commerce","11":"commerce","20":"commerce",
        "07":"sante","14":"sante","16":"sante","19":"sante","12":"sante",
