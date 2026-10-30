@@ -8,4 +8,4 @@ Site vitrine du studio web 1903RGB (Nancy) + 20 maquettes de démonstration.
 - `assets/` : vignettes, logo, vidéo de présentation
 - `mentions-legales.html` : mentions légales
 
-Hébergement : GitHub Pages (branche `main`, dossier racine). Formulaire de rendez-vous : FormSubmit vers contact@1903rgb.fr.
+Hébergement : GitHub Pages (branche `main`, dossier racine). Formulaire de rendez-vous : FormSubmit vers 1903rgb@gmail.com.

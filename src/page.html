@@ -312,7 +312,7 @@ footer a{color:var(--paper)}
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <button class="btn solid" type="submit" id="f-send">Demander mon rendez-vous</button>
       <p class="form-msg" id="f-out" role="status" aria-live="polite"></p>
-      <p class="fine">Votre demande arrive directement à contact@1903rgb.fr. On vous confirme le créneau par email.</p>
+      <p class="fine">Votre demande arrive directement à 1903rgb@gmail.com. On vous confirme le créneau par email.</p>
     </form>
   </div>
 </section>
@@ -352,7 +352,7 @@ footer a{color:var(--paper)}
       <a class="btn" href="#rdv">Prendre rendez-vous</a>
     </div>
     <div class="row" style="margin-top:20px">
-      <span class="mail" id="mail">contact@1903rgb.fr</span>
+      <span class="mail" id="mail">1903rgb@gmail.com</span>
       <button class="copy" type="button" id="copy">Copier l'adresse</button>
       <span id="copied" class="mono" style="color:var(--mute-d)" aria-live="polite"></span>
     </div>
@@ -385,15 +385,15 @@ footer a{color:var(--paper)}
     data._subject='Demande de rendez-vous : '+data.activite;data._template='table';data._captcha='false';
     send.disabled=true;send.textContent='Envoi…';
     try{
-      const r=await fetch('https://formsubmit.co/ajax/contact@1903rgb.fr',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+      const r=await fetch('https://formsubmit.co/ajax/1903rgb@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
       if(!r.ok)throw 0;
       form.reset();fo.classList.add('ok');fo.textContent="Demande envoyée. On vous confirme le créneau par email sous 48 h.";
-    }catch(_){fo.classList.add('err');fo.textContent="L'envoi n'a pas fonctionné. Écrivez-nous directement à contact@1903rgb.fr ou en DM sur Instagram.";}
+    }catch(_){fo.classList.add('err');fo.textContent="L'envoi n'a pas fonctionné. Écrivez-nous directement à 1903rgb@gmail.com ou en DM sur Instagram.";}
     send.disabled=false;send.textContent='Demander mon rendez-vous';
   });
   const out=document.getElementById('copied');
   document.getElementById('copy').addEventListener('click',()=>{
-    const t='contact@1903rgb.fr';
+    const t='1903rgb@gmail.com';
     const done=()=>{out.textContent='Adresse copiée';setTimeout(()=>out.textContent='',2400)};
     if(navigator.clipboard){navigator.clipboard.writeText(t).then(done).catch(sel)}else sel();
     function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Adresse sélectionnée, copiez-la'}
