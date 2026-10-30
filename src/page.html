@@ -118,6 +118,28 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rg
 .plan li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:currentColor}
 .plan .btn{margin-top:auto;justify-content:center}
 
+/* rendez-vous */
+.rdv{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.mini{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.mini li{display:grid;gap:2px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mini b{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em}
+.mini span{color:var(--mute);font-size:15px}
+.book{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:32px;display:grid;gap:16px;min-width:0}
+.book .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.book label{display:grid;gap:6px;font-size:14px;font-weight:500}
+.book small{font-weight:400;color:var(--mute)}
+.book input,.book select,.book textarea{font:16px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+.book input:focus,.book select:focus,.book textarea:focus{outline:2px solid var(--b);outline-offset:1px;border-color:transparent}
+.book fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.book legend{font-size:14px;font-weight:500;margin-bottom:6px;width:100%}
+.book .chk{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-weight:500;cursor:pointer}
+.book .chk:has(input:checked){border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.book .chk input{accent-color:var(--b);width:auto;margin:0}
+.book .btn{justify-content:center;width:100%}
+.form-msg{font-size:15px;font-weight:500;min-height:0}
+.form-msg.ok{color:var(--g)}.form-msg.err{color:var(--r)}
+.fine{font-size:13px;color:var(--mute)}
+.ig{display:inline-flex;align-items:center;gap:10px}
 /* à propos */
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
 .about .big{font-family:var(--disp);font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:500;letter-spacing:-.015em}
@@ -150,8 +172,9 @@ footer a{color:var(--paper)}
   .wall{height:380px;margin-left:calc(-1 * var(--gut))}
   .head,.about{grid-template-columns:1fr;gap:24px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .plans{grid-template-columns:1fr}
+  .rdv{grid-template-columns:1fr;gap:40px}
 }
+@media (max-width:520px){.book{padding:22px}.book .two{grid-template-columns:1fr}}
 @media (max-width:760px){
   .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--ink);padding:12px var(--gutr) 24px var(--gut);border-bottom:1px solid var(--line-d)}
   .links.open{display:flex}
@@ -172,9 +195,9 @@ footer a{color:var(--paper)}
       <a href="#realisations">Réalisations</a>
       <a href="#services">Services</a>
       <a href="#methode">Méthode</a>
-      <a href="#tarifs">Tarifs</a>
+      <a href="#rdv">Tarifs</a>
       <a href="#apropos">Le studio</a>
-      <a class="btn solid" href="#contact">Parlons-en</a>
+      <a class="btn solid" href="#rdv">Prendre rendez-vous</a>
     </nav>
   </div>
 </header>
@@ -187,7 +210,7 @@ footer a{color:var(--paper)}
       <h1 style="margin-top:26px">Des sites qui font <em>venir</em> des clients.</h1>
       <p class="lede">Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants. Chaque site a sa propre identité, pensée pour votre métier et lisible d'abord sur téléphone.</p>
       <div class="ctas">
-        <a class="btn solid" href="#contact">Demander un audit gratuit</a>
+        <a class="btn solid" href="#rdv">Prendre rendez-vous</a>
         <a class="btn" href="#realisations">Voir les 20 maquettes</a>
       </div>
       <div class="facts">
@@ -249,17 +272,48 @@ footer a{color:var(--paper)}
   </div>
 </section>
 
-<section class="band" id="tarifs" style="background:var(--paper-2)">
-  <div class="wrap">
-    <div class="head">
-      <div><p class="mono eyebrow">Tarifs</p><h2 style="margin-top:18px">Des prix clairs, un devis gratuit.</h2></div>
-      <p class="lede">Chaque projet est chiffré sur devis après notre premier échange. Voici les points de départ.</p>
+<section class="band" id="rdv" style="background:var(--paper-2)">
+  <div class="wrap rdv">
+    <div>
+      <p class="mono eyebrow">Tarifs & rendez-vous</p>
+      <h2 style="margin-top:18px">Un prix juste, après un vrai échange.</h2>
+      <p class="lede" style="margin-top:24px">Chaque site est différent, alors chaque tarif est calculé sur devis. On commence par un rendez-vous de 20 minutes, gratuit et sans engagement, pour comprendre votre activité.</p>
+      <ol class="mini">
+        <li><b>Rendez-vous de 20 min</b><span>en visio, par téléphone ou à Nancy</span></li>
+        <li><b>Devis sous 48&nbsp;h</b><span>clair, détaillé, envoyé par email</span></li>
+        <li><b>Vous décidez</b><span>aucun engagement avant votre accord</span></li>
+      </ol>
     </div>
-    <div class="plans">
-      <div class="plan"><p class="mono eyebrow">Site vitrine</p><p class="price">dès 890 €<small>site sur mesure, livré clés en main</small></p><ul><li>Jusqu'à 5 pages</li><li>Design sur mesure, mobile d'abord</li><li>Formulaire de contact</li><li>Fiche Google optimisée</li></ul><a class="btn" href="#contact">Demander un devis</a></div>
-      <div class="plan hl"><p class="mono eyebrow">Boutique en ligne</p><p class="price">sur devis<small>selon le nombre de produits</small></p><ul><li>Boutique Shopify</li><li>Fiches produits rédigées</li><li>Paiement et livraison configurés</li><li>Formation à la gestion</li></ul><a class="btn solid" href="#contact">Parler de ma boutique</a></div>
-      <div class="plan"><p class="mono eyebrow">Référencement & identité</p><p class="price">sur devis<small>en complément ou seul</small></p><ul><li>Référencement local</li><li>Logo et charte</li><li>Visuels pour vos réseaux</li><li>Vidéo de présentation</li></ul><a class="btn" href="#contact">En savoir plus</a></div>
-    </div>
+    <form class="book" id="book" novalidate>
+      <p class="mono eyebrow">Prendre rendez-vous</p>
+      <div class="two">
+        <label>Nom et prénom<input id="f-nom" name="nom" autocomplete="name" required></label>
+        <label>Entreprise ou activité<input id="f-activite" name="activite" required placeholder="ex. boulangerie"></label>
+      </div>
+      <div class="two">
+        <label>Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+        <label><span>Téléphone <small>(facultatif)</small></span><input id="f-tel" name="telephone" type="tel" autocomplete="tel"></label>
+      </div>
+      <label>Votre besoin
+        <select id="f-besoin" name="besoin">
+          <option>Site vitrine</option><option>Boutique en ligne</option><option>Référencement local</option><option>Identité visuelle</option><option>Je ne sais pas encore</option>
+        </select></label>
+      <div class="two">
+        <label>Jour souhaité<input id="f-jour" name="jour" type="date"></label>
+        <label>Moment
+          <select id="f-moment" name="moment"><option>Matin</option><option>Midi</option><option>Après-midi</option><option>Fin de journée</option></select></label>
+      </div>
+      <fieldset><legend>Format</legend>
+        <label class="chk"><input type="radio" name="format" value="Visio" checked id="f-visio">Visio</label>
+        <label class="chk"><input type="radio" name="format" value="Téléphone" id="f-telformat">Téléphone</label>
+        <label class="chk"><input type="radio" name="format" value="À Nancy" id="f-nancy">À Nancy</label>
+      </fieldset>
+      <label><span>Un mot sur votre projet <small>(facultatif)</small></span><textarea id="f-msg" name="message" rows="3" placeholder="Avez-vous déjà un site ? Une date en tête ?"></textarea></label>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <button class="btn solid" type="submit" id="f-send">Demander mon rendez-vous</button>
+      <p class="form-msg" id="f-out" role="status" aria-live="polite"></p>
+      <p class="fine">Votre demande arrive directement à contact@1903rgb.fr. On vous confirme le créneau par email.</p>
+    </form>
   </div>
 </section>
 
@@ -292,8 +346,12 @@ footer a{color:var(--paper)}
   <div class="wrap">
     <p class="mono eyebrow"><span class="pix" aria-hidden="true" style="font-size:10px"><i></i><i></i><i></i></span>Contact</p>
     <h2 style="margin-top:22px">Votre projet&nbsp;?<br>Passez en DM.</h2>
-    <p class="lede" style="margin-top:28px">Écrivez-nous sur Instagram ou par email. Dites-nous votre métier, votre ville et si vous avez déjà un site&nbsp;: on vous répond avec un premier avis gratuit sous 48 h.</p>
+    <p class="lede" style="margin-top:28px">Écrivez-nous sur Instagram ou par email. Dites-nous votre métier, votre ville et si vous avez déjà un site&nbsp;: on vous répond sous 48&nbsp;h.</p>
     <div class="row">
+      <a class="btn solid ig" href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@_1903rgb_</a>
+      <a class="btn" href="#rdv">Prendre rendez-vous</a>
+    </div>
+    <div class="row" style="margin-top:20px">
       <span class="mail" id="mail">contact@1903rgb.fr</span>
       <button class="copy" type="button" id="copy">Copier l'adresse</button>
       <span id="copied" class="mono" style="color:var(--mute-d)" aria-live="polite"></span>
@@ -305,7 +363,7 @@ footer a{color:var(--paper)}
 <footer>
   <div class="wrap">
     <span>© 1903RGB · Studio web à Nancy · SIRET 923 060 743 00013</span>
-    <span><a href="mentions-legales.html">Mentions légales</a></span>
+    <span><a href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener">Instagram</a> · <a href="mentions-legales.html">Mentions légales</a></span>
   </div>
 </footer>
 
@@ -316,6 +374,23 @@ footer a{color:var(--paper)}
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}));
   const btns=[...document.querySelectorAll('.filters button')],cards=[...document.querySelectorAll('.card')];
   btns.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;btns.forEach(x=>x.setAttribute('aria-pressed',x===b));cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.cat===f));}));
+  const form=document.getElementById('book'),fo=document.getElementById('f-out'),send=document.getElementById('f-send');
+  const d=document.getElementById('f-jour');const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();fo.className='form-msg';
+    const req=['f-nom','f-activite','f-email'].map(id=>document.getElementById(id));
+    const bad=req.find(i=>!i.value.trim()||(i.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value)));
+    if(bad){fo.classList.add('err');fo.textContent=bad.type==='email'?"Vérifiez votre adresse email, elle semble incomplète.":"Indiquez votre nom, votre activité et votre email pour qu'on puisse vous répondre.";bad.focus();return;}
+    const data=Object.fromEntries(new FormData(form));
+    data._subject='Demande de rendez-vous : '+data.activite;data._template='table';data._captcha='false';
+    send.disabled=true;send.textContent='Envoi…';
+    try{
+      const r=await fetch('https://formsubmit.co/ajax/contact@1903rgb.fr',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+      if(!r.ok)throw 0;
+      form.reset();fo.classList.add('ok');fo.textContent="Demande envoyée. On vous confirme le créneau par email sous 48 h.";
+    }catch(_){fo.classList.add('err');fo.textContent="L'envoi n'a pas fonctionné. Écrivez-nous directement à contact@1903rgb.fr ou en DM sur Instagram.";}
+    send.disabled=false;send.textContent='Demander mon rendez-vous';
+  });
   const out=document.getElementById('copied');
   document.getElementById('copy').addEventListener('click',()=>{
     const t='contact@1903rgb.fr';
