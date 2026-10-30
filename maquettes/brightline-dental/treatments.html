@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Treatments and fees · Brightline Dental</title>
+<meta name="description" content="Every treatment at Brightline Dental, Leeds, with its NHS band and private fee range, plus 0% finance and appointment booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#ffffff;
+  --mist:#f1f6f9;
+  --mist-2:#e6eff4;
+  --line:#dbe4ea;
+  --line-soft:#e9eff3;
+  --ink:#0d1417;
+  --ink-2:#2c383e;
+  --muted:#5a676e;
+  --signal:#0a7f86;
+  --signal-ink:#065a5f;
+  --signal-wash:#e2f3f3;
+  --amber:#b45f06;
+  --amber-wash:#fdf1e3;
+  --display:"Onest", "Helvetica Neue", Arial, sans-serif;
+  --body:"Onest", "Helvetica Neue", Arial, sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:14px; --r-sm:10px;
+  --sh-sm:0 2px 3px -1px rgba(0,0,0,.1),0 1px 0 0 rgba(25,28,33,.02),0 0 0 1px rgba(25,28,33,.08);
+  --sh-md:0 0 0 1px rgba(0,0,0,.06),0 1px 1px -.5px rgba(0,0,0,.06),0 3px 3px -1.5px rgba(0,0,0,.06),0 6px 6px -3px rgba(0,0,0,.06),0 12px 12px -6px rgba(0,0,0,.06),0 24px 24px -12px rgba(0,0,0,.06);
+  --sh-lg:0 2.8px 2.2px rgba(0,0,0,.034),0 6.7px 5.3px rgba(0,0,0,.048),0 12.5px 10px rgba(0,0,0,.06),0 22.3px 17.9px rgba(0,0,0,.072),0 41.8px 33.4px rgba(0,0,0,.086),0 100px 80px rgba(0,0,0,.12);
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:calc(var(--gut) + 16px);padding-right:calc(var(--gut-r) + 16px)}
+@media (max-width:700px){.wrap{padding-left:var(--gut);padding-right:var(--gut-r)}}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.01em}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.04;margin:0}
+h2{font-size:clamp(2rem,3.6vw,3.2rem)}
+h3{font-size:1.2rem;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.lead{font-size:1.15rem;color:var(--ink-2);max-width:34ch}
+.btn{display:inline-flex;align-items:center;gap:.55em;font:600 .98rem/1 var(--body);padding:.95em 1.3em;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-1px)}
+.btn-line{background:var(--paper);color:var(--ink);box-shadow:var(--sh-sm)}
+.btn-line:hover{box-shadow:var(--sh-md)}
+.btn svg{width:18px;height:18px}
+.tag{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.72rem;padding:.3em .6em;border-radius:6px;background:var(--mist);color:var(--ink-2);white-space:nowrap}
+.tag.nhs{background:#e5eefb;color:#1f4e94}
+.tag.pvt{background:var(--signal-wash);color:var(--signal-ink)}
+.tag.urg{background:var(--amber-wash);color:var(--amber)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line-soft)}
+.head-in{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
+.brand-mark{width:26px;height:26px;border-radius:7px;background:var(--ink);position:relative;flex:none}
+.brand-mark::after{content:"";position:absolute;left:6px;right:6px;top:12px;height:2px;background:#7fe0e3;border-radius:2px}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.95rem;color:var(--ink-2)}
+.nav a:hover{color:var(--ink)}
+.head-cta{display:flex;align-items:center;gap:14px}
+.head-phone{font-family:var(--mono);font-size:.82rem;color:var(--muted);white-space:nowrap}
+.head-cta .btn{padding:.75em 1.1em;font-size:.92rem}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:10px;border:0;background:var(--mist);cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .2s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav{display:none}
+@media (max-width:960px){
+  .nav,.head-phone{display:none}
+  .head-cta{margin-left:auto}
+  .burger{display:inline-flex;margin-left:0}
+  .mnav{display:block;position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));background:#fff;border-bottom:1px solid var(--line);padding:8px var(--gut-r) 22px var(--gut);box-shadow:var(--sh-md)}
+  .mnav[hidden]{display:none}
+  .mnav a{display:block;padding:14px 0;border-bottom:1px solid var(--line-soft);text-decoration:none;font-size:1.1rem}
+  .mnav .mono{display:block;margin-top:14px;color:var(--muted)}
+}
+@media (max-width:420px){.head-cta .btn{padding:.7em .9em;font-size:.86rem}}
+
+/* hero */
+.hero{padding:64px 0 0;background:linear-gradient(180deg,#fff 0%,#fff 38%,var(--mist) 100%)}
+.hero-top{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.hero h1{grid-column:1/9;font-size:clamp(2.6rem,6.4vw,5.9rem);letter-spacing:-.04em;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero-side{grid-column:9/13;display:grid;gap:22px;padding-bottom:10px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:30px;color:var(--muted)}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta svg{width:15px;height:15px;color:var(--signal)}
+.stage{position:relative;margin-top:44px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding-bottom:72px}
+.stage-photo{grid-column:1/10;grid-row:1;border-radius:18px;overflow:hidden;box-shadow:var(--sh-lg);aspect-ratio:16/9.2;background:var(--mist-2)}
+.stage-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.diary{grid-column:8/13;grid-row:1;align-self:start;margin-top:56px;position:relative;z-index:2;background:#fff;border-radius:var(--r);box-shadow:var(--sh-lg);overflow:hidden}
+.diary-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line-soft)}
+.diary-head strong{font-size:.95rem;font-weight:600}
+.diary-days{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--line-soft);background:var(--mist)}
+.diary-days button{flex:1;border:0;background:transparent;border-radius:8px;padding:7px 0;font:500 .78rem/1.15 var(--mono);color:var(--muted);cursor:pointer;transition:background .18s,color .18s}
+.diary-days button b{display:block;font:600 .95rem/1.2 var(--body);color:var(--ink-2)}
+.diary-days button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:var(--sh-sm)}
+.diary-days button[aria-selected="true"] b{color:var(--signal-ink)}
+.slots{list-style:none;margin:0;padding:6px 0}
+.slot{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:10px;padding:9px 16px;font-size:.9rem}
+.slot time{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.slot .who{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot.free .who{color:var(--signal-ink);font-weight:500}
+.slot.emerg{background:linear-gradient(90deg,var(--amber-wash),#fff 85%)}
+.slot.emerg .who{color:var(--amber);font-weight:600}
+.slot.taken .who{color:#9aa6ac}
+.diary-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--line-soft);font-size:.85rem}
+.diary-foot .count{font-family:var(--mono);font-size:.8rem}
+.diary-foot .count b{color:var(--amber);font-weight:500}
+.fee{grid-column:1/6;grid-row:1;align-self:end;margin:0 0 -40px 28px;position:relative;z-index:2;background:#fff;border-radius:var(--r);box-shadow:var(--sh-md);padding:16px 18px;max-width:420px}
+.fee label{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:6px}
+.fee select{width:100%;font:500 .98rem var(--body);padding:10px 36px 10px 12px;border-radius:9px;border:0;box-shadow:var(--sh-sm);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230d1417' fill='none' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center;appearance:none;-webkit-appearance:none;color:var(--ink);cursor:pointer}
+.fee-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.fee-out div{border-radius:9px;background:var(--mist);padding:10px 12px}
+.fee-out small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.fee-out strong{font-size:1.15rem;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.fee-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+@media (max-width:1100px){
+  .hero h1{grid-column:1/-1}
+  .hero-side{grid-column:1/-1;grid-template-columns:1fr auto;align-items:end}
+}
+@media (max-width:900px){
+  .hero{padding-top:36px}
+  .hero-side{grid-template-columns:1fr}
+  .stage{grid-template-columns:1fr;gap:16px;margin-top:28px;padding-bottom:48px}
+  .stage-photo,.diary,.fee{grid-column:1;grid-row:auto;margin:0;max-width:none}
+  .stage-photo{aspect-ratio:4/3}
+  .diary{margin-top:-64px;margin-left:14px;margin-right:14px}
+}
+
+/* figures strip */
+.figures{background:var(--mist);padding:16px 0 88px}
+.fig-grid{display:grid;grid-template-columns:1.2fr repeat(4,1fr);border-top:1px solid var(--line);}
+.fig-grid > *{padding:22px 22px 0 0}
+.fig-grid > div + div{padding-left:22px;border-left:1px solid var(--line)}
+.fig-intro{font-size:1rem;color:var(--ink-2);max-width:28ch}
+.fig b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.fig b sup{font-size:.45em;letter-spacing:0;vertical-align:.9em;margin-left:2px;color:var(--muted)}
+.fig span{display:block;margin-top:10px;font-size:.88rem;color:var(--muted);max-width:22ch}
+@media (max-width:900px){
+  .fig-grid{grid-template-columns:1fr 1fr}
+  .fig-intro{grid-column:1/-1;max-width:none}
+  .fig-grid > div + div{border-left:0;padding-left:0}
+  .fig-grid > .fig{border-top:1px solid var(--line);padding-bottom:18px}
+  .fig-grid > .fig:nth-child(odd){padding-left:18px;border-left:1px solid var(--line)}
+}
+
+/* sections */
+section{scroll-margin-top:80px}
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:52px;align-items:end}
+.sec-head h2{grid-column:1/8}
+.sec-head p{grid-column:8/13;color:var(--ink-2);max-width:42ch}
+.kicker{display:block;font-family:var(--mono);font-size:.76rem;color:var(--signal-ink);margin-bottom:16px;letter-spacing:.02em}
+@media (max-width:900px){.sec{padding:72px 0}.sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:34px}.sec-head h2,.sec-head p{grid-column:1}}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.svc-col h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:2px solid var(--ink);font-size:1.35rem}
+.svc-col h3 .mono{color:var(--muted);font-weight:400}
+.svc-list{list-style:none;margin:0;padding:0}
+.svc-list li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.svc-list .nm{font-weight:600;font-size:1.02rem}
+.svc-list .ds{grid-column:1;color:var(--muted);font-size:.92rem}
+.svc-list .pr{grid-column:2;grid-row:1/3;text-align:right;align-self:center;display:grid;gap:5px;justify-items:end}
+.svc-list .pr b{font-family:var(--mono);font-weight:500;font-size:.88rem;font-variant-numeric:tabular-nums}
+.svc-more{margin-top:28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.svc-more .mono{color:var(--muted)}
+@media (max-width:900px){.svc{grid-template-columns:1fr;gap:44px}}
+
+/* plan proof */
+.plan-sec{background:var(--mist)}
+.plan-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.plan-copy{grid-column:1/6;position:sticky;top:110px}
+.plan-copy h2{margin-bottom:22px}
+.plan-copy p{color:var(--ink-2);max-width:40ch}
+.plan-points{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}
+.plan-points li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:.96rem}
+.plan-points svg{width:20px;height:20px;color:var(--signal);margin-top:2px}
+.plan-doc{grid-column:7/13;position:relative}
+.plan-scan{width:62%;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);margin-left:auto;aspect-ratio:4/3}
+.plan-scan img{width:100%;height:100%;object-fit:cover}
+.plan-card{position:relative;margin-top:-90px;width:92%;background:#fff;border-radius:var(--r);box-shadow:var(--sh-lg);padding:22px 24px 20px}
+.plan-card header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
+.plan-card header strong{display:block;font-size:1.05rem}
+.plan-card header .mono{color:var(--muted)}
+.plan-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:.9rem}
+.plan-tbl th{text-align:left;font:400 .7rem var(--mono);color:var(--muted);padding:10px 0 6px;border-bottom:1px solid var(--line-soft)}
+.plan-tbl th:last-child,.plan-tbl td:last-child{text-align:right}
+.plan-tbl td{padding:11px 8px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.plan-tbl td .mono{color:var(--muted);display:block;margin-top:2px}
+.plan-tbl td:last-child{font-family:var(--mono);font-size:.86rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:14px}
+.plan-total span{color:var(--muted);font-size:.88rem}
+.plan-total b{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.plan-sign{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:10px 12px;border-radius:9px;background:var(--signal-wash);color:var(--signal-ink);font-size:.84rem}
+.plan-label{position:absolute;top:14px;left:0;background:#fff;border-radius:999px;padding:6px 12px;box-shadow:var(--sh-sm)}
+@media (max-width:900px){
+  .plan-copy,.plan-doc{grid-column:1/-1;position:static}
+  .plan-scan{width:80%}
+  .plan-card{width:100%;margin-top:-50px;padding:18px 16px}
+}
+
+/* visit */
+.visit-track{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);position:relative}
+.visit-track::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:var(--prog,100%);background:var(--signal)}
+.step{padding:24px 22px 0 0}
+.step + .step{padding-left:22px;border-left:1px solid var(--line-soft)}
+.step .mono{color:var(--signal-ink)}
+.step h3{margin:14px 0 10px}
+.step p{font-size:.93rem;color:var(--muted)}
+.step .dur{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:.74rem;color:var(--ink-2);background:var(--mist);padding:4px 8px;border-radius:6px}
+@media (max-width:1000px){
+  .visit-track{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);padding-left:0}
+  .visit-track::before{top:0;left:-1px;width:2px;height:var(--prog,100%)}
+  .step,.step + .step{padding:0 0 30px 22px;border-left:0}
+}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:start}
+.gal figure{margin:0}
+.gal .ph{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);background:var(--mist-2)}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{margin-top:10px;font-size:.86rem;color:var(--muted);display:flex;gap:10px}
+.gal figcaption .mono{color:var(--ink-2)}
+.g1{grid-column:1/8}.g1 .ph{aspect-ratio:4/3}
+.g2{grid-column:8/13;margin-top:80px}.g2 .ph{aspect-ratio:4/5}
+.g3{grid-column:2/6;margin-top:-60px}.g3 .ph{aspect-ratio:1/1}
+.g4{grid-column:6/11}.g4 .ph{aspect-ratio:16/10}
+@media (max-width:800px){
+  .gal{grid-template-columns:1fr 1fr;gap:14px}
+  .g1{grid-column:1/-1}.g2{grid-column:1/2;margin-top:0}.g3{grid-column:2/3;margin-top:0}.g4{grid-column:1/-1}
+  .g2 .ph,.g3 .ph{aspect-ratio:3/4}
+}
+
+/* reviews */
+.rev-sec{background:var(--ink);color:#e9f0f3}
+.rev-sec .kicker{color:#7fd6d9}
+.rev-sec .sec-head p{color:#a8b6bc}
+.revs{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:20px}
+.rev{background:#162125;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:22px;box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.rev blockquote{margin:0;font-size:1.02rem;line-height:1.55;color:#e9f0f3}
+.rev.big blockquote{font-size:1.32rem;line-height:1.45;letter-spacing:-.01em}
+.rev footer{margin-top:auto;display:flex;align-items:center;gap:12px}
+.rev footer img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.rev footer strong{display:block;font-size:.95rem;font-weight:600}
+.rev footer .mono{color:#8fa0a7}
+@media (max-width:960px){.revs{grid-template-columns:1fr}}
+
+/* practical */
+.info{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.hours{grid-column:1/6}
+.hours table{width:100%;border-collapse:collapse;font-size:.95rem}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--mono);font-size:.86rem;font-variant-numeric:tabular-nums}
+.hours tr.today td{color:var(--signal-ink);font-weight:600}
+.hours tr.today td:first-child::after{content:" · today";font-weight:400;font-family:var(--mono);font-size:.75rem}
+.hours .note{margin-top:16px;font-size:.88rem;color:var(--muted)}
+.where{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;align-content:start}
+.where h3{font-size:1rem;margin-bottom:8px}
+.where p{font-size:.94rem;color:var(--ink-2)}
+.where .wide{grid-column:1/-1;padding:18px 20px;border-radius:var(--r);box-shadow:var(--sh-md);display:flex;gap:16px;align-items:flex-start}
+.where .wide svg{width:22px;height:22px;color:var(--amber);flex:none;margin-top:3px}
+.pc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+@media (max-width:900px){.hours,.where{grid-column:1/-1}.where{grid-template-columns:1fr}}
+
+/* book */
+.book{background:linear-gradient(180deg,var(--paper),var(--mist))}
+.book-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.book-copy{grid-column:1/6}
+.book-copy h2{font-size:clamp(2.2rem,4.4vw,3.8rem);margin-bottom:20px}
+.book-copy p{color:var(--ink-2);max-width:38ch}
+.book-copy .alt{margin-top:28px;display:grid;gap:6px;font-size:.95rem}
+.book-copy .alt .mono{color:var(--muted)}
+.form{grid-column:7/13;background:#fff;border-radius:18px;box-shadow:var(--sh-lg);padding:28px}
+.seg{display:flex;padding:4px;background:var(--mist);border-radius:11px;gap:4px;margin-bottom:20px}
+.seg button{flex:1;border:0;background:transparent;padding:10px 8px;border-radius:8px;font:500 .9rem var(--body);color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:var(--sh-sm)}
+.seg button[data-kind="emergency"][aria-pressed="true"]{color:var(--amber)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid .full{grid-column:1/-1}
+.field label{display:block;font-size:.82rem;font-weight:500;margin-bottom:6px;color:var(--ink-2)}
+.field input,.field select{width:100%;font:400 1rem var(--body);padding:12px 13px;border-radius:10px;border:0;box-shadow:var(--sh-sm);background:#fff;color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--signal);outline-offset:0}
+.field input[aria-invalid="true"]{box-shadow:0 0 0 1.5px #c0392b}
+.form .btn{width:100%;justify-content:center;margin-top:18px}
+.form .small{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.emerg-note{display:none;margin-bottom:16px;padding:12px 14px;border-radius:10px;background:var(--amber-wash);color:#7a3f02;font-size:.9rem}
+.form.is-emergency .emerg-note{display:block}
+.done{display:none;padding:22px;border-radius:12px;background:var(--signal-wash);color:var(--signal-ink)}
+.done strong{display:block;font-size:1.1rem;margin-bottom:6px;color:var(--ink)}
+.form.sent .done{display:block}
+.form.sent form{display:none}
+@media (max-width:900px){.book-copy,.form{grid-column:1/-1}.form{padding:20px}.fgrid{grid-template-columns:1fr}}
+
+/* footer */
+.foot{background:var(--mist);border-top:1px solid var(--line);padding:56px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:.9rem;color:var(--ink-2)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.foot h4{font:500 .74rem var(--mono);color:var(--muted);margin:0 0 12px;letter-spacing:.02em}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}.foot a:hover{text-decoration:underline}
+.foot-base{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--muted);font-size:.8rem}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid > :first-child{grid-column:1/-1}}
+
+.w{display:inline-block}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* treatments page */
+.t-hero{padding:64px 0 56px;background:linear-gradient(180deg,#fff,var(--mist))}
+.crumb{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-bottom:26px}
+.crumb a{text-decoration:none;color:var(--signal-ink)}
+.t-top{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.t-top h1{grid-column:1/8;font-size:clamp(2.6rem,5.6vw,5rem);letter-spacing:-.04em;line-height:.98}
+.t-top p{grid-column:8/13;color:var(--ink-2);max-width:40ch}
+.bands{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:16px;box-shadow:var(--sh-md);overflow:hidden}
+.band{padding:22px 22px 24px}
+.band + .band{border-left:1px solid var(--line-soft)}
+.band .tag{margin-bottom:14px}
+.band b{display:block;font-family:var(--display);font-size:2.2rem;font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.band p{margin-top:10px;font-size:.88rem;color:var(--muted)}
+.band.urgent{background:linear-gradient(180deg,var(--amber-wash),#fff)}
+.bands-note{margin-top:14px;font-size:.84rem;color:var(--muted);max-width:90ch}
+@media (max-width:900px){.t-top h1,.t-top p{grid-column:1/-1}.bands{grid-template-columns:1fr 1fr}.band:nth-child(3){border-left:0}.band:nth-child(n+3){border-top:1px solid var(--line-soft)}}
+@media (max-width:480px){.band{padding:16px}.band b{font-size:1.8rem}}
+
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;padding:4px;background:var(--mist);border-radius:12px;width:max-content;max-width:100%}
+.filters button{border:0;background:transparent;padding:9px 14px;border-radius:9px;font:500 .9rem var(--body);color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:var(--sh-sm)}
+.fee-tbl{width:100%;border-collapse:collapse}
+.fee-tbl th{text-align:left;font:400 .72rem var(--mono);color:var(--muted);padding:0 12px 10px 0;border-bottom:2px solid var(--ink)}
+.fee-tbl td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem}
+.fee-tbl td:first-child strong{display:block;font-weight:600}
+.fee-tbl td:first-child span{display:block;font-size:.86rem;color:var(--muted);margin-top:2px;max-width:46ch}
+.fee-tbl .num{font-family:var(--mono);font-size:.86rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fee-tbl th.r,.fee-tbl td.r{text-align:right;padding-right:0}
+.fee-tbl tr[hidden]{display:none}
+.tbl-foot{margin-top:16px;font-size:.84rem;color:var(--muted)}
+@media (max-width:760px){
+  .fee-tbl thead{display:none}
+  .fee-tbl,.fee-tbl tbody,.fee-tbl tr,.fee-tbl td{display:block;width:100%}
+  .fee-tbl tr{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .fee-tbl td{border:0;padding:0}
+  .fee-tbl td:first-child{grid-column:1/-1}
+  .fee-tbl td.r{text-align:right}
+  .fee-tbl td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-bottom:2px}
+  .fee-tbl td.dur{display:none}
+}
+
+.fin{background:var(--mist)}
+.fin-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.fin-copy{grid-column:1/6}
+.fin-copy h2{margin-bottom:20px}
+.fin-copy p{color:var(--ink-2);max-width:40ch}
+.fin-copy ul{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:.94rem}
+.fin-copy li{display:flex;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.fin-copy li .mono{color:var(--ink-2)}
+.calc{grid-column:7/13;background:#fff;border-radius:18px;box-shadow:var(--sh-lg);padding:28px}
+.calc label{display:flex;justify-content:space-between;font-size:.88rem;font-weight:500;color:var(--ink-2);margin-bottom:10px}
+.calc label output{font-family:var(--mono);font-size:1rem;color:var(--ink)}
+.calc input[type=range]{width:100%;accent-color:var(--signal);margin:0 0 24px}
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:24px}
+.terms button{border:0;background:var(--mist);border-radius:10px;padding:10px 4px;font:500 .88rem var(--body);color:var(--ink-2);cursor:pointer;line-height:1.2}
+.terms button small{display:block;font:400 .7rem var(--mono);color:var(--muted);margin-top:3px}
+.terms button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.terms button[aria-pressed="true"] small{color:#9fdfe1}
+.calc-out{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.calc-out small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-bottom:4px}
+.calc-out b{font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.calc-out .big b{font-size:2.2rem;letter-spacing:-.03em}
+.calc .rep{margin-top:18px;font-size:.78rem;color:var(--muted)}
+.plan-box{margin-top:30px;padding:20px;border-radius:var(--r);background:#fff;box-shadow:var(--sh-md)}
+.plan-box strong{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:1.05rem}
+.plan-box strong .mono{font-size:.9rem;color:var(--signal-ink)}
+.plan-box p{margin-top:8px;font-size:.9rem;color:var(--muted)}
+@media (max-width:900px){.fin-copy,.calc{grid-column:1/-1}.calc{padding:20px}.terms{grid-template-columns:1fr 1fr}.calc-out{grid-template-columns:1fr 1fr}.calc-out .big{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="index.html" aria-label="Brightline Dental home"><span class="brand-mark" aria-hidden="true"></span>Brightline Dental</a>
+    <nav class="nav" aria-label="Main">
+      <a href="treatments.html" aria-current="page" style="color:var(--ink);font-weight:500">Treatments &amp; fees</a>
+      <a href="#finance">Finance</a>
+      <a href="index.html#plan">Your plan</a>
+      <a href="index.html#info">Hours &amp; location</a>
+    </nav>
+    <div class="head-cta">
+      <span class="head-phone">0113 496 0274</span>
+      <a class="btn btn-dark" href="#book">Book</a>
+    </div>
+    <button class="burger" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="treatments.html" aria-current="page">Treatments &amp; fees</a>
+    <a href="#finance">Finance</a>
+    <a href="index.html#info">Hours &amp; location</a>
+    <a href="#book">Book an appointment</a>
+    <span class="mono">Emergency line from 07:45 · 0113 496 0274</span>
+  </nav>
+</header>
+
+<main>
+<section class="t-hero" aria-labelledby="h-t">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Brightline Dental</a> / Treatments &amp; fees</p>
+    <div class="t-top">
+      <h1 id="h-t" data-split>Treatments and fees, in full.</h1>
+      <p>NHS patients pay one band charge per course of treatment, however many appointments it takes. Private fees are ranges; your written plan fixes the exact figure for six months.</p>
+    </div>
+    <div class="bands" aria-label="NHS charges in England">
+      <div class="band urgent"><span class="tag urg">Urgent</span><b>£27.40</b><p>Pain relief, temporary filling, emergency extraction.</p></div>
+      <div class="band"><span class="tag nhs">Band 1</span><b>£27.40</b><p>Examination, x-rays, scale and polish if needed, advice.</p></div>
+      <div class="band"><span class="tag nhs">Band 2</span><b>£75.30</b><p>Everything in Band 1, plus fillings, root canals, extractions.</p></div>
+      <div class="band"><span class="tag nhs">Band 3</span><b>£326.70</b><p>Everything in Bands 1 and 2, plus crowns, dentures, bridges.</p></div>
+    </div>
+    <p class="bands-note">NHS dental charges in England from 1 April 2025. Treatment is free if you are under 18, under 19 in full-time education, pregnant or had a baby in the last 12 months, or receive a qualifying benefit. Bring proof to your appointment.</p>
+  </div>
+</section>
+
+<section class="sec" id="list" aria-labelledby="h-list">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-list" data-split><span class="kicker">Fee list</span>Twenty-four treatments, two routes.</h2>
+      <p>Where a treatment is not available on the NHS, we say so. Durations are chair time for a typical case.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter treatments">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="prev">Preventive</button>
+      <button aria-pressed="false" data-f="rest">Restorative</button>
+      <button aria-pressed="false" data-f="cos">Cosmetic</button>
+      <button aria-pressed="false" data-f="emg">Emergency</button>
+    </div>
+    <table class="fee-tbl">
+      <thead><tr><th>Treatment</th><th>NHS</th><th class="r">Private</th><th class="r dur">Chair time</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="tbl-foot">Private fees include VAT where it applies (cosmetic whitening only). Lab fees are included in crown, veneer and denture prices.</p>
+  </div>
+</section>
+
+<section class="sec fin" id="finance" aria-labelledby="h-fin">
+  <div class="wrap fin-grid">
+    <div class="fin-copy">
+      <span class="kicker">Finance</span>
+      <h2 id="h-fin" data-split>Spread private treatment, interest-free up to a year.</h2>
+      <p>Plans over £1,000 can be paid monthly with no deposit. Choose 6 to 12 months at 0%, or longer terms at 9.9% APR representative. Decision in minutes, at the desk or online.</p>
+      <ul>
+        <li><span>Minimum amount</span><span class="mono">£1,000</span></li>
+        <li><span>0% terms</span><span class="mono">6, 10, 12 months</span></li>
+        <li><span>Longer terms</span><span class="mono">24 or 36 months · 9.9% APR</span></li>
+        <li><span>Deposit</span><span class="mono">£0</span></li>
+      </ul>
+      <div class="plan-box"><strong>Brightline Care plan <span class="mono">£16.50 / month</span></strong><p>Two examinations and two hygienist visits a year, 10% off private treatment, and worldwide dental emergency cover. Private patients only.</p></div>
+    </div>
+    <div class="calc" aria-label="Finance calculator">
+      <label for="amt">Treatment cost <output id="amt-out">£3,000</output></label>
+      <input id="amt" type="range" min="1000" max="6000" step="50" value="3000">
+      <div class="terms" role="group" aria-label="Term">
+        <button data-m="6" data-apr="0" aria-pressed="false">6 months<small>0% APR</small></button>
+        <button data-m="12" data-apr="0" aria-pressed="true">12 months<small>0% APR</small></button>
+        <button data-m="24" data-apr="9.9" aria-pressed="false">24 months<small>9.9% APR</small></button>
+        <button data-m="36" data-apr="9.9" aria-pressed="false">36 months<small>9.9% APR</small></button>
+      </div>
+      <div class="calc-out">
+        <div class="big"><small>Monthly</small><b id="c-mo">£250.00</b></div>
+        <div><small>Interest</small><b id="c-int">£0.00</b></div>
+        <div><small>Total payable</small><b id="c-tot">£3,000.00</b></div>
+      </div>
+      <p class="rep">Representative example: £3,000 over 36 months at 9.9% APR representative (fixed) is £96.07 a month, £3,458.52 in total. Credit provided by a third-party lender, subject to status, over-18s only. Illustrative figures for this demo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book" aria-labelledby="h-book">
+  <div class="wrap book-grid">
+    <div class="book-copy">
+      <span class="kicker">Appointments</span>
+      <h2 id="h-book" data-split>Ready to book?</h2>
+      <p>Choose the treatment you have in mind. If you are not sure, pick an examination: we will plan the rest together.</p>
+      <div class="alt"><span class="mono">Emergency today?</span><span>Call 0113 496 0274 from 07:45. Four slots held each weekday.</span></div>
+    </div>
+    <div class="form" id="bookform">
+      <div class="seg" role="group" aria-label="Appointment type">
+        <button type="button" data-kind="routine" aria-pressed="true">Routine</button>
+        <button type="button" data-kind="new" aria-pressed="false">New patient</button>
+        <button type="button" data-kind="emergency" aria-pressed="false">Emergency</button>
+      </div>
+      <form novalidate>
+        <p class="emerg-note">Emergency requests go to the top of the queue. If you have facial swelling affecting breathing or swallowing, call 999.</p>
+        <div class="fgrid">
+          <div class="field full"><label for="f-tr">Treatment</label><select id="f-tr"></select></div>
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" autocomplete="name" required></div>
+          <div class="field"><label for="f-tel">Mobile</label><input id="f-tel" type="tel" autocomplete="tel" required placeholder="07700 900 000"></div>
+          <div class="field"><label for="f-route">Route</label><select id="f-route"><option>NHS</option><option>Private</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="f-when">Preferred time</label><select id="f-when"><option>Morning</option><option>Afternoon</option><option>Thursday evening</option><option>Saturday (private)</option></select></div>
+        </div>
+        <button class="btn btn-dark" type="submit">Request appointment</button>
+        <p class="small">Demo form. Nothing is sent.</p>
+      </form>
+      <div class="done" role="status"><strong>Request received.</strong><span id="done-msg">Reception will text you to confirm a time.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Brightline Dental</a><p style="margin-top:14px;max-width:32ch">118 Otley Road, Headingley, Leeds LS6 4BQ. Registered with the Care Quality Commission.</p></div>
+      <div><h4>Practice</h4><ul><li><a href="index.html">Home</a></li><li><a href="#finance">Finance</a></li><li><a href="#book">Book</a></li></ul></div>
+      <div><h4>Clinicians · GDC</h4><ul><li>Dr A. Okafor · 284117</li><li>Dr L. Haigh · 271093</li><li>R. Mistry, hygienist · 293554</li></ul></div>
+      <div><h4>Contact</h4><ul><li>0113 496 0274</li><li>hello@example.com</li></ul></div>
+    </div>
+    <div class="foot-base"><span>© Brightline Dental. Fictional practice.</span><span>Demo content · Contenu de démonstration · Site by 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var burger=document.querySelector('.burger'), mnav=document.getElementById('mnav');
+  burger.addEventListener('click',function(){var o=burger.getAttribute('aria-expanded')==='true';burger.setAttribute('aria-expanded',String(!o));burger.setAttribute('aria-label',o?'Open menu':'Close menu');mnav.hidden=o;});
+  mnav.addEventListener('click',function(e){if(e.target.tagName==='A'){mnav.hidden=true;burger.setAttribute('aria-expanded','false');}});
+
+  /* fee table: [cat, name, desc, nhs-class, nhs-label, private, time] */
+  var T=[
+   ['prev','New-patient examination','Full charting, gum health, oral cancer screen, two x-rays.','nhs','Band 1 · £27.40','£85','40 min'],
+   ['prev','Routine examination','Check-up for existing patients, every 6–24 months.','nhs','Band 1 · £27.40','£65','20 min'],
+   ['prev','Hygienist clean','Scale, polish and home-care coaching.','pvt','Private only','£75 / 30 min','30 min'],
+   ['prev','Children\'s check-up','Fluoride varnish from age 3. Parents present.','nhs','Free under 18','£45','15 min'],
+   ['prev','Fissure sealants','Protective coating on adult back teeth.','nhs','Free under 18','£40 per tooth','10 min'],
+   ['prev','Sports mouthguard','Custom-fitted from a digital scan.','pvt','Private only','£95','2 visits'],
+   ['rest','White filling, front tooth','Composite resin, colour-matched.','nhs','Band 2 · £75.30','£140–£190','30 min'],
+   ['rest','White filling, back tooth','Composite resin. Amalgam available on NHS.','nhs','Band 2 · £75.30','£140–£220','40 min'],
+   ['rest','Root canal, front tooth','Single canal, rubber dam, rotary files.','nhs','Band 2 · £75.30','£480–£580','60 min'],
+   ['rest','Root canal, molar','Three or four canals, microscope-assisted.','nhs','Band 2 · £75.30','£650–£950','90 min'],
+   ['rest','Simple extraction','Local anaesthetic, aftercare sheet.','nhs','Band 2 · £75.30','£150–£220','30 min'],
+   ['rest','Surgical extraction','Including wisdom teeth assessed as suitable.','nhs','Band 2 · £75.30','£280–£420','45 min'],
+   ['rest','Crown','Porcelain-bonded (NHS) or all-ceramic (private).','nhs','Band 3 · £326.70','£650–£850','2 visits'],
+   ['rest','Bridge, three units','Replaces one missing tooth.','nhs','Band 3 · £326.70','£1,800–£2,400','2 visits'],
+   ['rest','Acrylic denture','Full or partial, one arch.','nhs','Band 3 · £326.70','£650–£900','4 visits'],
+   ['rest','Single implant and crown','Referral to our visiting implantologist.','pvt','Private only','£2,450–£2,950','3 visits'],
+   ['cos','Home whitening','Custom trays and 10% carbamide peroxide gel.','pvt','Private only','£325','2 visits'],
+   ['cos','Composite bonding','Chips, gaps or edges, per tooth.','pvt','Private only','£250–£350','45 min'],
+   ['cos','Porcelain veneer','Minimal preparation, per tooth.','pvt','Private only','£750–£950','2 visits'],
+   ['cos','Clear aligners, mild','Up to 14 aligners, retainers included.','pvt','Private only','£2,800','6 months'],
+   ['cos','Clear aligners, comprehensive','Unlimited refinements for 5 years.','pvt','Private only','£3,600–£4,200','12–18 months'],
+   ['emg','Emergency appointment, NHS','Pain relief and stabilisation.','urg','Urgent · £27.40','—','20 min'],
+   ['emg','Emergency appointment, private','Same assessment, any patient, any slot.','pvt','Private only','£95','20 min'],
+   ['emg','Out-of-hours (NHS 111)','Call 111 when we are closed.','nhs','Urgent · £27.40','—','—']
+  ];
+  var rows=document.getElementById('rows'), h='', opts='<option>Examination (not sure yet)</option>';
+  T.forEach(function(r){
+    h+='<tr data-c="'+r[0]+'"><td><strong>'+r[1]+'</strong><span>'+r[2]+'</span></td><td data-l="NHS"><span class="tag '+r[3]+'">'+r[4]+'</span></td><td class="r num" data-l="Private">'+r[5]+'</td><td class="r num dur">'+r[6]+'</td></tr>';
+    if(r[0]!=='emg') opts+='<option>'+r[1]+'</option>';
+  });
+  rows.innerHTML=h; document.getElementById('f-tr').innerHTML=opts;
+  var fb=[].slice.call(document.querySelectorAll('.filters button'));
+  fb.forEach(function(b){b.addEventListener('click',function(){
+    fb.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    var shown=[];
+    [].forEach.call(rows.children,function(tr){var on=b.dataset.f==='all'||tr.dataset.c===b.dataset.f;tr.hidden=!on;if(on)shown.push(tr);});
+    if(!reduce&&window.gsap)gsap.from(shown,{y:8,opacity:0,duration:.35,stagger:.03,ease:'power2.out'});
+    if(window.ScrollTrigger)ScrollTrigger.refresh();
+  });});
+  if(location.hash==='#emergency'){var e=document.querySelector('[data-f="emg"]');e&&e.click();}
+
+  /* finance */
+  var amt=document.getElementById('amt'), months=12, apr=0, tb=[].slice.call(document.querySelectorAll('.terms button'));
+  var gbp=function(n){return '£'+n.toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});};
+  function calc(){
+    var P=+amt.value, mo;
+    document.getElementById('amt-out').textContent='£'+P.toLocaleString('en-GB');
+    if(apr===0){mo=P/months;}else{var r=Math.pow(1+apr/100,1/12)-1;mo=P*r/(1-Math.pow(1+r,-months));}
+    mo=Math.round(mo*100)/100;
+    document.getElementById('c-mo').textContent=gbp(mo);
+    document.getElementById('c-tot').textContent=gbp(mo*months);
+    document.getElementById('c-int').textContent=gbp(Math.max(0,mo*months-P));
+  }
+  amt.addEventListener('input',calc);
+  tb.forEach(function(b){b.addEventListener('click',function(){tb.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});months=+b.dataset.m;apr=+b.dataset.apr;calc();});});
+  calc();
+
+  /* form */
+  var box=document.getElementById('bookform'), segs=[].slice.call(box.querySelectorAll('.seg button')), kind='routine';
+  segs.forEach(function(s){s.addEventListener('click',function(){kind=s.dataset.kind;segs.forEach(function(x){x.setAttribute('aria-pressed',String(x===s));});box.classList.toggle('is-emergency',kind==='emergency');});});
+  box.querySelector('form').addEventListener('submit',function(e){
+    e.preventDefault(); var ok=true;
+    box.querySelectorAll('input[required]').forEach(function(i){var bad=!i.value.trim();i.setAttribute('aria-invalid',String(bad));if(bad&&ok){i.focus();ok=false;}});
+    if(!ok)return;
+    document.getElementById('done-msg').textContent=kind==='emergency'?'We will call you back within 15 minutes during opening hours.':'Reception will text you to confirm a time, usually within 20 minutes.';
+    box.classList.add('sent');
+  });
+
+  if(!window.gsap||reduce)return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){var lenis=new Lenis({duration:1.05});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-72});}});});}
+  document.querySelectorAll('[data-split]').forEach(function(h){
+    h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
+    [].slice.call(h.childNodes).forEach(function(n){if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p))f.appendChild(document.createTextNode(p));else{var s=document.createElement('span');s.className='w';s.setAttribute('aria-hidden','true');s.textContent=p;f.appendChild(s);}});h.replaceChild(f,n);}});
+  });
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .from('.t-hero h1 .w',{yPercent:40,opacity:0,duration:.8,stagger:.05})
+    .from('.t-top p',{y:12,opacity:0,duration:.6},'-=.5')
+    .from('.band',{y:20,opacity:0,duration:.6,stagger:.07},'-=.4');
+  document.querySelectorAll('.sec [data-split]').forEach(function(h){gsap.from(h.querySelectorAll('.w'),{yPercent:35,opacity:0,duration:.7,stagger:.035,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 85%',once:true}});});
+  gsap.utils.toArray('.calc, .plan-box, .form').forEach(function(el){gsap.from(el,{y:24,opacity:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});});
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

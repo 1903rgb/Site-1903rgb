@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Lumen &amp; Vow</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Lumen & Vow — wedding and elopement photography across the Lake District, told in chapters.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --ink:#121513;          /* night on the fells */
+  --ink-2:#1A1E1B;
+  --paper:#ECE6DB;        /* warm white, print stock */
+  --paper-dim:#B9B3A8;
+  --mute:#8C8A82;
+  --rule:rgba(236,230,219,.16);
+  --moss:#6E7458;         /* bracken & moss chapter field */
+  --lake:#26383F;         /* the contact signal: deep lake slate */
+  --lake-hi:#9DB7BF;
+  --serif:"Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --edge:clamp(16px, 4vw, 56px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lake-hi);outline-offset:3px}
+.wrap{padding-left:max(var(--edge), env(safe-area-inset-left,0px));padding-right:max(var(--edge), env(safe-area-inset-right,0px))}
+.label{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);font-weight:500}
+.caption{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--paper-dim);line-height:1.4}
+.serif{font-family:var(--serif)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.02;margin:0;letter-spacing:-.01em}
+h1 em,h2 em{font-weight:300}
+p{margin:0}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:100;background:var(--paper);color:var(--ink);padding:8px 12px}
+
+/* masked words (JS adds them; text is visible without JS) */
+.word-mask{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.word{display:inline-block}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-top:18px;padding-bottom:18px;transition:background .3s var(--ease)}
+.site-head.is-solid{background:rgba(18,21,19,.92);backdrop-filter:blur(6px)}
+.site-head nav{display:flex;gap:28px}
+.site-head nav a,.head-cta{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500}
+.site-head nav a{opacity:.85}
+.site-head nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.brand{font-family:var(--serif);font-size:1.55rem;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.brand i{font-weight:300}
+.head-cta{justify-self:end;border:1px solid var(--rule);padding:10px 16px;transition:background .2s,color .2s}
+.head-cta:hover{background:var(--paper);color:var(--ink)}
+.burger{display:none;justify-self:end;background:none;border:0;color:var(--paper);padding:8px;cursor:pointer}
+.mobile-nav{display:none}
+@media (max-width:760px){
+  .site-head{grid-template-columns:1fr auto}
+  .site-head nav,.head-cta{display:none}
+  .brand{font-size:1.35rem}
+  .burger{display:block}
+  .mobile-nav{position:fixed;inset:0;z-index:49;background:var(--ink);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:0 max(24px,env(safe-area-inset-left,0px));transform:translateY(-100%);transition:transform .45s var(--ease);visibility:hidden}
+  .mobile-nav.open{transform:none;visibility:visible}
+  .mobile-nav a{font-family:var(--serif);font-size:2.6rem;text-decoration:none;font-weight:300}
+  .mobile-nav .label{margin-top:28px}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;margin-top:-76px;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-media{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,21,19,.55) 0%,rgba(18,21,19,0) 22%,rgba(18,21,19,0) 48%,rgba(18,21,19,.82) 100%)}
+.hero-copy{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding-bottom:clamp(32px,6vh,64px);align-items:end}
+.hero h1{grid-column:1 / span 8;font-size:clamp(3.2rem,8.4vw,8.6rem);line-height:.92}
+.hero h1 em{display:block;padding-left:.9em}
+.hero-side{grid-column:9 / span 4;display:flex;flex-direction:column;gap:22px;padding-bottom:10px}
+.hero-side p{font-size:1.02rem;color:var(--paper);max-width:34ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:600;padding:15px 22px;border:1px solid var(--paper);transition:background .2s var(--ease),color .2s var(--ease)}
+.btn-solid{background:var(--paper);color:var(--ink)}
+.btn-solid:hover{background:transparent;color:var(--paper)}
+.btn-line:hover{background:var(--paper);color:var(--ink)}
+.btn svg{width:14px;height:14px}
+.hero-meta{position:absolute;z-index:2;top:calc(50% - 10px);right:max(var(--edge),env(safe-area-inset-right,0px));writing-mode:vertical-rl;transform:rotate(180deg);color:var(--paper);text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.hero h1{text-shadow:0 2px 30px rgba(18,21,19,.25)}
+@media (max-width:900px){
+  .hero h1,.hero-side{grid-column:1 / -1}
+  .hero h1 em{padding-left:.5em}
+  .hero-meta{display:none}
+  .hero::after{background:linear-gradient(180deg,rgba(18,21,19,.5) 0%,rgba(18,21,19,0) 18%,rgba(18,21,19,.15) 34%,rgba(18,21,19,.7) 55%,rgba(18,21,19,.88) 100%)}
+  .hero-media img{object-position:58% 70%}
+}
+
+/* ---------- chapter mark ---------- */
+.chapter-mark{display:flex;align-items:baseline;gap:18px;border-top:1px solid var(--rule);padding-top:18px;margin-bottom:clamp(40px,7vw,96px)}
+.chapter-mark .serif{font-size:1.25rem;font-style:italic;color:var(--paper)}
+
+/* ---------- prologue / collections ---------- */
+.prologue{padding-top:clamp(80px,12vw,160px);padding-bottom:clamp(80px,10vw,140px)}
+.prologue-lede{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:clamp(56px,8vw,110px)}
+.prologue-lede h2{grid-column:1 / span 8;font-size:clamp(2.3rem,5vw,4.6rem)}
+.prologue-lede p{grid-column:9 / span 4;align-self:end;color:var(--paper-dim);max-width:36ch}
+.offer{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.offer li{border-bottom:1px solid var(--rule)}
+.offer a{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) auto;gap:24px;align-items:baseline;padding:clamp(22px,3vw,34px) 0;text-decoration:none}
+.offer h3{font-size:clamp(2.2rem,5.6vw,5.4rem);transition:font-style .2s;line-height:1}
+.offer a:hover h3,.offer a:focus-visible h3{font-style:italic}
+.offer .what{color:var(--paper-dim);max-width:38ch;font-size:.98rem}
+.offer .price{font-family:var(--serif);font-size:1.5rem;white-space:nowrap;text-align:right}
+.offer .price small{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:760px){
+  .prologue-lede h2,.prologue-lede p{grid-column:1 / -1}
+  .offer a{grid-template-columns:1fr auto}
+  .offer .what{grid-column:1 / -1;grid-row:2}
+}
+
+/* ---------- full-bleed story ---------- */
+.bleed{position:relative;overflow:hidden}
+.bleed figure{margin:0}
+.bleed-img{height:clamp(420px,88vh,960px);overflow:hidden}
+.bleed-img img{width:100%;height:110%;object-fit:cover}
+.bleed figcaption{display:flex;justify-content:space-between;gap:24px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+
+.story{background:var(--moss);color:#F2EEE6;padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)}
+.story .chapter-mark{border-color:rgba(242,238,230,.28)}
+.story .label{color:rgba(242,238,230,.75)}
+.story-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.story-text{grid-column:1 / span 5}
+.story-text h2{font-size:clamp(2.4rem,4.6vw,4.4rem);margin-bottom:28px}
+.story-text p{max-width:42ch;margin-bottom:18px}
+.story-facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 36px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(242,238,230,.28)}
+.story-facts dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.story-facts dd{margin:0;font-family:var(--serif);font-size:2.3rem;line-height:1}
+.story-a{grid-column:7 / span 6}
+.story-b{grid-column:7 / span 3;margin-top:24px}
+.story-b + .caption{grid-column:10 / span 3;align-self:end;color:rgba(242,238,230,.85)}
+.story-grid figure{margin:0;overflow:hidden}
+.story-grid img{width:100%;object-fit:cover}
+.story-a img{aspect-ratio:4/3}
+.story-b img{aspect-ratio:4/5}
+@media (max-width:900px){
+  .story-text,.story-a,.story-b,.story-b + .caption{grid-column:1 / -1}
+  .story-b{width:62%}
+}
+
+/* ---------- process ---------- */
+.process{padding-top:clamp(80px,10vw,150px);padding-bottom:clamp(80px,10vw,150px)}
+.process-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.process-photo{grid-column:1 / span 5;position:sticky;top:110px;align-self:start;margin:0}
+.process-photo img{aspect-ratio:2/3;object-fit:cover;width:100%}
+.process-photo figcaption{margin-top:12px}
+.process-steps{grid-column:7 / span 6}
+.process-steps h2{font-size:clamp(2.4rem,4.6vw,4.4rem);margin-bottom:clamp(36px,5vw,64px)}
+.step{border-top:1px solid var(--rule);padding:28px 0 34px;display:grid;grid-template-columns:9rem 1fr;gap:20px}
+.step .when{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--paper-dim)}
+.step h3{font-size:1.9rem;margin-bottom:10px;font-weight:400}
+.step p{color:var(--paper-dim);max-width:46ch}
+@media (max-width:900px){
+  .process-photo{grid-column:1 / -1;position:relative;top:0}
+  .process-photo img{aspect-ratio:4/5}
+  .process-steps{grid-column:1 / -1;margin-top:40px}
+  .step{grid-template-columns:1fr;gap:6px}
+}
+
+/* ---------- gallery ---------- */
+.gallery{padding-bottom:clamp(80px,10vw,150px)}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,56px)}
+.gallery-head h2{font-size:clamp(2.4rem,5vw,4.8rem)}
+.frames{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.6vw,24px);align-items:start}
+.frames figure{margin:0}
+.frames .ph{overflow:hidden}
+.frames img{width:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.frames figure:hover img{transform:scale(1.02)}
+.frames figcaption{margin-top:10px}
+.f1{grid-column:1 / span 4;grid-row:1 / span 2;margin-top:clamp(40px,8vw,120px)!important}
+.f1 img{aspect-ratio:2/3}
+.f2{grid-column:5 / span 8}
+.f2 img{aspect-ratio:3/2}
+.f3{grid-column:5 / span 4}
+.f3 img{aspect-ratio:4/5}
+.f4{grid-column:9 / span 4;margin-top:clamp(40px,6vw,90px)!important}
+.f4 img{aspect-ratio:1/1}
+@media (max-width:760px){
+  .f1{grid-column:1 / span 7;grid-row:auto;margin-top:0!important}
+  .f2{grid-column:1 / -1}
+  .f3{grid-column:6 / span 7}
+  .f4{grid-column:1 / span 8;margin-top:0!important}
+}
+
+/* ---------- voices ---------- */
+.voices{border-top:1px solid var(--rule);padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)}
+.voices-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.voice{margin:0}
+.voice blockquote{margin:0;font-family:var(--serif);font-weight:300;line-height:1.18}
+.voice-lead{grid-column:1 / span 8}
+.voice-lead blockquote{font-size:clamp(1.9rem,3.8vw,3.4rem)}
+.voice-side{grid-column:9 / span 4;align-self:end}
+.voice-side blockquote{font-size:1.5rem}
+.voice figcaption{margin-top:22px}
+@media (max-width:900px){.voice-lead,.voice-side{grid-column:1 / -1}.voice-side{margin-top:40px}}
+
+/* ---------- practical ---------- */
+.practical{background:var(--ink-2);padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)}
+.practical-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.practical h2{grid-column:1 / span 5;font-size:clamp(2.2rem,4vw,3.8rem)}
+.practical-cols{grid-column:7 / span 6;display:grid;grid-template-columns:1fr 1fr;gap:40px 32px}
+.practical h3{font-family:var(--sans);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--paper);margin-bottom:12px}
+.practical p,.practical li{color:var(--paper-dim);font-size:.96rem}
+.practical ul{list-style:none;margin:0;padding:0}
+.practical li{padding:7px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px}
+.practical li span:last-child{color:var(--paper);font-variant-numeric:tabular-nums}
+.light-table{grid-column:1 / -1}
+@media (max-width:900px){.practical h2,.practical-cols{grid-column:1 / -1}}
+@media (max-width:560px){.practical-cols{grid-template-columns:1fr}}
+
+/* ---------- finale ---------- */
+.finale{background:var(--lake);padding-top:clamp(90px,12vw,170px);padding-bottom:clamp(80px,10vw,140px)}
+.finale .label{color:var(--lake-hi)}
+.finale h2{font-size:clamp(3rem,8vw,8rem);line-height:.95;max-width:12ch;margin:28px 0 44px}
+.finale h2 em{color:var(--lake-hi)}
+.finale-row{display:flex;flex-wrap:wrap;gap:20px 48px;align-items:center}
+.finale-row p{color:var(--paper-dim);max-width:40ch}
+
+/* ---------- footer ---------- */
+.site-foot{padding-top:56px;padding-bottom:max(40px,env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:repeat(12,1fr);gap:24px;font-size:.88rem;color:var(--paper-dim)}
+.site-foot .brand{grid-column:1 / span 4;color:var(--paper);font-size:2rem}
+.site-foot nav,.site-foot address,.site-foot .legal{font-style:normal}
+.site-foot nav{grid-column:5 / span 3;display:flex;flex-direction:column;gap:6px}
+.site-foot address{grid-column:8 / span 3}
+.site-foot .legal{grid-column:11 / span 2;font-size:.78rem}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:var(--paper);text-decoration:underline}
+@media (max-width:900px){.site-foot>*{grid-column:1 / -1!important}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head wrap" id="top">
+  <nav aria-label="Primary">
+    <a href="#stories">Stories</a>
+    <a href="collections.html">Collections</a>
+    <a href="#practical">Travel &amp; dates</a>
+  </nav>
+  <a class="brand" href="index.html" aria-label="Lumen and Vow, home">Lumen <i>&amp;</i> Vow</a>
+  <a class="head-cta" href="collections.html#enquire">Check your date</a>
+  <button class="burger" aria-expanded="false" aria-controls="mnav" aria-label="Open menu">
+    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true"><path d="M0 1h26M0 13h26" stroke="currentColor" stroke-width="1.5"/></svg>
+  </button>
+</header>
+<div class="mobile-nav" id="mnav" aria-label="Mobile">
+  <a href="#stories">Stories</a>
+  <a href="collections.html">Collections</a>
+  <a href="#practical">Travel &amp; dates</a>
+  <a href="collections.html#enquire">Check your date</a>
+  <p class="label">Based in Keswick · Cumbria</p>
+</div>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="assets/img/hero-fells.jpg" alt="A couple in wedding clothes walking hand in hand across a hazy upland ridge at dusk" width="1800" height="1200" fetchpriority="high">
+  </div>
+  <p class="hero-meta label">Wedding &amp; elopement photography — Lake District</p>
+  <div class="hero-copy wrap">
+    <h1 id="hero-title" data-reveal>Your day, <em>in chapters.</em></h1>
+    <div class="hero-side">
+      <p>Weddings and elopements on the fells, the shores and in the village halls of the Lake District. Photographed quietly, delivered as a story you can read from first light to last dance.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="collections.html">See the collections</a>
+        <a class="btn btn-line" href="collections.html#enquire">Check your date</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prologue wrap" aria-labelledby="offer-title">
+  <div class="chapter-mark"><span class="label">Chapter one</span><span class="serif">The shape of the day</span></div>
+  <div class="prologue-lede">
+    <h2 id="offer-title" data-reveal>Three ways to tell it. Each one ends in a finished book of light.</h2>
+    <p>We are two photographers working from Keswick. We cover around 28 weddings a year, so every couple gets our full attention and an honest delivery date.</p>
+  </div>
+  <ul class="offer">
+    <li><a href="collections.html#fellside">
+      <h3>The elopement</h3>
+      <p class="what">Just the two of you, maybe two witnesses. Vows on a summit, a tarn or a church porch. 3 hours of coverage, around 250 edited images.</p>
+      <p class="price">£1,450<small>from · 3 hrs</small></p>
+    </a></li>
+    <li><a href="collections.html#lakeshore">
+      <h3>The intimate wedding</h3>
+      <p class="what">Up to 40 guests. Ceremony, portraits by the water, the meal and the speeches. 6 hours, around 450 edited images.</p>
+      <p class="price">£2,350<small>from · 6 hrs</small></p>
+    </a></li>
+    <li><a href="collections.html#wholestory">
+      <h3>The whole story</h3>
+      <p class="what">From getting ready to the first dance and beyond. Two photographers, 10 hours, around 700 edited images.</p>
+      <p class="price">£3,200<small>from · 10 hrs</small></p>
+    </a></li>
+  </ul>
+</section>
+
+<section class="bleed" id="stories" aria-label="Featured photograph">
+  <figure>
+    <div class="bleed-img"><img src="assets/img/veil-shore.jpg" alt="Black and white photograph of a bride and groom kissing beneath a veil lifted by the wind on a lakeshore" width="1800" height="1050" loading="lazy" data-parallax></div>
+    <figcaption class="wrap"><span class="caption">The wind came off Derwentwater at exactly the wrong moment. It turned out to be the right one.</span><span class="label">Friar's Crag · September</span></figcaption>
+  </figure>
+</section>
+
+<section class="story" aria-labelledby="story-title">
+  <div class="wrap">
+    <div class="chapter-mark"><span class="label">Chapter two</span><span class="serif">One wedding, start to finish</span></div>
+    <div class="story-grid">
+      <div class="story-text">
+        <h2 id="story-title" data-reveal>Hannah &amp; Rhys, Buttermere, in October rain.</h2>
+        <p>They booked the whole story and the forecast said rain all day. We walked the shore path between showers, kept the portraits under the old oaks, and saved ten minutes for the light that broke over Fleetwith Pike at 17:40.</p>
+        <p>The gallery arrived six weeks later, in the order the day happened. Their album followed in December.</p>
+        <dl class="story-facts">
+          <div><dt>Coverage</dt><dd>9 hrs</dd></div>
+          <div><dt>Edited images</dt><dd>612</dd></div>
+          <div><dt>Delivered</dt><dd>6 wks</dd></div>
+        </dl>
+      </div>
+      <figure class="story-a" data-clip><img src="assets/img/hands.jpg" alt="Close crop of a bride and groom holding hands, their shadows long across the grass" width="1000" height="667" loading="lazy"></figure>
+      <figure class="story-b" data-clip><img src="assets/img/bouquet-barn.jpg" alt="A bride holding a bouquet of peach roses and eucalyptus, groom beside her" width="1000" height="668" loading="lazy"></figure>
+      <p class="caption">Bouquet by a florist in Cockermouth. Taken in the barn while the rain passed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process wrap" aria-labelledby="process-title">
+  <div class="chapter-mark"><span class="label">Chapter three</span><span class="serif">How it unfolds</span></div>
+  <div class="process-grid">
+    <figure class="process-photo">
+      <img src="assets/img/pebble-shore.jpg" alt="Bride and groom embracing on a pebble shore, her long veil spread across the stones" width="1000" height="1500" loading="lazy">
+      <figcaption class="caption">Recce walks happen in the same light as your ceremony slot.</figcaption>
+    </figure>
+    <div class="process-steps">
+      <h2 id="process-title" data-reveal>Less posing. More walking, waiting and noticing.</h2>
+      <div class="step"><span class="when">Within 2 days</span><div><h3>A proper reply</h3><p>Send us your date and place. We answer within two working days with availability and a short call slot. No automated sequences.</p></div></div>
+      <div class="step"><span class="when">Booking</span><div><h3>Date held</h3><p>A 30% retainer and a plain-English contract hold your date. The balance is due four weeks before the wedding.</p></div></div>
+      <div class="step"><span class="when">Two months out</span><div><h3>The recce walk</h3><p>We walk your location at the time of day you will marry there. We note the sun, the wind and the spot where guests will stand.</p></div></div>
+      <div class="step"><span class="when">The day</span><div><h3>Quietly present</h3><p>Ten minutes of portraits, not an hour. The rest is documentary: people, weather, the bits between.</p></div></div>
+      <div class="step"><span class="when">4 to 8 weeks</span><div><h3>The gallery</h3><p>Every image hand-edited, sequenced as a story, in a private online gallery with full-resolution downloads and a print licence.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery wrap" aria-labelledby="gallery-title">
+  <div class="chapter-mark"><span class="label">Chapter four</span><span class="serif">From recent books</span></div>
+  <div class="gallery-head">
+    <h2 id="gallery-title" data-reveal>Pages from this season</h2>
+    <a class="btn btn-line" href="collections.html">What each book includes</a>
+  </div>
+  <div class="frames">
+    <figure class="f1" data-clip><div class="ph"><img src="assets/img/confetti.jpg" alt="Guests throwing confetti over a newly married couple as they kiss on a garden path" width="1000" height="1500" loading="lazy"></div><figcaption class="caption">Confetti in the walled garden, Grasmere. June.</figcaption></figure>
+    <figure class="f2" data-clip><div class="ph"><img src="assets/img/bouquet-dusk.jpg" alt="A bride's bouquet of white blooms and dark foliage, backlit by low sun" width="1800" height="1200" loading="lazy"></div><figcaption class="caption">The last forty minutes of sun, Langdale. August.</figcaption></figure>
+    <figure class="f3" data-clip><div class="ph"><img src="assets/img/arch.jpg" alt="A wooden ceremony arch draped with ivory fabric and a spray of garden flowers, trees beyond" width="1000" height="668" loading="lazy"></div><figcaption class="caption">Before anyone arrived, Borrowdale. May.</figcaption></figure>
+    <figure class="f4" data-clip><div class="ph"><img src="assets/img/two-chairs.jpg" alt="Two white chairs dressed with flowers on a lawn above the water, set for a ceremony of two" width="1000" height="667" loading="lazy"></div><figcaption class="caption">A ceremony for two, Ullswater shore. April.</figcaption></figure>
+  </div>
+</section>
+
+<section class="voices wrap" aria-labelledby="voices-title">
+  <h2 id="voices-title" class="label" style="font-family:var(--sans);margin-bottom:40px">In their words</h2>
+  <div class="voices-grid">
+    <figure class="voice voice-lead">
+      <blockquote>“We barely noticed them on the day. Then the gallery arrived and we saw a whole wedding we had missed.”</blockquote>
+      <figcaption class="label">Hannah R. — Buttermere</figcaption>
+    </figure>
+    <figure class="voice voice-side">
+      <blockquote>“They walked our elopement route the week before, in the rain, at sunrise. That says it all.”</blockquote>
+      <figcaption class="label">Marcus T. — Catbells</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="practical" id="practical" aria-labelledby="practical-title">
+  <div class="wrap">
+    <div class="chapter-mark"><span class="label">Chapter five</span><span class="serif">The practical page</span></div>
+    <div class="practical-grid">
+      <h2 id="practical-title" data-reveal>Where we go, what it costs to get there.</h2>
+      <div class="practical-cols">
+        <div>
+          <h3>Travel fee</h3>
+          <ul>
+            <li><span>Within 30 miles of Keswick</span><span>Included</span></li>
+            <li><span>Beyond 30 miles</span><span>45p / mile</span></li>
+            <li><span>Over 2 hrs' drive</span><span>+ £120 overnight</span></li>
+            <li><span>Fell elopements, guide fee</span><span>Quoted</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Sunset over the fells</h3>
+          <ul>
+            <li><span>March</span><span>18:20</span></li>
+            <li><span>June</span><span>21:50</span></li>
+            <li><span>September</span><span>19:15</span></li>
+            <li><span>December</span><span>15:50</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Dates</h3>
+          <p>2027 Saturdays from May to September are filling. Weekdays and winter dates are open, and 15% lighter.</p>
+        </div>
+        <div>
+          <h3>Studio hours</h3>
+          <p>Calls Tuesday to Friday, 10:00 to 17:00. Weekends we are out photographing.</p>
+          <p style="margin-top:10px;color:var(--paper)">+44 20 7946 0318<br>hello@example.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="finale wrap" aria-labelledby="finale-title">
+  <p class="label">The last chapter is yours</p>
+  <h2 id="finale-title" data-reveal>Tell us the date. We'll tell you <em>where the light falls.</em></h2>
+  <div class="finale-row">
+    <a class="btn btn-solid" href="collections.html#enquire">Start an enquiry
+      <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    <p>Reply within two working days. No obligation, no newsletter.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot wrap">
+  <a class="brand" href="index.html">Lumen <i>&amp;</i> Vow</a>
+  <nav aria-label="Footer">
+    <a href="index.html">Home</a>
+    <a href="collections.html">Collections &amp; prices</a>
+    <a href="collections.html#enquire">Enquire</a>
+  </nav>
+  <address>Studio by appointment<br>Lake Road, Keswick, Cumbria<br>hello@example.com</address>
+  <p class="legal">© 2026 Lumen &amp; Vow<br>Contenu de démonstration</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var head=document.querySelector('.site-head'), burger=document.querySelector('.burger'), mnav=document.getElementById('mnav');
+  function setMenu(open){burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Close menu':'Open menu');mnav.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';}
+  burger.addEventListener('click',function(){setMenu(burger.getAttribute('aria-expanded')!=='true');});
+  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mnav.classList.contains('open')){setMenu(false);burger.focus();}});
+  function onScroll(){head.classList.toggle('is-solid',window.scrollY>window.innerHeight*0.6);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!window.gsap||!window.ScrollTrigger)return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  var lenis;
+  if(window.Lenis){
+    lenis=new Lenis({duration:1.1,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-70});}});});
+  }
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function split(el){
+    var label=el.textContent.replace(/\s+/g,' ').trim();
+    el.setAttribute('aria-label',label);
+    // keep <em> runs: split each child node separately
+    var out='';
+    el.childNodes.forEach(function(n){
+      var txt=n.textContent, words=txt.split(/(\s+)/).map(function(p){return p.trim()?'<span class="word-mask" aria-hidden="true"><span class="word">'+esc(p)+'</span></span>':p;}).join('');
+      out+= n.nodeType===1 ? '<'+n.tagName.toLowerCase()+' aria-hidden="true">'+words+'</'+n.tagName.toLowerCase()+'>' : words;
+    });
+    el.innerHTML=out;
+    return el.querySelectorAll('.word');
+  }
+
+  var heroTitle=document.getElementById('hero-title');
+  var heroWords=split(heroTitle);
+  var tl=gsap.timeline({defaults:{ease:'power3.out'}});
+  tl.from('.hero-media img',{scale:1.08,duration:2.2,ease:'power2.out'},0)
+    .from(heroWords,{yPercent:110,duration:1,stagger:.06},.25)
+    .from('.hero-side > *',{y:24,autoAlpha:0,duration:.8,stagger:.1},.7);
+
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    if(el===heroTitle)return;
+    var w=split(el);
+    gsap.from(w,{yPercent:110,duration:.85,ease:'power3.out',stagger:.035,scrollTrigger:{trigger:el,start:'top 82%',once:true}});
+  });
+  document.querySelectorAll('[data-clip]').forEach(function(el){
+    gsap.from(el,{clipPath:'inset(12% 0 0 0)',y:30,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+  });
+  gsap.utils.toArray('.offer li, .step, .practical-cols > div').forEach(function(el){
+    gsap.from(el,{y:22,autoAlpha:0,duration:.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});
+  });
+  var px=document.querySelector('[data-parallax]');
+  if(px)gsap.fromTo(px,{yPercent:-4},{yPercent:0,ease:'none',scrollTrigger:{trigger:px.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

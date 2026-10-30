@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Brightline Dental</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Brightline Dental, Leeds. Family and cosmetic dentistry with NHS and private fees published in full, written treatment plans and emergency slots held every weekday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#ffffff;
+  --mist:#f1f6f9;
+  --mist-2:#e6eff4;
+  --line:#dbe4ea;
+  --line-soft:#e9eff3;
+  --ink:#0d1417;
+  --ink-2:#2c383e;
+  --muted:#5a676e;
+  --signal:#0a7f86;
+  --signal-ink:#065a5f;
+  --signal-wash:#e2f3f3;
+  --amber:#b45f06;
+  --amber-wash:#fdf1e3;
+  --display:"Onest", "Helvetica Neue", Arial, sans-serif;
+  --body:"Onest", "Helvetica Neue", Arial, sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:14px; --r-sm:10px;
+  --sh-sm:0 2px 3px -1px rgba(0,0,0,.1),0 1px 0 0 rgba(25,28,33,.02),0 0 0 1px rgba(25,28,33,.08);
+  --sh-md:0 0 0 1px rgba(0,0,0,.06),0 1px 1px -.5px rgba(0,0,0,.06),0 3px 3px -1.5px rgba(0,0,0,.06),0 6px 6px -3px rgba(0,0,0,.06),0 12px 12px -6px rgba(0,0,0,.06),0 24px 24px -12px rgba(0,0,0,.06);
+  --sh-lg:0 2.8px 2.2px rgba(0,0,0,.034),0 6.7px 5.3px rgba(0,0,0,.048),0 12.5px 10px rgba(0,0,0,.06),0 22.3px 17.9px rgba(0,0,0,.072),0 41.8px 33.4px rgba(0,0,0,.086),0 100px 80px rgba(0,0,0,.12);
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:calc(var(--gut) + 16px);padding-right:calc(var(--gut-r) + 16px)}
+@media (max-width:700px){.wrap{padding-left:var(--gut);padding-right:var(--gut-r)}}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.01em}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.04;margin:0}
+h2{font-size:clamp(2rem,3.6vw,3.2rem)}
+h3{font-size:1.2rem;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.lead{font-size:1.15rem;color:var(--ink-2);max-width:34ch}
+.btn{display:inline-flex;align-items:center;gap:.55em;font:600 .98rem/1 var(--body);padding:.95em 1.3em;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-1px)}
+.btn-line{background:var(--paper);color:var(--ink);box-shadow:var(--sh-sm)}
+.btn-line:hover{box-shadow:var(--sh-md)}
+.btn svg{width:18px;height:18px}
+.tag{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.72rem;padding:.3em .6em;border-radius:6px;background:var(--mist);color:var(--ink-2);white-space:nowrap}
+.tag.nhs{background:#e5eefb;color:#1f4e94}
+.tag.pvt{background:var(--signal-wash);color:var(--signal-ink)}
+.tag.urg{background:var(--amber-wash);color:var(--amber)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line-soft)}
+.head-in{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
+.brand-mark{width:26px;height:26px;border-radius:7px;background:var(--ink);position:relative;flex:none}
+.brand-mark::after{content:"";position:absolute;left:6px;right:6px;top:12px;height:2px;background:#7fe0e3;border-radius:2px}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.95rem;color:var(--ink-2)}
+.nav a:hover{color:var(--ink)}
+.head-cta{display:flex;align-items:center;gap:14px}
+.head-phone{font-family:var(--mono);font-size:.82rem;color:var(--muted);white-space:nowrap}
+.head-cta .btn{padding:.75em 1.1em;font-size:.92rem}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:10px;border:0;background:var(--mist);cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .2s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav{display:none}
+@media (max-width:960px){
+  .nav,.head-phone{display:none}
+  .head-cta{margin-left:auto}
+  .burger{display:inline-flex;margin-left:0}
+  .mnav{display:block;position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));background:#fff;border-bottom:1px solid var(--line);padding:8px var(--gut-r) 22px var(--gut);box-shadow:var(--sh-md)}
+  .mnav[hidden]{display:none}
+  .mnav a{display:block;padding:14px 0;border-bottom:1px solid var(--line-soft);text-decoration:none;font-size:1.1rem}
+  .mnav .mono{display:block;margin-top:14px;color:var(--muted)}
+}
+@media (max-width:420px){.head-cta .btn{padding:.7em .9em;font-size:.86rem}}
+
+/* hero */
+.hero{padding:64px 0 0;background:linear-gradient(180deg,#fff 0%,#fff 38%,var(--mist) 100%)}
+.hero-top{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.hero h1{grid-column:1/9;font-size:clamp(2.6rem,6.4vw,5.9rem);letter-spacing:-.04em;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero-side{grid-column:9/13;display:grid;gap:22px;padding-bottom:10px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:30px;color:var(--muted)}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta svg{width:15px;height:15px;color:var(--signal)}
+.stage{position:relative;margin-top:44px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding-bottom:72px}
+.stage-photo{grid-column:1/10;grid-row:1;border-radius:18px;overflow:hidden;box-shadow:var(--sh-lg);aspect-ratio:16/9.2;background:var(--mist-2)}
+.stage-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.diary{grid-column:8/13;grid-row:1;align-self:start;margin-top:56px;position:relative;z-index:2;background:#fff;border-radius:var(--r);box-shadow:var(--sh-lg);overflow:hidden}
+.diary-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line-soft)}
+.diary-head strong{font-size:.95rem;font-weight:600}
+.diary-days{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--line-soft);background:var(--mist)}
+.diary-days button{flex:1;border:0;background:transparent;border-radius:8px;padding:7px 0;font:500 .78rem/1.15 var(--mono);color:var(--muted);cursor:pointer;transition:background .18s,color .18s}
+.diary-days button b{display:block;font:600 .95rem/1.2 var(--body);color:var(--ink-2)}
+.diary-days button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:var(--sh-sm)}
+.diary-days button[aria-selected="true"] b{color:var(--signal-ink)}
+.slots{list-style:none;margin:0;padding:6px 0}
+.slot{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:10px;padding:9px 16px;font-size:.9rem}
+.slot time{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.slot .who{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot.free .who{color:var(--signal-ink);font-weight:500}
+.slot.emerg{background:linear-gradient(90deg,var(--amber-wash),#fff 85%)}
+.slot.emerg .who{color:var(--amber);font-weight:600}
+.slot.taken .who{color:#9aa6ac}
+.diary-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--line-soft);font-size:.85rem}
+.diary-foot .count{font-family:var(--mono);font-size:.8rem}
+.diary-foot .count b{color:var(--amber);font-weight:500}
+.fee{grid-column:1/6;grid-row:1;align-self:end;margin:0 0 -40px 28px;position:relative;z-index:2;background:#fff;border-radius:var(--r);box-shadow:var(--sh-md);padding:16px 18px;max-width:420px}
+.fee label{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:6px}
+.fee select{width:100%;font:500 .98rem var(--body);padding:10px 36px 10px 12px;border-radius:9px;border:0;box-shadow:var(--sh-sm);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230d1417' fill='none' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center;appearance:none;-webkit-appearance:none;color:var(--ink);cursor:pointer}
+.fee-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.fee-out div{border-radius:9px;background:var(--mist);padding:10px 12px}
+.fee-out small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.fee-out strong{font-size:1.15rem;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.fee-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+@media (max-width:1100px){
+  .hero h1{grid-column:1/-1}
+  .hero-side{grid-column:1/-1;grid-template-columns:1fr auto;align-items:end}
+}
+@media (max-width:900px){
+  .hero{padding-top:36px}
+  .hero-side{grid-template-columns:1fr}
+  .stage{grid-template-columns:1fr;gap:16px;margin-top:28px;padding-bottom:48px}
+  .stage-photo,.diary,.fee{grid-column:1;grid-row:auto;margin:0;max-width:none}
+  .stage-photo{aspect-ratio:4/3}
+  .diary{margin-top:-64px;margin-left:14px;margin-right:14px}
+}
+
+/* figures strip */
+.figures{background:var(--mist);padding:16px 0 88px}
+.fig-grid{display:grid;grid-template-columns:1.2fr repeat(4,1fr);border-top:1px solid var(--line);}
+.fig-grid > *{padding:22px 22px 0 0}
+.fig-grid > div + div{padding-left:22px;border-left:1px solid var(--line)}
+.fig-intro{font-size:1rem;color:var(--ink-2);max-width:28ch}
+.fig b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.fig b sup{font-size:.45em;letter-spacing:0;vertical-align:.9em;margin-left:2px;color:var(--muted)}
+.fig span{display:block;margin-top:10px;font-size:.88rem;color:var(--muted);max-width:22ch}
+@media (max-width:900px){
+  .fig-grid{grid-template-columns:1fr 1fr}
+  .fig-intro{grid-column:1/-1;max-width:none}
+  .fig-grid > div + div{border-left:0;padding-left:0}
+  .fig-grid > .fig{border-top:1px solid var(--line);padding-bottom:18px}
+  .fig-grid > .fig:nth-child(odd){padding-left:18px;border-left:1px solid var(--line)}
+}
+
+/* sections */
+section{scroll-margin-top:80px}
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:52px;align-items:end}
+.sec-head h2{grid-column:1/8}
+.sec-head p{grid-column:8/13;color:var(--ink-2);max-width:42ch}
+.kicker{display:block;font-family:var(--mono);font-size:.76rem;color:var(--signal-ink);margin-bottom:16px;letter-spacing:.02em}
+@media (max-width:900px){.sec{padding:72px 0}.sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:34px}.sec-head h2,.sec-head p{grid-column:1}}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.svc-col h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:2px solid var(--ink);font-size:1.35rem}
+.svc-col h3 .mono{color:var(--muted);font-weight:400}
+.svc-list{list-style:none;margin:0;padding:0}
+.svc-list li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.svc-list .nm{font-weight:600;font-size:1.02rem}
+.svc-list .ds{grid-column:1;color:var(--muted);font-size:.92rem}
+.svc-list .pr{grid-column:2;grid-row:1/3;text-align:right;align-self:center;display:grid;gap:5px;justify-items:end}
+.svc-list .pr b{font-family:var(--mono);font-weight:500;font-size:.88rem;font-variant-numeric:tabular-nums}
+.svc-more{margin-top:28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.svc-more .mono{color:var(--muted)}
+@media (max-width:900px){.svc{grid-template-columns:1fr;gap:44px}}
+
+/* plan proof */
+.plan-sec{background:var(--mist)}
+.plan-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.plan-copy{grid-column:1/6;position:sticky;top:110px}
+.plan-copy h2{margin-bottom:22px}
+.plan-copy p{color:var(--ink-2);max-width:40ch}
+.plan-points{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}
+.plan-points li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:.96rem}
+.plan-points svg{width:20px;height:20px;color:var(--signal);margin-top:2px}
+.plan-doc{grid-column:7/13;position:relative}
+.plan-scan{width:62%;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);margin-left:auto;aspect-ratio:4/3}
+.plan-scan img{width:100%;height:100%;object-fit:cover}
+.plan-card{position:relative;margin-top:-90px;width:92%;background:#fff;border-radius:var(--r);box-shadow:var(--sh-lg);padding:22px 24px 20px}
+.plan-card header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
+.plan-card header strong{display:block;font-size:1.05rem}
+.plan-card header .mono{color:var(--muted)}
+.plan-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:.9rem}
+.plan-tbl th{text-align:left;font:400 .7rem var(--mono);color:var(--muted);padding:10px 0 6px;border-bottom:1px solid var(--line-soft)}
+.plan-tbl th:last-child,.plan-tbl td:last-child{text-align:right}
+.plan-tbl td{padding:11px 8px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.plan-tbl td .mono{color:var(--muted);display:block;margin-top:2px}
+.plan-tbl td:last-child{font-family:var(--mono);font-size:.86rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:14px}
+.plan-total span{color:var(--muted);font-size:.88rem}
+.plan-total b{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.plan-sign{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:10px 12px;border-radius:9px;background:var(--signal-wash);color:var(--signal-ink);font-size:.84rem}
+.plan-label{position:absolute;top:14px;left:0;background:#fff;border-radius:999px;padding:6px 12px;box-shadow:var(--sh-sm)}
+@media (max-width:900px){
+  .plan-copy,.plan-doc{grid-column:1/-1;position:static}
+  .plan-scan{width:80%}
+  .plan-card{width:100%;margin-top:-50px;padding:18px 16px}
+}
+
+/* visit */
+.visit-track{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);position:relative}
+.visit-track::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:var(--prog,100%);background:var(--signal)}
+.step{padding:24px 22px 0 0}
+.step + .step{padding-left:22px;border-left:1px solid var(--line-soft)}
+.step .mono{color:var(--signal-ink)}
+.step h3{margin:14px 0 10px}
+.step p{font-size:.93rem;color:var(--muted)}
+.step .dur{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:.74rem;color:var(--ink-2);background:var(--mist);padding:4px 8px;border-radius:6px}
+@media (max-width:1000px){
+  .visit-track{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);padding-left:0}
+  .visit-track::before{top:0;left:-1px;width:2px;height:var(--prog,100%)}
+  .step,.step + .step{padding:0 0 30px 22px;border-left:0}
+}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:start}
+.gal figure{margin:0}
+.gal .ph{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);background:var(--mist-2)}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{margin-top:10px;font-size:.86rem;color:var(--muted);display:flex;gap:10px}
+.gal figcaption .mono{color:var(--ink-2)}
+.g1{grid-column:1/8}.g1 .ph{aspect-ratio:4/3}
+.g2{grid-column:8/13;margin-top:80px}.g2 .ph{aspect-ratio:4/5}
+.g3{grid-column:2/6;margin-top:-60px}.g3 .ph{aspect-ratio:1/1}
+.g4{grid-column:6/11}.g4 .ph{aspect-ratio:16/10}
+@media (max-width:800px){
+  .gal{grid-template-columns:1fr 1fr;gap:14px}
+  .g1{grid-column:1/-1}.g2{grid-column:1/2;margin-top:0}.g3{grid-column:2/3;margin-top:0}.g4{grid-column:1/-1}
+  .g2 .ph,.g3 .ph{aspect-ratio:3/4}
+}
+
+/* reviews */
+.rev-sec{background:var(--ink);color:#e9f0f3}
+.rev-sec .kicker{color:#7fd6d9}
+.rev-sec .sec-head p{color:#a8b6bc}
+.revs{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:20px}
+.rev{background:#162125;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:22px;box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.rev blockquote{margin:0;font-size:1.02rem;line-height:1.55;color:#e9f0f3}
+.rev.big blockquote{font-size:1.32rem;line-height:1.45;letter-spacing:-.01em}
+.rev footer{margin-top:auto;display:flex;align-items:center;gap:12px}
+.rev footer img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.rev footer strong{display:block;font-size:.95rem;font-weight:600}
+.rev footer .mono{color:#8fa0a7}
+@media (max-width:960px){.revs{grid-template-columns:1fr}}
+
+/* practical */
+.info{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.hours{grid-column:1/6}
+.hours table{width:100%;border-collapse:collapse;font-size:.95rem}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--mono);font-size:.86rem;font-variant-numeric:tabular-nums}
+.hours tr.today td{color:var(--signal-ink);font-weight:600}
+.hours tr.today td:first-child::after{content:" · today";font-weight:400;font-family:var(--mono);font-size:.75rem}
+.hours .note{margin-top:16px;font-size:.88rem;color:var(--muted)}
+.where{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;align-content:start}
+.where h3{font-size:1rem;margin-bottom:8px}
+.where p{font-size:.94rem;color:var(--ink-2)}
+.where .wide{grid-column:1/-1;padding:18px 20px;border-radius:var(--r);box-shadow:var(--sh-md);display:flex;gap:16px;align-items:flex-start}
+.where .wide svg{width:22px;height:22px;color:var(--amber);flex:none;margin-top:3px}
+.pc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+@media (max-width:900px){.hours,.where{grid-column:1/-1}.where{grid-template-columns:1fr}}
+
+/* book */
+.book{background:linear-gradient(180deg,var(--paper),var(--mist))}
+.book-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.book-copy{grid-column:1/6}
+.book-copy h2{font-size:clamp(2.2rem,4.4vw,3.8rem);margin-bottom:20px}
+.book-copy p{color:var(--ink-2);max-width:38ch}
+.book-copy .alt{margin-top:28px;display:grid;gap:6px;font-size:.95rem}
+.book-copy .alt .mono{color:var(--muted)}
+.form{grid-column:7/13;background:#fff;border-radius:18px;box-shadow:var(--sh-lg);padding:28px}
+.seg{display:flex;padding:4px;background:var(--mist);border-radius:11px;gap:4px;margin-bottom:20px}
+.seg button{flex:1;border:0;background:transparent;padding:10px 8px;border-radius:8px;font:500 .9rem var(--body);color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:var(--sh-sm)}
+.seg button[data-kind="emergency"][aria-pressed="true"]{color:var(--amber)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid .full{grid-column:1/-1}
+.field label{display:block;font-size:.82rem;font-weight:500;margin-bottom:6px;color:var(--ink-2)}
+.field input,.field select{width:100%;font:400 1rem var(--body);padding:12px 13px;border-radius:10px;border:0;box-shadow:var(--sh-sm);background:#fff;color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--signal);outline-offset:0}
+.field input[aria-invalid="true"]{box-shadow:0 0 0 1.5px #c0392b}
+.form .btn{width:100%;justify-content:center;margin-top:18px}
+.form .small{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.emerg-note{display:none;margin-bottom:16px;padding:12px 14px;border-radius:10px;background:var(--amber-wash);color:#7a3f02;font-size:.9rem}
+.form.is-emergency .emerg-note{display:block}
+.done{display:none;padding:22px;border-radius:12px;background:var(--signal-wash);color:var(--signal-ink)}
+.done strong{display:block;font-size:1.1rem;margin-bottom:6px;color:var(--ink)}
+.form.sent .done{display:block}
+.form.sent form{display:none}
+@media (max-width:900px){.book-copy,.form{grid-column:1/-1}.form{padding:20px}.fgrid{grid-template-columns:1fr}}
+
+/* footer */
+.foot{background:var(--mist);border-top:1px solid var(--line);padding:56px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:.9rem;color:var(--ink-2)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.foot h4{font:500 .74rem var(--mono);color:var(--muted);margin:0 0 12px;letter-spacing:.02em}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}.foot a:hover{text-decoration:underline}
+.foot-base{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--muted);font-size:.8rem}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid > :first-child{grid-column:1/-1}}
+
+.w{display:inline-block}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="index.html" aria-label="Brightline Dental home"><span class="brand-mark" aria-hidden="true"></span>Brightline Dental</a>
+    <nav class="nav" aria-label="Main">
+      <a href="treatments.html">Treatments &amp; fees</a>
+      <a href="#plan">Your plan</a>
+      <a href="#visit">First visit</a>
+      <a href="#info">Hours &amp; location</a>
+    </nav>
+    <div class="head-cta">
+      <span class="head-phone">0113 496 0274</span>
+      <a class="btn btn-dark" href="#book">Book</a>
+    </div>
+    <button class="burger" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobile">
+    <a href="treatments.html">Treatments &amp; fees</a>
+    <a href="#plan">Your plan</a>
+    <a href="#visit">First visit</a>
+    <a href="#info">Hours &amp; location</a>
+    <a href="#book">Book an appointment</a>
+    <span class="mono">Emergency line from 07:45 · 0113 496 0274</span>
+  </nav>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="h-hero" data-split>Calm dentistry, with every <em>fee</em> on the table.</h1>
+      <div class="hero-side">
+        <p class="lead">A family and cosmetic practice in Headingley, Leeds. NHS and private care, written plans before any treatment, and four emergency slots held every weekday morning.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#book">Book an appointment
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-line" href="treatments.html">See all fees</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-meta mono">
+      <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Accepting new NHS child patients</span>
+      <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All clinicians GDC-registered</span>
+      <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Step-free, ground floor</span>
+    </div>
+
+    <div class="stage">
+      <div class="stage-photo"><img src="assets/img/hero-clinic.jpg" alt="A bright treatment room at Brightline Dental with a pale blue dental chair and daylight blinds" width="1800" height="1200" fetchpriority="high"></div>
+
+      <aside class="diary" aria-label="Sample diary showing emergency slots">
+        <div class="diary-head"><strong>Emergency diary</strong><span class="tag">Sample week</span></div>
+        <div class="diary-days" role="tablist" aria-label="Choose a day">
+          <button role="tab" aria-selected="true" data-day="0">Mon<b>26</b></button>
+          <button role="tab" aria-selected="false" data-day="1">Tue<b>27</b></button>
+          <button role="tab" aria-selected="false" data-day="2">Wed<b>28</b></button>
+          <button role="tab" aria-selected="false" data-day="3">Thu<b>29</b></button>
+          <button role="tab" aria-selected="false" data-day="4">Fri<b>30</b></button>
+        </div>
+        <ul class="slots" id="slots" aria-live="polite">
+          <li class="slot emerg"><time>08:00</time><span class="who">Emergency · held</span><span class="tag urg">Urgent</span></li>
+          <li class="slot taken"><time>08:20</time><span class="who">Emergency · booked</span><span class="tag">Taken</span></li>
+          <li class="slot emerg"><time>08:40</time><span class="who">Emergency · held</span><span class="tag urg">Urgent</span></li>
+          <li class="slot taken"><time>09:00</time><span class="who">Check-up · booked</span><span class="tag nhs">Band 1</span></li>
+          <li class="slot free"><time>09:30</time><span class="who">Hygienist · free</span><span class="tag pvt">£75</span></li>
+        </ul>
+        <div class="diary-foot"><span class="count"><b id="slot-n">2</b> emergency slots open</span><a class="btn btn-dark" style="padding:.6em .9em;font-size:.84rem" href="#book" data-emergency>Hold one</a></div>
+      </aside>
+
+      <div class="fee">
+        <label for="fee-pick">Fee check · what would it cost?</label>
+        <select id="fee-pick">
+          <option value="exam">Examination &amp; x-rays</option>
+          <option value="fill" selected>White filling, back tooth</option>
+          <option value="rct">Root canal, molar</option>
+          <option value="crown">Crown</option>
+          <option value="clean">Hygienist clean</option>
+          <option value="whiten">Home whitening</option>
+        </select>
+        <div class="fee-out">
+          <div><small>NHS</small><strong id="fee-nhs">£75.30</strong></div>
+          <div><small>Private</small><strong id="fee-pvt">£140–£220</strong></div>
+        </div>
+        <p class="fee-note" id="fee-note">NHS Band 2 covers every filling in one course of treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="figures" aria-label="Practice figures">
+  <div class="wrap fig-grid">
+    <p class="fig-intro">The practice in numbers, updated each quarter. Last update: 1 October.</p>
+    <div class="fig"><b data-count="4">4</b><span>Emergency slots held every weekday, released at 07:45</span></div>
+    <div class="fig"><b data-count="9">9<sup>days</sup></b><span>Median wait for a new-patient examination</span></div>
+    <div class="fig"><b data-count="7">7</b><span>GDC-registered dentists, hygienists and therapists</span></div>
+    <div class="fig"><b>£0<sup>deposit</sup></b><span>0% finance on private plans over £1,000</span></div>
+  </div>
+</section>
+
+<section class="sec" id="services" aria-labelledby="h-svc">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-svc" data-split><span class="kicker">Treatments</span>Family care and cosmetic work, under one roof.</h2>
+      <p>Every price is printed before you book. NHS charges are the national bands for England. Private fees are ranges because teeth vary; your written plan fixes the figure.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-col">
+        <h3>Family dentistry <span class="mono">NHS &amp; private</span></h3>
+        <ul class="svc-list">
+          <li><span class="nm">Check-up and scale</span><span class="ds">Exam, x-rays if needed, oral cancer screen.</span><span class="pr"><span class="tag nhs">Band 1 · £27.40</span><b>£65 private</b></span></li>
+          <li><span class="nm">Fillings and extractions</span><span class="ds">White fillings as standard on front teeth.</span><span class="pr"><span class="tag nhs">Band 2 · £75.30</span><b>£140–£280</b></span></li>
+          <li><span class="nm">Root canal treatment</span><span class="ds">Rotary instruments, rubber dam, one or two visits.</span><span class="pr"><span class="tag nhs">Band 2 · £75.30</span><b>£480–£950</b></span></li>
+          <li><span class="nm">Children's dentistry</span><span class="ds">Fluoride varnish and fissure sealants from age 3.</span><span class="pr"><span class="tag nhs">Free under 18</span><b>£45 private</b></span></li>
+        </ul>
+      </div>
+      <div class="svc-col">
+        <h3>Cosmetic <span class="mono">private only</span></h3>
+        <ul class="svc-list">
+          <li><span class="nm">Clear aligners</span><span class="ds">Digital scan, 3D preview, 6–18 months.</span><span class="pr"><span class="tag pvt">Private</span><b>£2,800–£4,200</b></span></li>
+          <li><span class="nm">Whitening</span><span class="ds">Custom trays and 10% carbamide peroxide gel.</span><span class="pr"><span class="tag pvt">Private</span><b>£325</b></span></li>
+          <li><span class="nm">Composite bonding</span><span class="ds">Chips and gaps rebuilt in one appointment.</span><span class="pr"><span class="tag pvt">Per tooth</span><b>£250–£350</b></span></li>
+          <li><span class="nm">Porcelain veneers</span><span class="ds">Minimal preparation, lab-made in Leeds.</span><span class="pr"><span class="tag pvt">Per tooth</span><b>£750–£950</b></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="svc-more"><a class="btn btn-line" href="treatments.html">Full fee list and finance</a><span class="mono">24 treatments · NHS band and private range for each</span></div>
+  </div>
+</section>
+
+<section class="sec plan-sec" id="plan" aria-labelledby="h-plan">
+  <div class="wrap plan-grid">
+    <div class="plan-copy">
+      <span class="kicker">The written plan</span>
+      <h2 id="h-plan" data-split>No drill turns on before you see the bill.</h2>
+      <p>After your examination you leave with an itemised plan: what we found, what we recommend, each fee and the alternatives. NHS patients receive the FP17DC form. Private patients get the same detail, plus finance options.</p>
+      <ul class="plan-points">
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fees fixed for 6 months from the date on the plan.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>The NHS option is always listed when one exists.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sign it at home. There is no same-day pressure.</li>
+      </ul>
+    </div>
+    <div class="plan-doc">
+      <span class="plan-label mono">Sample plan · illustrative</span>
+      <div class="plan-scan"><img src="assets/img/scan.jpg" alt="A clinician points at a 3D scan of a patient's teeth on a tablet" width="1000" height="667" loading="lazy"></div>
+      <article class="plan-card" aria-label="Sample treatment plan">
+        <header><div><strong>Treatment plan</strong><span class="mono">Patient BL-20417 · Dr A. Okafor, GDC 284117</span></div><span class="tag">14 Oct</span></header>
+        <table class="plan-tbl">
+          <thead><tr><th>Item</th><th>Route</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Examination, 2 bitewing x-rays<span class="mono">Completed today</span></td><td><span class="tag nhs">NHS B1</span></td><td>£27.40</td></tr>
+            <tr><td>Filling, lower left 6<span class="mono">Occlusal, white composite</span></td><td><span class="tag pvt">Private</span></td><td>£165.00</td></tr>
+            <tr><td>Hygienist clean, 30 min<span class="mono">Alternative: NHS scale, Band 1</span></td><td><span class="tag pvt">Private</span></td><td>£75.00</td></tr>
+          </tbody>
+        </table>
+        <div class="plan-total"><span>Total, fixed until 14 April</span><b>£267.40</b></div>
+        <div class="plan-sign"><span>Signed at home, returned online</span><span class="mono">2 of 2 visits</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" aria-labelledby="h-visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-visit" data-split><span class="kicker">Your first visit</span>Forty minutes, then a plan you can take home.</h2>
+      <p>New patients see the same dentist from the first exam onward. Nervous? Tell us when you book and we add ten quiet minutes at the start.</p>
+    </div>
+    <div class="visit-track" id="track">
+      <div class="step"><span class="mono">Before</span><h3>Book online or by phone</h3><p>Medical history form by email. Takes about six minutes.</p><span class="dur">6 min</span></div>
+      <div class="step"><span class="mono">Arrive</span><h3>Quiet start</h3><p>Water, a seat by the window, no waiting-room television.</p><span class="dur">5 min</span></div>
+      <div class="step"><span class="mono">Exam</span><h3>Check, scan, x-rays</h3><p>Gum charting, low-dose digital x-rays, an intraoral scan you can see.</p><span class="dur">25 min</span></div>
+      <div class="step"><span class="mono">Talk</span><h3>Findings on screen</h3><p>Your dentist walks you through the images. Ask anything.</p><span class="dur">10 min</span></div>
+      <div class="step"><span class="mono">After</span><h3>Written plan</h3><p>Emailed the same day with NHS and private routes side by side.</p><span class="dur">Same day</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px" aria-labelledby="h-gal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-gal" data-split><span class="kicker">The practice</span>Four surgeries. Daylight in each one.</h2>
+      <p>A converted Victorian house on Otley Road, rebuilt inside in 2022. Ground-floor surgery for wheelchair users and buggies.</p>
+    </div>
+    <div class="gal">
+      <figure class="g1"><div class="ph"><img src="assets/img/surgery-room.jpg" alt="Surgery two with a white dental unit, cabinetry and window blinds" width="1000" height="667" loading="lazy"></div><figcaption><span class="mono">Surgery 2</span>Ground floor, step-free.</figcaption></figure>
+      <figure class="g2"><div class="ph"><img src="assets/img/aligner.jpg" alt="A patient fitting a clear aligner onto her upper teeth" width="1000" height="667" loading="lazy"></div><figcaption><span class="mono">Aligners</span>Fitted and checked every 8 weeks.</figcaption></figure>
+      <figure class="g3"><div class="ph"><img src="assets/img/xray.jpg" alt="A dentist holding up a panoramic dental x-ray to a light panel" width="1000" height="667" loading="lazy"></div><figcaption><span class="mono">Imaging</span>Low-dose digital x-rays.</figcaption></figure>
+      <figure class="g4"><div class="ph"><img src="assets/img/consultation.jpg" alt="A dentist explaining a scan on a wall screen to a patient seated in the chair" width="1000" height="667" loading="lazy"></div><figcaption><span class="mono">Consult</span>Findings explained on screen, not in jargon.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec rev-sec" aria-labelledby="h-rev">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-rev" data-split><span class="kicker">Patients</span>What people mention most is the plan.</h2>
+      <p>Three patients, three different reasons for walking in.</p>
+    </div>
+    <div class="revs">
+      <figure class="rev big"><blockquote>“I'd avoided the dentist for six years. They showed me the scan, priced two options, and let me decide at home. I booked the next morning.”</blockquote><footer><img src="assets/img/patient-hannah.jpg" alt="" width="400" height="400" loading="lazy"><div><strong>Hannah R.</strong><span class="mono">NHS patient · Headingley</span></div></footer></figure>
+      <figure class="rev"><blockquote>“Cracked a molar on a Saturday, rang at 07:50 on Monday and was in the chair by half eight.”</blockquote><footer><img src="assets/img/patient-marcus.jpg" alt="" width="400" height="400" loading="lazy"><div><strong>Marcus T.</strong><span class="mono">Emergency slot · Kirkstall</span></div></footer></figure>
+      <figure class="rev"><blockquote>“Aligners over eleven months, paid monthly. The final fee matched the plan to the penny.”</blockquote><footer><img src="assets/img/patient-priya.jpg" alt="" width="400" height="400" loading="lazy"><div><strong>Priya S.</strong><span class="mono">Private · clear aligners</span></div></footer></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="info" aria-labelledby="h-info">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-info" data-split><span class="kicker">Hours &amp; location</span>Open early, open late on Thursdays.</h2>
+      <p>Emergency slots are released by phone from 07:45. Outside hours, call NHS 111 for urgent dental advice.</p>
+    </div>
+    <div class="info">
+      <div class="hours">
+        <table id="hours">
+          <tbody>
+            <tr data-d="1"><td>Monday</td><td>08:00 – 17:30</td></tr>
+            <tr data-d="2"><td>Tuesday</td><td>08:00 – 17:30</td></tr>
+            <tr data-d="3"><td>Wednesday</td><td>08:00 – 17:30</td></tr>
+            <tr data-d="4"><td>Thursday</td><td>08:00 – 20:00</td></tr>
+            <tr data-d="5"><td>Friday</td><td>08:00 – 16:00</td></tr>
+            <tr data-d="6"><td>Saturday</td><td>09:00 – 13:00 · private</td></tr>
+            <tr data-d="0"><td>Sunday</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Bank holidays: closed. The phone line diverts to NHS 111.</p>
+      </div>
+      <div class="where">
+        <div class="wide"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5m0 3.5v.01M10.3 3.9 2.6 17.3A2 2 0 0 0 4.3 20.3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h3>Dental emergency?</h3><p>Severe pain, swelling or a knocked-out tooth: ring <span class="mono" style="font-size:.9rem">0113 496 0274</span> from 07:45. NHS urgent care is £27.40; private emergency visit £95.</p></div></div>
+        <div><h3>Address</h3><p>Brightline Dental<br>118 Otley Road, Headingley<br>Leeds LS6 4BQ</p></div>
+        <div><h3>Getting here</h3><p>Buses 1, 6 and 56 stop outside. Two disabled bays at the rear, pay-and-display on St Michael's Road.</p></div>
+        <div><h3>Contact</h3><p><span class="mono" style="font-size:.9rem">0113 496 0274</span><br>hello@example.com</p></div>
+        <div><h3>Who we see</h3><p>Patients from across Leeds, NHS list mainly:</p><div class="pc"><span class="tag">LS6</span><span class="tag">LS4</span><span class="tag">LS5</span><span class="tag">LS16</span><span class="tag">LS2</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book" aria-labelledby="h-book">
+  <div class="wrap book-grid">
+    <div class="book-copy">
+      <span class="kicker">Appointments</span>
+      <h2 id="h-book" data-split>Book a visit in under a minute.</h2>
+      <p>Pick routine or emergency. Reception confirms by text within working hours, usually inside 20 minutes.</p>
+      <div class="alt"><span class="mono">Rather talk?</span><span>0113 496 0274 · Mon–Fri from 07:45</span></div>
+    </div>
+    <div class="form" id="bookform">
+      <div class="seg" role="group" aria-label="Appointment type">
+        <button type="button" data-kind="routine" aria-pressed="true">Routine</button>
+        <button type="button" data-kind="new" aria-pressed="false">New patient</button>
+        <button type="button" data-kind="emergency" aria-pressed="false">Emergency</button>
+      </div>
+      <form novalidate>
+        <p class="emerg-note">Emergency requests go to the top of the queue. If you have facial swelling affecting breathing or swallowing, call 999.</p>
+        <div class="fgrid">
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-tel">Mobile</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" required placeholder="07700 900 000"></div>
+          <div class="field"><label for="f-route">Route</label><select id="f-route"><option>NHS</option><option>Private</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="f-when">Preferred time</label><select id="f-when"><option>Morning</option><option>Afternoon</option><option>Thursday evening</option><option>Saturday (private)</option></select></div>
+        </div>
+        <button class="btn btn-dark" type="submit">Request appointment</button>
+        <p class="small">Demo form. Nothing is sent.</p>
+      </form>
+      <div class="done" role="status"><strong>Request received.</strong><span id="done-msg">Reception will text you to confirm a time.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Brightline Dental</a><p style="margin-top:14px;max-width:32ch">118 Otley Road, Headingley, Leeds LS6 4BQ. Registered with the Care Quality Commission.</p></div>
+      <div><h4>Practice</h4><ul><li><a href="treatments.html">Treatments &amp; fees</a></li><li><a href="treatments.html#finance">Finance</a></li><li><a href="#book">Book</a></li></ul></div>
+      <div><h4>Clinicians · GDC</h4><ul><li>Dr A. Okafor · 284117</li><li>Dr L. Haigh · 271093</li><li>R. Mistry, hygienist · 293554</li></ul></div>
+      <div><h4>Contact</h4><ul><li>0113 496 0274</li><li>hello@example.com</li></ul></div>
+    </div>
+    <div class="foot-base"><span>© Brightline Dental. Fictional practice.</span><span>Demo content · Contenu de démonstration · Site by 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* burger */
+  var burger=document.querySelector('.burger'), mnav=document.getElementById('mnav');
+  burger.addEventListener('click',function(){var o=burger.getAttribute('aria-expanded')==='true';burger.setAttribute('aria-expanded',String(!o));burger.setAttribute('aria-label',o?'Open menu':'Close menu');mnav.hidden=o;});
+  mnav.addEventListener('click',function(e){if(e.target.tagName==='A'){mnav.hidden=true;burger.setAttribute('aria-expanded','false');}});
+
+  /* fee check */
+  var FEES={exam:['£27.40','£65','NHS Band 1 includes the exam, x-rays and a scale if needed.'],
+    fill:['£75.30','£140–£220','NHS Band 2 covers every filling in one course of treatment.'],
+    rct:['£75.30','£650–£950','Molars have three or four canals, hence the private range.'],
+    crown:['£326.70','£650–£850','NHS Band 3: metal or porcelain-bonded at the back.'],
+    clean:['£27.40','£75','NHS scale sits in Band 1 when clinically needed.'],
+    whiten:['Not on NHS','£325','Cosmetic only. Trays and two syringes of gel included.']};
+  var pick=document.getElementById('fee-pick');
+  function setFee(){var f=FEES[pick.value];['fee-nhs','fee-pvt','fee-note'].forEach(function(id,i){var el=document.getElementById(id);el.textContent=f[i];if(!reduce&&window.gsap&&i<2)gsap.from(el,{y:6,opacity:0,duration:.35,ease:'power2.out'});});}
+  pick.addEventListener('change',setFee);
+
+  /* diary */
+  var DAYS=[[1,1,1,0],[0,1,1,1],[1,0,0,1],[1,1,0,0],[1,1,1,1]];
+  var EXTRA=[['09:30','Check-up · booked','nhs','Band 1','taken'],['09:30','New patient · free','pvt','£65','free'],['09:30','Check-up · booked','nhs','Band 1','taken'],['09:30','Bonding · booked','pvt','Private','taken'],['09:30','Check-up · free','nhs','Band 1','free']];
+  var times=['08:00','08:20','08:40','09:00'];
+  var slots=document.getElementById('slots'), count=document.getElementById('slot-n');
+  function renderDay(d){
+    var h='',open=0;
+    DAYS[d].forEach(function(isOpen,i){ if(isOpen)open++;
+      h+= isOpen ? '<li class="slot emerg"><time>'+times[i]+'</time><span class="who">Emergency · held</span><span class="tag urg">Urgent</span></li>'
+                 : '<li class="slot taken"><time>'+times[i]+'</time><span class="who">Emergency · booked</span><span class="tag">Taken</span></li>';});
+    var x=EXTRA[d]; h+='<li class="slot '+x[4]+'"><time>'+x[0]+'</time><span class="who">'+x[1]+'</span><span class="tag '+x[2]+'">'+x[3]+'</span></li>';
+    slots.innerHTML=h; count.textContent=open;
+    if(!reduce&&window.gsap) gsap.from(slots.children,{x:-8,opacity:0,duration:.4,stagger:.05,ease:'power2.out'});
+  }
+  var tabs=[].slice.call(document.querySelectorAll('.diary-days button'));
+  tabs.forEach(function(b){b.addEventListener('click',function(){tabs.forEach(function(t){t.setAttribute('aria-selected',String(t===b));});renderDay(+b.dataset.day);});});
+  renderDay(0);
+
+  /* today in hours */
+  var today=new Date().getDay(); var tr=document.querySelector('#hours tr[data-d="'+today+'"]'); if(tr)tr.classList.add('today');
+
+  /* booking form */
+  var box=document.getElementById('bookform'), segs=[].slice.call(box.querySelectorAll('.seg button')), kind='routine';
+  function setKind(k){kind=k;segs.forEach(function(s){s.setAttribute('aria-pressed',String(s.dataset.kind===k));});box.classList.toggle('is-emergency',k==='emergency');}
+  segs.forEach(function(s){s.addEventListener('click',function(){setKind(s.dataset.kind);});});
+  document.querySelectorAll('[data-emergency]').forEach(function(a){a.addEventListener('click',function(){setKind('emergency');});});
+  box.querySelector('form').addEventListener('submit',function(e){
+    e.preventDefault(); var ok=true;
+    box.querySelectorAll('input[required]').forEach(function(i){var bad=!i.value.trim();i.setAttribute('aria-invalid',String(bad));if(bad&&ok){i.focus();ok=false;}});
+    if(!ok)return;
+    document.getElementById('done-msg').textContent= kind==='emergency' ? 'We will call you back within 15 minutes during opening hours to offer the next emergency slot.' : 'Reception will text you to confirm a time, usually within 20 minutes.';
+    box.classList.add('sent');
+  });
+
+  if(!window.gsap||reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* lenis */
+  if(window.Lenis){
+    var lenis=new Lenis({duration:1.05,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);}); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-72});}});});
+  }
+
+  /* split headings word by word, keep accessible name */
+  document.querySelectorAll('[data-split]').forEach(function(h){
+    h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
+    [].slice.call(h.childNodes).forEach(function(n){
+      if(n.nodeType===3){var frag=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p))frag.appendChild(document.createTextNode(p));else{var s=document.createElement('span');s.className='w';s.setAttribute('aria-hidden','true');s.textContent=p;frag.appendChild(s);}});h.replaceChild(frag,n);}
+      else if(n.tagName==='EM'){n.classList.add('w');n.setAttribute('aria-hidden','true');}
+    });
+  });
+
+  /* hero intro */
+  var hero=document.querySelector('.hero h1');
+  var tl=gsap.timeline({defaults:{ease:'power3.out'}});
+  tl.from(hero.querySelectorAll('.w'),{yPercent:40,opacity:0,duration:.8,stagger:.05})
+    .from('.hero-side > *',{y:14,opacity:0,duration:.6,stagger:.08},'-=.5')
+    .from('.stage-photo',{y:30,opacity:0,duration:.9},'-=.4')
+    .from('.diary',{y:40,opacity:0,duration:.8},'-=.6')
+    .from('.fee',{y:30,opacity:0,duration:.7},'-=.55');
+
+  /* section headings */
+  document.querySelectorAll('.sec [data-split]').forEach(function(h){
+    gsap.from(h.querySelectorAll('.w'),{yPercent:35,opacity:0,duration:.7,stagger:.035,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 85%',once:true}});
+  });
+  gsap.utils.toArray('.svc-list li, .rev, .gal figure, .step, .plan-card, .fig').forEach(function(el){
+    gsap.from(el,{y:22,opacity:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});
+  });
+  /* visit progress line */
+  var track=document.getElementById('track');
+  gsap.fromTo(track,{'--prog':'0%'},{'--prog':'100%',ease:'none',scrollTrigger:{trigger:track,start:'top 75%',end:'bottom 55%',scrub:.6}});
+  /* figures count */
+  document.querySelectorAll('[data-count]').forEach(function(b){
+    var n=+b.dataset.count, sup=b.querySelector('sup'), o={v:0};
+    gsap.to(o,{v:n,duration:1.1,ease:'power2.out',scrollTrigger:{trigger:b,start:'top 92%',once:true},onUpdate:function(){b.firstChild.nodeValue=Math.round(o.v);}});
+  });
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

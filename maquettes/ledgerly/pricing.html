@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monthly fees · Ledgerly Accountants</title>
+<meta name="description" content="Fixed monthly fees for sole traders and limited companies. Bookkeeping, VAT, Self Assessment and year-end accounts, all excluding VAT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Red+Hat+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#F2F4EC;
+  --paper-hi:#FBFCF7;
+  --paper-lo:#E7EBDF;
+  --rule:#D3DDCF;
+  --rule-2:#B7C6B2;
+  --ink:#16201B;
+  --ink-2:#47544D;
+  --ink-3:#77837C;
+  --orange:#E4570E;
+  --orange-ink:#B8420A;
+  --orange-soft:#FBE2D0;
+  --margin-line:#EFA383;
+  --ok:#2F7A4F;
+  --f-display:"Gabarito", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-fig:"Red Hat Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --row:32px;
+  --r-lg:22px;
+  --r-md:14px;
+  --r-sm:8px;
+  --shadow:0 1px 0 rgba(22,32,27,.04), 0 18px 40px -22px rgba(120,60,20,.28);
+  --wrap:1240px;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;font-weight:400;overflow-x:hidden}
+img{display:block;max-width:100%}
+figure{margin:0}
+a{color:inherit}
+.fig,.tnum{font-family:var(--f-fig);font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.01em}
+.wrap{max-width:calc(var(--wrap) + 64px);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.02;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(34px,4.6vw,60px)}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.15}
+p{margin:0}
+.lede{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:34em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:6px;z-index:100}
+.skip:focus{left:16px}
+:focus-visible{outline:2.5px solid var(--orange);outline-offset:3px;border-radius:4px}
+
+/* ledger paper */
+.ruled{background-image:linear-gradient(to bottom, transparent calc(var(--row) - 1px), var(--rule) calc(var(--row) - 1px));background-size:100% var(--row)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--f-body);text-decoration:none;padding:15px 22px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:background .2s, color .2s, transform .2s, box-shadow .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px -12px rgba(228,87,14,.7)}
+.btn-primary:hover{background:var(--orange-ink)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-quiet{border-color:var(--rule-2);color:var(--ink);background:transparent}
+.btn-quiet:hover{border-color:var(--ink);background:var(--paper-hi)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(242,244,236,.9);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--rule)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:23px;letter-spacing:-.03em}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--f-fig);font-size:16px;font-weight:600;position:relative;overflow:hidden}
+.brand-mark::after{content:"";position:absolute;left:0;right:0;bottom:7px;height:2px;background:var(--orange)}
+.brand small{font-family:var(--f-body);font-weight:500;font-size:13px;color:var(--ink-3);letter-spacing:0;margin-left:2px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15.5px;font-weight:500;color:var(--ink-2);position:relative;padding:6px 0}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--ink)}
+.nav a[aria-current="page"]::after,.nav a:hover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange)}
+.nav .btn{padding:11px 18px;font-size:15px;color:#fff}
+.nav .btn::after{display:none}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--rule-2);background:var(--paper-hi);align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+.burger svg{width:22px;height:22px}
+@media (max-width:920px){
+  .burger{display:inline-flex}
+  .nav{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));flex-direction:column;align-items:stretch;gap:0;background:var(--paper-hi);border-bottom:1px solid var(--rule);padding:8px var(--gut-r) 20px var(--gut);display:none;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--rule);font-size:18px}
+  .nav a::after{display:none}
+  .nav .btn{margin-top:16px;justify-content:center;padding:16px}
+}
+
+/* section frame */
+.sec{padding:clamp(72px,9vw,128px) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head .lede{justify-self:start}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+.acct{font-family:var(--f-fig);font-size:12.5px;color:var(--ink-3);letter-spacing:.02em;display:inline-flex;gap:10px;align-items:center;margin-bottom:18px}
+.acct b{font-weight:500;color:var(--orange-ink)}
+
+/* forms */
+.field{display:grid;gap:6px}
+.field label,.field legend{font-size:14px;font-weight:600;color:var(--ink-2)}
+.field input,.field select,.field textarea{font:16px var(--f-body);color:var(--ink);background:var(--paper-hi);border:1.5px solid var(--rule-2);border-radius:var(--r-sm);padding:13px 14px;width:100%;transition:border-color .2s, box-shadow .2s}
+.field input:hover,.field select:hover{border-color:var(--ink-3)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+.field input:invalid:not(:placeholder-shown){border-color:#C2410C}
+.form-ok{display:none;align-items:flex-start;gap:12px;background:#E3F0E6;border:1px solid #B5D4BE;color:#1E4D31;border-radius:var(--r-md);padding:16px 18px;font-size:16px}
+.form-ok.show{display:flex}
+.form-ok svg{flex:none;width:22px;height:22px;margin-top:1px}
+
+/* footer */
+.foot{background:var(--ink);color:#D9E0D8;padding:72px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:15px}
+.foot a{color:#D9E0D8;text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:4px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot .brand{color:#fff}
+.foot .brand-mark{background:var(--paper);color:var(--ink)}
+.foot h4{font:600 13px var(--f-fig);text-transform:uppercase;letter-spacing:.08em;color:#8E9C93;margin:0 0 14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot-bottom{margin-top:56px;padding-top:22px;border-top:1px solid #2F3B35;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;color:#8E9C93;font-size:13.5px}
+.demo-tag{font-family:var(--f-fig);font-size:12px;border:1px solid #3B4842;border-radius:999px;padding:3px 10px}
+@media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid > :first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+[hidden]{display:none!important}
+.p-hero{padding:clamp(48px,7vw,96px) 0 clamp(40px,5vw,64px);position:relative;overflow:hidden}
+.p-hero::before{content:"";position:absolute;top:0;bottom:0;left:max(24px, calc(50% - 640px - 8px));width:1.5px;background:var(--margin-line)}
+.p-hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(28px,5vw,72px);align-items:end;position:relative}
+.p-hero h1{font-size:clamp(44px,7vw,100px);letter-spacing:-.035em;line-height:.95}
+.p-hero h1 em{font-style:normal;color:var(--orange)}
+.p-hero .lede{margin-top:24px}
+.crumbs{font-size:14px;color:var(--ink-3);margin-bottom:22px}
+.crumbs a{color:var(--ink-2)}
+.mtd{background:var(--paper-hi);border-radius:var(--r-lg);border:1px solid var(--rule);box-shadow:var(--shadow);padding:22px}
+.mtd h2{font-size:20px;letter-spacing:-.01em;display:flex;gap:10px;align-items:center}
+.mtd h2 svg{width:22px;height:22px;color:var(--orange)}
+.mtd table{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}
+.mtd td{border-bottom:1px solid var(--rule);height:var(--row)}
+.mtd td:last-child{text-align:right;font-family:var(--f-fig);font-variant-numeric:tabular-nums}
+.mtd p{font-size:14px;color:var(--ink-2);margin-top:12px}
+@media (max-width:900px){.p-hero .wrap{grid-template-columns:1fr}}
+@media (max-width:720px){.p-hero::before{left:10px}}
+
+.tabs{display:inline-flex;padding:5px;border-radius:999px;background:var(--paper-lo);border:1px solid var(--rule);gap:4px;margin-bottom:28px}
+.tabs button{font:600 15.5px var(--f-body);border:0;background:transparent;color:var(--ink-2);padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.tabs button:hover:not([aria-selected="true"]){color:var(--ink)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.plan{background:var(--paper-hi);border:1px solid var(--rule);border-radius:var(--r-lg);padding:26px 24px 24px;display:flex;flex-direction:column;position:relative}
+.plan.pick{border:2px solid var(--orange);box-shadow:var(--shadow);background:#fff}
+.plan .flag{position:absolute;top:-13px;left:22px;background:var(--orange);color:#fff;font:600 12.5px var(--f-fig);padding:5px 10px;border-radius:6px}
+.plan h3{font-size:24px}
+.plan .for{color:var(--ink-2);font-size:15px;margin-top:6px;min-height:46px}
+.price{display:flex;align-items:baseline;gap:6px;margin-top:20px;padding-bottom:16px;border-bottom:1.5px solid var(--ink)}
+.price b{font-family:var(--f-fig);font-variant-numeric:tabular-nums;font-size:54px;font-weight:500;letter-spacing:-.05em;line-height:1}
+.price span{color:var(--ink-2);font-size:15px}
+.annual{font-family:var(--f-fig);font-size:13px;color:var(--ink-3);margin-top:8px}
+.plan ul{list-style:none;padding:0;margin:14px 0 22px;flex:1}
+.plan li{display:flex;gap:10px;align-items:flex-start;min-height:var(--row);padding:6px 0;border-bottom:1px solid var(--rule);font-size:15.5px;line-height:1.35}
+.plan li svg{width:17px;height:17px;flex:none;margin-top:1px;color:var(--ok)}
+.plan li.no{color:var(--ink-3)}
+.plan li.no svg{color:var(--rule-2)}
+.plan .btn{justify-content:center}
+.vat-note{margin-top:18px;font-size:14px;color:var(--ink-2)}
+@media (max-width:980px){.plans{grid-template-columns:1fr}.plan .for{min-height:0}}
+
+.cmp-wrap{overflow-x:auto;border-top:1.5px solid var(--ink);-webkit-overflow-scrolling:touch}
+.cmp{width:100%;border-collapse:collapse;font-size:16px;min-width:0}
+.cmp th,.cmp td{text-align:left;border-bottom:1px solid var(--rule);padding:14px 12px 14px 0;vertical-align:top}
+.cmp thead th{font:500 12px var(--f-fig);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.cmp td.fig{text-align:right;white-space:nowrap;font-size:15.5px}
+.cmp th[scope=row]{font-weight:600}
+.cmp td small{display:block;color:var(--ink-3);font-size:14px}
+@media (max-width:640px){.cmp thead{display:none}.cmp tr{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid var(--rule);padding:12px 0}.cmp th,.cmp td{border:0;padding:2px 0}.cmp td.desc{grid-column:1/-1;order:3;color:var(--ink-2)}}
+
+.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,72px)}
+.faq-list{border-top:1.5px solid var(--ink)}
+.faq-list details{border-bottom:1px solid var(--rule)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;font-family:var(--f-display);font-size:21px;font-weight:600;letter-spacing:-.01em}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary svg{width:22px;height:22px;flex:none;color:var(--orange);transition:transform .25s}
+.faq-list details[open] summary svg{transform:rotate(45deg)}
+.faq-list summary:hover{color:var(--orange-ink)}
+.faq-list .ans{padding:0 0 22px;color:var(--ink-2);max-width:42em}
+.faq-list .ans p + p{margin-top:10px}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+.book{background:var(--ink);color:#E6ECE4}
+.book .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px)}
+.book h2{color:#fff}
+.book .lede{color:#B7C3BB;margin-top:18px}
+.book .acct{color:#8E9C93}.book .acct b{color:#FFA36E}
+.book-card{background:var(--paper-hi);color:var(--ink);border-radius:var(--r-lg);padding:clamp(22px,3vw,36px)}
+.book-card form{display:grid;gap:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border:0;padding:0;margin:0}
+.slots legend{font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:8px}
+.slots label{position:relative}
+.slots input{position:absolute;opacity:0;pointer-events:none}
+.slots span{display:block;text-align:center;padding:10px 6px;border-radius:var(--r-sm);border:1.5px solid var(--rule-2);background:var(--paper);cursor:pointer;font-size:14px;line-height:1.3;transition:all .2s}
+.slots span b{display:block;font-family:var(--f-fig);font-weight:600;font-size:15px}
+.slots input:checked + span{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-ink)}
+.slots input:focus-visible + span{outline:2.5px solid var(--orange);outline-offset:2px}
+.slots input:disabled + span{opacity:.45;text-decoration:line-through;cursor:not-allowed}
+.book ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0;border-top:1px solid #3A4740}
+.book li{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #3A4740;font-size:15.5px;color:#D6DED7}
+.book li b{font-family:var(--f-fig);font-weight:500;color:#FFA36E;font-size:13.5px}
+@media (max-width:900px){.book .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){.two{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Ledgerly Accountants, home"><span class="brand-mark" aria-hidden="true">£</span>Ledgerly<small>Accountants</small></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#year">Your tax year</a>
+      <a href="index.html#clients">Clients</a>
+      <a href="pricing.html" aria-current="page">Fees</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#call">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="p-hero ruled" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="p-hero-copy">
+      <p class="crumbs"><a href="index.html">Ledgerly</a> / Monthly fees</p>
+      <h1 id="h1" class="split">One fixed fee. <em>Zero</em> hourly invoices.</h1>
+      <p class="lede">Pick the plan that matches how you trade. The price covers the year's work, every email, and the deadlines. All fees exclude VAT at 20%.</p>
+    </div>
+    <aside class="mtd" aria-labelledby="mtd-h">
+      <h2 id="mtd-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Making Tax Digital for Income Tax</h2>
+      <table aria-label="MTD for Income Tax start dates">
+        <tbody>
+          <tr><td>Income over £50,000</td><td>6 Apr 2026</td></tr>
+          <tr><td>Income over £30,000</td><td>6 Apr 2027</td></tr>
+          <tr><td>Income over £20,000</td><td>6 Apr 2028</td></tr>
+        </tbody>
+      </table>
+      <p>Quarterly updates are included in every sole-trader plan. Thresholds use qualifying income from self-employment and property.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:clamp(32px,4vw,56px)" aria-labelledby="pl-h">
+  <div class="wrap">
+    <h2 id="pl-h" style="position:absolute;left:-9999px">Plans</h2>
+    <div class="tabs" role="tablist" aria-label="Business type">
+      <button role="tab" id="t-sole" aria-selected="true" aria-controls="p-sole" data-aud="sole">Sole traders</button>
+      <button role="tab" id="t-ltd" aria-selected="false" aria-controls="p-ltd" data-aud="ltd" tabindex="-1">Limited companies</button>
+    </div>
+
+    <div class="plans" id="p-sole" role="tabpanel" aria-labelledby="t-sole" data-panel="sole">
+      <article class="plan">
+        <h3>Return</h3>
+        <p class="for">Side income or a simple trade. You keep the records, we do the return.</p>
+        <div class="price"><b>£35</b><span>/ month</span></div>
+        <p class="annual">£420 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Self Assessment (SA100 + SA103)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Payments on account forecast</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Email support, 1-day reply</li>
+          <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>Bookkeeping</li>
+          <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>VAT returns</li>
+        </ul>
+        <a class="btn btn-quiet" href="#call">Choose Return</a>
+      </article>
+      <article class="plan pick">
+        <span class="flag">Most sole traders</span>
+        <h3>Essentials</h3>
+        <p class="for">Freelancers who want their books kept and MTD quarterly updates handled.</p>
+        <div class="price"><b>£65</b><span>/ month</span></div>
+        <p class="annual">£780 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Everything in Return</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Weekly bookkeeping, up to 80 transactions a month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>MTD quarterly updates</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Software licence included</li>
+          <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>VAT returns</li>
+        </ul>
+        <a class="btn btn-primary" href="#call">Choose Essentials</a>
+      </article>
+      <article class="plan">
+        <h3>Plus</h3>
+        <p class="for">VAT-registered traders over the £90,000 threshold.</p>
+        <div class="price"><b>£110</b><span>/ month</span></div>
+        <p class="annual">£1,320 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Everything in Essentials</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Quarterly VAT returns via MTD</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Up to 200 transactions a month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Annual tax planning call</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Incorporation review</li>
+        </ul>
+        <a class="btn btn-quiet" href="#call">Choose Plus</a>
+      </article>
+    </div>
+
+    <div class="plans" id="p-ltd" role="tabpanel" aria-labelledby="t-ltd" data-panel="ltd" hidden>
+      <article class="plan">
+        <h3>Launch</h3>
+        <p class="for">Contractors and one-director companies, not VAT registered.</p>
+        <div class="price"><b>£95</b><span>/ month</span></div>
+        <p class="annual">£1,140 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Statutory accounts + CT600</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmation statement</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Director payroll + 1 Self Assessment</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Bookkeeping, up to 60 transactions</li>
+          <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>VAT returns</li>
+        </ul>
+        <a class="btn btn-quiet" href="#call">Choose Launch</a>
+      </article>
+      <article class="plan pick">
+        <span class="flag">Most companies</span>
+        <h3>Growth</h3>
+        <p class="for">VAT-registered companies with a small team.</p>
+        <div class="price"><b>£165</b><span>/ month</span></div>
+        <p class="annual">£1,980 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Everything in Launch</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Quarterly VAT returns via MTD</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Payroll for up to 5 staff</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Quarterly management accounts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Salary vs dividend plan</li>
+        </ul>
+        <a class="btn btn-primary" href="#call">Choose Growth</a>
+      </article>
+      <article class="plan">
+        <h3>Scale</h3>
+        <p class="for">Turnover above £500k, more staff, more questions.</p>
+        <div class="price"><b>£260</b><span>/ month</span></div>
+        <p class="annual">£3,120 a year + VAT</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Everything in Growth</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monthly management accounts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Payroll for up to 15 staff</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Self Assessment for 2 directors</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cash-flow forecast, updated quarterly</li>
+        </ul>
+        <a class="btn btn-quiet" href="#call">Choose Scale</a>
+      </article>
+    </div>
+    <p class="vat-note">Fees are billed monthly by Direct Debit. Cancel with 30 days' notice. Prices shown exclude VAT at 20%.</p>
+  </div>
+</section>
+
+<section class="sec services" aria-labelledby="inc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="acct"><b>4900</b> Included &amp; extras</div><h2 id="inc-h" class="split">What's in every plan, and what costs extra.</h2></div>
+      <p class="lede">Most clients never pay for an extra. When something falls outside your plan, you see the price before we start.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col">Item</th><th scope="col">Details</th><th scope="col" style="text-align:right">Fee</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Named accountant</th><td class="desc">The same ICAEW-qualified person all year, with a backup who knows your file.</td><td class="fig">Included</td></tr>
+          <tr><th scope="row">HMRC agent authorisation</th><td class="desc">We deal with HMRC letters and calls on your behalf.</td><td class="fig">Included</td></tr>
+          <tr><th scope="row">Switching from another firm</th><td class="desc">Professional clearance letter and file handover.</td><td class="fig">Included</td></tr>
+          <tr><th scope="row">Extra payroll employees</th><td class="desc">Above the number in your plan, per employee per month.</td><td class="fig">£6</td></tr>
+          <tr><th scope="row">CIS monthly returns</th><td class="desc">For construction contractors and subcontractors.</td><td class="fig">£25 <small>/ month</small></td></tr>
+          <tr><th scope="row">Rental property pages</th><td class="desc">SA105, per property, including MTD updates.</td><td class="fig">£15 <small>/ month</small></td></tr>
+          <tr><th scope="row">Catch-up bookkeeping</th><td class="desc">For months of records you haven't touched yet.</td><td class="fig">£150 <small>/ month of records</small></td></tr>
+          <tr><th scope="row">Late-filing rescue</th><td class="desc">Return already overdue? We file it and appeal penalties where there's a reasonable excuse.</td><td class="fig">£195 <small>one-off</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div><div class="acct"><b>8200</b> FAQ</div><h2 id="faq-h" class="split">Questions people ask on the first call.</h2></div>
+    <div class="faq-list">
+      <details open><summary>What happens if I miss 31 January?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>HMRC charges a £100 penalty the day after, even if you owe no tax. After three months, daily penalties of £10 start, up to £900. Interest also runs on any unpaid balance.</p><p>On every plan, we aim to file by mid-December, so the date becomes a payment reminder rather than a deadline.</p></div></details>
+      <details><summary>Do I need to register for VAT?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>You must register once your VAT-taxable turnover over the last 12 months goes above £90,000. We watch the rolling total for you and warn you at £75,000. Registering voluntarily earlier can make sense if your clients are VAT-registered businesses.</p></div></details>
+      <details><summary>What does Making Tax Digital change for me?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>For VAT, nothing new: every VAT return already goes through MTD software. For Income Tax, sole traders and landlords above the thresholds send quarterly updates to HMRC, then a final declaration by 31 January. Our Essentials and Plus plans include those updates.</p></div></details>
+      <details><summary>Can I switch to you mid-year?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>Yes. We contact your previous accountant for professional clearance and take over from there. Most switches take two to three weeks, and there's no fee for the handover.</p></div></details>
+      <details><summary>Should I be a sole trader or a limited company?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>It depends on your profit, what you take out, and how much admin you'll tolerate. We run both scenarios on your real figures during the discovery call. It is free and takes about ten minutes.</p></div></details>
+      <details><summary>Which software do you use?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary><div class="ans"><p>Xero, FreeAgent or QuickBooks. If you already use one, we'll keep it. If not, the licence is included in Essentials, Plus and every limited company plan.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="call" aria-labelledby="bk-h">
+  <div class="wrap">
+    <div>
+      <div class="acct"><b>20 min</b> Discovery call</div>
+      <h2 id="bk-h" class="split">Pick a time. Bring a rough number.</h2>
+      <p class="lede">A short video or phone call with a chartered accountant. You'll leave with a fixed fee and a clear answer to your biggest question.</p>
+      <ul>
+        <li><b>Minute 0–5</b>How you trade and what's due next</li>
+        <li><b>Minute 5–15</b>Your numbers, sole trader vs Ltd if relevant</li>
+        <li><b>Minute 15–20</b>Your fixed fee and switch-over plan</li>
+      </ul>
+    </div>
+    <div class="book-card">
+      <form id="bookForm" novalidate>
+        <fieldset class="slots"><legend>Next available slots</legend>
+          <label><input type="radio" name="slot" value="tue-0930" checked><span><b>Tue 3 Nov</b>09:30</span></label>
+          <label><input type="radio" name="slot" value="tue-1400"><span><b>Tue 3 Nov</b>14:00</span></label>
+          <label><input type="radio" name="slot" value="wed-1100" disabled><span><b>Wed 4 Nov</b>11:00</span></label>
+          <label><input type="radio" name="slot" value="wed-1630"><span><b>Wed 4 Nov</b>16:30</span></label>
+          <label><input type="radio" name="slot" value="thu-1000"><span><b>Thu 5 Nov</b>10:00</span></label>
+          <label><input type="radio" name="slot" value="fri-1200"><span><b>Fri 6 Nov</b>12:00</span></label>
+        </fieldset>
+        <div class="two">
+          <div class="field"><label for="bn">Name</label><input id="bn" name="name" autocomplete="name" required placeholder="Your name"></div>
+          <div class="field"><label for="be">Email</label><input id="be" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="bt">Business type</label><select id="bt"><option>Sole trader</option><option>Limited company</option><option>Partnership</option><option>Not started yet</option></select></div>
+          <div class="field"><label for="bm">Call by</label><select id="bm"><option>Video call</option><option>Phone</option><option>In person, EC1</option></select></div>
+        </div>
+        <div class="field"><label for="bq">Your biggest question (optional)</label><textarea id="bq" rows="3" placeholder="e.g. Should I register for VAT before I hit £90,000?"></textarea></div>
+        <button class="btn btn-primary" type="submit" style="justify-content:center">Confirm my call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="form-ok" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><span>Booked. You'll get a calendar invite by email shortly. (Demo form: nothing was sent.)</span></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">£</span>Ledgerly</a>
+        <p style="margin-top:16px;max-width:30em;color:#B7C3BB">Chartered accountants for freelancers and small businesses. Fixed monthly fees, one named accountant, deadlines met early.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="index.html#services">Bookkeeping</a></li><li><a href="index.html#services">VAT &amp; MTD</a></li><li><a href="index.html#services">Self Assessment</a></li><li><a href="index.html#services">Company accounts</a></li></ul></div>
+      <div><h4>Firm</h4><ul><li><a href="pricing.html">Monthly fees</a></li><li><a href="pricing.html#faq">FAQ</a></li><li><a href="index.html#year">Your tax year</a></li><li><a href="pricing.html#call">Discovery call</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li class="fig">+44 20 7946 0321</li><li>hello@example.com</li><li>14 Sekforde Street<br>London EC1R 0HF</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ledgerly Accountants Ltd · Fictional firm, ICAEW and HMRC references for illustration only</span>
+      <span class="demo-tag">Contenu de démonstration · Site concept by 1903RGB</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile nav
+  var burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+  if (burger && nav) {
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); } });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); burger.focus(); } });
+  }
+
+  // days to 31 January (Self Assessment online deadline)
+  var dd = document.querySelectorAll('[data-sa-days], #dueDays');
+  if (dd.length) {
+    var now = new Date(), y = now.getMonth() === 0 && now.getDate() > 31 ? now.getFullYear() + 1 : now.getFullYear() + (now.getMonth() === 0 ? 0 : 1);
+    var target = new Date(y, 0, 31, 23, 59);
+    var days = Math.max(0, Math.ceil((target - now) / 86400000));
+    dd.forEach(function(el){ el.textContent = days; });
+  }
+
+  // demo forms
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = Array.prototype.find.call(f.querySelectorAll('[required]'), function(i){ return !i.checkValidity(); });
+      if (bad) { bad.focus(); bad.setAttribute('aria-invalid','true'); bad.style.borderColor = '#C2410C'; return; }
+      var ok = f.querySelector('.form-ok');
+      if (ok) { ok.classList.add('show'); }
+      var btn = f.querySelector('button[type=submit]');
+      if (btn) { btn.disabled = true; btn.style.opacity = .55; btn.style.cursor = 'default'; }
+    });
+    f.querySelectorAll('[required]').forEach(function(i){ i.addEventListener('input', function(){ i.removeAttribute('aria-invalid'); i.style.borderColor=''; }); });
+  });
+
+  // pricing audience toggle
+  var tabs = document.querySelectorAll('[data-aud]');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      var aud = t.getAttribute('data-aud');
+      tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); x.tabIndex = x === t ? 0 : -1; });
+      document.querySelectorAll('[data-panel]').forEach(function(p){ p.hidden = p.getAttribute('data-panel') !== aud; });
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    });
+    t.addEventListener('keydown', function(e){
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var arr = Array.prototype.slice.call(tabs), i = arr.indexOf(t);
+      var n = arr[(i + (e.key === 'ArrowRight' ? 1 : arr.length - 1)) % arr.length];
+      n.focus(); n.click();
+    });
+  });
+
+  if (!window.gsap || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // smooth scroll (Lenis only)
+  if (window.Lenis) {
+    var lenis = new Lenis({ lerp: 0.12 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){ var id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -72 }); } });
+    });
+  }
+
+  // split headings into words, keep accessible name
+  document.querySelectorAll('.split').forEach(function(h){
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g,' ').trim());
+    var frag = document.createDocumentFragment();
+    Array.prototype.slice.call(h.childNodes).forEach(function(n){
+      var holder = n.nodeType === 3 ? frag : n.cloneNode(false);
+      n.textContent.split(/(\s+)/).forEach(function(part){
+        if (!part) return;
+        if (/^\s+$/.test(part)) { holder.appendChild(document.createTextNode(' ')); return; }
+        var s = document.createElement('span'); s.className = 'w'; s.style.display = 'inline-block'; s.textContent = part; s.setAttribute('aria-hidden','true');
+        holder.appendChild(s);
+      });
+      if (holder !== frag) frag.appendChild(holder);
+    });
+    h.textContent = ''; h.appendChild(frag);
+  });
+
+  var hero = document.querySelector('.hero, .p-hero');
+  document.querySelectorAll('.split').forEach(function(h){
+    var inHero = hero && hero.contains(h);
+    gsap.from(h.querySelectorAll('.w'), {
+      yPercent: 60, opacity: 0, duration: .8, ease: 'power3.out', stagger: .05, delay: inHero ? .1 : 0,
+      scrollTrigger: inHero ? null : { trigger: h, start: 'top 85%', once: true }
+    });
+  });
+
+  if (hero) {
+    var tl = gsap.timeline({ delay: .35 });
+    tl.from(hero.querySelectorAll('.hero-top > *, .hero-copy > *, .p-hero-copy > *'), { y: 18, opacity: 0, duration: .6, stagger: .07, ease: 'power2.out' })
+      .from(hero.querySelectorAll('.statement, .hero-photo'), { y: 30, opacity: 0, duration: .8, stagger: .12, ease: 'power3.out' }, '<.1')
+      .from(hero.querySelectorAll('.st-r, .total'), { x: -14, opacity: 0, duration: .4, stagger: .07, ease: 'power2.out' }, '<.3')
+      .from(hero.querySelectorAll('.stamp'), { scale: 1.6, opacity: 0, rotate: -12, duration: .45, ease: 'back.out(2)' }, '>-.05');
+  }
+
+  // ledger rows draw in
+  document.querySelectorAll('.ledger, .tb, .months, .cmp, .faq-list, .plans').forEach(function(block){
+    var rows = block.querySelectorAll(':scope > .l-row:not(.l-head), :scope > .tb-row, :scope > .m, :scope > .plan, :scope tbody tr, :scope > details');
+    if (!rows.length) return;
+    gsap.from(rows, { y: 16, opacity: 0, duration: .55, stagger: .05, ease: 'power2.out', scrollTrigger: { trigger: block, start: 'top 82%', once: true } });
+  });
+  document.querySelectorAll('.gi, .proof-photo, .visit-photo, .q-main, .q-sm, .call-card').forEach(function(el){
+    gsap.from(el, { y: 30, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+
+  // counters (final value is in the markup)
+  document.querySelectorAll('.count').forEach(function(el){
+    var to = parseFloat(el.getAttribute('data-to')); if (!to) return;
+    var o = { v: 0 };
+    gsap.to(o, { v: to, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+      onUpdate: function(){ el.textContent = Math.round(o.v).toLocaleString('en-GB'); } });
+  });
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+})();
+
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

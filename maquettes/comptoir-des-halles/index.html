@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Le Comptoir des Halles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Le Comptoir des Halles, bistronomie face au marché couvert de Metz. La carte change chaque matin avec le marché.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --slate:#14181a;
+  --slate-2:#1b2124;
+  --slate-3:#232a2e;
+  --chalk:#ece8df;
+  --chalk-2:rgba(236,232,223,.72);
+  --chalk-3:rgba(236,232,223,.5);
+  --line:rgba(236,232,223,.14);
+  --line-2:rgba(236,232,223,.26);
+  --accent:#e8b04a;
+  --accent-ink:#1a1407;
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter:max(16px, env(safe-area-inset-left,0px));
+  --gutter-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--slate);color:var(--chalk);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--chalk-3)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:2px;font:600 15px/1 var(--f-body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn--accent{background:var(--accent);color:var(--accent-ink)}
+.btn--accent:hover{background:#f2c062}
+.btn--ghost{border-color:var(--line-2);color:var(--chalk);background:rgba(20,24,26,.35)}
+.btn--ghost:hover{border-color:var(--chalk)}
+.btn:active{transform:translateY(1px)}
+
+/* Header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.hdr.is-solid{background:rgba(20,24,26,.92);border-color:var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.logo b{font:500 21px/1 var(--f-display);letter-spacing:-.01em}
+.logo b i{font-style:italic;font-weight:400;color:var(--accent)}
+.logo span{font:400 11px/1 var(--f-mono);color:var(--chalk-3);letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-size:14px;color:var(--chalk-2);transition:color .2s}
+.nav a:hover,.nav a[aria-current]{color:var(--chalk)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px;color:var(--accent-ink)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);background:transparent;color:var(--chalk);border-radius:2px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+@media (max-width:860px){
+  .logo span{display:none}
+  .burger{display:inline-flex}
+  .nav{position:fixed;inset:68px 0 auto 0;top:calc(68px + env(safe-area-inset-top,0px));flex-direction:column;align-items:stretch;gap:0;background:var(--slate);border-bottom:1px solid var(--line);padding:8px var(--gutter-r) 20px var(--gutter);display:none}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--chalk)}
+  .nav .btn{margin-top:16px;justify-content:center;min-height:48px;border-bottom:0}
+}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;margin-top:-68px;padding-top:68px;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.hero__img{position:absolute;inset:0;z-index:-2}
+.hero__img img{width:100%;height:100%;object-fit:cover;object-position:62% 55%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg, rgba(14,17,18,.92) 0%, rgba(14,17,18,.62) 38%, rgba(14,17,18,.12) 70%, rgba(14,17,18,.35) 100%),
+  linear-gradient(0deg, rgba(14,17,18,.95) 0%, rgba(14,17,18,0) 46%),
+  linear-gradient(180deg, rgba(14,17,18,.7) 0%, rgba(14,17,18,0) 22%)}
+.rails{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.rails .wrap{position:relative;height:100%}
+.rails i{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.rails i:nth-child(1){left:var(--gutter)}
+.rails i:nth-child(2){left:58%}
+.rails i:nth-child(3){right:var(--gutter-r)}
+@media (min-width:900px){.rails i:nth-child(1){left:40px}.rails i:nth-child(3){right:40px}}
+.rails i::after{content:"";position:absolute;top:120px;left:-3px;width:7px;height:7px;border:1px solid var(--line-2);background:var(--slate)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:end;padding-top:80px;padding-bottom:56px;width:100%}
+.hero__kicker{display:flex;gap:14px;align-items:center;margin:0 0 22px}
+.hero__kicker .mono{color:var(--chalk-2)}
+.hero h1{font:400 clamp(44px,5.8vw,90px)/.96 var(--f-display);letter-spacing:-.025em;margin:0 0 26px;max-width:11ch;font-variation-settings:"opsz" 144}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.hero__lede{max-width:44ch;font-size:18px;color:var(--chalk-2);margin:0 0 32px}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Ardoise (live slate) */
+.ardoise{background:rgba(20,24,26,.78);border:1px solid var(--line-2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:22px 24px 18px;position:relative}
+.ardoise::before,.ardoise::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--accent)}
+.ardoise::before{top:-5px;left:-5px}
+.ardoise::after{bottom:-5px;right:-5px}
+.ardoise__top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px dashed var(--line-2);padding-bottom:12px;margin-bottom:6px}
+.ardoise__title{font:italic 400 24px/1.1 var(--f-display);margin:0}
+.live{display:inline-flex;align-items:center;gap:7px;font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+.ardoise ul{list-style:none;margin:0;padding:0}
+.ardoise li{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.ardoise li:last-child{border-bottom:0}
+.ardoise .dish{font:400 17px/1.3 var(--f-display)}
+.ardoise .price{font:500 14px/1.3 var(--f-mono);color:var(--chalk)}
+.ardoise .from{grid-column:1/-1;font:400 12px/1.4 var(--f-mono);color:var(--chalk-3)}
+.ardoise .from b{color:var(--accent);font-weight:500}
+.ardoise .gone .dish,.ardoise .gone .price{text-decoration:line-through;text-decoration-color:var(--accent);color:var(--chalk-3)}
+.ardoise__foot{display:flex;justify-content:space-between;gap:12px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line-2)}
+.ardoise__foot a{font:500 12px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--chalk);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px}
+@media (max-width:900px){
+  .hero{min-height:auto}
+  .hero__grid{grid-template-columns:1fr;gap:36px;padding-top:min(52vh,420px)}
+  .hero__img{bottom:auto;height:min(60vh,520px)}
+  .hero__img img{object-position:46% 55%}
+  .hero::before{background:linear-gradient(0deg, var(--slate) calc(100% - min(60vh,520px)), rgba(20,24,26,.55) calc(100% - min(60vh,520px) + 140px), rgba(14,17,18,.15) 80%, rgba(14,17,18,.6) 100%)}
+  .hero__lede{font-size:17px}
+  .rails i:nth-child(2){display:none}
+}
+
+/* Sections */
+section{position:relative}
+.sec{padding:120px 0}
+@media (max-width:760px){.sec{padding:80px 0}}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px;align-items:end;margin-bottom:56px;border-top:1px solid var(--line);padding-top:22px}
+.sec-head h2{font:400 clamp(34px,4.4vw,62px)/1.02 var(--f-display);letter-spacing:-.02em;margin:0;max-width:16ch}
+.sec-head h2 em{font-style:italic;color:var(--accent);font-weight:300}
+.sec-head p{margin:0;color:var(--chalk-2);max-width:48ch;font-size:17px;justify-self:end}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;gap:18px}.sec-head p{justify-self:start}}
+
+/* Offre */
+.offer{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));border-top:1px solid var(--line)}
+.offer article{padding:30px 28px 34px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.offer article + article{border-left:1px solid var(--line);padding-left:28px}
+.offer .o-midi{grid-column:span 5}
+.offer .o-soir{grid-column:span 4}
+.offer .o-comptoir{grid-column:span 3}
+.offer h3{font:400 30px/1.1 var(--f-display);margin:0}
+.offer .when{font:500 12px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--chalk-3)}
+.offer p{margin:0;color:var(--chalk-2)}
+.offer .big{font:300 clamp(54px,6vw,84px)/.9 var(--f-display);color:var(--accent);letter-spacing:-.03em}
+.offer .big small{font:500 14px/1 var(--f-mono);color:var(--chalk-3);letter-spacing:.03em;margin-left:6px}
+.offer ul{list-style:none;margin:6px 0 0;padding:0;font-size:15px}
+.offer li{padding:7px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.offer li span:last-child{font-family:var(--f-mono);font-size:13px;color:var(--chalk)}
+.offer .lnk{margin-top:auto;padding-top:10px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.offer .lnk svg{width:15px;height:15px;color:var(--accent)}
+.offer .lnk:hover{color:var(--accent)}
+@media (max-width:960px){
+  .offer article{grid-column:1/-1 !important;padding-left:0 !important;border-left:0 !important;padding-right:0}
+}
+
+/* Producteurs */
+.band{position:relative;height:min(62vh,560px);overflow:hidden;margin-bottom:0}
+.band img{width:100%;height:118%;object-fit:cover;object-position:50% 40%}
+.band__cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(14,17,18,.9),rgba(14,17,18,0));padding:80px 0 26px}
+.band__cap .wrap{display:flex;justify-content:space-between;gap:20px;align-items:end;flex-wrap:wrap}
+.band__cap p{margin:0;font:italic 300 clamp(24px,3vw,40px)/1.15 var(--f-display);max-width:22ch}
+.prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:56px;margin-top:64px}
+.radius{position:sticky;top:110px;align-self:start}
+.radius .n{font:300 clamp(80px,10vw,150px)/.85 var(--f-display);letter-spacing:-.04em;color:var(--chalk)}
+.radius .n span{font:400 22px/1 var(--f-mono);color:var(--accent);letter-spacing:0;margin-left:6px}
+.radius p{color:var(--chalk-2);max-width:32ch;margin:18px 0 0}
+.ptable{width:100%;border-collapse:collapse;font-size:15px}
+.ptable th{font:500 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--chalk-3);text-align:left;padding:0 12px 12px 0;border-bottom:1px solid var(--line-2)}
+.ptable td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.ptable td:first-child{font:400 19px/1.25 var(--f-display)}
+.ptable td.km{font:500 14px/1.4 var(--f-mono);color:var(--accent);text-align:right;white-space:nowrap;padding-right:0}
+.ptable th.km{text-align:right;padding-right:0}
+.ptable .where{display:block;font:400 12px/1.4 var(--f-mono);color:var(--chalk-3);margin-top:3px;text-transform:uppercase;letter-spacing:.03em}
+.ptable tr{transition:background .2s}
+.ptable tbody tr:hover{background:rgba(236,232,223,.03)}
+.kmbar{display:block;height:2px;background:var(--line);margin-top:8px;position:relative}
+.kmbar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);width:var(--w)}
+@media (max-width:860px){.prod{grid-template-columns:1fr;gap:36px}.radius{position:static}.ptable .hide-m{display:none}}
+
+/* Journée */
+.day{background:var(--slate-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.timeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--line-2);position:relative}
+.timeline li{list-style:none;padding:20px 20px 8px 0;position:relative}
+.timeline li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--slate-2);border:1px solid var(--chalk-3)}
+.timeline li.is-key::before{background:var(--accent);border-color:var(--accent)}
+.timeline time{display:block;font:500 15px/1 var(--f-mono);color:var(--accent);margin-bottom:12px}
+.timeline h3{font:400 21px/1.2 var(--f-display);margin:0 0 8px}
+.timeline p{margin:0;font-size:14.5px;color:var(--chalk-2)}
+.timeline{padding:0;margin:0}
+.day__aside{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;margin-top:64px;border:1px solid var(--line)}
+.day__aside img{width:100%;height:100%;min-height:340px;max-height:460px;object-fit:cover;object-position:50% 35%}
+.day__aside div{padding:36px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.day__aside blockquote{margin:0;font:italic 300 clamp(24px,2.6vw,34px)/1.2 var(--f-display)}
+.day__aside cite{font:normal 500 12px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--chalk-3)}
+@media (max-width:960px){.timeline{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}.timeline li{border-top:1px solid var(--line-2)}.timeline{border-top:0}}
+@media (max-width:760px){.day__aside{grid-template-columns:1fr}.day__aside img{min-height:260px;max-height:320px}.day__aside div{padding:26px 20px}}
+@media (max-width:480px){.timeline{grid-template-columns:1fr}}
+
+/* Galerie */
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:14px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--slate-2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gal figure:hover img{transform:scale(1.035)}
+.gal figcaption{position:absolute;left:14px;bottom:12px;font:500 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;background:rgba(20,24,26,.82);padding:7px 9px;color:var(--chalk)}
+.g1{grid-column:1/8;aspect-ratio:16/10}
+.g2{grid-column:8/13;aspect-ratio:4/5;grid-row:span 2}
+.g3{grid-column:1/4;aspect-ratio:1/1}
+.g4{grid-column:4/8;aspect-ratio:4/3}
+.g5{grid-column:1/6;aspect-ratio:16/11}
+.g6{grid-column:6/13;aspect-ratio:21/9;align-self:end}
+.g2{aspect-ratio:auto}
+@media (max-width:760px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .g1,.g6{grid-column:1/-1}
+  .g2{grid-column:1/2;grid-row:auto;aspect-ratio:3/4}
+  .g3{grid-column:2/3;aspect-ratio:3/4}
+  .g4,.g5{grid-column:span 1;aspect-ratio:1/1}
+  .g6{aspect-ratio:16/9}
+}
+
+/* Témoignages */
+.quotes{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px}
+.q-main{margin:0;font:300 clamp(28px,3.4vw,46px)/1.15 var(--f-display);letter-spacing:-.015em}
+.q-main::before{content:"«\00a0";color:var(--accent)}
+.q-main::after{content:"\00a0»";color:var(--accent)}
+.who{display:flex;gap:12px;align-items:center;margin-top:24px}
+.who b{font-weight:600;font-size:15px}
+.who span{font:400 12px/1.4 var(--f-mono);color:var(--chalk-3);text-transform:uppercase;letter-spacing:.04em}
+.q-side{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.q-side figure{margin:0;padding:22px 0;border-bottom:1px solid var(--line)}
+.q-side blockquote{margin:0 0 10px;font-size:16.5px;color:var(--chalk)}
+.q-side figcaption{font:400 12px/1.4 var(--f-mono);color:var(--chalk-3);text-transform:uppercase;letter-spacing:.04em}
+.q-side figcaption b{color:var(--chalk-2);font-weight:500}
+@media (max-width:860px){.quotes{grid-template-columns:1fr;gap:36px}}
+
+/* Infos */
+.infos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-2)}
+.infos > div{padding:26px 28px 30px 0}
+.infos > div + div{border-left:1px solid var(--line);padding-left:28px}
+.infos h3{font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-3);margin:0 0 18px}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:8px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--f-mono);font-size:13.5px}
+.hours tr.closed td{color:var(--chalk-3)}
+.hours tr.today td:first-child::after{content:" · aujourd'hui";font:500 11px var(--f-mono);color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+.infos address{font-style:normal;font:400 22px/1.3 var(--f-display)}
+.infos p{color:var(--chalk-2);margin:14px 0 0;font-size:15px}
+.infos .tel{font:500 20px/1.3 var(--f-mono);color:var(--chalk);display:block;margin-top:4px}
+.allerg{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.allerg span{font:500 12px/1 var(--f-mono);border:1px solid var(--line-2);padding:6px 8px}
+@media (max-width:960px){.infos{grid-template-columns:1fr}.infos > div{padding:26px 0 !important;border-left:0 !important;border-bottom:1px solid var(--line)}}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;isolation:isolate;padding:150px 0 140px}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;object-position:50% 30%}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,17,18,.94) 0%,rgba(14,17,18,.75) 55%,rgba(14,17,18,.45) 100%)}
+.cta h2{font:400 clamp(40px,6vw,88px)/.98 var(--f-display);letter-spacing:-.025em;margin:0 0 22px;max-width:14ch}
+.cta h2 em{font-style:italic;color:var(--accent);font-weight:300}
+.cta p{color:var(--chalk-2);max-width:46ch;margin:0 0 32px;font-size:17px}
+.cta .btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Footer */
+.ftr{border-top:1px solid var(--line);padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px));font-size:14px;color:var(--chalk-2)}
+.ftr__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.ftr h4{font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-3);margin:0 0 14px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--chalk)}
+.ftr__bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font:400 12px/1.5 var(--f-mono);color:var(--chalk-3)}
+@media (max-width:760px){.ftr__grid{grid-template-columns:1fr 1fr}.ftr__grid > :first-child{grid-column:1/-1}}
+
+/* word split */
+.w{display:inline-block;will-change:transform}
+@media (prefers-reduced-motion:reduce){.live::before{animation:none}.gal img{transition:none}}
+</style>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="Le Comptoir des Halles, accueil"><b>Le Comptoir <i>des</i> Halles</b><span>Metz · face au marché couvert</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="carte.html">La carte</a>
+      <a href="#producteurs">Producteurs</a>
+      <a href="#journee">L'ardoise</a>
+      <a href="#infos">Horaires &amp; accès</a>
+      <a class="btn btn--accent" href="carte.html#reserver">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__img"><img src="assets/img/hero-assiette.jpg" alt="Assiette de poisson aux herbes servie en salle, verres de vin blanc et bougies en arrière-plan" fetchpriority="high"></div>
+    <div class="rails" aria-hidden="true"><div class="wrap"><i></i><i></i><i></i></div></div>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__kicker"><span class="mono">Bistronomie · Place de la Cathédrale, Metz</span></p>
+        <h1 id="hero-title" data-split>La carte suit le marché. <em>Elle s'écrit à 11 h.</em></h1>
+        <p class="hero__lede">Chaque matin, on traverse la rue, on fait les étals des Halles, et l'ardoise change. Cinq entrées, cinq plats, trois desserts. Quand c'est fini, c'est fini.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent" href="carte.html#reserver">Réserver une table <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="carte.html">Lire la carte du jour</a>
+        </div>
+      </div>
+      <aside class="ardoise" aria-label="Ardoise du jour">
+        <div class="ardoise__top">
+          <p class="ardoise__title">Ardoise du <span id="today">mardi 27 octobre</span></p>
+          <span class="live">Écrite à 11 h 05</span>
+        </div>
+        <ul>
+          <li><span class="dish">Velouté de potimarron, noisettes torréfiées</span><span class="price">9 €</span><span class="from">Ferme Hennequin · Ars-Laquenexy · <b>9 km</b></span></li>
+          <li><span class="dish">Truite de Moselle, beurre blanc au riesling</span><span class="price">24 €</span><span class="from">Pisciculture du Val de Nied · <b>31 km</b></span></li>
+          <li class="gone"><span class="dish">Joue de bœuf braisée, carottes fanes</span><span class="price">23 €</span><span class="from">Élevage Collignon · Saulnois · <b>42 km</b> · plus servi ce midi</span></li>
+          <li><span class="dish">Tarte fine aux mirabelles, crème crue</span><span class="price">9 €</span><span class="from">Vergers Thiriet · Woippy · <b>6 km</b></span></li>
+        </ul>
+        <div class="ardoise__foot">
+          <span class="mono">Rayon moyen 34 km</span>
+          <a href="carte.html">Carte complète</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec" id="offre" aria-labelledby="offre-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="offre-title" data-split>Trois façons de <em>s'attabler</em></h2>
+        <p>Le midi pour ceux qui travaillent autour du marché. Le soir pour prendre son temps. Le comptoir pour un verre et une assiette, sans réserver.</p>
+      </div>
+      <div class="offer">
+        <article class="o-midi">
+          <span class="when">Mardi → samedi · 12 h – 14 h</span>
+          <h3>Formule du midi</h3>
+          <div class="big">24 €<small>entrée + plat ou plat + dessert</small></div>
+          <ul>
+            <li><span>Les trois temps</span><span>29 €</span></li>
+            <li><span>Verre de vin du moment</span><span>+ 6 €</span></li>
+            <li><span>Café de Brûlerie Messine</span><span>2,50 €</span></li>
+          </ul>
+          <a class="lnk" href="carte.html#midi">Voir la formule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="o-soir">
+          <span class="when">Mercredi → samedi · 19 h 15 – 22 h</span>
+          <h3>La carte du soir</h3>
+          <p>La même ardoise, plus longue. Des assiettes qui se partagent au centre de la table, un plat de saison pour deux le vendredi.</p>
+          <ul>
+            <li><span>Entrées</span><span>9 – 14 €</span></li>
+            <li><span>Plats</span><span>21 – 29 €</span></li>
+          </ul>
+          <a class="lnk" href="carte.html">Lire la carte <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+        <article class="o-comptoir">
+          <span class="when">Dès 18 h · sans réservation</span>
+          <h3>Au comptoir</h3>
+          <p>Douze places face à la cuisine. Vins de Moselle au verre, fromages affinés, terrine maison.</p>
+          <ul>
+            <li><span>Verre 12 cl</span><span>dès 5 €</span></li>
+          </ul>
+          <a class="lnk" href="carte.html#vins">Les vins <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="producteurs" aria-labelledby="prod-title">
+    <div class="band">
+      <img src="assets/img/marche-etal.jpg" alt="Étal de légumes et de fruits de saison au marché couvert" loading="lazy" data-parallax>
+      <div class="band__cap"><div class="wrap"><p>Trente-huit pas entre l'étal et notre cuisine.</p><span class="mono">Marché couvert de Metz · ouvert du mardi au samedi dès 7 h</span></div></div>
+    </div>
+    <div class="wrap sec" style="padding-top:0">
+      <div class="prod">
+        <div class="radius">
+          <h2 id="prod-title" class="sr-only">Nos producteurs</h2>
+          <div class="n" aria-label="34 kilomètres de rayon moyen">34<span>km</span></div>
+          <p>C'est la distance moyenne entre nos producteurs et votre assiette, cette semaine. Chaque nom est écrit sur l'ardoise, à côté du plat.</p>
+        </div>
+        <table class="ptable">
+          <caption class="sr-only">Producteurs de la semaine et distance jusqu'au restaurant</caption>
+          <thead><tr><th>Producteur</th><th class="hide-m">Ce qu'il nous apporte</th><th class="km">Distance</th></tr></thead>
+          <tbody>
+            <tr><td>Vergers Thiriet<span class="where">Woippy (57)</span></td><td class="hide-m">Mirabelles, quetsches, pommes reinettes</td><td class="km">6 km<span class="kmbar"><i style="--w:7%"></i></span></td></tr>
+            <tr><td>Ferme Hennequin<span class="where">Ars-Laquenexy (57)</span></td><td class="hide-m">Potimarrons, poireaux, carottes fanes</td><td class="km">9 km<span class="kmbar"><i style="--w:11%"></i></span></td></tr>
+            <tr><td>Fromagerie des Côtes<span class="where">Gorze (57)</span></td><td class="hide-m">Tomme de vache, faisselle, crème crue</td><td class="km">19 km<span class="kmbar"><i style="--w:22%"></i></span></td></tr>
+            <tr><td>Pisciculture du Val de Nied<span class="where">Condé-Northen (57)</span></td><td class="hide-m">Truite, omble chevalier</td><td class="km">31 km<span class="kmbar"><i style="--w:36%"></i></span></td></tr>
+            <tr><td>Domaine Laurent-Weber<span class="where">Contz-les-Bains (57)</span></td><td class="hide-m">Auxerrois et pinot noir, AOC Moselle</td><td class="km">38 km<span class="kmbar"><i style="--w:44%"></i></span></td></tr>
+            <tr><td>Élevage Collignon<span class="where">Saulnois (57)</span></td><td class="hide-m">Bœuf race lorraine, veau sous la mère</td><td class="km">42 km<span class="kmbar"><i style="--w:49%"></i></span></td></tr>
+            <tr><td>Moulin de la Seille<span class="where">Pont-à-Mousson (54)</span></td><td class="hide-m">Farine T80 pour le pain maison</td><td class="km">86 km<span class="kmbar"><i style="--w:100%"></i></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec day" id="journee" aria-labelledby="journee-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="journee-title" data-split>Une journée de <em>l'ardoise</em></h2>
+        <p>Rien n'est imprimé. La carte du jour est décidée entre l'étal et le passe, puis écrite à la craie au-dessus du comptoir.</p>
+      </div>
+      <ol class="timeline">
+        <li><time>7 h 00</time><h3>Les étals</h3><p>Tour des Halles avec la liste de la veille. On goûte, on négocie, on change d'avis.</p></li>
+        <li><time>9 h 30</time><h3>Le choix</h3><p>Trois produits deviennent les plats. Le reste part en garniture ou en bouillon.</p></li>
+        <li class="is-key"><time>11 h 00</time><h3>La craie</h3><p>L'ardoise est écrite, prix et provenance compris. La carte en ligne suit dans la minute.</p></li>
+        <li><time>12 h 00</time><h3>Service midi</h3><p>Formule à 24 €. Un plat barré, c'est qu'il n'y en a plus.</p></li>
+        <li><time>19 h 15</time><h3>Service soir</h3><p>Assiettes à partager, vins de Moselle, rythme plus lent.</p></li>
+        <li><time>22 h 00</time><h3>Dernière commande</h3><p>Les restes du jour deviennent le repas d'équipe. Rien ne se jette.</p></li>
+      </ol>
+      <div class="day__aside">
+        <img src="assets/img/dressage.jpg" alt="Le chef émince des herbes sur une planche, en cuisine" loading="lazy">
+        <div>
+          <blockquote>« Je ne sais pas ce qu'on servira demain. C'est le marché qui décide, pas moi. »</blockquote>
+          <cite>Mathis R. · chef et co-fondateur</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="lieu" aria-labelledby="lieu-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="lieu-title" data-split>Quarante couverts, <em>une cuisine ouverte</em></h2>
+        <p>Une salle basse, des lampes à hauteur de table, le bar en zinc d'origine. Le soir, on voit le marché fermer depuis la vitrine.</p>
+      </div>
+      <div class="gal">
+        <figure class="g1"><img src="assets/img/salle-soir.jpg" alt="La salle du restaurant le soir, tables en bois et banquettes" loading="lazy"><figcaption>La salle · 40 couverts</figcaption></figure>
+        <figure class="g2"><img src="assets/img/comptoir-bar.jpg" alt="Le comptoir en bois avec ardoises au mur et bouteilles alignées" loading="lazy"><figcaption>Le comptoir · 12 places</figcaption></figure>
+        <figure class="g3"><img src="assets/img/dessert.jpg" alt="Verrines de crème et fraises" loading="lazy"><figcaption>Dessert</figcaption></figure>
+        <figure class="g4"><img src="assets/img/tablee.jpg" alt="Assiettes à partager posées au centre d'une table" loading="lazy"><figcaption>À partager</figcaption></figure>
+        <figure class="g5"><img src="assets/img/vins.jpg" alt="Verres de vin rouge levés pour trinquer" loading="lazy"><figcaption>Vins au verre</figcaption></figure>
+        <figure class="g6"><img src="assets/img/hero-assiette.jpg" alt="Service du soir, assiette dressée et verres de vin blanc" loading="lazy" style="object-position:60% 60%"><figcaption>Service du soir</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="avis-title" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="avis-title">Ce qu'en disent <em>les habitués</em></h2>
+        <p>Quelques mots laissés après un repas. Pas de note sur cinq, juste ce qui a compté.</p>
+      </div>
+      <div class="quotes">
+        <figure style="margin:0">
+          <blockquote class="q-main">On vient le jeudi midi depuis deux ans. Je n'ai jamais mangé deux fois le même plat, et je n'ai jamais été déçue.</blockquote>
+          <figcaption class="who"><b>Claire M.</b><span>Formule midi · cliente depuis 2024</span></figcaption>
+        </figure>
+        <div class="q-side">
+          <figure><blockquote>Le serveur nous a dit d'où venait la truite, à quelle heure elle était arrivée. C'est rare et ça se goûte.</blockquote><figcaption><b>Antoine L.</b> · dîner à deux</figcaption></figure>
+          <figure><blockquote>Ma fille est allergique aux fruits à coque. Les codes sur la carte nous ont fait gagner dix minutes de questions.</blockquote><figcaption><b>Samira B.</b> · déjeuner en famille</figcaption></figure>
+          <figure><blockquote>Le comptoir, un auxerrois de Contz et la terrine. Meilleur début de soirée du quartier.</blockquote><figcaption><b>Julien P.</b> · au comptoir</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="infos" aria-labelledby="infos-title" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="infos-title">Horaires &amp; <em>accès</em></h2>
+        <p>Fermé dimanche et lundi, comme le marché. Pensez à réserver le vendredi et le samedi soir.</p>
+      </div>
+      <div class="infos">
+        <div>
+          <h3>Horaires</h3>
+          <table class="hours" id="hours">
+            <tbody>
+              <tr data-d="2"><td>Mardi</td><td>12 h – 14 h</td></tr>
+              <tr data-d="3"><td>Mercredi</td><td>12 h – 14 h · 19 h 15 – 22 h</td></tr>
+              <tr data-d="4"><td>Jeudi</td><td>12 h – 14 h · 19 h 15 – 22 h</td></tr>
+              <tr data-d="5"><td>Vendredi</td><td>12 h – 14 h · 19 h 15 – 22 h</td></tr>
+              <tr data-d="6"><td>Samedi</td><td>12 h – 14 h 30 · 19 h – 22 h 30</td></tr>
+              <tr class="closed" data-d="0"><td>Dimanche, lundi</td><td>Fermé</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Adresse</h3>
+          <address>14 place de la Cathédrale<br>57000 Metz</address>
+          <p>Face à l'entrée sud du marché couvert. Mettis A et B, arrêt République à 6 minutes à pied. Parking Cathédrale à 2 minutes.</p>
+          <p>Salle de plain-pied, accessible en fauteuil.</p>
+        </div>
+        <div>
+          <h3>Réservations &amp; allergies</h3>
+          <span class="tel">03 83 41 27 90</span>
+          <p style="margin-top:6px">reservation@exemple.fr · réponse sous 2 h en journée</p>
+          <p>Les 14 allergènes réglementaires sont notés par codes sur chaque plat.</p>
+          <div class="allerg" aria-label="Exemples de codes allergènes"><span title="Gluten">GL</span><span title="Lait">LA</span><span title="Œufs">OE</span><span title="Fruits à coque">FC</span><span title="Poisson">PO</span><span title="Sulfites">SU</span><span title="Céleri">CE</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-title">
+    <img src="assets/img/comptoir-bar.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <h2 id="cta-title" data-split>Demain, la carte <em>aura changé.</em></h2>
+      <p>Réservez pour ce soir ou pour la semaine. On garde toujours quatre places au comptoir pour ceux qui passent.</p>
+      <div class="btns">
+        <a class="btn btn--accent" href="carte.html#reserver">Réserver une table <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="carte.html">Voir la carte</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="logo" href="index.html"><b>Le Comptoir <i>des</i> Halles</b></a>
+        <p style="max-width:34ch;margin:14px 0 0">Bistronomie de marché, face aux Halles de Metz. Cuisine du jour, producteurs nommés, vins de Moselle.</p>
+      </div>
+      <div><h4>Manger</h4><ul><li><a href="carte.html">La carte</a></li><li><a href="carte.html#midi">Formule midi</a></li><li><a href="carte.html#vins">Accords vins</a></li></ul></div>
+      <div><h4>Venir</h4><ul><li><a href="#infos">Horaires</a></li><li><a href="#infos">Accès</a></li><li><a href="carte.html#reserver">Réserver</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>03 83 41 27 90</li><li>bonjour@exemple.fr</li></ul></div>
+    </div>
+    <div class="ftr__bot"><span>© 2026 Le Comptoir des Halles · Contenu de démonstration, marque fictive</span><span>Maquette 1903RGB · Photos Unsplash</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  // Header + burger
+  var hdr=document.getElementById('hdr'),burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  function onScroll(){hdr.classList.toggle('is-solid',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('is-open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false')})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false');burger.focus()}});
+
+  // Date du jour sur l'ardoise + horaires
+  try{
+    var d=new Date(),day=d.getDay();
+    var s=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+    if(day!==0&&day!==1) document.getElementById('today').textContent=s;
+    var row=document.querySelector('#hours tr[data-d="'+(day===1?0:day)+'"]'); if(row) row.classList.add('today');
+  }catch(e){}
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis
+  if(window.Lenis){
+    var lenis=new Lenis({lerp:.12});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-72})}})});
+  }
+
+  // Split words (keeps <em>), accessible label on parent
+  function split(el){
+    el.setAttribute('aria-label',el.textContent.replace(/\s+/g,' ').trim());
+    var words=[];
+    (function walk(node,parent){
+      Array.from(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(p){
+            if(!p) return;
+            if(!p.trim()){frag.appendChild(document.createTextNode(p));return}
+            var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');w.textContent=p;frag.appendChild(w);words.push(w);
+          });
+          node.replaceChild(frag,n);
+        } else if(n.nodeType===1){ walk(n) }
+      });
+    })(el);
+    return words;
+  }
+  document.fonts&&document.fonts.ready.then(go);
+  if(!document.fonts) go();
+  var started=false;
+  function go(){
+    if(started) return; started=true;
+    document.querySelectorAll('[data-split]').forEach(function(el){
+      var w=split(el);
+      var inHero=el.closest('.hero');
+      gsap.from(w,{yPercent:40,opacity:0,duration:.9,ease:'expo.out',stagger:.07,delay:inHero?.15:0,
+        scrollTrigger:inHero?null:{trigger:el,start:'top 85%',once:true}});
+    });
+    gsap.from('.hero__lede, .hero__cta',{y:16,opacity:0,duration:.8,ease:'expo.out',stagger:.1,delay:.6});
+    gsap.from('.ardoise',{y:24,opacity:0,duration:1,ease:'expo.out',delay:.8});
+    gsap.from('.ardoise li',{x:-10,opacity:0,duration:.6,ease:'power2.out',stagger:.09,delay:1.1});
+    gsap.from('.hero__img img',{scale:1.08,duration:2.2,ease:'power2.out'});
+
+    gsap.utils.toArray('.offer article, .ptable tbody tr, .timeline li, .q-side figure, .infos > div').forEach(function(el){
+      gsap.from(el,{y:22,opacity:0,duration:.8,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});
+    });
+    gsap.utils.toArray('.kmbar i').forEach(function(el){
+      gsap.from(el,{scaleX:0,transformOrigin:'left',duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+    });
+    gsap.utils.toArray('.gal figure').forEach(function(el,i){
+      gsap.from(el,{y:40,opacity:0,duration:1,ease:'expo.out',delay:(i%2)*.08,scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+    });
+    var band=document.querySelector('[data-parallax]');
+    if(band) gsap.fromTo(band,{yPercent:-8},{yPercent:0,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'bottom top',scrub:true}});
+    window.addEventListener('load',function(){ScrollTrigger.refresh()});
+  }
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

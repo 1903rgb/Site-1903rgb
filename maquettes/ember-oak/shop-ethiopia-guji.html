@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ethiopia Guji, Hambela · Ember &amp; Oak Coffee</title>
+<meta name="description" content="Natural process Ethiopia Guji from Hambela, 2,150–2,300 masl, cupped at 87.25. Roasted in Bristol by Ember & Oak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --char:#120B07; --roast:#1C130D; --bark:#2A1D14; --oak:#4A3424;
+  --crema:#EFE2CE; --ash:#AE9A84; --ember:#F0652A; --glow:#FFB45C;
+  --f-display:"Gloock", "Iowan Old Style", Georgia, serif;
+  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-data:"DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut:max(clamp(16px,4vw,56px), env(safe-area-inset-left,0px));
+  --gut-r:max(clamp(16px,4vw,56px), env(safe-area-inset-right,0px));
+  --max:1360px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--char);color:var(--crema);font:400 17px/1.6 var(--f-body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.data{font-family:var(--f-data);font-size:13px;letter-spacing:.02em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(36px,4.6vw,64px)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:2px;font:600 15px/1 var(--f-body);text-decoration:none;border:1px solid transparent;transition:background .4s,color .4s,border-color .4s;cursor:pointer}
+.btn-fire{background:var(--ember);color:#1a0d06}
+.btn-fire:hover{background:var(--glow)}
+.kicker{color:var(--glow);margin-bottom:16px;display:block}
+
+/* header (shared) */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(18,11,7,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,52,36,.6)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.mark{font-family:var(--f-display);font-size:24px;text-decoration:none;display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.mark i{font-style:normal;color:var(--ember)}
+.mark small{font:500 10px/1 var(--f-data);color:var(--ash);letter-spacing:.12em;text-transform:uppercase;margin-left:6px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-size:15px;color:var(--ash);transition:color .3s}
+.nav a:hover,.nav a[aria-current]{color:var(--crema)}
+.nav .btn{color:#1a0d06;padding:11px 18px}
+.burger{display:none;background:none;border:1px solid var(--oak);color:var(--crema);width:44px;height:44px;border-radius:2px;cursor:pointer;align-items:center;justify-content:center}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));flex-direction:column;align-items:flex-start;gap:4px;background:var(--char);padding:20px var(--gut-r) 28px var(--gut);border-bottom:1px solid var(--oak);display:none}
+  .nav.open{display:flex}
+  .nav a{font-size:22px;padding:8px 0;color:var(--crema);font-family:var(--f-display)}
+  .nav .btn{margin-top:12px;font-family:var(--f-body);font-size:16px}
+}
+
+/* product */
+.crumbs{padding:22px 0 0;color:var(--ash)}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--crema)}
+.product{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);padding-top:28px;padding-bottom:clamp(70px,9vw,120px);align-items:start}
+.media{position:sticky;top:96px}
+.media figure{margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:2px;position:relative}
+.media img{width:100%;height:100%;object-fit:cover}
+.media .stamp{position:absolute;left:18px;top:18px;background:rgba(18,11,7,.82);padding:12px 14px;border-left:3px solid var(--ember)}
+.media .stamp b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1;text-transform:none;letter-spacing:0;margin-top:4px;color:var(--crema)}
+.lotcurve{margin-top:16px;border:1px solid var(--oak);padding:16px 18px 12px}
+.lotcurve .row{display:flex;justify-content:space-between;color:var(--ash);gap:12px;flex-wrap:wrap}
+.lotcurve svg{display:block;width:100%;height:110px;margin-top:10px}
+.lotcurve .bt{fill:none;stroke:var(--ember);stroke-width:2.5}
+.lotcurve .fc{stroke:var(--glow);stroke-dasharray:3 4;stroke-width:1}
+.lotcurve .g{stroke:rgba(239,226,206,.08)}
+
+.info h1{font-size:clamp(46px,6vw,92px);line-height:.95;letter-spacing:-.02em}
+.info .origin{color:var(--ash);margin-top:14px}
+.notes-big{margin:30px 0 8px;font-family:var(--f-display);font-size:clamp(28px,3vw,42px);line-height:1.12}
+.notes-big span:nth-child(1){color:var(--ember)}
+.notes-big span:nth-child(3){color:var(--ash)}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--oak);margin-top:30px}
+.spec{padding:16px 0;border-bottom:1px solid var(--oak)}
+.spec:nth-child(odd){padding-right:16px;border-right:1px solid var(--oak)}
+.spec:nth-child(even){padding-left:18px}
+.spec dt{font:500 11px var(--f-data);text-transform:uppercase;letter-spacing:.06em;color:var(--ash)}
+.spec dd{margin:4px 0 0;font-size:17px}
+.spec dd b{font-family:var(--f-display);font-weight:400;font-size:28px;color:var(--glow)}
+.roastbar{margin-top:10px;display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.roastbar i{height:8px;background:var(--bark)}
+.roastbar i.on{background:linear-gradient(90deg,#c9893c,#a3552a)}
+.roastbar-lbl{display:flex;justify-content:space-between;font:400 10px var(--f-data);color:var(--ash);text-transform:uppercase;margin-top:5px}
+
+form.buy{margin-top:34px}
+fieldset{border:0;margin:0 0 22px;padding:0;min-width:0}
+legend{font:500 12px var(--f-data);text-transform:uppercase;letter-spacing:.06em;color:var(--ash);margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:flex;flex-direction:column;gap:2px;padding:12px 16px;border:1px solid var(--oak);border-radius:2px;font-size:15px;transition:border-color .3s,background .3s;min-width:80px}
+.opt span small{font:400 12px var(--f-data);color:var(--ash)}
+.opt input:checked + span{border-color:var(--ember);background:rgba(240,101,42,.1)}
+.opt input:focus-visible + span{outline:2px solid var(--glow);outline-offset:2px}
+.opt:hover span{border-color:var(--ash)}
+.freq{display:none;margin-top:10px}
+.freq.show{display:flex}
+.buyrow{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--oak)}
+.total{font-family:var(--f-display);font-size:42px;line-height:1}
+.total small{display:block;font:400 12px var(--f-data);color:var(--ash);text-transform:uppercase;margin-top:6px}
+.total s{color:var(--ash);font-size:22px;margin-right:6px}
+.buyrow .btn{flex:1;min-width:200px;padding:18px 24px;font-size:16px}
+.buy-msg{margin-top:14px;min-height:22px;color:var(--glow);font-family:var(--f-data);font-size:13px}
+.ship{margin-top:6px;color:var(--ash);font-size:14px}
+
+/* lower sections */
+.band{border-top:1px solid var(--oak);padding:clamp(70px,9vw,120px) 0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px)}
+.story p{color:#d4c2ab;margin-bottom:18px;max-width:620px}
+.cup{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin-top:8px}
+.cup div{display:grid;grid-template-columns:110px minmax(0,1fr) 44px;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--oak);font-size:15px}
+.cup .bar{height:4px;background:var(--bark);position:relative}
+.cup .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--ember)}
+.cup b{font:500 13px var(--f-data);text-align:right;font-weight:500}
+.cup-total{display:flex;align-items:baseline;gap:14px;margin-top:22px}
+.cup-total b{font-family:var(--f-display);font-weight:400;font-size:64px;color:var(--glow);line-height:1}
+.recipes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--oak);margin-top:40px}
+.recipe{padding:28px 28px 28px 0;border-right:1px solid var(--oak)}
+.recipe + .recipe{padding-left:28px}
+.recipe:last-child{border-right:0}
+.recipe h3{font-size:30px;margin-bottom:14px}
+.recipe dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px}
+.recipe dt{color:var(--ash);font:400 12px/1.9 var(--f-data);text-transform:uppercase}
+.recipe dd{margin:0}
+
+/* footer */
+.foot{padding:64px 0 calc(28px + env(safe-area-inset-bottom,0px));color:var(--ash);font-size:15px;border-top:1px solid var(--oak)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:48px;border-bottom:1px solid var(--oak)}
+.foot h4{margin:0 0 14px;font:500 12px var(--f-data);text-transform:uppercase;letter-spacing:.08em;color:var(--crema)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--crema)}
+.foot .mark{color:var(--crema);margin-bottom:14px}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;font-size:13px}
+
+@media (max-width:900px){
+  .product,.story{grid-template-columns:minmax(0,1fr)}
+  .media{position:static}
+  .media figure{aspect-ratio:5/4}
+  .recipes{grid-template-columns:minmax(0,1fr)}
+  .recipe,.recipe + .recipe{padding:24px 0;border-right:0;border-bottom:1px solid var(--oak)}
+  .cup{grid-template-columns:minmax(0,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > div:first-child{grid-column:1/-1}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .specs{grid-template-columns:minmax(0,1fr)}
+  .spec:nth-child(n){padding-left:0;padding-right:0;border-right:0}
+  .cup div{grid-template-columns:96px minmax(0,1fr) 40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Ember and Oak Coffee, home">Ember <i>&amp;</i> Oak<small>Bristol</small></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html#roasts" aria-current="page">Roasts</a>
+      <a href="index.html#roastery">Roastery</a>
+      <a href="index.html#cafe">Café</a>
+      <a href="index.html#visit">Visit</a>
+      <a class="btn btn-fire" href="#buy">Buy this coffee</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap crumbs data"><a href="index.html">Home</a> / <a href="index.html#roasts">Roasts</a> / Ethiopia Guji</div>
+
+  <section class="wrap product" aria-labelledby="p-title">
+    <div class="media">
+      <figure>
+        <img src="assets/img/guji-beans.jpg" alt="Light-roasted Guji coffee beans on a dark surface" fetchpriority="high">
+        <div class="stamp data">Roasted<b>22 Oct 2026</b></div>
+      </figure>
+      <div class="lotcurve" role="img" aria-label="Roast curve for this lot: first crack at 8:12, dropped at 203°C at 9:40.">
+        <div class="row data"><span>Batch 2611 · light filter</span><span>FC 8:12 · Drop 203°C @ 9:40</span></div>
+        <svg viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+          <line class="g" x1="0" y1="100" x2="1000" y2="100" vector-effect="non-scaling-stroke"/>
+          <line class="g" x1="0" y1="200" x2="1000" y2="200" vector-effect="non-scaling-stroke"/>
+          <line class="fc" x1="820" y1="0" x2="820" y2="300" vector-effect="non-scaling-stroke"/>
+          <path class="bt" vector-effect="non-scaling-stroke" d="M0.0 56.2 C8.3 70.2 32.5 118.1 50.0 140.0 C67.5 161.9 80.0 182.9 105.0 187.5 C130.0 192.1 167.5 175.0 200.0 167.5 C232.5 160.0 263.3 151.2 300.0 142.5 C336.7 133.8 390.0 121.2 420.0 115.0 C450.0 108.8 446.7 110.4 480.0 105.0 C513.3 99.6 580.0 89.0 620.0 82.5 C660.0 76.0 686.7 70.6 720.0 66.2 C753.3 61.9 791.7 58.8 820.0 56.2 C848.3 53.8 870.8 52.9 890.0 51.2 C909.2 49.6 935.0 46.8 967.0 44.6"/>
+        </svg>
+        <div class="row data" style="margin-top:6px"><span>Dev. time 1:28</span><span>DTR 15.2%</span></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <span class="kicker data">Ethiopia · Oromia · Guji Zone</span>
+      <h1 id="p-title">Guji, Hambela</h1>
+      <p class="origin">Natural process · Hambela Wamena washing station · 2025/26 harvest</p>
+      <p class="notes-big" aria-label="Tasting notes: strawberry jam, bergamot, cacao nib"><span>Strawberry jam.</span> <span>Bergamot.</span> <span>Cacao nib.</span></p>
+      <p style="color:#d4c2ab;max-width:560px">Sun-dried in the cherry for three weeks, so the fruit comes through loud. Roasted light to keep the bergamot bright and the finish clean.</p>
+
+      <dl class="specs">
+        <div class="spec"><dt>Altitude</dt><dd>2,150–2,300 masl</dd></div>
+        <div class="spec"><dt>Process</dt><dd>Natural, 18–21 days on raised beds</dd></div>
+        <div class="spec"><dt>Varieties</dt><dd>JARC 74110, 74112, Kurume</dd></div>
+        <div class="spec"><dt>Roast date</dt><dd>22 Oct 2026 · ships 23 Oct</dd></div>
+        <div class="spec"><dt>Cupping score</dt><dd><b>87.25</b> SCA</dd></div>
+        <div class="spec"><dt>Roast level</dt><dd>Light filter
+          <div class="roastbar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <div class="roastbar-lbl" aria-hidden="true"><span>Light</span><span>Dark</span></div></dd></div>
+      </dl>
+
+      <form class="buy" id="buy" novalidate>
+        <fieldset>
+          <legend>Size</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="size" value="250" data-price="13.50" checked><span>250 g<small>£13.50</small></span></label>
+            <label class="opt"><input type="radio" name="size" value="500" data-price="25.00"><span>500 g<small>£25.00</small></span></label>
+            <label class="opt"><input type="radio" name="size" value="1000" data-price="46.00"><span>1 kg<small>£46.00</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Grind</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="grind" value="Whole bean" checked><span>Whole bean</span></label>
+            <label class="opt"><input type="radio" name="grind" value="Filter (V60)"><span>Filter / V60</span></label>
+            <label class="opt"><input type="radio" name="grind" value="AeroPress"><span>AeroPress</span></label>
+            <label class="opt"><input type="radio" name="grind" value="Cafetière"><span>Cafetière</span></label>
+            <label class="opt"><input type="radio" name="grind" value="Espresso"><span>Espresso</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Purchase</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="plan" value="once" checked><span>One-off</span></label>
+            <label class="opt"><input type="radio" name="plan" value="sub"><span>Subscribe<small>Save 10%</small></span></label>
+          </div>
+          <div class="opts freq" id="freq">
+            <label class="opt"><input type="radio" name="freq" value="1 week"><span>Weekly</span></label>
+            <label class="opt"><input type="radio" name="freq" value="2 weeks" checked><span>Every 2 weeks</span></label>
+            <label class="opt"><input type="radio" name="freq" value="4 weeks"><span>Every 4 weeks</span></label>
+          </div>
+        </fieldset>
+        <div class="buyrow">
+          <p class="total" aria-live="polite"><span id="price">£13.50</span><small id="price-note">One bag · whole bean</small></p>
+          <button class="btn btn-fire" type="submit">Add to basket</button>
+        </div>
+        <p class="buy-msg" role="status" aria-live="polite"></p>
+        <p class="ship">Order by 2 pm Thursday for Friday’s post. Free UK delivery over £30.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="story-title">
+    <div class="wrap story">
+      <div>
+        <span class="kicker data">Where it comes from</span>
+        <h2 id="story-title">High, cold nights. Slow cherries.</h2>
+      </div>
+      <div>
+        <p>Hambela sits on the western edge of Guji, where farms climb past 2,100 metres. Around 800 smallholders deliver ripe cherry to the Wamena station, usually less than a hectare each, grown under false banana and native shade.</p>
+        <p>Cherries are sorted by hand, then dried whole on raised beds for 18 to 21 days and turned every hour in the heat of the day. That slow drying is where the jammy strawberry comes from.</p>
+        <p>We bought 20 bags (60 kg each) through our importer at a published FOB price of $4.10 per pound. When they are gone, they are gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="cup-title">
+    <div class="wrap">
+      <div class="story">
+        <div>
+          <span class="kicker data">Cupping sheet · 14 Oct 2026</span>
+          <h2 id="cup-title">How it scored on our table.</h2>
+          <div class="cup-total"><b>87.25</b><span class="data" style="color:var(--ash)">SCA · 3 cups · 2 cuppers</span></div>
+        </div>
+        <div class="cup" aria-label="Cupping scores out of 10">
+          <div><span>Fragrance</span><span class="bar"><i style="width:85%"></i></span><b>8.50</b></div>
+          <div><span>Flavour</span><span class="bar"><i style="width:85%"></i></span><b>8.50</b></div>
+          <div><span>Aftertaste</span><span class="bar"><i style="width:80%"></i></span><b>8.00</b></div>
+          <div><span>Acidity</span><span class="bar"><i style="width:82.5%"></i></span><b>8.25</b></div>
+          <div><span>Body</span><span class="bar"><i style="width:77.5%"></i></span><b>7.75</b></div>
+          <div><span>Balance</span><span class="bar"><i style="width:80%"></i></span><b>8.00</b></div>
+          <div><span>Uniformity</span><span class="bar"><i style="width:100%"></i></span><b>10.00</b></div>
+          <div><span>Clean cup</span><span class="bar"><i style="width:100%"></i></span><b>10.00</b></div>
+          <div><span>Sweetness</span><span class="bar"><i style="width:100%"></i></span><b>10.00</b></div>
+          <div><span>Overall</span><span class="bar"><i style="width:82.5%"></i></span><b>8.25</b></div>
+        </div>
+      </div>
+
+      <div class="recipes">
+        <div class="recipe"><h3>V60</h3><dl><dt>Dose</dt><dd>15 g, medium-fine</dd><dt>Water</dt><dd>250 g at 94°C</dd><dt>Bloom</dt><dd>45 g, 40 s</dd><dt>Total</dt><dd>2:45 – 3:00</dd></dl></div>
+        <div class="recipe"><h3>AeroPress</h3><dl><dt>Dose</dt><dd>14 g, fine</dd><dt>Water</dt><dd>220 g at 90°C</dd><dt>Steep</dt><dd>1:30, inverted</dd><dt>Press</dt><dd>30 s, gentle</dd></dl></div>
+        <div class="recipe"><h3>Espresso</h3><dl><dt>Dose</dt><dd>18 g in</dd><dt>Yield</dt><dd>45 g out (1:2.5)</dd><dt>Time</dt><dd>28 – 32 s</dd><dt>Rest</dt><dd>10+ days off roast</dd></dl></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="mark" href="index.html">Ember <i>&amp;</i> Oak</a><p>Small-batch coffee roasters and café. Bristol, since 2019.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="#buy">Ethiopia Guji</a></li><li><a href="index.html#roasts">All roasts</a></li><li><a href="index.html#cta-title">Subscriptions</a></li></ul></div>
+      <div><h4>Visit</h4><ul><li><a href="index.html#visit">Hours</a></li><li><a href="index.html#cafe">Café menu</a></li><li><a href="index.html#roastery">The roastery</a></li></ul></div>
+      <div><h4>Talk to us</h4><ul><li>0117 496 0381</li><li>hello@example.com</li><li><a href="index.html">Back to home</a></li></ul></div>
+    </div>
+    <div class="foot-base"><span>© 2026 Ember &amp; Oak Coffee · fictional brand</span><span>Demonstration content · Contenu de démonstration · Site by 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var burger=document.querySelector('.burger'), nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  // price logic
+  var form=document.getElementById('buy'), price=document.getElementById('price'), note=document.getElementById('price-note'), freq=document.getElementById('freq'), msg=document.querySelector('.buy-msg');
+  function val(n){return form.querySelector('input[name="'+n+'"]:checked');}
+  function fmt(n){return '£'+n.toFixed(2);}
+  function update(){
+    var base=parseFloat(val('size').dataset.price), sub=val('plan').value==='sub';
+    freq.classList.toggle('show',sub);
+    var sizeLbl=val('size').value==='1000'?'1 kg':val('size').value+' g';
+    if(sub){
+      price.innerHTML='<s>'+fmt(base)+'</s>'+fmt(base*0.9);
+      note.textContent=sizeLbl+' every '+val('freq').value+' · '+val('grind').value.toLowerCase();
+    } else {
+      price.textContent=fmt(base);
+      note.textContent=sizeLbl+' · '+val('grind').value.toLowerCase();
+    }
+  }
+  form.addEventListener('change',update); update();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var sub=val('plan').value==='sub';
+    msg.textContent=sub?'Subscription added. First bag ships after Friday’s roast.':'Added to basket: Guji, Hambela, '+note.textContent+'.';
+  });
+
+  if(!window.gsap) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){
+    var lenis=new Lenis({lerp:.08,smoothWheel:true,anchors:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+  }
+  var tl=gsap.timeline({defaults:{ease:'power4.out',duration:1}});
+  tl.from('.media figure',{clipPath:'inset(0 0 100% 0)',duration:1.2})
+    .from('.media img',{scale:1.12,duration:1.4},0)
+    .from('.info > *',{y:26,autoAlpha:0,stagger:.07,duration:.8},.2)
+    .from('.lotcurve svg',{clipPath:'inset(0% 100% 0% 0%)',duration:1.8,ease:'power2.inOut',clearProps:'clipPath'},.5);
+  gsap.utils.toArray('.band').forEach(function(b){
+    gsap.from(b.querySelectorAll('h2, .story p, .cup > div, .recipe, .cup-total'),{y:28,autoAlpha:0,stagger:.05,duration:.85,ease:'power4.out',scrollTrigger:{trigger:b,start:'top 82%',once:true}});
+  });
+  gsap.from('.cup .bar i',{scaleX:0,transformOrigin:'left',stagger:.05,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.cup',start:'top 85%',once:true}});
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

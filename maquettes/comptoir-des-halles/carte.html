@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La carte · Le Comptoir des Halles</title>
+<meta name="description" content="Carte du jour du Comptoir des Halles à Metz : entrées, plats, desserts, formule midi 24 €, accords vins de Moselle et réservation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --slate:#14181a;
+  --slate-2:#1b2124;
+  --slate-3:#232a2e;
+  --chalk:#ece8df;
+  --chalk-2:rgba(236,232,223,.72);
+  --chalk-3:rgba(236,232,223,.5);
+  --line:rgba(236,232,223,.14);
+  --line-2:rgba(236,232,223,.26);
+  --accent:#e8b04a;
+  --accent-ink:#1a1407;
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter:max(16px, env(safe-area-inset-left,0px));
+  --gutter-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--slate);color:var(--chalk);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--chalk-3)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:2px;font:600 15px/1 var(--f-body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn--accent{background:var(--accent);color:var(--accent-ink)}
+.btn--accent:hover{background:#f2c062}
+.btn--ghost{border-color:var(--line-2);color:var(--chalk);background:transparent}
+.btn--ghost:hover{border-color:var(--chalk)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* Header (shared) */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(20,24,26,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.logo b{font:500 21px/1 var(--f-display);letter-spacing:-.01em}
+.logo b i{font-style:italic;font-weight:400;color:var(--accent)}
+.logo span{font:400 11px/1 var(--f-mono);color:var(--chalk-3);letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-size:14px;color:var(--chalk-2);transition:color .2s}
+.nav a:hover,.nav a[aria-current]{color:var(--chalk)}
+.nav a[aria-current]{box-shadow:0 1px 0 var(--accent)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px;color:var(--accent-ink);box-shadow:none}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);background:transparent;color:var(--chalk);border-radius:2px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+@media (max-width:860px){
+  .logo span{display:none}
+  .burger{display:inline-flex}
+  .nav{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));flex-direction:column;align-items:stretch;gap:0;background:var(--slate);border-bottom:1px solid var(--line);padding:8px var(--gutter-r) 20px var(--gutter);display:none}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--chalk)}
+  .nav a[aria-current]{box-shadow:none;color:var(--accent)}
+  .nav .btn{margin-top:16px;justify-content:center;min-height:48px;border-bottom:0}
+}
+
+/* Page head */
+.phead{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.phead__grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:end}
+.phead h1{font:400 clamp(48px,7vw,104px)/.95 var(--f-display);letter-spacing:-.03em;margin:14px 0 0}
+.phead h1 em{font-style:italic;font-weight:300;color:var(--accent)}
+.phead p{margin:0;color:var(--chalk-2);font-size:17px;max-width:44ch}
+.stamp{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}
+.stamp span{font:500 12px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--chalk-2);border:1px solid var(--line-2);padding:8px 10px}
+.stamp span b{color:var(--accent);font-weight:500}
+@media (max-width:860px){.phead{padding:48px 0 32px}.phead__grid{grid-template-columns:1fr;gap:20px}}
+
+/* Layout: menu + sticky aside */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;padding:56px 0 40px}
+@media (max-width:1040px){.layout{grid-template-columns:1fr;gap:40px}}
+
+/* Allergen filter */
+.filter{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));z-index:5;background:var(--slate);padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:8px}
+.filter__row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter__lbl{font:500 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--chalk-3);margin-right:6px}
+.chip{font:500 12px/1 var(--f-mono);letter-spacing:.03em;border:1px solid var(--line-2);background:transparent;color:var(--chalk-2);padding:8px 10px;min-height:34px;cursor:pointer;border-radius:2px;transition:all .2s}
+.chip:hover{border-color:var(--chalk)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.filter__msg{font:400 12.5px/1.4 var(--f-mono);color:var(--chalk-3);margin:10px 0 0;min-height:1.4em}
+.filter__msg b{color:var(--accent);font-weight:500}
+
+/* Menu */
+.course{padding-top:48px}
+.course__h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line-2);padding-bottom:12px;margin-bottom:4px}
+.course__h h2{font:400 clamp(32px,3.6vw,48px)/1 var(--f-display);letter-spacing:-.02em;margin:0}
+.course__h h2 em{font-style:italic;font-weight:300}
+.dishes{list-style:none;margin:0;padding:0}
+.dish{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:20px 0;border-bottom:1px solid var(--line);transition:opacity .3s}
+.dish h3{font:400 22px/1.25 var(--f-display);margin:0}
+.dish .p{font:500 16px/1.4 var(--f-mono);white-space:nowrap;text-align:right}
+.dish .d{grid-column:1/-1;margin:0;color:var(--chalk-2);font-size:15px;max-width:62ch}
+.dish .meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-top:6px;font:400 12px/1.4 var(--f-mono);color:var(--chalk-3);text-transform:uppercase;letter-spacing:.03em}
+.dish .meta .km{color:var(--accent)}
+.codes{display:inline-flex;gap:4px}
+.codes abbr{text-decoration:none;border:1px solid var(--line-2);padding:2px 5px;color:var(--chalk-2);font-size:11px}
+.dish.is-midi h3::after{content:"midi";font:500 10px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent-ink);background:var(--accent);padding:3px 5px;margin-left:10px;vertical-align:4px}
+.dish.is-out{opacity:.22}
+.dish.is-out h3{text-decoration:line-through;text-decoration-color:var(--accent)}
+.dish.is-gone h3,.dish.is-gone .p{text-decoration:line-through;text-decoration-color:var(--accent);color:var(--chalk-3)}
+
+/* Aside */
+.aside{position:sticky;top:calc(96px + env(safe-area-inset-top,0px));align-self:start;display:flex;flex-direction:column;gap:20px}
+.midi{border:1px solid var(--accent);padding:24px;position:relative}
+.midi .mono{color:var(--accent)}
+.midi h2{font:400 26px/1.1 var(--f-display);margin:10px 0 6px}
+.midi .big{font:300 76px/.9 var(--f-display);letter-spacing:-.03em;margin:10px 0 4px}
+.midi .big small{font:500 13px/1 var(--f-mono);color:var(--chalk-3);letter-spacing:.02em;margin-left:4px}
+.midi ul{list-style:none;padding:0;margin:14px 0 0;font-size:14.5px}
+.midi li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.midi li span:last-child{font-family:var(--f-mono);font-size:13px}
+.midi p{font-size:13.5px;color:var(--chalk-2);margin:14px 0 0}
+.legend{border:1px solid var(--line);padding:20px 22px}
+.legend h2{font:500 12px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--chalk-3);margin:0 0 14px}
+.legend dl{display:grid;grid-template-columns:auto 1fr;gap:7px 12px;margin:0;font-size:13.5px}
+.legend dt{font:500 11px/1.6 var(--f-mono);border:1px solid var(--line-2);padding:0 5px;text-align:center;color:var(--chalk-2)}
+.legend dd{margin:0;color:var(--chalk-2)}
+@media (max-width:1040px){.aside{position:static;display:grid;grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.aside{grid-template-columns:1fr}}
+
+/* Vins */
+.vins{border-top:1px solid var(--line);padding:96px 0}
+.vins__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:56px;align-items:start}
+.vins__img{position:relative}
+.vins__img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.vins__img .mono{display:block;margin-top:10px}
+.vins h2{font:400 clamp(34px,4.2vw,58px)/1 var(--f-display);letter-spacing:-.02em;margin:0 0 16px}
+.vins h2 em{font-style:italic;font-weight:300;color:var(--accent)}
+.vins .intro{color:var(--chalk-2);max-width:52ch;margin:0 0 28px}
+.wt{width:100%;border-collapse:collapse;font-size:15px}
+.wt th{font:500 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--chalk-3);text-align:left;padding:0 10px 12px 0;border-bottom:1px solid var(--line-2)}
+.wt th.n,.wt td.n{text-align:right;padding-right:0;padding-left:14px;white-space:nowrap}
+.wt td{padding:15px 10px 15px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.wt td:first-child b{display:block;font:400 18px/1.3 var(--f-display);font-weight:400}
+.wt td:first-child span{display:block;font:400 12px/1.4 var(--f-mono);color:var(--chalk-3);text-transform:uppercase;letter-spacing:.03em;margin-top:3px}
+.wt td.acc{color:var(--chalk-2);font-size:14px}
+.wt td.n{font-family:var(--f-mono);font-size:14px}
+.wt .acc i{color:var(--accent);font-style:normal}
+@media (max-width:860px){.vins{padding:64px 0}.vins__grid{grid-template-columns:1fr;gap:32px}.vins__img img{aspect-ratio:16/10}.wt .hide-m{display:none}}
+
+/* Réservation */
+.resa{background:var(--slate-2);border-top:1px solid var(--line);padding:96px 0}
+.resa__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:64px}
+.resa h2{font:400 clamp(36px,4.6vw,64px)/1 var(--f-display);letter-spacing:-.02em;margin:0 0 18px}
+.resa h2 em{font-style:italic;font-weight:300;color:var(--accent)}
+.resa .lead{color:var(--chalk-2);max-width:40ch;margin:0 0 26px}
+.resa .facts{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.resa .facts li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:14.5px}
+.resa .facts li span:last-child{font-family:var(--f-mono);font-size:13px;color:var(--chalk);text-align:right}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 18px}
+.f{display:flex;flex-direction:column;gap:7px}
+.f.full{grid-column:1/-1}
+label,.f legend{font:500 11.5px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--chalk-3)}
+input,select,textarea{font:400 16px/1.4 var(--f-body);color:var(--chalk);background:var(--slate);border:1px solid var(--line-2);border-radius:2px;padding:12px 14px;min-height:48px;width:100%;transition:border-color .2s}
+textarea{min-height:92px;resize:vertical}
+input:hover,select:hover,textarea:hover{border-color:var(--chalk-3)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+input[aria-invalid="true"]{border-color:#e0795a}
+.err{font:400 12px/1.3 var(--f-mono);color:#e0795a;min-height:0}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23ece8df' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+input[type=date]::-webkit-calendar-picker-indicator{filter:invert(1)}
+fieldset{border:0;margin:0;padding:0;grid-column:1/-1}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.slots label{position:relative;cursor:pointer}
+.slots input{position:absolute;opacity:0;width:1px;height:1px}
+.slots span{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid var(--line-2);font:500 14px/1 var(--f-mono);letter-spacing:.02em;color:var(--chalk-2);text-transform:none;transition:all .2s}
+.slots label:hover span{border-color:var(--chalk)}
+.slots input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.slots input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.form__foot{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+.form__foot small{font-size:13px;color:var(--chalk-3);max-width:40ch}
+.ok{grid-column:1/-1;border:1px solid var(--accent);padding:22px 24px;display:none}
+.ok.is-on{display:block}
+.ok h3{font:italic 400 26px/1.2 var(--f-display);margin:0 0 6px}
+.ok p{margin:0;color:var(--chalk-2)}
+@media (max-width:860px){.resa{padding:64px 0}.resa__grid{grid-template-columns:1fr;gap:40px}form{grid-template-columns:1fr}}
+
+/* Footer (shared) */
+.ftr{border-top:1px solid var(--line);padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px));font-size:14px;color:var(--chalk-2)}
+.ftr__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.ftr h4{font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-3);margin:0 0 14px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--chalk)}
+.ftr__bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font:400 12px/1.5 var(--f-mono);color:var(--chalk-3)}
+@media (max-width:760px){.ftr__grid{grid-template-columns:1fr 1fr}.ftr__grid > :first-child{grid-column:1/-1}}
+.w{display:inline-block}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#menu">Aller à la carte</a>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="Le Comptoir des Halles, accueil"><b>Le Comptoir <i>des</i> Halles</b><span>Metz · face au marché couvert</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="carte.html" aria-current="page">La carte</a>
+      <a href="index.html#producteurs">Producteurs</a>
+      <a href="#vins">Vins</a>
+      <a href="index.html#infos">Horaires &amp; accès</a>
+      <a class="btn btn--accent" href="#reserver">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="phead">
+    <div class="wrap phead__grid">
+      <div>
+        <span class="mono">Carte du jour · semaine 44</span>
+        <h1 data-split>Ce que le marché <em>a donné</em> ce matin</h1>
+      </div>
+      <div>
+        <p>Écrite à la craie à 11 h, recopiée ici dans la minute. Chaque plat porte le nom de son producteur, la distance parcourue et ses codes allergènes.</p>
+        <div class="stamp"><span>Mise à jour <b id="upd">11 h 05</b></span><span>Rayon moyen <b>34 km</b></span><span>Plats barrés : <b>épuisés</b></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout" id="menu">
+    <div>
+      <div class="filter" role="group" aria-labelledby="flbl">
+        <div class="filter__row">
+          <span class="filter__lbl" id="flbl">Masquer les plats contenant</span>
+          <button class="chip" type="button" data-a="GL" aria-pressed="false">GL gluten</button>
+          <button class="chip" type="button" data-a="LA" aria-pressed="false">LA lait</button>
+          <button class="chip" type="button" data-a="OE" aria-pressed="false">OE œufs</button>
+          <button class="chip" type="button" data-a="FC" aria-pressed="false">FC fruits à coque</button>
+          <button class="chip" type="button" data-a="PO" aria-pressed="false">PO poisson</button>
+          <button class="chip" type="button" data-a="CE" aria-pressed="false">CE céleri</button>
+        </div>
+        <p class="filter__msg" id="fmsg" aria-live="polite">Touchez un code pour griser les plats concernés. Signalez toute allergie à la réservation.</p>
+      </div>
+
+      <section class="course" aria-labelledby="c-entrees">
+        <div class="course__h"><h2 id="c-entrees">Entrées</h2><span class="mono">9 – 14 €</span></div>
+        <ul class="dishes">
+          <li class="dish is-midi" data-a="LA FC CE"><h3>Velouté de potimarron, noisettes torréfiées</h3><span class="p">9 €</span><p class="d">Crème crue de Gorze, huile de noisette, croûtons de pain T80.</p><div class="meta"><span>Ferme Hennequin · Ars-Laquenexy</span><span class="km">9 km</span><span class="codes"><abbr title="Lait">LA</abbr><abbr title="Fruits à coque">FC</abbr><abbr title="Céleri">CE</abbr></span></div></li>
+          <li class="dish" data-a="GL OE MO"><h3>Pâté lorrain de la maison, salade amère</h3><span class="p">12 €</span><p class="d">Porc et veau marinés au vin blanc, pâte feuilletée, frisée et moutarde à l'ancienne.</p><div class="meta"><span>Élevage Collignon · Saulnois</span><span class="km">42 km</span><span class="codes"><abbr title="Gluten">GL</abbr><abbr title="Œufs">OE</abbr><abbr title="Moutarde">MO</abbr></span></div></li>
+          <li class="dish is-midi" data-a="PO LA"><h3>Truite fumée maison, faisselle et raifort</h3><span class="p">13 €</span><p class="d">Fumée au hêtre le matin même, pickles de betterave chioggia.</p><div class="meta"><span>Pisciculture du Val de Nied</span><span class="km">31 km</span><span class="codes"><abbr title="Poisson">PO</abbr><abbr title="Lait">LA</abbr></span></div></li>
+          <li class="dish" data-a="LA SU"><h3>Poireaux grillés, vinaigrette d'auxerrois</h3><span class="p">11 €</span><p class="d">Tomme des Côtes râpée, ciboulette, échalote confite.</p><div class="meta"><span>Ferme Hennequin · Ars-Laquenexy</span><span class="km">9 km</span><span class="codes"><abbr title="Lait">LA</abbr><abbr title="Sulfites">SU</abbr></span></div></li>
+        </ul>
+      </section>
+
+      <section class="course" aria-labelledby="c-plats">
+        <div class="course__h"><h2 id="c-plats">Plats</h2><span class="mono">21 – 29 €</span></div>
+        <ul class="dishes">
+          <li class="dish is-midi" data-a="PO LA SU"><h3>Truite de Moselle, beurre blanc au riesling</h3><span class="p">24 €</span><p class="d">Cuite sur la peau, poireaux fondants, pommes de terre écrasées à l'huile.</p><div class="meta"><span>Pisciculture du Val de Nied</span><span class="km">31 km</span><span class="codes"><abbr title="Poisson">PO</abbr><abbr title="Lait">LA</abbr><abbr title="Sulfites">SU</abbr></span></div></li>
+          <li class="dish is-gone" data-a="SU CE"><h3>Joue de bœuf braisée, carottes fanes</h3><span class="p">23 €</span><p class="d">Sept heures au pinot noir de Moselle, jus réduit, carottes rôties au miel. Épuisé ce midi.</p><div class="meta"><span>Élevage Collignon · Saulnois</span><span class="km">42 km</span><span class="codes"><abbr title="Sulfites">SU</abbr><abbr title="Céleri">CE</abbr></span></div></li>
+          <li class="dish" data-a="LA"><h3>Quasi de veau rosé, purée de céleri-rave</h3><span class="p">28 €</span><p class="d">Veau sous la mère, champignons des bois du marché, jus corsé.</p><div class="meta"><span>Élevage Collignon · Saulnois</span><span class="km">42 km</span><span class="codes"><abbr title="Lait">LA</abbr></span></div></li>
+          <li class="dish is-midi" data-a="GL LA OE"><h3>Courge rôtie, quenelles de ricotta, sauge</h3><span class="p">21 €</span><p class="d">Plat végétarien. Beurre noisette, graines de courge, pain grillé.</p><div class="meta"><span>Ferme Hennequin · Fromagerie des Côtes</span><span class="km">9 – 19 km</span><span class="codes"><abbr title="Gluten">GL</abbr><abbr title="Lait">LA</abbr><abbr title="Œufs">OE</abbr></span></div></li>
+        </ul>
+      </section>
+
+      <section class="course" aria-labelledby="c-desserts">
+        <div class="course__h"><h2 id="c-desserts">Desserts</h2><span class="mono">8 – 10 €</span></div>
+        <ul class="dishes">
+          <li class="dish is-midi" data-a="GL LA OE"><h3>Tarte fine aux mirabelles, crème crue</h3><span class="p">9 €</span><p class="d">Dernières mirabelles de la saison, pâte feuilletée maison.</p><div class="meta"><span>Vergers Thiriet · Woippy</span><span class="km">6 km</span><span class="codes"><abbr title="Gluten">GL</abbr><abbr title="Lait">LA</abbr><abbr title="Œufs">OE</abbr></span></div></li>
+          <li class="dish" data-a="LA FC"><h3>Panna cotta à la faisselle, quetsches pochées</h3><span class="p">8 €</span><p class="d">Sirop à la cannelle, crumble de noisettes à part sur demande.</p><div class="meta"><span>Fromagerie des Côtes · Gorze</span><span class="km">19 km</span><span class="codes"><abbr title="Lait">LA</abbr><abbr title="Fruits à coque">FC</abbr></span></div></li>
+          <li class="dish" data-a="LA"><h3>Assiette de trois fromages affinés</h3><span class="p">10 €</span><p class="d">Selon l'affinage de la semaine, confiture de quetsches.</p><div class="meta"><span>Fromagerie des Côtes · Gorze</span><span class="km">19 km</span><span class="codes"><abbr title="Lait">LA</abbr></span></div></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <div class="midi" id="midi">
+        <span class="mono">Mardi → samedi · 12 h – 14 h</span>
+        <h2>Formule du midi</h2>
+        <div class="big">24 €<small>2 temps</small></div>
+        <ul>
+          <li><span>Entrée + plat ou plat + dessert</span><span>24 €</span></li>
+          <li><span>Entrée + plat + dessert</span><span>29 €</span></li>
+          <li><span>Verre de vin du moment</span><span>+ 6 €</span></li>
+        </ul>
+        <p>Choix parmi les plats marqués <strong style="color:var(--accent);font-weight:600">midi</strong>. Servi en 50 minutes si vous êtes pressé, dites-le à l'arrivée.</p>
+      </div>
+      <div class="legend">
+        <h2>Codes allergènes</h2>
+        <dl>
+          <dt>GL</dt><dd>Céréales contenant du gluten</dd>
+          <dt>LA</dt><dd>Lait et produits laitiers</dd>
+          <dt>OE</dt><dd>Œufs</dd>
+          <dt>FC</dt><dd>Fruits à coque</dd>
+          <dt>PO</dt><dd>Poisson</dd>
+          <dt>CE</dt><dd>Céleri</dd>
+          <dt>MO</dt><dd>Moutarde</dd>
+          <dt>SU</dt><dd>Sulfites (&gt; 10 mg/kg)</dd>
+        </dl>
+        <p class="mono" style="margin:14px 0 0;text-transform:none;letter-spacing:0;font-size:12px">Liste des 14 allergènes réglementaires (règlement UE 1169/2011) disponible en salle.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="vins" id="vins" aria-labelledby="vins-title">
+    <div class="wrap vins__grid">
+      <div class="vins__img">
+        <img src="assets/img/vins.jpg" alt="Verres de vin rouge levés autour d'une table" loading="lazy">
+        <span class="mono">Verre 12 cl · bouteille 75 cl</span>
+      </div>
+      <div>
+        <h2 id="vins-title" data-split>Accords <em>de Moselle et d'ailleurs</em></h2>
+        <p class="intro">Une carte courte, surtout lorraine. On vous sert un fond de verre pour goûter avant de choisir.</p>
+        <table class="wt">
+          <thead><tr><th>Vin</th><th class="hide-m">Avec</th><th class="n">Verre</th><th class="n">Btl.</th></tr></thead>
+          <tbody>
+            <tr><td><b>Auxerrois 2024</b><span>Dom. Laurent-Weber · AOC Moselle</span></td><td class="acc hide-m"><i>→</i> Truite, beurre blanc</td><td class="n">6 €</td><td class="n">29 €</td></tr>
+            <tr><td><b>Pinot gris « Les Coteaux »</b><span>Dom. Laurent-Weber · AOC Moselle</span></td><td class="acc hide-m"><i>→</i> Velouté, poireaux grillés</td><td class="n">7 €</td><td class="n">34 €</td></tr>
+            <tr><td><b>Gris de Toul 2024</b><span>Côtes de Toul · rosé</span></td><td class="acc hide-m"><i>→</i> Pâté lorrain</td><td class="n">5 €</td><td class="n">24 €</td></tr>
+            <tr><td><b>Pinot noir 2022</b><span>Dom. Laurent-Weber · AOC Moselle</span></td><td class="acc hide-m"><i>→</i> Joue de bœuf, quasi de veau</td><td class="n">8 €</td><td class="n">38 €</td></tr>
+            <tr><td><b>Riesling vendanges tardives</b><span>Alsace · 50 cl</span></td><td class="acc hide-m"><i>→</i> Tarte aux mirabelles</td><td class="n">9 €</td><td class="n">46 €</td></tr>
+            <tr><td><b>Jus de mirabelle pétillant</b><span>Vergers Thiriet · sans alcool</span></td><td class="acc hide-m"><i>→</i> Tout le repas</td><td class="n">4 €</td><td class="n">16 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="resa" id="reserver" aria-labelledby="resa-title">
+    <div class="wrap resa__grid">
+      <div>
+        <h2 id="resa-title" data-split>Réserver <em>une table</em></h2>
+        <p class="lead">Confirmation par SMS dans les deux heures. Au-delà de 8 couverts, appelez-nous : on compose un menu avec vous.</p>
+        <ul class="facts">
+          <li><span>Téléphone</span><span>03 83 41 27 90</span></li>
+          <li><span>E-mail</span><span>reservation@exemple.fr</span></li>
+          <li><span>Table gardée</span><span>15 minutes</span></li>
+          <li><span>Comptoir</span><span>4 places sans réservation</span></li>
+        </ul>
+      </div>
+      <form id="resa-form" novalidate>
+        <div class="f"><label for="r-date">Date</label><input id="r-date" name="date" type="date" required><span class="err" id="e-date"></span></div>
+        <div class="f"><label for="r-couv">Couverts</label><select id="r-couv" name="couverts"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
+        <fieldset>
+          <legend>Service</legend>
+          <div class="slots">
+            <label><input type="radio" name="slot" value="12 h 00"><span>12 h 00</span></label>
+            <label><input type="radio" name="slot" value="12 h 30" checked><span>12 h 30</span></label>
+            <label><input type="radio" name="slot" value="13 h 15"><span>13 h 15</span></label>
+            <label><input type="radio" name="slot" value="19 h 15"><span>19 h 15</span></label>
+            <label><input type="radio" name="slot" value="20 h 00"><span>20 h 00</span></label>
+            <label><input type="radio" name="slot" value="21 h 00"><span>21 h 00</span></label>
+          </div>
+        </fieldset>
+        <div class="f"><label for="r-nom">Nom</label><input id="r-nom" name="nom" autocomplete="name" required><span class="err" id="e-nom"></span></div>
+        <div class="f"><label for="r-tel">Téléphone</label><input id="r-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required><span class="err" id="e-tel"></span></div>
+        <div class="f full"><label for="r-note">Allergies, occasion, chaise haute</label><textarea id="r-note" name="note" placeholder="Ex. : une personne allergique aux fruits à coque (FC)"></textarea></div>
+        <div class="form__foot">
+          <button class="btn btn--accent" type="submit">Envoyer la demande <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <small>Fermé dimanche et lundi. Le mardi, service du midi seulement.</small>
+        </div>
+        <div class="ok" id="ok" role="status" aria-live="polite" tabindex="-1"><h3>Demande bien reçue.</h3><p id="ok-msg"></p></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="logo" href="index.html"><b>Le Comptoir <i>des</i> Halles</b></a>
+        <p style="max-width:34ch;margin:14px 0 0">Bistronomie de marché, face aux Halles de Metz. Cuisine du jour, producteurs nommés, vins de Moselle.</p>
+      </div>
+      <div><h4>Manger</h4><ul><li><a href="carte.html">La carte</a></li><li><a href="#midi">Formule midi</a></li><li><a href="#vins">Accords vins</a></li></ul></div>
+      <div><h4>Venir</h4><ul><li><a href="index.html#infos">Horaires</a></li><li><a href="index.html">Accueil</a></li><li><a href="#reserver">Réserver</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>03 83 41 27 90</li><li>bonjour@exemple.fr</li></ul></div>
+    </div>
+    <div class="ftr__bot"><span>© 2026 Le Comptoir des Halles · Contenu de démonstration, marque fictive</span><span>Maquette 1903RGB · Photos Unsplash</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('is-open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false')})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false');burger.focus()}});
+
+  // Allergen filter
+  var chips=document.querySelectorAll('.chip'),dishes=document.querySelectorAll('.dish'),msg=document.getElementById('fmsg'),base=msg.innerHTML;
+  function apply(){
+    var on=Array.from(chips).filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset.a});
+    var n=0;
+    dishes.forEach(function(d){var codes=d.dataset.a.split(' ');var out=on.some(function(a){return codes.indexOf(a)>-1});d.classList.toggle('is-out',out);if(!out)n++;});
+    msg.innerHTML=on.length?'<b>'+n+' plat'+(n>1?'s':'')+'</b> sans '+on.join(', ')+' sur '+dishes.length+'. Les cuisines manipulent tous les allergènes : précisez-le en réservant.':base;
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});
+
+  // Form
+  var form=document.getElementById('resa-form'),ok=document.getElementById('ok'),dateI=document.getElementById('r-date');
+  var t=new Date();t.setDate(t.getDate()+1);while(t.getDay()===0||t.getDay()===1)t.setDate(t.getDate()+1);
+  var iso=function(d){return d.toISOString().slice(0,10)};
+  dateI.min=iso(new Date());dateI.value=iso(t);
+  function setErr(id,input,txt){document.getElementById(id).textContent=txt;input.setAttribute('aria-invalid',txt?'true':'false')}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nom=form.nom,tel=form.tel,valid=true;
+    var d=dateI.value?new Date(dateI.value+'T12:00'):null;
+    if(!d){setErr('e-date',dateI,'Choisissez une date.');valid=false}
+    else if(d.getDay()===0||d.getDay()===1){setErr('e-date',dateI,'Fermé dimanche et lundi.');valid=false}
+    else setErr('e-date',dateI,'');
+    if(nom.value.trim().length<2){setErr('e-nom',nom,'Indiquez un nom.');valid=false}else setErr('e-nom',nom,'');
+    if(tel.value.replace(/\D/g,'').length<10){setErr('e-tel',tel,'Numéro à 10 chiffres.');valid=false}else setErr('e-tel',tel,'');
+    if(!valid) return;
+    var slot=form.querySelector('input[name=slot]:checked').value;
+    var ds=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+    document.getElementById('ok-msg').textContent=form.couverts.value+' couvert'+(form.couverts.value>1?'s':'')+' le '+ds+' à '+slot+', au nom de '+nom.value.trim()+'. Vous recevrez un SMS de confirmation. (Démonstration : aucune donnée envoyée.)';
+    ok.classList.add('is-on');ok.focus();
+  });
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  function split(el){
+    el.setAttribute('aria-label',el.textContent.replace(/\s+/g,' ').trim());
+    var words=[];
+    (function walk(node){Array.from(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(!p.trim()){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');w.textContent=p;f.appendChild(w);words.push(w)});node.replaceChild(f,n)}
+      else if(n.nodeType===1)walk(n)})})(el);
+    return words;
+  }
+  (document.fonts?document.fonts.ready:Promise.resolve()).then(function(){
+    document.querySelectorAll('[data-split]').forEach(function(el,i){
+      var w=split(el);
+      gsap.from(w,{yPercent:40,opacity:0,duration:.9,ease:'expo.out',stagger:.07,scrollTrigger:i===0?null:{trigger:el,start:'top 85%',once:true}});
+    });
+    gsap.utils.toArray('.dish').forEach(function(el){gsap.from(el,{y:16,opacity:0,duration:.7,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 94%',once:true},clearProps:'opacity,transform'})});
+  });
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

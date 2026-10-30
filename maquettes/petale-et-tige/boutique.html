@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boutique — Pétale & Tige, Épinal</title>
+<meta name="description" content="Bouquets de saison, abonnement floral, ateliers et livraison locale à Épinal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=DM+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --shell:#1B2119;
+  --shell-ink:#C9CDBF;
+  --paper:#ECECE2;
+  --paper-2:#E2E3D6;
+  --paper-3:#D6D8C9;
+  --ink:#1A1F18;
+  --ink-2:#4B5245;
+  --ink-3:#6F7667;
+  --rule:rgba(26,31,24,.16);
+  --rule-strong:rgba(26,31,24,.42);
+  --accent:#B3245A;
+  --accent-ink:#FFF6F8;
+  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter:clamp(16px, 4vw, 56px);
+  --radius-shell:22px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--shell);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Outer dark frame + paper sheet */
+.sheet{
+  margin:10px max(10px, env(safe-area-inset-left,0px)) 10px max(10px, env(safe-area-inset-right,0px));
+  background-color:var(--paper);
+  background-image:repeating-linear-gradient(135deg, rgba(26,31,24,.028) 0 1px, transparent 1px 9px);
+  border-radius:var(--radius-shell);
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.7);
+  position:relative;
+  overflow:clip;
+}
+.wrap{padding-left:max(var(--gutter), env(safe-area-inset-left,0px));padding-right:max(var(--gutter), env(safe-area-inset-right,0px));max-width:1480px;margin:0 auto}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.latin{font-family:var(--f-display);font-style:italic;font-weight:400}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+
+/* Bracketed frame (herbarium plate corners) */
+.brk{position:relative}
+.brk::before,.brk::after{content:"";position:absolute;width:18px;height:18px;border:1px solid var(--ink);pointer-events:none;z-index:2}
+.brk::before{top:-8px;left:-8px;border-right:0;border-bottom:0}
+.brk::after{bottom:-8px;right:-8px;border-left:0;border-top:0}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(236,236,226,.9);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;align-items:baseline;gap:12px;text-decoration:none;margin-right:auto}
+.brand b{font-family:var(--f-display);font-weight:500;font-size:25px;letter-spacing:-.01em;white-space:nowrap}
+.brand b i{color:var(--accent);font-weight:400}
+.brand span{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-size:15px;position:relative;padding:4px 0}
+.nav a.btn{padding:11px 18px;white-space:nowrap}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:not(.btn):hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--ink);cursor:pointer;transition:background .25s,color .25s,transform .25s var(--ease)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn svg{width:16px;height:16px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--rule-strong);border-radius:50%;background:transparent;cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:16px;height:1px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:var(--ink);transition:transform .3s}
+.burger span::before{top:-5px}.burger span::after{top:5px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:900px){
+  .burger{display:inline-flex}
+  .brand span{display:none}
+  .nav{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px max(16px, env(safe-area-inset-left,0px)) 20px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--rule);font-size:18px}
+  .nav a.btn{margin-top:14px;justify-content:center;border-bottom:1px solid var(--ink)}
+}
+
+/* Footer */
+.foot{background:var(--shell);color:var(--shell-ink);margin:0;padding:56px 0 40px}
+.foot a{color:#EDEFE5;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot h3{font-family:var(--f-mono);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:#8E9684;margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px}
+.foot .big{font-family:var(--f-display);font-size:30px;color:#EDEFE5;line-height:1.1;margin:0 0 12px}
+.foot .big i{color:#E06A93}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:44px;padding-top:18px;border-top:1px solid rgba(201,205,191,.18);font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8E9684}
+@media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+.shop-hero{padding-top:34px;padding-bottom:40px}
+.plate-head{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--rule-strong);margin-bottom:34px;flex-wrap:wrap}
+.shop-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end}
+.shop-hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.95;letter-spacing:-.025em;margin:0}
+.shop-hero h1 em{color:var(--accent)}
+.cutoff{border:1px solid var(--ink);padding:16px 18px;background:#F5F5EE}
+.cutoff b{display:block;font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.15;margin:6px 0 4px}
+.cutoff p{margin:0;color:var(--ink-2);font-size:14px}
+.jump{display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:34px;padding-top:14px;border-top:1px solid var(--rule)}
+.jump a{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.jump a:hover{color:var(--accent)}
+
+.sec{padding-top:clamp(56px,7vw,104px);padding-bottom:clamp(56px,7vw,104px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:end;margin-bottom:40px}
+.sec-head h2{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,4.2vw,64px);line-height:1;letter-spacing:-.02em;margin:0}
+.sec-head h2 em{color:var(--accent)}
+.sec-head p{margin:0;color:var(--ink-2);max-width:54ch}
+.tint{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+
+/* Catalogue + panier */
+.shop-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(28px,3.5vw,56px);align-items:start}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+.product{display:flex;flex-direction:column;gap:12px}
+.product .frame{aspect-ratio:4/5;overflow:hidden;border:1px solid var(--rule-strong);background:var(--paper-3);position:relative}
+.product .frame img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.product:hover .frame img{transform:scale(1.03)}
+.product .badge{position:absolute;top:10px;left:10px;background:var(--paper);border:1px solid var(--ink);padding:4px 8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.product-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--ink);padding-bottom:8px}
+.product h3{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0;line-height:1.1}
+.product .price{font-family:var(--f-display);font-size:26px;white-space:nowrap}
+.product p{margin:0;color:var(--ink-2);font-size:15px}
+.product .compo{font-size:14px;color:var(--ink-3)}
+.product .compo .latin{color:var(--ink-2)}
+.add{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--ink);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;transition:background .2s,color .2s}
+.add:hover{background:var(--ink);color:var(--paper)}
+.add[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.add svg{width:14px;height:14px}
+
+.basket{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);border:1px solid var(--ink);background:#F5F5EE;padding:20px}
+.basket h2{font-family:var(--f-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between}
+.basket ul{list-style:none;margin:0 0 12px;padding:0;min-height:44px}
+.basket li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--rule-strong);font-size:15px}
+.basket li button{background:none;border:0;cursor:pointer;color:var(--ink-3);padding:0 0 0 6px;font-size:13px;text-decoration:underline}
+.basket .empty{color:var(--ink-3);font-size:14px;padding:8px 0}
+.field{display:grid;gap:5px;margin-bottom:12px}
+.field label{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+.field select,.field input{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink);border-radius:0;width:100%}
+.field select:focus,.field input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+.totals{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:15px;padding:10px 0 14px;border-top:1px solid var(--ink);margin-top:6px}
+.totals .grand{font-family:var(--f-display);font-size:26px}
+.basket .btn{width:100%;justify-content:center}
+.basket .btn[disabled]{opacity:.45;cursor:not-allowed;background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.confirm{margin-top:12px;padding:12px;border-left:3px solid var(--accent);background:var(--paper);font-size:14px}
+.confirm[hidden]{display:none}
+
+/* Livraison */
+.deliv-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,.8fr);gap:clamp(24px,3vw,48px)}
+.info h3{font-family:var(--f-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl td,.tbl th{padding:9px 0;border-bottom:1px solid var(--rule);text-align:left;font-weight:400;vertical-align:top}
+.tbl td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:12px}
+.info .small{font-size:14px;color:var(--ink-2);margin:12px 0 0}
+.bike{margin:0}
+.bike .frame{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--rule-strong)}
+.bike img{width:100%;height:100%;object-fit:cover}
+.bike figcaption{margin-top:10px}
+
+/* Abonnement */
+.plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--rule-strong)}
+.plan{padding:22px 22px 26px;border-right:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);display:flex;flex-direction:column;gap:10px}
+.plan h3{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0}
+.plan .amount{font-family:var(--f-display);font-size:44px;line-height:1}
+.plan .amount small{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:6px;letter-spacing:.04em}
+.plan ul{margin:0;padding:0 0 0 16px;color:var(--ink-2);font-size:15px;display:grid;gap:4px}
+.plan .add{margin-top:auto}
+.plan.pick{background:#F5F5EE;box-shadow:inset 0 3px 0 var(--accent)}
+
+/* Ateliers */
+.ws-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,4vw,64px);align-items:start}
+.ws-photo{margin:0;position:sticky;top:100px}
+.ws-photo .frame{aspect-ratio:2/3;overflow:hidden;border:1px solid var(--rule-strong)}
+.ws-photo img{width:100%;height:100%;object-fit:cover}
+.ws-photo figcaption{margin-top:10px}
+.ws-list{border-top:1px solid var(--ink)}
+.ws{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--rule-strong)}
+.ws .date{font-family:var(--f-display);font-size:30px;line-height:1}
+.ws .date small{display:block;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--ink-3);margin-top:4px}
+.ws h3{margin:0 0 4px;font-size:18px;font-weight:600}
+.ws p{margin:0;color:var(--ink-2);font-size:15px}
+.ws .seats{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-top:6px;display:block}
+.ws .seats.low{color:var(--accent)}
+.ws .side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.ws .side b{font-family:var(--f-display);font-weight:400;font-size:24px}
+.add[disabled]{opacity:.4;cursor:not-allowed;background:transparent;color:var(--ink)}
+
+@media (max-width:1100px){.plans{grid-template-columns:1fr 1fr}}
+@media (max-width:960px){
+  .shop-grid{grid-template-columns:1fr}
+  .basket{position:static}
+  .deliv-grid{grid-template-columns:1fr 1fr}
+  .bike{grid-column:1/-1}.bike .frame{aspect-ratio:16/9}
+  .ws-grid{grid-template-columns:1fr}
+  .ws-photo{position:static}.ws-photo .frame{aspect-ratio:16/9}
+}
+@media (max-width:720px){
+  .shop-hero-grid,.sec-head{grid-template-columns:1fr;gap:18px}
+  .products{grid-template-columns:1fr}
+  .deliv-grid{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .ws{grid-template-columns:72px minmax(0,1fr);gap:8px 16px}
+  .ws .side{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between}
+  .ws .date{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Pétale &amp; Tige, accueil"><b>Pétale <i>&amp;</i> Tige</b><span>Fleuriste · Épinal</span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html#saisons">Saisons</a>
+      <a href="index.html#atelier">L'atelier</a>
+      <a href="#livraison">Livraison</a>
+      <a href="boutique.html" aria-current="page">Boutique</a>
+      <a class="btn" href="#bouquets">Commander un bouquet</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="shop-hero wrap" aria-labelledby="shop-t">
+    <div class="plate-head mono"><span>Boutique — Semaine 44</span><span>du mardi 27 octobre au dimanche 1<sup>er</sup> novembre</span></div>
+    <div class="shop-hero-grid">
+      <h1 id="shop-t">Le stock de la semaine, <em>tige par tige.</em></h1>
+      <div class="cutoff" role="status" aria-live="polite">
+        <span class="mono tick">Livraison Épinal</span>
+        <b id="cutoff-t">Commandez avant 12 h, livré cet après-midi.</b>
+        <p id="cutoff-s">Créneau 14 h – 18 h 30. Après midi : livraison demain matin.</p>
+      </div>
+    </div>
+    <nav class="jump" aria-label="Sections de la boutique">
+      <a href="#bouquets">Bouquets de saison</a><a href="#livraison">Livraison locale</a><a href="#abonnement">Abonnement floral</a><a href="#ateliers">Ateliers</a>
+    </nav>
+  </section>
+
+  <section class="sec wrap" id="bouquets" aria-labelledby="bq-t" style="padding-top:24px">
+    <div class="sec-head">
+      <h2 id="bq-t">Bouquets <em>d'octobre</em></h2>
+      <p>Une seule composition, trois tailles. Ce qui change, c'est le nombre de tiges, pas la qualité. Chaque bouquet part avec sa carte botanique et un sachet de conservateur.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="products">
+        <article class="product">
+          <div class="frame"><img src="assets/img/bouquet-kraft.jpg" alt="Petit bouquet emballé dans du papier kraft" loading="lazy"><span class="badge">15 tiges</span></div>
+          <div class="product-head"><h3>Petit</h3><span class="price">35 €</span></div>
+          <p>Le format table de chevet ou bureau. Hauteur 40 cm.</p>
+          <p class="compo">Tournesol tardif <span class="latin">Helianthus annuus</span>, aster <span class="latin">Symphyotrichum</span>, eucalyptus <span class="latin">Eucalyptus cinerea</span>.</p>
+          <button class="add" type="button" data-id="petit" data-name="Bouquet Petit" data-price="35" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5"/></svg><span>Ajouter</span></button>
+        </article>
+        <article class="product">
+          <div class="frame"><img src="assets/img/bouquet-champetre.jpg" alt="Bouquet champêtre de roses pâles, chardons et feuillages" loading="lazy"><span class="badge">25 tiges · le plus commandé</span></div>
+          <div class="product-head"><h3>Moyen</h3><span class="price">49 €</span></div>
+          <p>Pour une table de salle à manger ou une entrée. Hauteur 55 cm.</p>
+          <p class="compo">Dahlia « Café au lait » <span class="latin">Dahlia pinnata</span>, rose de jardin <span class="latin">Rosa</span>, chardon <span class="latin">Eryngium planum</span>, physalis.</p>
+          <button class="add" type="button" data-id="moyen" data-name="Bouquet Moyen" data-price="49" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5"/></svg><span>Ajouter</span></button>
+        </article>
+        <article class="product">
+          <div class="frame"><img src="assets/img/bouquet-table.jpg" alt="Grand bouquet de roses pâles dans un vase sur une table" loading="lazy"><span class="badge">40 tiges</span></div>
+          <div class="product-head"><h3>Généreux</h3><span class="price">72 €</span></div>
+          <p>Le grand format, pour un salon, un accueil ou une occasion. Hauteur 70 cm.</p>
+          <p class="compo">Composition Moyen + chrysanthème <span class="latin">Chrysanthemum × morifolium</span> et branches de cotinus <span class="latin">Cotinus coggygria</span>.</p>
+          <button class="add" type="button" data-id="genereux" data-name="Bouquet Généreux" data-price="72" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5"/></svg><span>Ajouter</span></button>
+        </article>
+        <article class="product">
+          <div class="frame"><img src="assets/img/dahlia.jpg" alt="Dahlia blanc et rose en gros plan" loading="lazy"><span class="badge">Jusqu'aux gelées</span></div>
+          <div class="product-head"><h3>Botte de dahlias</h3><span class="price">24 €</span></div>
+          <p>Dix tiges d'une seule variété, à composer vous-même. Selon la cueillette du mardi.</p>
+          <p class="compo"><span class="latin">Dahlia pinnata</span> « Café au lait » ou « Labyrinth ». Changer l'eau tous les deux jours.</p>
+          <button class="add" type="button" data-id="botte" data-name="Botte de dahlias" data-price="24" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5"/></svg><span>Ajouter</span></button>
+        </article>
+      </div>
+
+      <form class="basket" id="basket" novalidate aria-labelledby="basket-t">
+        <h2 id="basket-t"><span>Votre sélection</span><span id="count">0</span></h2>
+        <ul id="lines"><li class="empty">Rien pour l'instant. Ajoutez un bouquet, un abonnement ou un atelier.</li></ul>
+        <div class="field">
+          <label for="zone">Commune de livraison</label>
+          <select id="zone" name="zone">
+            <option value="6">Épinal — 6 €</option>
+            <option value="8">Golbey, Chantraine, Jeuxey — 8 €</option>
+            <option value="10">Thaon-les-Vosges, Dogneville, Deyvillers — 10 €</option>
+            <option value="15">Charmes, Bruyères, Rambervillers — 15 €</option>
+            <option value="0">Retrait en boutique — 0 €</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="slot">Créneau</label>
+          <select id="slot" name="slot">
+            <option>Aujourd'hui · 14 h – 18 h 30</option>
+            <option>Demain · 9 h – 12 h</option>
+            <option>Demain · 14 h – 18 h 30</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="card">Mot pour la carte (facultatif)</label>
+          <input id="card" name="card" maxlength="140" placeholder="Bon anniversaire, maman.">
+        </div>
+        <div class="totals" aria-live="polite">
+          <span>Sous-total</span><span id="sub">0 €</span>
+          <span>Livraison</span><span id="ship">6 €</span>
+          <span class="grand">Total</span><span class="grand" id="total">0 €</span>
+        </div>
+        <button class="btn" type="submit" id="go" disabled>Valider la commande</button>
+        <p class="confirm" id="confirm" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec tint" id="livraison" aria-labelledby="lv-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="lv-t">Livraison <em>locale</em></h2>
+        <p>Dans Épinal, on livre en vélo-cargo électrique. Au-delà, en camionnette, deux tournées par jour du mercredi au samedi. Offerte dès 80 € de commande.</p>
+      </div>
+      <div class="deliv-grid">
+        <div class="info">
+          <h3>Zones et tarifs</h3>
+          <table class="tbl" aria-label="Tarifs de livraison">
+            <tr><th>Épinal, tous quartiers</th><td>6 €</td></tr>
+            <tr><th>Golbey, Chantraine, Jeuxey</th><td>8 €</td></tr>
+            <tr><th>Thaon-les-Vosges, Dogneville, Deyvillers</th><td>10 €</td></tr>
+            <tr><th>Charmes, Bruyères, Rambervillers</th><td>15 €</td></tr>
+            <tr><th>Commande ≥ 80 €</th><td>offerte</td></tr>
+          </table>
+        </div>
+        <div class="info">
+          <h3>Créneaux</h3>
+          <table class="tbl" aria-label="Créneaux">
+            <tr><th>Matin</th><td>9 h – 12 h</td></tr>
+            <tr><th>Après-midi</th><td>14 h – 18 h 30</td></tr>
+            <tr><th>Bureaux</th><td>mar. 8 h – 9 h</td></tr>
+            <tr><th>Mardi</th><td>après-midi seul.</td></tr>
+          </table>
+        </div>
+        <div class="info">
+          <h3>Bon à savoir</h3>
+          <table class="tbl" aria-label="Conditions">
+            <tr><th>Commande avant</th><td>12 h → jour même</td></tr>
+            <tr><th>Destinataire absent</th><td>voisin ou 2<sup>e</sup> passage</td></tr>
+            <tr><th>Bouquet abîmé</th><td>remplacé</td></tr>
+            <tr><th>Dimanche, lundi</th><td>pas de livraison</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="abonnement" aria-labelledby="ab-t">
+    <div class="sec-head">
+      <h2 id="ab-t">Abonnement <em>floral</em></h2>
+      <p>Le bouquet de la semaine, livré sans y penser. Pause, saut de semaine ou résiliation par simple message, au plus tard le lundi midi.</p>
+    </div>
+    <div class="plans">
+      <div class="plan"><span class="mono">Toutes les semaines</span><h3>Hebdo</h3><span class="amount">39 €<small>par livraison · format Moyen</small></span><ul><li>52 bouquets, 4 saisons</li><li>Livraison incluse à Épinal</li><li>Carte botanique</li></ul><button class="add" type="button" data-id="ab-hebdo" data-name="Abonnement Hebdo (1re livraison)" data-price="39" aria-pressed="false"><span>Choisir</span></button></div>
+      <div class="plan pick"><span class="mono tick">Le plus choisi</span><h3>Quinzaine</h3><span class="amount">42 €<small>toutes les deux semaines</small></span><ul><li>Format Moyen, 25 tiges</li><li>Livraison incluse à Épinal</li><li>Mardi ou vendredi au choix</li></ul><button class="add" type="button" data-id="ab-quinz" data-name="Abonnement Quinzaine (1re livraison)" data-price="42" aria-pressed="false"><span>Choisir</span></button></div>
+      <div class="plan"><span class="mono">Une fois par mois</span><h3>Mensuel</h3><span class="amount">45 €<small>premier vendredi du mois</small></span><ul><li>Format Moyen +5 tiges</li><li>Livraison incluse à Épinal</li><li>Idéal à offrir (3, 6 ou 12 mois)</li></ul><button class="add" type="button" data-id="ab-mens" data-name="Abonnement Mensuel (1re livraison)" data-price="45" aria-pressed="false"><span>Choisir</span></button></div>
+      <div class="plan"><span class="mono">Accueils, cabinets, restaurants</span><h3>Bureau</h3><span class="amount">69 €<small>HT par semaine · grand format</small></span><ul><li>Livré le mardi 8 h – 9 h</li><li>Vase prêté, eau changée</li><li>Facture mensuelle</li></ul><button class="add" type="button" data-id="ab-bureau" data-name="Abonnement Bureau (1re semaine)" data-price="69" aria-pressed="false"><span>Choisir</span></button></div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="ateliers" aria-labelledby="ws-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="ws-t">Ateliers <em>du samedi</em></h2>
+        <p>14 h 30 – 17 h, huit places, fleurs et outils fournis. Vous repartez avec votre création et la fiche des tiges utilisées. Bon cadeau possible.</p>
+      </div>
+      <div class="ws-grid">
+        <figure class="ws-photo"><div class="frame brk"><img src="assets/img/tulipes-vase.jpg" alt="Tulipes dans un vase en verre, réalisées en atelier" loading="lazy"></div><figcaption class="mono">Atelier « Bouquet main » · mars 2026</figcaption></figure>
+        <div class="ws-list">
+          <div class="ws"><span class="date">7<small>nov.</small></span><div><h3>Bouquet main, technique de la spirale</h3><p>Dahlias, asters et graminées. Le geste de base du fleuriste.</p><span class="seats low">3 places restantes</span></div><div class="side"><b>65 €</b><button class="add" type="button" data-id="ws-0711" data-name="Atelier 7 nov. — Bouquet main" data-price="65" aria-pressed="false"><span>Réserver</span></button></div></div>
+          <div class="ws"><span class="date">14<small>nov.</small></span><div><h3>Herbier pressé et cadre</h3><p>Presser, sécher, étiqueter. Vous montez votre propre planche botanique.</p><span class="seats">6 places restantes</span></div><div class="side"><b>55 €</b><button class="add" type="button" data-id="ws-1411" data-name="Atelier 14 nov. — Herbier pressé" data-price="55" aria-pressed="false"><span>Réserver</span></button></div></div>
+          <div class="ws"><span class="date">28<small>nov.</small></span><div><h3>Couronne de l'Avent</h3><p>Sapin Nordmann, pin, eucalyptus, baies d'ilex. Structure en osier, sans mousse.</p><span class="seats">Complet · liste d'attente</span></div><div class="side"><b>72 €</b><button class="add" type="button" disabled><span>Complet</span></button></div></div>
+          <div class="ws"><span class="date">5<small>déc.</small></span><div><h3>Couronne de l'Avent</h3><p>Deuxième session, mêmes matériaux.</p><span class="seats low">2 places restantes</span></div><div class="side"><b>72 €</b><button class="add" type="button" data-id="ws-0512" data-name="Atelier 5 déc. — Couronne de l'Avent" data-price="72" aria-pressed="false"><span>Réserver</span></button></div></div>
+          <div class="ws"><span class="date">12<small>déc.</small></span><div><h3>Centre de table de fêtes</h3><p>Hellébores, branchages, bougie. À emporter pour le réveillon.</p><span class="seats">8 places</span></div><div class="side"><b>68 €</b><button class="add" type="button" data-id="ws-1212" data-name="Atelier 12 déc. — Centre de table" data-price="68" aria-pressed="false"><span>Réserver</span></button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><p class="big">Pétale <i>&amp;</i> Tige</p><p style="margin:0;max-width:34ch">Fleuriste artisan et ateliers floraux. Fleurs de saison, producteurs des Vosges et d'Alsace.</p></div>
+      <div><h3>Pages</h3><ul><li><a href="index.html">Accueil</a></li><li><a href="boutique.html">Boutique</a></li><li><a href="#abonnement">Abonnement</a></li><li><a href="#ateliers">Ateliers</a></li></ul></div>
+      <div><h3>Contact</h3><ul><li>14 quai des Bons-Enfants, Épinal</li><li>03 83 41 27 60</li><li>bonjour@exemple.fr</li></ul></div>
+      <div><h3>Livraison</h3><ul><li>Avant 12 h → le jour même</li><li>9 h – 12 h · 14 h – 18 h 30</li><li>Offerte dès 80 €</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Pétale &amp; Tige — marque fictive</span><span>Contenu de démonstration · Maquette 1903RGB</span><span>Photos : Unsplash</span></div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Burger
+  var burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+  if (burger && nav) {
+    burger.addEventListener('click', function(){
+      var open = burger.getAttribute('aria-expanded') !== 'true';
+      burger.setAttribute('aria-expanded', open); nav.classList.toggle('open', open);
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) { burger.setAttribute('aria-expanded','false'); nav.classList.remove('open'); } });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('open')) { burger.click(); burger.focus(); } });
+  }
+  // Highlight today in opening hours
+  var d = new Date().getDay(), map = {2:'2',3:'3',4:'3',5:'3',6:'6',0:'0'};
+  var row = map[d] && document.querySelector('.tbl tr[data-d="'+map[d]+'"]'); if (row) row.classList.add('today');
+
+  window.PT = { reduce: reduce, lenis: null };
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.Lenis) {
+    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    window.PT.lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href'); if (id.length < 2) return;
+        var el = document.querySelector(id); if (!el || a.closest('.s-index')) return;
+        e.preventDefault(); lenis.scrollTo(el, { offset: -70 });
+      });
+    });
+  }
+  // Generic reveals: resting state stays visible, from() only once
+  gsap.utils.toArray('[data-rv]').forEach(function(el){
+    gsap.from(el.children.length && el.hasAttribute('data-rv-kids') ? el.children : el, {
+      y: 28, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08,
+      scrollTrigger: { trigger: el, start: 'top 86%', once: true }
+    });
+  });
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  if (document.fonts) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+})();
+
+(function(){
+  var PT = window.PT || {};
+  // Cut-off message from the real clock
+  var now = new Date(), h = now.getHours(), day = now.getDay();
+  var t = document.getElementById('cutoff-t'), s = document.getElementById('cutoff-s');
+  if (t && s) {
+    if (day === 0 || day === 1) { t.textContent = 'Boutique fermée aujourd’hui, livraisons dès mardi.'; s.textContent = 'Commandez maintenant : créneau mardi 14 h – 18 h 30.'; }
+    else if (h >= 12) { t.textContent = 'Commandez maintenant, livré demain matin.'; s.textContent = 'Créneau 9 h – 12 h. Avant midi demain : livraison l’après-midi même.'; }
+    else { var left = (11 - h) + ' h ' + String(59 - now.getMinutes()).padStart(2,'0'); t.textContent = 'Encore ' + left + ' pour être livré cet après-midi.'; }
+  }
+  // Selection
+  var sel = {}, lines = document.getElementById('lines'), zone = document.getElementById('zone');
+  var go = document.getElementById('go'), confirm = document.getElementById('confirm');
+  function eur(n){ return n.toLocaleString('fr-FR') + ' €'; }
+  function draw(){
+    var keys = Object.keys(sel), sub = 0;
+    lines.innerHTML = '';
+    if (!keys.length) { var e = document.createElement('li'); e.className = 'empty'; e.textContent = 'Rien pour l’instant. Ajoutez un bouquet, un abonnement ou un atelier.'; lines.appendChild(e); }
+    keys.forEach(function(k){
+      sub += sel[k].price;
+      var li = document.createElement('li'), a = document.createElement('span'), b = document.createElement('span'), x = document.createElement('button');
+      a.textContent = sel[k].name; b.textContent = eur(sel[k].price);
+      x.type = 'button'; x.textContent = 'retirer'; x.setAttribute('aria-label', 'Retirer ' + sel[k].name);
+      x.addEventListener('click', function(){ toggle(k); });
+      b.appendChild(x); li.appendChild(a); li.appendChild(b); lines.appendChild(li);
+    });
+    var ship = sub >= 80 ? 0 : (+zone.value || 0);
+    document.getElementById('count').textContent = keys.length;
+    document.getElementById('sub').textContent = eur(sub);
+    document.getElementById('ship').textContent = sub >= 80 ? 'offerte' : eur(ship);
+    document.getElementById('total').textContent = eur(sub ? sub + ship : 0);
+    go.disabled = !keys.length;
+    document.querySelectorAll('.add[data-id]').forEach(function(btn){
+      var on = !!sel[btn.dataset.id]; btn.setAttribute('aria-pressed', on);
+      var lab = btn.querySelector('span'); if (!lab.dataset.base) lab.dataset.base = lab.textContent;
+      lab.textContent = on ? 'Ajouté' : lab.dataset.base;
+    });
+  }
+  function toggle(id, btn){
+    if (sel[id]) delete sel[id];
+    else if (btn) sel[id] = { name: btn.dataset.name, price: +btn.dataset.price };
+    confirm.hidden = true; draw();
+  }
+  document.querySelectorAll('.add[data-id]').forEach(function(btn){
+    btn.addEventListener('click', function(){ toggle(btn.dataset.id, btn); });
+  });
+  zone.addEventListener('change', draw);
+  document.getElementById('basket').addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!Object.keys(sel).length) return;
+    var slot = document.getElementById('slot').value;
+    confirm.textContent = 'Commande notée (démonstration, aucun paiement). Créneau : ' + slot + '. Un SMS de confirmation vous serait envoyé par l’atelier.';
+    confirm.hidden = false;
+  });
+  draw();
+  // Light reveals
+  if (!PT.reduce && window.gsap) {
+    gsap.from('.shop-hero h1, .cutoff', { y: 24, opacity: 0, duration: .9, stagger: .12, ease: 'power3.out' });
+    gsap.utils.toArray('.product, .plan, .ws, .info').forEach(function(el){
+      gsap.from(el, { y: 26, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+  }
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

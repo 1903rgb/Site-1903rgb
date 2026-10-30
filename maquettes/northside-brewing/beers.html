@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beers, events &amp; tours — Northside Brewing Co.</title>
+<meta name="description" content="Core range and seasonal beers from Northside Brewing Co., Leeds, with ABV and IBU, taproom events and Saturday brewery tour booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Bowlby+One&family=Karla:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#E8E3D3;
+  --paper-2:#DCD5C0;
+  --ink:#161412;
+  --blue:#1F3FD1;
+  --orange:#FF5B1A;
+  --yellow:#F2D23A;
+  --muted:#5A554B;
+  --line:rgba(22,20,18,.85);
+  --f-display:"Bowlby One", "Arial Black", Impact, sans-serif;
+  --f-body:"Karla", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"Azeret Mono", "Courier New", monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --wrap:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:100}
+.skip:focus{left:16px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.02em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:400;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;margin:0}
+/* misregistered overprint: two inks slightly off register */
+.overprint{color:var(--blue);text-shadow:.045em .035em 0 var(--orange)}
+.overprint--inv{color:var(--orange);text-shadow:.045em .035em 0 var(--blue)}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:2px solid var(--ink)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:24px;letter-spacing:-.01em;line-height:1}
+.brand span{font-family:var(--f-mono);font-size:11px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:700;font-size:15px}
+.nav a:not(.btn):hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.burger{display:none;background:none;border:2px solid var(--ink);width:44px;height:40px;padding:0;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;transition:transform .2s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(3px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:800;font-size:16px;text-decoration:none;padding:13px 20px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--orange);transition:transform .15s, box-shadow .15s;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--orange)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--orange)}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:none}
+.btn--ghost:hover{background:var(--ink);color:var(--paper);box-shadow:none;transform:none}
+.btn svg{width:18px;height:18px}
+
+@media (max-width:860px){
+  .burger{display:block}
+  .nav{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));flex-direction:column;align-items:flex-start;gap:0;background:var(--paper);border-bottom:2px solid var(--ink);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.is-open{display:flex}
+  .nav a{font-family:var(--f-display);font-weight:400;font-size:30px;text-transform:uppercase;padding:8px 0}
+  .nav .btn{font-family:var(--f-body);font-size:16px;text-transform:none;margin-top:12px;padding:13px 20px}
+}
+
+/* ---------- screenprint photo ---------- */
+.print{position:relative;overflow:hidden;background:var(--orange);isolation:isolate}
+.print img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.35) brightness(1.05);mix-blend-mode:multiply}
+.print::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at center, rgba(232,227,211,.55) 0 1px, transparent 1.6px);background-size:5px 5px;mix-blend-mode:screen;opacity:.55}
+.print--blue{background:var(--blue)}
+.print--blue img{mix-blend-mode:screen;filter:grayscale(1) contrast(1.4) brightness(.8)}
+.print--yellow{background:var(--yellow)}
+.print--ink{background:var(--paper)}
+.print--ink img{filter:grayscale(1) contrast(1.5)}
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--ink);color:var(--paper);padding:64px 0 32px;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot-mark{font-family:var(--f-display);font-size:clamp(48px,9vw,132px);line-height:.85;text-transform:uppercase;color:var(--orange);margin:0 0 48px}
+.site-foot h3{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;font-weight:500;color:#A9A291;margin:0 0 12px}
+.site-foot ul{list-style:none;margin:0;padding:0}
+.site-foot li{margin:0 0 6px}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:var(--orange)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid #3a3631;margin-top:48px;padding-top:20px;color:#A9A291;font-size:13px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+
+/* ================= BEERS ================= */
+.sec{padding:clamp(72px,9vw,128px) 0}
+.page-hero{border-bottom:2px solid var(--ink);padding:clamp(48px,7vw,96px) 0 clamp(32px,4vw,48px);position:relative;overflow:hidden}
+.page-hero .wrap{display:grid;grid-template-columns:8fr 4fr;gap:32px;align-items:end}
+.page-hero h1{font-size:clamp(64px,12vw,190px)}
+.page-hero p{margin:0;font-size:18px;max-width:380px;background:var(--paper);border:2px solid var(--ink);padding:14px 16px;box-shadow:6px 6px 0 var(--ink);position:relative}
+.page-hero .print{position:absolute;right:-60px;top:-40px;width:min(36vw,520px);aspect-ratio:1;transform:rotate(8deg);z-index:-1;opacity:.95}
+.page-hero{isolation:isolate}
+@media (max-width:860px){.page-hero .wrap{grid-template-columns:1fr}.page-hero .print{width:62vw;right:-22vw;top:-10px}}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px}
+.filters button{border:2px solid var(--ink);background:transparent;padding:9px 16px;font-weight:800;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.filters button:hover{background:var(--paper-2)}
+.filters button[aria-pressed="true"]:hover{background:var(--ink)}
+.filters .count{align-self:center;margin-left:auto}
+
+.range{width:100%;border-collapse:collapse}
+.range thead th{font-family:var(--f-mono);font-size:11.5px;font-weight:500;text-transform:uppercase;text-align:left;padding:0 12px 10px 0;border-bottom:2px solid var(--ink);color:var(--muted)}
+.range td{padding:18px 12px 18px 0;border-bottom:1.5px solid var(--ink);vertical-align:middle}
+.range .sw{width:46px}
+.range .sw i{display:block;width:30px;height:46px;border:2px solid var(--ink)}
+.range .nm b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.6vw,36px);line-height:1;text-transform:uppercase}
+.range .nm span{font-size:15px;color:var(--muted)}
+.range .num{font-family:var(--f-display);font-size:24px;white-space:nowrap}
+.range .mono-cell{font-family:var(--f-mono);font-size:12.5px}
+.range .pill{display:inline-block;font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;padding:3px 7px;border:1.5px solid var(--ink)}
+.range .pill.s{background:var(--yellow)}
+.range tr[hidden]{display:none}
+.ibu{display:flex;align-items:center;gap:8px}
+.ibu-bar{width:60px;height:8px;border:1.5px solid var(--ink);position:relative}
+.ibu-bar i{position:absolute;inset:0;background:var(--blue);transform-origin:left}
+@media (max-width:860px){
+  .range thead{display:none}
+  .range, .range tbody{display:block}
+  .range tr{display:grid;grid-template-columns:40px 1fr auto;grid-template-areas:"sw nm abv" "sw meta meta";column-gap:14px;row-gap:6px;padding:16px 0;border-bottom:1.5px solid var(--ink)}
+  .range td{border:0;padding:0}
+  .range .sw{grid-area:sw;width:auto}
+  .range .nm{grid-area:nm}
+  .range .abv{grid-area:abv;align-self:start}
+  .range .hide-m{display:none}
+  .range .meta-m{grid-area:meta;display:flex;gap:10px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px}
+}
+@media (min-width:861px){.range .meta-m{display:none}}
+
+/* events */
+.ev{background:var(--ink);color:var(--paper)}
+.ev h2{color:var(--orange)}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--paper)}
+.ev-grid article{padding:26px 26px 30px 0;border-right:1px solid #3a3631}
+.ev-grid article + article{padding-left:26px}
+.ev-grid article:last-child{border-right:0}
+.ev-grid .when{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;color:var(--yellow)}
+.ev-grid h3{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,2.8vw,40px);line-height:.95;text-transform:uppercase;margin:12px 0 12px}
+.ev-grid p{margin:0 0 10px;color:#d8d2c0}
+@media (max-width:860px){.ev-grid{grid-template-columns:1fr}.ev-grid article{padding:22px 0!important;border-right:0;border-bottom:1px solid #3a3631}}
+
+/* tours */
+.tours{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,72px);align-items:start}
+.tours .print{aspect-ratio:3/2;transform:rotate(-1.5deg);box-shadow:10px 10px 0 var(--ink)}
+.tour-facts{list-style:none;margin:24px 0 0;padding:0;border-top:2px solid var(--ink)}
+.tour-facts li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(22,20,18,.3)}
+.tour-facts span:last-child{font-family:var(--f-mono);font-size:13px;text-align:right}
+.book{border:2px solid var(--ink);padding:clamp(20px,3vw,36px);background:var(--paper-2);box-shadow:10px 10px 0 var(--orange)}
+.book h3{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase;margin:0 0 20px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label, .field legend{font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase}
+.field input,.field select{border:2px solid var(--ink);background:var(--paper);padding:12px 12px;font-size:17px;border-radius:0;width:100%}
+.field input:focus,.field select:focus{outline:3px solid var(--blue);outline-offset:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+fieldset.field{border:0;padding:0;margin:0 0 16px}
+.slots{display:flex;gap:8px;margin-top:6px}
+.slots label{flex:1;position:relative;cursor:pointer}
+.slots input{position:absolute;opacity:0;width:1px;height:1px}
+.slots span{display:block;text-align:center;border:2px solid var(--ink);padding:11px;font-family:var(--f-display);font-size:20px;text-transform:none;letter-spacing:0;background:var(--paper)}
+.slots input:checked + span{background:var(--ink);color:var(--paper)}
+.slots input:focus-visible + span{outline:3px solid var(--blue);outline-offset:2px}
+.slots small{display:block;font-family:var(--f-mono);font-size:10.5px;margin-top:2px}
+.stepper{display:flex;align-items:stretch;border:2px solid var(--ink);width:max-content;background:var(--paper)}
+.stepper button{width:46px;border:0;background:transparent;font-size:22px;font-weight:800;cursor:pointer}
+.stepper button:disabled{opacity:.3;cursor:not-allowed}
+.stepper output{min-width:56px;display:grid;place-items:center;font-family:var(--f-display);font-size:22px;border-left:2px solid var(--ink);border-right:2px solid var(--ink)}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);padding-top:16px;margin:8px 0 18px}
+.total b{font-family:var(--f-display);font-size:38px;font-weight:400}
+.err{color:#B3261E;font-size:14px;font-weight:700;min-height:0;margin:-8px 0 12px}
+.err:empty{display:none}
+.field.invalid input{border-color:#B3261E}
+.confirm{border:2px solid var(--ink);background:var(--yellow);padding:22px;margin-top:4px}
+.confirm h3{margin:0 0 8px}
+.confirm p{margin:0}
+@media (max-width:860px){.tours{grid-template-columns:1fr}.tours .print{aspect-ratio:4/3}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Northside Brewing Co., home"><b>Northside</b><span>Brewing Co.</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="beers.html" aria-current="page">Beers</a>
+      <a href="#events">Events</a>
+      <a href="index.html#visit">Visit</a>
+      <a href="index.html">Taproom</a>
+      <a class="btn" href="#tours">Book a tour</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero" aria-labelledby="t">
+    <figure class="print print--blue" style="margin:0" aria-hidden="true"><img src="assets/img/foam.jpg" alt="" width="1000" height="667"></figure>
+    <div class="wrap">
+      <h1 class="display overprint" id="t">On the bar</h1>
+      <p>Five core beers all year, plus whatever the brewers are excited about. Every one is canned here in 440&nbsp;ml and poured in the taproom.</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="range-title" style="padding-top:56px">
+    <div class="wrap">
+      <h2 class="display" id="range-title" style="font-size:clamp(20px,2vw,26px);margin-bottom:20px">Core range &amp; seasonals</h2>
+      <div class="filters" role="group" aria-label="Filter beers">
+        <button type="button" aria-pressed="true" data-f="all">All beers</button>
+        <button type="button" aria-pressed="false" data-f="core">Core range</button>
+        <button type="button" aria-pressed="false" data-f="seasonal">Seasonal</button>
+        <span class="count mono" data-count aria-live="polite">9 beers</span>
+      </div>
+      <table class="range">
+        <thead><tr><th></th><th>Beer</th><th>ABV</th><th>IBU</th><th class="hide-m">Hops</th><th class="hide-m">Formats</th><th class="hide-m">Can</th><th class="hide-m"></th></tr></thead>
+        <tbody>
+          <tr data-k="core"><td class="sw"><i style="background:var(--orange)"></i></td><td class="nm"><b>Viaduct</b><span>Pale ale</span></td><td class="abv num">4.2%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.32)"></i></span><span class="mono-cell">32</span></span></td><td class="hide-m mono-cell">Citra, Mosaic</td><td class="hide-m mono-cell">Keg · can</td><td class="hide-m mono-cell">£4.10</td><td class="hide-m"><span class="pill">Core</span></td><td class="meta-m">IBU 32 · 440 ml · £4.10</td></tr>
+          <tr data-k="core"><td class="sw"><i style="background:var(--yellow)"></i></td><td class="nm"><b>Kirkstall Haze</b><span>Hazy IPA</span></td><td class="abv num">6.5%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.25)"></i></span><span class="mono-cell">25</span></span></td><td class="hide-m mono-cell">Galaxy, Nectaron</td><td class="hide-m mono-cell">Keg · can</td><td class="hide-m mono-cell">£5.20</td><td class="hide-m"><span class="pill">Core</span></td><td class="meta-m">IBU 25 · 440 ml · £5.20</td></tr>
+          <tr data-k="core"><td class="sw"><i style="background:var(--ink)"></i></td><td class="nm"><b>Night Bus</b><span>Oatmeal stout</span></td><td class="abv num">5.4%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.38)"></i></span><span class="mono-cell">38</span></span></td><td class="hide-m mono-cell">Magnum, EKG</td><td class="hide-m mono-cell">Nitro · can</td><td class="hide-m mono-cell">£4.40</td><td class="hide-m"><span class="pill">Core</span></td><td class="meta-m">IBU 38 · 440 ml · £4.40</td></tr>
+          <tr data-k="core"><td class="sw"><i style="background:var(--blue)"></i></td><td class="nm"><b>Back to Back</b><span>Best bitter</span></td><td class="abv num">3.9%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.36)"></i></span><span class="mono-cell">36</span></span></td><td class="hide-m mono-cell">Fuggles, EKG</td><td class="hide-m mono-cell">Cask · can</td><td class="hide-m mono-cell">£3.80</td><td class="hide-m"><span class="pill">Core</span></td><td class="meta-m">IBU 36 · 440 ml · £3.80</td></tr>
+          <tr data-k="core"><td class="sw"><i style="background:var(--paper-2)"></i></td><td class="nm"><b>Aire Pils</b><span>Pilsner</span></td><td class="abv num">4.8%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.30)"></i></span><span class="mono-cell">30</span></span></td><td class="hide-m mono-cell">Saaz, Hallertau</td><td class="hide-m mono-cell">Keg · can</td><td class="hide-m mono-cell">£4.20</td><td class="hide-m"><span class="pill">Core</span></td><td class="meta-m">IBU 30 · 440 ml · £4.20</td></tr>
+          <tr data-k="seasonal"><td class="sw"><i style="background:#6E9A3A"></i></td><td class="nm"><b>Green Arch</b><span>Fresh hop pale · from 8 Nov</span></td><td class="abv num">5.0%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.40)"></i></span><span class="mono-cell">40</span></span></td><td class="hide-m mono-cell">Green Bullion</td><td class="hide-m mono-cell">Keg · can</td><td class="hide-m mono-cell">£5.00</td><td class="hide-m"><span class="pill s">Seasonal</span></td><td class="meta-m">IBU 40 · 440 ml · £5.00</td></tr>
+          <tr data-k="seasonal"><td class="sw"><i style="background:#3B1F14"></i></td><td class="nm"><b>Bonfire Porter</b><span>Smoked porter · Nov–Dec</span></td><td class="abv num">6.0%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.34)"></i></span><span class="mono-cell">34</span></span></td><td class="hide-m mono-cell">Challenger</td><td class="hide-m mono-cell">Cask · can</td><td class="hide-m mono-cell">£4.80</td><td class="hide-m"><span class="pill s">Seasonal</span></td><td class="meta-m">IBU 34 · 440 ml · £4.80</td></tr>
+          <tr data-k="seasonal"><td class="sw"><i style="background:#9C2B2B"></i></td><td class="nm"><b>Long Night</b><span>Imperial stout · December</span></td><td class="abv num">10.2%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.62)"></i></span><span class="mono-cell">62</span></span></td><td class="hide-m mono-cell">Magnum</td><td class="hide-m mono-cell">Can only</td><td class="hide-m mono-cell">£7.50</td><td class="hide-m"><span class="pill s">Seasonal</span></td><td class="meta-m">IBU 62 · 440 ml · £7.50</td></tr>
+          <tr data-k="seasonal"><td class="sw"><i style="background:#E8B4C8"></i></td><td class="nm"><b>Rhubarb Sour</b><span>Kettle sour · Yorkshire rhubarb</span></td><td class="abv num">4.5%</td><td class="hide-m"><span class="ibu"><span class="ibu-bar"><i style="transform:scaleX(.08)"></i></span><span class="mono-cell">8</span></span></td><td class="hide-m mono-cell">None to speak of</td><td class="hide-m mono-cell">Keg · can</td><td class="hide-m mono-cell">£5.40</td><td class="hide-m"><span class="pill s">Seasonal</span></td><td class="meta-m">IBU 8 · 440 ml · £5.40</td></tr>
+        </tbody>
+      </table>
+      <p class="mono" style="margin-top:18px;color:var(--muted)">All cans 440 ml · prices per can to take away · taproom prices on the board</p>
+    </div>
+  </section>
+
+  <section class="sec ev" id="events" aria-labelledby="ev-title">
+    <div class="wrap">
+      <div class="sec-head" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:40px">
+        <h2 class="display" id="ev-title" style="font-size:clamp(44px,7vw,104px)">Every week</h2>
+        <p style="margin:0;justify-self:end;max-width:440px;color:#d8d2c0">The regular fixtures. One-off nights and launches go up on the board by the door and on the home page.</p>
+      </div>
+      <div class="ev-grid">
+        <article><p class="when">Wednesday · 19:30</p><h3>Arch quiz</h3><p>Six rounds, teams of up to five, picture round on paper. Free to play.</p><p class="mono">Book a table: hello@example.com</p></article>
+        <article><p class="when">Thursday · from 16:00</p><h3>Fresh can day</h3><p>This week’s canning run hits the fridge. Mixed four-packs, £15.</p><p class="mono">Walk in</p></article>
+        <article><p class="when">Friday · 20:00–23:00</p><h3>Vinyl Friday</h3><p>45s and LPs on the house decks, picked by whoever is behind the bar.</p><p class="mono">Free · 18+ after 20:00</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tours" aria-labelledby="tours-title">
+    <div class="wrap tours">
+      <div>
+        <h2 class="display overprint" id="tours-title" style="font-size:clamp(48px,6.4vw,96px);margin-bottom:22px">Brewery tours</h2>
+        <p style="font-size:18px;margin:0">An hour in the brewhouse with one of our brewers. Smell the malt, rub the hops, taste beer straight from the fermenter.</p>
+        <ul class="tour-facts">
+          <li><span>When</span><span>Saturdays · 13:00 &amp; 15:00</span></li>
+          <li><span>Length</span><span>60 min</span></li>
+          <li><span>Includes</span><span>4 × ⅓ pint + a 440 ml can to take home</span></li>
+          <li><span>Group size</span><span>Max 12</span></li>
+          <li><span>Price</span><span>£18 per person</span></li>
+          <li><span>Age</span><span>18+ · closed shoes please</span></li>
+        </ul>
+        <figure class="print print--yellow" style="margin:36px 0 0"><img src="assets/img/flight.jpg" alt="Tasting thirds lined up on a wooden paddle" width="1000" height="667" loading="lazy"></figure>
+      </div>
+      <form class="book" novalidate data-book>
+        <h3>Book your places</h3>
+        <div class="row2">
+          <div class="field"><label for="date">Saturday</label>
+            <select id="date" name="date" data-dates></select>
+          </div>
+          <div class="field"><span class="mono" style="font-size:11.5px" id="g-l">Guests</span>
+            <div class="stepper" role="group" aria-labelledby="g-l">
+              <button type="button" data-step="-1" aria-label="One fewer guest">−</button>
+              <output data-guests aria-live="polite">2</output>
+              <button type="button" data-step="1" aria-label="One more guest">+</button>
+            </div>
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>Time</legend>
+          <div class="slots">
+            <label><input type="radio" name="slot" value="13:00" checked><span>13:00<small>5 places left</small></span></label>
+            <label><input type="radio" name="slot" value="15:00"><span>15:00<small>9 places left</small></span></label>
+          </div>
+        </fieldset>
+        <div class="row2">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <p class="err" data-err role="alert"></p>
+        <div class="total"><span>Total, pay on the day</span><b data-total>£36</b></div>
+        <button class="btn" type="submit">Reserve places <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="confirm" data-confirm hidden tabindex="-1">
+          <h3>You’re on the list.</h3>
+          <p data-confirm-text></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="cta" style="background:var(--orange);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:clamp(56px,7vw,96px) 0">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:28px">
+      <h2 class="display" style="font-size:clamp(46px,7vw,110px);text-shadow:.04em .03em 0 var(--blue)">Thirsty now?</h2>
+      <div style="max-width:380px"><p style="font-size:18px;font-weight:500;margin:0 0 18px">Taproom open Wednesday to Sunday. Sixteen lines, all of the above.</p><a class="btn" href="index.html#visit" style="box-shadow:4px 4px 0 var(--blue)">Hours &amp; directions</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-mark">Northside</p>
+    <div class="foot-grid">
+      <div><h3>Northside Brewing Co.</h3><p style="margin:0;max-width:300px">Independent brewery and taproom. Arch 9, Viaduct Yard, Kirkstall Road, Leeds LS4 2QZ.</p></div>
+      <div><h3>Pages</h3><ul><li><a href="index.html">Home</a></li><li><a href="beers.html">Beers &amp; events</a></li><li><a href="#tours">Brewery tours</a></li></ul></div>
+      <div><h3>Taproom</h3><ul><li>Wed–Thu 16:00–22:00</li><li>Fri 14:00–23:00</li><li>Sat 12:00–23:00</li><li>Sun 12:00–19:00</li></ul></div>
+      <div><h3>Contact</h3><ul><li>+44 20 7946 0718</li><li>hello@example.com</li></ul></div>
+    </div>
+    <div class="foot-base"><span>Please drink responsibly. ID required if you look under 25.</span><span>Contenu de démonstration · fictional brand · Photos Unsplash</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var b = document.querySelector('.burger'), n = document.getElementById('nav');
+  if (!b || !n) return;
+  function set(open){ b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); n.classList.toggle('is-open', open); }
+  b.addEventListener('click', function(){ set(b.getAttribute('aria-expanded') !== 'true'); });
+  n.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') set(false); });
+})();
+
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* filters */
+  var btns = [].slice.call(document.querySelectorAll('[data-f]')), rows = [].slice.call(document.querySelectorAll('.range tbody tr')), cnt = document.querySelector('[data-count]');
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    var f = b.dataset.f, n = 0;
+    btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+    rows.forEach(function(r){ var show = f === 'all' || r.dataset.k === f; r.hidden = !show; if (show) n++; });
+    cnt.textContent = n + (n === 1 ? ' beer' : ' beers');
+  }); });
+
+  /* booking */
+  var form = document.querySelector('[data-book]'), sel = form.querySelector('[data-dates]');
+  var d = new Date(); d.setDate(d.getDate() + ((6 - d.getDay() + 7) % 7 || 7));
+  for (var k = 0; k < 6; k++){
+    var o = document.createElement('option');
+    o.value = d.toISOString().slice(0,10);
+    o.textContent = d.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short'});
+    sel.appendChild(o); d.setDate(d.getDate() + 7);
+  }
+  var guests = 2, out = form.querySelector('[data-guests]'), tot = form.querySelector('[data-total]');
+  var minus = form.querySelector('[data-step="-1"]'), plus = form.querySelector('[data-step="1"]');
+  function upd(){ out.textContent = guests; tot.textContent = '£' + guests*18; minus.disabled = guests <= 1; plus.disabled = guests >= 8; }
+  [minus, plus].forEach(function(b){ b.addEventListener('click', function(){ guests = Math.max(1, Math.min(8, guests + (+b.dataset.step))); upd(); }); });
+  upd();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = form.querySelector('[data-err]'), name = form.querySelector('#name'), email = form.querySelector('#email'), bad = [];
+    [name, email].forEach(function(i){ i.closest('.field').classList.remove('invalid'); i.removeAttribute('aria-invalid'); });
+    if (!name.value.trim()) bad.push(name);
+    if (!/^\S+@\S+\.\S+$/.test(email.value)) bad.push(email);
+    if (bad.length){ bad.forEach(function(i){ i.closest('.field').classList.add('invalid'); i.setAttribute('aria-invalid','true'); });
+      err.textContent = bad.length === 2 ? 'Add your name and a valid email.' : (bad[0] === name ? 'Add your name.' : 'That email doesn’t look right.'); bad[0].focus(); return; }
+    err.textContent = '';
+    var slot = form.querySelector('input[name="slot"]:checked').value;
+    var c = form.querySelector('[data-confirm]');
+    form.querySelector('[data-confirm-text]').textContent = guests + (guests === 1 ? ' place' : ' places') + ' on ' + sel.options[sel.selectedIndex].text + ' at ' + slot + ', £' + guests*18 + ' to pay on the day. We’ve noted ' + email.value + ' for the reminder. (Demo: nothing was sent.)';
+    c.hidden = false; c.focus();
+  });
+
+  if (window.gsap && !reduce){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.page-hero h1', {yPercent:30, opacity:0, duration:.8, ease:'power3.out'});
+    gsap.from('.page-hero .print', {rotate:24, x:60, opacity:0, duration:1, ease:'power3.out'});
+    gsap.utils.toArray('.range tbody tr, .ev-grid article').forEach(function(el){
+      gsap.from(el, {y:20, opacity:0, duration:.5, ease:'power2.out', scrollTrigger:{trigger:el, start:'top 94%', once:true}});
+    });
+  }
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

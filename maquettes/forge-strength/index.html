@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Forge Strength Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Independent strength and conditioning gym in Ancoats, Manchester. Calibrated iron, classes of ten, qualified coaches. Doors open 06:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --iron:#0d0e0e;
+  --iron-2:#151716;
+  --iron-3:#1d201f;
+  --chalk:#ecebe6;
+  --chalk-dim:#a9aca7;
+  --chalk-mute:#767a76;
+  --line:rgba(236,235,230,.12);
+  --line-2:rgba(236,235,230,.22);
+  --signal:#3ee08f;
+  --signal-dim:rgba(62,224,143,.14);
+  --p25:#d8372f; --p20:#2e5fcf; --p15:#e9c43a; --p10:#2f9e57; --p5:#e8e6df;
+  --f-display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Martian Mono","Menlo","Consolas",monospace;
+  --gut:clamp(16px,4vw,56px);
+  --max:1360px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--iron);color:var(--chalk);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--chalk-dim)}
+.sig{color:var(--signal)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px var(--signal-dim);vertical-align:middle;margin-right:8px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em;margin:0}
+h2{font-size:clamp(44px,7vw,104px)}
+h3{font-size:clamp(26px,2.6vw,36px);line-height:1}
+p{margin:0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-body);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 22px;border:1px solid var(--chalk);color:var(--iron);background:var(--chalk);transition:background .2s,color .2s,border-color .2s;cursor:pointer}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover{background:var(--signal);border-color:var(--signal)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--chalk);border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--chalk);background:transparent}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(13,14,14,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-size:24px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.logo i{display:inline-block;width:26px;height:26px;border:2px solid var(--chalk);position:relative}
+.logo i::after{content:"";position:absolute;left:4px;right:4px;top:50%;height:2px;background:var(--signal);transform:translateY(-50%)}
+.logo small{font-family:var(--f-mono);font-size:10px;color:var(--chalk-mute);letter-spacing:.06em;margin-left:4px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--chalk-dim);transition:color .2s}
+.nav a:hover,.nav a[aria-current]{color:var(--chalk)}
+.nav .btn{padding:11px 16px;font-size:13px;color:var(--iron)}
+.nav .btn:hover{color:var(--iron)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);background:none;color:var(--chalk);cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;transition:transform .25s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{position:fixed;left:0;right:0;top:calc(68px + env(safe-area-inset-top,0px));background:var(--iron);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px max(16px,env(safe-area-inset-left,0px)) 20px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
+  .nav .btn{margin-top:16px;justify-content:center;padding:16px}
+}
+
+/* frame brackets */
+.frame{position:relative;border:1px solid var(--line);background:var(--iron-2)}
+.frame::before,.frame::after{content:"";position:absolute;width:12px;height:12px;border-color:var(--signal);border-style:solid;pointer-events:none}
+.frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+
+/* section heads */
+.sec{padding:clamp(80px,11vw,150px) 0;border-top:1px solid var(--line);position:relative}
+.sec-head{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:24px 40px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sec-head .mono{padding-bottom:10px;border-bottom:1px solid var(--line-2);align-self:end}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}.sec-head .mono{border:0;padding:0}}
+
+/* footer */
+.ftr{border-top:1px solid var(--line);padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px));background:var(--iron)}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.ftr h4{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-mute);margin:0 0 14px}
+.ftr p,.ftr li{font-size:15px;color:var(--chalk-dim)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr a{text-decoration:none}.ftr a:hover{color:var(--chalk)}
+.ftr-big{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(56px,11.6vw,168px);line-height:.82;color:var(--iron-3);margin-top:48px;letter-spacing:-.005em;user-select:none;white-space:nowrap;overflow:hidden}
+.ftr-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+@media (max-width:860px){.ftr-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.ftr-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* HERO */
+.hero{position:relative;min-height:calc(100svh - 68px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:grayscale(.55) contrast(1.1) brightness(.62)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,14,14,.55) 0%,rgba(13,14,14,.1) 35%,rgba(13,14,14,.72) 72%,var(--iron) 100%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(340px,.85fr);gap:40px;align-items:end;padding-top:56px;padding-bottom:56px}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:26px}
+.hero h1{font-size:clamp(58px,8.2vw,140px);line-height:.88;letter-spacing:-.002em}
+.hero h1 .ln{display:block}
+.hero h1 .out{color:transparent;-webkit-text-stroke:1.5px var(--chalk)}
+.hero-sub{max-width:46ch;margin-top:26px;font-size:clamp(17px,1.4vw,20px);color:var(--chalk-dim)}
+.hero-sub b{color:var(--chalk);font-weight:600}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+
+/* bar loader */
+.loader{padding:22px 22px 18px;background:rgba(21,23,22,.9);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.loader-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.load-kg{font-family:var(--f-display);font-size:clamp(72px,7vw,104px);line-height:1;display:flex;align-items:baseline;gap:10px}
+.load-kg small{font-family:var(--f-mono);font-size:14px;color:var(--chalk-mute)}
+.bar{position:relative;height:120px;margin:14px 0 12px;display:flex;align-items:center}
+.bar-shaft{position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);background:linear-gradient(180deg,#9aa09c,#5d625f)}
+.bar-collar{position:absolute;top:50%;width:10px;height:26px;transform:translateY(-50%);background:#8b908c}
+.bar-side{position:absolute;top:0;bottom:0;display:flex;align-items:center;gap:2px}
+.bar-side.l{right:calc(50% + 46px);flex-direction:row-reverse}
+.bar-side.r{left:calc(50% + 46px)}
+.bar-grip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:8px;background:repeating-linear-gradient(90deg,#6c716e 0 2px,#4b4f4d 2px 4px)}
+.plate{width:14px;border-radius:2px;flex:none;transition:height .3s var(--ease)}
+.plate.k25{height:112px;background:var(--p25);width:16px}
+.plate.k20{height:112px;background:var(--p20);width:14px}
+.plate.k15{height:96px;background:var(--p15);width:12px}
+.plate.k10{height:80px;background:var(--p10);width:10px}
+.plate.k5{height:56px;background:var(--p5);width:8px}
+.plate.k2-5{height:44px;background:#3a3d3c;width:7px}
+.plate.k1-25{height:36px;background:#b9bcb8;width:5px}
+.loader-legend{font-family:var(--f-mono);font-size:11.5px;color:var(--chalk-dim);min-height:2.6em;line-height:1.5}
+.loader input[type=range]{width:100%;margin:12px 0 4px;accent-color:var(--signal);height:28px}
+.loader-ctrl{display:flex;gap:8px;align-items:center}
+.loader-ctrl button{flex:none;width:44px;height:36px;border:1px solid var(--line-2);background:transparent;color:var(--chalk);font-family:var(--f-mono);font-size:12px;cursor:pointer}
+.loader-ctrl button:hover{border-color:var(--signal);color:var(--signal)}
+.loader-ctrl input{flex:1}
+.loader-foot{display:flex;justify-content:space-between;gap:10px;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* MANIFESTO word reveal */
+.manifesto{padding:clamp(90px,14vw,190px) 0;border-top:1px solid var(--line)}
+.reveal{font-family:var(--f-body);font-weight:600;font-size:clamp(30px,4.3vw,64px);line-height:1.08;letter-spacing:-.012em;max-width:22ch}
+.reveal em{font-style:normal;color:var(--signal)}
+.reveal .t{--p:1;opacity:calc(.18 + .82*var(--p));filter:blur(calc((1 - var(--p))*5px));display:inline-block;transform:translateY(calc((1 - var(--p))*.14em))}
+.manifesto-foot{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
+
+/* FLOOR / offer ledger */
+.ledger{border-top:1px solid var(--line-2)}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) 150px 130px 40px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;transition:padding .3s var(--ease)}
+.row:hover{padding-left:14px}
+.row::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--signal);transition:width .45s var(--ease)}
+.row:hover::before{width:100%}
+.row h3{font-size:clamp(30px,3.2vw,46px)}
+.row p{color:var(--chalk-dim);font-size:16px}
+.row .num{font-family:var(--f-mono);font-size:13px;color:var(--chalk)}
+.row .num span{display:block;font-size:10.5px;color:var(--chalk-mute);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.row svg{width:22px;height:22px;color:var(--chalk-mute);transition:color .2s,transform .3s var(--ease)}
+.row:hover svg{color:var(--signal);transform:translate(3px,-3px)}
+@media (max-width:900px){.row{grid-template-columns:1fr 1fr;gap:12px 20px}.row h3,.row p{grid-column:1/-1}.row svg{display:none}}
+
+/* SPEC */
+.spec-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.spec{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2);border-left:1px solid var(--line)}
+.spec div{padding:28px 24px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.spec b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(56px,6.4vw,96px);line-height:.9}
+.spec b sup{font-family:var(--f-mono);font-size:14px;vertical-align:top;margin-left:6px;color:var(--signal);position:relative;top:10px}
+.spec p{color:var(--chalk-dim);font-size:15px;margin-top:10px;max-width:28ch}
+.prboard{padding:24px}
+.prboard table{width:100%;border-collapse:collapse;font-size:15px}
+.prboard caption{text-align:left;padding-bottom:16px;display:flex;justify-content:space-between;width:100%}
+.prboard th{font-family:var(--f-mono);font-weight:400;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk-mute);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--line-2)}
+.prboard td{padding:13px 0;border-bottom:1px solid var(--line)}
+.prboard td.kg{font-family:var(--f-mono);font-size:13px;text-align:right}
+.prboard th:last-child,.prboard td:last-child{text-align:right}
+.prboard .up{color:var(--signal);font-family:var(--f-mono);font-size:12px}
+.prboard .note{margin-top:14px;font-size:13px;color:var(--chalk-mute)}
+@media (max-width:960px){.spec-wrap{grid-template-columns:1fr}}
+
+/* 12 WEEKS */
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line-2)}
+.wk{padding:26px 24px 30px 0;position:relative}
+.wk + .wk{padding-left:24px;border-left:1px solid var(--line)}
+.wk .mono{display:block;margin-bottom:18px}
+.wk h3{margin-bottom:14px}
+.wk p{color:var(--chalk-dim);font-size:16px}
+.wk .meter{height:4px;background:var(--iron-3);margin-top:22px;position:relative;overflow:hidden}
+.wk .meter i{position:absolute;inset:0 auto 0 0;background:var(--signal)}
+.wk .kgline{font-family:var(--f-mono);font-size:12px;margin-top:10px;color:var(--chalk)}
+@media (max-width:900px){.weeks{grid-template-columns:1fr 1fr}.wk:nth-child(3){padding-left:0;border-left:0}.wk{border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.weeks{grid-template-columns:1fr}.wk,.wk + .wk{padding-left:0;border-left:0}}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(120px,13vw,190px);gap:12px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--iron-2)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(1.05);transition:filter .5s,transform .8s var(--ease)}
+.gal figure:hover img{filter:grayscale(0);transform:scale(1.03)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:rgba(13,14,14,.82);padding:6px 10px}
+.g1{grid-column:1/8;grid-row:span 3}
+.g2{grid-column:8/13;grid-row:span 2}
+.g3{grid-column:8/13;grid-row:span 3}
+.g4{grid-column:1/5;grid-row:span 2}
+.g5{grid-column:5/8;grid-row:span 2}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:1/-1;grid-row:span 2}.g2,.g3{grid-column:auto;grid-row:span 2}.g4{grid-column:1/-1;grid-row:span 2}.g5{display:none}}
+
+/* COACHES */
+.coaches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.coach .ph{aspect-ratio:4/5;overflow:hidden;margin-bottom:18px}
+.coach img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.coach h3{margin-bottom:6px}
+.coach .role{color:var(--chalk-dim);font-size:15px;margin-bottom:14px}
+.quals{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.quals li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.quals li span:last-child{font-family:var(--f-mono);font-size:11.5px;color:var(--chalk-mute);text-align:right}
+.coach.text{display:flex;flex-direction:column;justify-content:space-between;padding:28px}
+.coach.text p{color:var(--chalk-dim)}
+.coach.text .big{font-family:var(--f-display);font-size:clamp(70px,7vw,110px);line-height:.9;text-transform:uppercase;color:var(--chalk)}
+@media (max-width:960px){.coaches{grid-template-columns:1fr 1fr}.coach.text{grid-column:1/-1}}
+@media (max-width:600px){.coaches{grid-template-columns:1fr}}
+
+/* TESTIMONIALS */
+.voices{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,4vw,64px)}
+.voice-main blockquote{margin:0;font-family:var(--f-body);font-weight:600;font-size:clamp(26px,2.8vw,40px);line-height:1.15;letter-spacing:-.01em}
+.voice-main blockquote::before{content:"“";display:block;font-family:var(--f-display);font-size:120px;line-height:.6;color:var(--signal);margin-bottom:12px}
+.who{display:flex;align-items:center;gap:14px;margin-top:26px}
+.who .mono{color:var(--chalk)}
+.delta{display:inline-flex;gap:10px;align-items:baseline;font-family:var(--f-mono);font-size:12px;border:1px solid var(--line-2);padding:6px 10px}
+.delta b{color:var(--signal);font-weight:500}
+.voice-list{display:grid;gap:0;border-top:1px solid var(--line-2)}
+.voice-list figure{margin:0;padding:24px 0;border-bottom:1px solid var(--line)}
+.voice-list blockquote{margin:0 0 14px;font-size:18px;line-height:1.45}
+.voice-list figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+@media (max-width:900px){.voices{grid-template-columns:1fr}}
+
+/* INFO */
+.info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:0;border-top:1px solid var(--line-2)}
+.info > div{padding:28px 28px 32px 0}
+.info > div + div{padding-left:28px;border-left:1px solid var(--line)}
+.hours{list-style:none;margin:0;padding:0}
+.hours li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:13px}
+.hours li.today{color:var(--signal)}
+.info h3{margin-bottom:18px}
+.info p{color:var(--chalk-dim);margin-bottom:12px}
+.open6{font-family:var(--f-display);font-size:clamp(90px,10vw,150px);line-height:.85}
+@media (max-width:900px){.info{grid-template-columns:1fr}.info > div + div{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;isolation:isolate;padding:clamp(100px,14vw,200px) 0;border-top:1px solid var(--line)}
+.cta-img{position:absolute;inset:0;z-index:-2}
+.cta-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.6) brightness(.45)}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--iron) 0%,rgba(13,14,14,.7) 55%,rgba(13,14,14,.3) 100%)}
+.cta h2{font-size:clamp(60px,10vw,160px);max-width:9ch}
+.cta p{max-width:44ch;color:var(--chalk-dim);margin:24px 0 32px;font-size:19px}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;padding-top:40px;padding-bottom:36px}
+  .loader{max-width:520px}
+}
+.gal img{position:absolute;left:0;top:-6%;height:112%}
+
+</style>
+<a href="#top" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Forge Strength Studio, home"><i aria-hidden="true"></i>Forge<small>M4 · MCR</small></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html#floor" aria-current="page">Training</a>
+      <a href="index.html#coaches">Coaches</a>
+      <a href="membership.html#timetable">Timetable</a>
+      <a href="membership.html">Membership</a>
+      <a class="btn" href="membership.html#trial">Free trial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-img"><img src="assets/img/hero-deadlift.jpg" alt="Lifter setting up for a deadlift on a rubber gym floor, loaded barbell at her feet" width="1800" height="1200" fetchpriority="high"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="hero-meta mono"><span><span class="dot"></span>Doors open 06:00</span><span>Ancoats · Manchester M4</span><span>12 platforms</span></div>
+      <h1 id="h1"><span class="ln">Pick it up.</span><span class="ln out">Put it down.</span><span class="ln">Write it down.</span></h1>
+      <p class="hero-sub">Forge is an independent strength gym in Ancoats. <b>Calibrated iron, small classes and qualified coaches</b> who log every set you lift, so next week is heavier than this one.</p>
+      <div class="hero-cta">
+        <a class="btn" href="membership.html#trial">Book a free trial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="membership.html#timetable">See the timetable</a>
+      </div>
+    </div>
+    <div class="loader frame" aria-labelledby="ldr-t">
+      <div class="loader-top"><span class="mono" id="ldr-t">Platform 04 · bar loader</span><span class="mono sig">20 kg bar</span></div>
+      <div class="load-kg"><span id="kg" aria-live="polite">140</span><small>KG TOTAL</small></div>
+      <div class="bar" aria-hidden="true">
+        <div class="bar-shaft"></div>
+        <div class="bar-grip"></div>
+        <div class="bar-collar" style="left:calc(50% - 56px)"></div>
+        <div class="bar-collar" style="left:calc(50% + 46px)"></div>
+        <div class="bar-side l" id="sideL"></div>
+        <div class="bar-side r" id="sideR"></div>
+      </div>
+      <p class="loader-legend" id="legend">Per side: 25 + 20 + 15 kg</p>
+      <div class="loader-ctrl">
+        <button type="button" data-step="-2.5" aria-label="Remove 2.5 kg">−2.5</button>
+        <input type="range" id="load" min="20" max="300" step="2.5" value="140" aria-label="Target bar weight in kilograms">
+        <button type="button" data-step="2.5" aria-label="Add 2.5 kg">+2.5</button>
+      </div>
+      <div class="loader-foot mono"><span>IWF plate colours</span><span>Drag to load</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto" aria-label="What Forge is">
+  <div class="wrap">
+    <p class="mono" style="margin-bottom:28px">The deal</p>
+    <p class="reveal" data-reveal>No mirrors wall to wall. No smoothie bar. Just <em>twelve lifting platforms</em>, 4.6 tonnes of calibrated plates and coaches who know your <em>last top set</em> before you walk in.</p>
+    <div class="manifesto-foot mono"><span>Independent since 2017</span><span>No contracts · 30-day notice</span><span>Ages 16+</span></div>
+  </div>
+</section>
+
+<section class="sec" id="floor" aria-labelledby="floor-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">On the floor</span><h2 id="floor-h" data-words>Four ways to train</h2></div>
+    <div class="ledger" data-stagger>
+      <a class="row" href="membership.html#timetable">
+        <h3>Strength classes</h3>
+        <p>Coached barbell sessions in groups of ten. Squat, press, pull, then conditioning. You lift from your own logged numbers.</p>
+        <div class="num"><span>Capacity</span>10 per class</div>
+        <div class="num"><span>From</span>£79 / month</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="row" href="membership.html#plans">
+        <h3>Barbell Club</h3>
+        <p>Powerlifting and weightlifting blocks for people who want a meet date. Programmed in percentages, reviewed weekly.</p>
+        <div class="num"><span>Capacity</span>8 per session</div>
+        <div class="num"><span>From</span>£95 / month</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="row" href="membership.html#coaching">
+        <h3>1:1 coaching</h3>
+        <p>An hour with one coach. Technique, rehab-aware loading or a twelve-week block written around your week.</p>
+        <div class="num"><span>Capacity</span>1 athlete</div>
+        <div class="num"><span>From</span>£50 / session</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="row" href="membership.html#plans">
+        <h3>Open gym</h3>
+        <p>Your programme, our iron. Book a platform in 90-minute slots from 06:00. A coach is always on the floor.</p>
+        <div class="num"><span>Capacity</span>12 platforms</div>
+        <div class="num"><span>From</span>£45 / month</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="spec-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">Spec sheet</span><h2 id="spec-h" data-words>Built for heavy</h2></div>
+    <div class="spec-wrap">
+      <div class="spec" data-stagger>
+        <div><b data-count="12">12</b><p>Competition platforms, 3 m × 2.5 m, rubber inserts on 40 mm oak.</p></div>
+        <div><b>4.6<sup>T</sup></b><p>Calibrated plates, checked to ±10 g. Fractional plates down to 0.25 kg.</p></div>
+        <div><b data-count="10">10</b><p>Maximum per class. One coach, ten lifters, no exceptions.</p></div>
+        <div><b>06:00</b><p>Doors open on weekdays. First class on the bar at 06:15.</p></div>
+      </div>
+      <div class="prboard frame" data-up>
+        <table>
+          <caption><span class="mono">PR board · October</span><span class="mono sig"><span class="dot"></span>Live</span></caption>
+          <thead><tr><th scope="col">Lifter</th><th scope="col">Lift</th><th scope="col">Load</th><th scope="col">Gain</th></tr></thead>
+          <tbody>
+            <tr><td>Priya S.</td><td>Back squat</td><td class="kg">122.5 kg</td><td class="up">+7.5</td></tr>
+            <tr><td>Tom W.</td><td>Deadlift</td><td class="kg">245.0 kg</td><td class="up">+10.0</td></tr>
+            <tr><td>Hannah O.</td><td>Bench press</td><td class="kg">77.5 kg</td><td class="up">+2.5</td></tr>
+            <tr><td>Kwame A.</td><td>Clean &amp; jerk</td><td class="kg">132.0 kg</td><td class="up">+4.0</td></tr>
+            <tr><td>Ellie R.</td><td>Strict press</td><td class="kg">55.0 kg</td><td class="up">+2.5</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Chalked on the whiteboard by the door every Friday. Demo figures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="wk-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">Your first 12 weeks</span><h2 id="wk-h" data-words>From empty bar to a real number</h2></div>
+    <div class="weeks" data-stagger>
+      <div class="wk"><span class="mono sig">Week 0</span><h3>Assess</h3><p>Forty minutes with a coach. Movement screen, injury history, what you want from the bar.</p><div class="meter"><i style="width:8%"></i></div><p class="kgline">Squat: 20 kg bar</p></div>
+      <div class="wk"><span class="mono sig">Weeks 1–4</span><h3>Groove</h3><p>Technique first. Light, repeatable sets until the pattern looks the same on rep one and rep eight.</p><div class="meter"><i style="width:34%"></i></div><p class="kgline">Squat: 40–50 kg</p></div>
+      <div class="wk"><span class="mono sig">Weeks 5–8</span><h3>Load</h3><p>Small jumps, every week. 2.5 kg at a time, logged on your card and checked by your coach.</p><div class="meter"><i style="width:66%"></i></div><p class="kgline">Squat: 55–65 kg</p></div>
+      <div class="wk"><span class="mono sig">Weeks 9–12</span><h3>Test</h3><p>A deload, then test day. Three lifts, three attempts each, the whole class cheering the last one.</p><div class="meter"><i style="width:100%"></i></div><p class="kgline">Squat: new 3RM</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">The room</span><h2 id="gal-h" data-words>Chalk, iron, noise</h2></div>
+    <div class="gal">
+      <figure class="g1"><img src="assets/img/squat.jpg" alt="Lifter with a loaded barbell on her back, ready to squat" loading="lazy" width="1000" height="667"><figcaption class="mono">Platform 02 · 06:20</figcaption></figure>
+      <figure class="g2"><img src="assets/img/press.jpg" alt="Woman pressing a barbell overhead in front of a black brick wall" loading="lazy" width="1000" height="667"><figcaption class="mono">Rig · strict press</figcaption></figure>
+      <figure class="g3"><img src="assets/img/rack.jpg" alt="Hand gripping a dumbbell on a full rack" loading="lazy" width="1000" height="667"><figcaption class="mono">Dumbbells 2–50 kg</figcaption></figure>
+      <figure class="g4"><img src="assets/img/dark-pull.jpg" alt="Lifter gripping a heavy barbell in a dark room before a deadlift" loading="lazy" width="1000" height="667"><figcaption class="mono">Deadlift corner</figcaption></figure>
+      <figure class="g5"><img src="assets/img/pullup.jpg" alt="Athlete doing a pull-up on a rig, seen from behind" loading="lazy" width="1000" height="1500"><figcaption class="mono">Rig · 6 bays</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="coaches" aria-labelledby="co-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">Coaches</span><h2 id="co-h" data-words>Qualified, not just strong</h2></div>
+    <div class="coaches">
+      <article class="coach" data-up>
+        <div class="ph"><img src="assets/img/coach-dan.jpg" alt="Coach Dan Mercer sitting on a bench in the gym" loading="lazy" width="1000" height="667"></div>
+        <h3>Dan Mercer</h3>
+        <p class="role">Head coach · powerlifting</p>
+        <ul class="quals"><li><span>Accredited S&amp;C Coach</span><span>UKSCA</span></li><li><span>BSc Sport &amp; Exercise Science</span><span>2014</span></li><li><span>Best total</span><span>720 kg · −93</span></li></ul>
+      </article>
+      <article class="coach" data-up>
+        <div class="ph"><img src="assets/img/coach-amara.jpg" alt="Coach Amara Osei in a black and white portrait in the gym" loading="lazy" width="1000" height="1500"></div>
+        <h3>Amara Osei</h3>
+        <p class="role">Weightlifting lead</p>
+        <ul class="quals"><li><span>Level 2 Weightlifting Coach</span><span>BWL</span></li><li><span>Level 3 Personal Trainer</span><span>REPs</span></li><li><span>Best clean &amp; jerk</span><span>101 kg · −71</span></li></ul>
+      </article>
+      <div class="coach text frame" data-up>
+        <p class="mono">The standard</p>
+        <div class="big">9 coaches</div>
+        <p>Every coach on our floor holds at least a Level 3 PT and a barbell-specific award, plus current first aid. Nobody coaches a class until they have shadowed thirty.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="vo-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">Members</span><h2 id="vo-h" data-words>In their own numbers</h2></div>
+    <div class="voices">
+      <figure class="voice-main" data-up style="margin:0">
+        <blockquote>I came in unable to deadlift the bar off the floor without my back rounding. Fourteen months later I pulled 150 kg at my first meet, and Dan wrote every kilo of it down.</blockquote>
+        <figcaption class="who"><span class="mono">Sophie L. · member since 2024</span><span class="delta">Deadlift <b>0 → 150 kg</b></span></figcaption>
+      </figure>
+      <div class="voice-list" data-stagger>
+        <figure><blockquote>The 06:15 class is the only reason I train before work. Ten people, one coach, out by seven.</blockquote><figcaption><span class="mono">Marcus D.</span><span class="delta">Squat <b>+40 kg</b></span></figcaption></figure>
+        <figure><blockquote>No one sells you supplements. They just fix your setup and add 2.5 kg.</blockquote><figcaption><span class="mono">Aisha K.</span><span class="delta">Bench <b>+17.5 kg</b></span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" aria-labelledby="in-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">Visit</span><h2 id="in-h" data-words>Find the yard</h2></div>
+    <div class="info">
+      <div>
+        <div class="open6">06:00</div>
+        <p style="margin-top:10px">First light, first lift. Doors open at six every weekday.</p>
+      </div>
+      <div>
+        <h3>Opening hours</h3>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Monday</span><span>06:00–21:30</span></li>
+          <li data-d="2"><span>Tuesday</span><span>06:00–21:30</span></li>
+          <li data-d="3"><span>Wednesday</span><span>06:00–21:30</span></li>
+          <li data-d="4"><span>Thursday</span><span>06:00–21:30</span></li>
+          <li data-d="5"><span>Friday</span><span>06:00–21:00</span></li>
+          <li data-d="6"><span>Saturday</span><span>08:00–16:00</span></li>
+          <li data-d="0"><span>Sunday</span><span>09:00–13:00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Getting here</h3>
+        <p><b style="color:var(--chalk)">Unit 7, Pollard Yard, Ancoats, Manchester M4 6FJ.</b></p>
+        <p>Eight minutes on foot from Piccadilly, three from the New Islington tram stop. Covered bike racks for 20 inside the gate.</p>
+        <p>Bring flat shoes and a water bottle. Chalk, belts and wrist wraps are on us.</p>
+        <p class="mono" style="margin-top:18px">+44 20 7946 0732 · hello@example.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-h">
+  <div class="cta-img"><img src="assets/img/pullup.jpg" alt="" loading="lazy" width="1000" height="1500"></div>
+  <div class="wrap">
+    <h2 id="cta-h" data-words>Your first session is free</h2>
+    <p>One coached class or a 40-minute assessment. No card details, no hard sell. Bring trainers you can squat in.</p>
+    <div class="hero-cta">
+      <a class="btn" href="membership.html#trial">Book a free trial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn ghost" href="membership.html#plans">See prices</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="logo" href="index.html"><i aria-hidden="true"></i>Forge Strength Studio</a>
+        <p style="margin-top:16px;max-width:34ch">Independent strength and conditioning gym. Barbells, coaching and nothing you don't need.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>Unit 7, Pollard Yard</li><li>Ancoats, Manchester M4 6FJ</li><li>+44 20 7946 0732</li><li>hello@example.com</li></ul>
+      </div>
+      <div>
+        <h4>Doors</h4>
+        <ul><li>Mon–Fri 06:00–21:30</li><li>Sat 08:00–16:00</li><li>Sun 09:00–13:00</li></ul>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul><li><a href="index.html">Home</a></li><li><a href="membership.html">Membership &amp; prices</a></li><li><a href="membership.html#timetable">Class timetable</a></li><li><a href="membership.html#trial">Book a free trial</a></li></ul>
+      </div>
+    </div>
+    <div class="ftr-big" aria-hidden="true">Forge Strength</div>
+    <div class="ftr-base mono"><span>© 2026 Forge Strength Studio (fictional brand) · Demo content</span><span>Site by 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // burger
+  var bg = document.querySelector('.burger'), nav = document.getElementById('nav');
+  if (bg && nav) {
+    bg.addEventListener('click', function(){
+      var o = bg.getAttribute('aria-expanded') === 'true';
+      bg.setAttribute('aria-expanded', String(!o));
+      bg.setAttribute('aria-label', o ? 'Open menu' : 'Close menu');
+      nav.classList.toggle('open', !o);
+    });
+    nav.addEventListener('click', function(e){
+      if (e.target.closest('a')) { bg.setAttribute('aria-expanded','false'); nav.classList.remove('open'); bg.setAttribute('aria-label','Open menu'); }
+    });
+  }
+  window.FORGE = { RM: RM, lenis: null };
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  if (!RM && typeof Lenis !== 'undefined') {
+    var lenis = new Lenis({ lerp: 0.12 });
+    window.FORGE.lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var el = document.querySelector(a.getAttribute('href'));
+        if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -70 }); }
+      });
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  if (RM) return;
+  // generic reveals: visible at rest, animate from offset once
+  gsap.utils.toArray('[data-up]').forEach(function(el){
+    gsap.from(el, { y: 36, opacity: 0, duration: .9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+  gsap.utils.toArray('[data-stagger]').forEach(function(g){
+    gsap.from(g.children, { y: 28, opacity: 0, duration: .7, ease: 'power3.out', stagger: .08,
+      scrollTrigger: { trigger: g, start: 'top 85%', once: true } });
+  });
+  // headings: word by word (accessible copy kept via aria-label)
+  gsap.utils.toArray('h2[data-words]').forEach(function(h){
+    var txt = h.textContent.trim().replace(/\s+/g,' ');
+    h.setAttribute('aria-label', txt);
+    h.innerHTML = h.innerHTML.replace(/(^|>)([^<]+)(?=<|$)/g, function(m, p, t){
+      return p + t.replace(/(\S+)/g, '<span class="w" aria-hidden="true" style="display:inline-block">$1</span>');
+    });
+    gsap.from(h.querySelectorAll('.w'), { yPercent: 60, opacity: 0, duration: .8, ease: 'power4.out', stagger: .06,
+      scrollTrigger: { trigger: h, start: 'top 88%', once: true } });
+  });
+})();
+
+(function(){
+  var RM = window.FORGE ? window.FORGE.RM : true;
+  /* ---- bar loader ---- */
+  var PL = [25,20,15,10,5,2.5,1.25];
+  var range = document.getElementById('load'), kgEl = document.getElementById('kg'),
+      L = document.getElementById('sideL'), R = document.getElementById('sideR'), lg = document.getElementById('legend');
+  function fmt(n){ return (Math.round(n*100)/100).toString(); }
+  function plates(total){
+    var side = (total - 20) / 2, out = [];
+    for (var i=0;i<PL.length;i++){ while (side >= PL[i] - 1e-9){ out.push(PL[i]); side -= PL[i]; } }
+    return out;
+  }
+  function render(v){
+    v = Math.max(20, Math.min(300, v));
+    range.value = v;
+    var ps = plates(v);
+    var html = ps.map(function(p){ return '<i class="plate k'+String(p).replace('.','-')+'"></i>'; }).join('');
+    L.innerHTML = html; R.innerHTML = html;
+    kgEl.textContent = fmt(v);
+    lg.textContent = ps.length ? 'Per side: ' + ps.map(fmt).join(' + ') + ' kg' : 'Empty bar. Everyone starts here.';
+  }
+  if (range){
+    range.addEventListener('input', function(){ render(parseFloat(range.value)); });
+    document.querySelectorAll('[data-step]').forEach(function(b){
+      b.addEventListener('click', function(){ render(parseFloat(range.value) + parseFloat(b.dataset.step)); });
+    });
+    render(140);
+  }
+  /* ---- today in hours ---- */
+  var d = new Date().getDay(), li = document.querySelector('#hours [data-d="'+d+'"]');
+  if (li){ li.classList.add('today'); li.firstElementChild.textContent += ' · today'; }
+
+  if (typeof gsap === 'undefined') return;
+
+  /* ---- scroll-scrubbed word reveal (keeps inline <em>) ---- */
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    var label = el.textContent.replace(/\s+/g,' ').trim();
+    if (RM) return;
+    var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [], n;
+    while ((n = tw.nextNode())) nodes.push(n);
+    var words = [];
+    nodes.forEach(function(t){
+      var parts = t.nodeValue.split(/(\s+)/), frag = document.createDocumentFragment();
+      parts.forEach(function(p){
+        if (!p) return;
+        if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+        var s = document.createElement('span'); s.className = 't'; s.textContent = p; s.setAttribute('aria-hidden','true');
+        frag.appendChild(s); words.push(s);
+      });
+      t.parentNode.replaceChild(frag, t);
+    });
+    el.setAttribute('aria-label', label); el.setAttribute('role','text');
+    var N = words.length;
+    function paint(prog){
+      for (var i=0;i<N;i++){ var l = Math.min(1, Math.max(0, prog*N*1.15 - i)); words[i].style.setProperty('--p', l.toFixed(3)); }
+    }
+    paint(0);
+    ScrollTrigger.create({ trigger: el, start: 'top 85%', end: 'bottom 40%', scrub: true,
+      onUpdate: function(s){ paint(s.progress); }, onRefresh: function(s){ paint(s.progress); } });
+  });
+
+  if (RM) return;
+  /* ---- hero intro ---- */
+  var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  tl.from('.hero-img img', { scale: 1.08, duration: 1.8, ease: 'power2.out' }, 0)
+    .from('.hero h1 .ln', { yPercent: 70, opacity: 0, duration: 1, stagger: .12 }, .1)
+    .from('.hero-meta, .hero-sub, .hero-cta', { y: 20, opacity: 0, duration: .8, stagger: .08 }, .5)
+    .from('.loader', { y: 30, opacity: 0, duration: .9 }, .55)
+    .from('#sideL .plate', { x: -40, opacity: 0, duration: .5, stagger: .06, ease: 'back.out(2)' }, .9)
+    .from('#sideR .plate', { x: 40, opacity: 0, duration: .5, stagger: .06, ease: 'back.out(2)' }, .9);
+  var o = { v: 20 };
+  tl.to(o, { v: 140, duration: 1.1, ease: 'power2.out', onUpdate: function(){ kgEl.textContent = (Math.round(o.v/2.5)*2.5).toString(); } }, .9);
+  /* meters fill */
+  gsap.utils.toArray('.wk .meter i').forEach(function(m){
+    gsap.from(m, { scaleX: 0, transformOrigin: 'left', duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: m, start: 'top 90%', once: true } });
+  });
+  /* gentle parallax on gallery */
+  gsap.utils.toArray('.gal img').forEach(function(img){
+    gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: img.parentNode, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+})();
+
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

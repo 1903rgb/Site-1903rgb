@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Greenfold Gardens</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Greenfold Gardens designs, builds and maintains gardens across the Cotswolds, planned season by season. RHS-trained team based near Northleach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --ink:#141712;          /* night moss */
+  --moss:#1d221a;
+  --moss-2:#262c22;
+  --line:rgba(232,226,208,.16);
+  --line-strong:rgba(232,226,208,.34);
+  --stone:#e3d9bf;        /* Cotswold limestone, weathered */
+  --stone-2:#d3c49d;
+  --stone-ink:#2a2a1f;
+  --text:#ece7d8;
+  --muted:#a9a894;
+  --spring:#b7c56f;
+  --summer:#6e9150;
+  --autumn:#c07a3e;
+  --winter:#93a1a0;
+  --accent:var(--autumn);
+  --f-display:"Epilogue", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Karla", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"Spline Sans Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --wrap:1320px;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--spring);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(24px,var(--gut));padding-right:max(24px,var(--gut-r))}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:-.025em;line-height:1.02;margin:0}
+h2{font-size:clamp(34px,4.6vw,64px)}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.15}
+p{margin:0}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:100;background:var(--stone);color:var(--ink);padding:8px 12px}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .3s var(--ease),border-color .3s}
+.hdr.is-solid{background:rgba(20,23,18,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.brand-mark{width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.brand-mark i{display:block}
+.brand-mark i:nth-child(1){background:var(--spring)}
+.brand-mark i:nth-child(2){background:var(--summer)}
+.brand-mark i:nth-child(3){background:var(--autumn)}
+.brand-mark i:nth-child(4){background:var(--winter)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15px;color:var(--text);opacity:.86}
+.nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.nav a[aria-current="page"]{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:700;font-size:15px;padding:13px 20px;border:1px solid var(--stone);background:var(--stone);color:var(--ink);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:transparent;color:var(--stone)}
+.btn--ghost{background:rgba(20,23,18,.35);color:var(--text);border-color:var(--line-strong)}
+.btn--ghost:hover{background:var(--stone);color:var(--ink);border-color:var(--stone)}
+.btn svg{width:16px;height:16px}
+.nav .btn{padding:10px 16px;opacity:1;color:var(--ink)}
+.nav .btn:hover{color:var(--stone)}
+.nav .btn:hover{text-decoration:none}
+.burger{display:none;background:none;border:1px solid var(--line-strong);color:var(--text);width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer}
+.burger svg{width:20px;height:20px}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px max(24px,var(--gut)) 24px}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;width:100%;border-bottom:1px solid var(--line);font-size:18px}
+  .nav .btn{margin-top:16px;width:auto;border-bottom:1px solid var(--stone)}
+}
+
+/* ---------- section scaffolding ---------- */
+.sec{padding:120px 0;position:relative}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:56px;align-items:start}
+.sec-head .kicker{padding-top:1.1em}
+.sec-head .kicker{grid-column:1/4;color:var(--muted)}
+.sec-head h2{grid-column:4/11}
+.sec-head p.lede{grid-column:4/10;color:var(--muted);font-size:19px;margin-top:20px}
+@media (max-width:860px){
+  .sec{padding:80px 0}
+  .sec-head{grid-template-columns:1fr;gap:14px;margin-bottom:36px}
+  .sec-head .kicker,.sec-head h2,.sec-head p.lede{grid-column:1/-1}
+}
+.season-dot{display:inline-block;width:9px;height:9px;margin-right:8px;vertical-align:1px}
+.sp{background:var(--spring)}.su{background:var(--summer)}.au{background:var(--autumn)}.wi{background:var(--winter)}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:64px 0 40px;font-size:15px;color:var(--muted)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.foot h4{font-family:var(--f-mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:0 0 14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--text);text-decoration:underline}
+.foot-base{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+
+/* ================= HOME ================= */
+.hero{position:relative;height:100svh;min-height:680px;max-height:1000px;margin-top:-68px;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(14,16,12,.62) 0%,rgba(14,16,12,.1) 22%,rgba(14,16,12,.05) 45%,rgba(14,16,12,.78) 78%,rgba(14,16,12,.94) 100%),
+  linear-gradient(90deg,rgba(14,16,12,.55) 0%,rgba(14,16,12,0) 55%)}
+.rails{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none;max-width:var(--wrap);margin:0 auto;padding-left:max(24px,var(--gut));padding-right:max(24px,var(--gut-r))}
+.rail{position:relative;border-left:1px solid var(--line-strong)}
+.rail:last-child{border-right:1px solid var(--line-strong)}
+.rail::before,.rail::after{content:"";position:absolute;left:-3px;width:5px;height:5px;background:var(--stone)}
+.rail::before{top:96px}.rail::after{bottom:28px}
+.rail-label{position:absolute;top:84px;left:14px;right:10px;display:flex;flex-direction:column;gap:2px;color:var(--text)}
+.rail-label b{font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:-.01em;display:flex;align-items:center}
+.rail-label span{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:rgba(236,231,216,.7)}
+.rail.is-now{background:linear-gradient(180deg,rgba(192,122,62,.16),rgba(192,122,62,0) 60%)}
+.rail.is-now .rail-label b::after{content:"now";font-family:var(--f-mono);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-left:8px;padding:2px 6px;border:1px solid var(--autumn);color:#f0c49b}
+.hero-body{position:absolute;left:0;right:0;bottom:0;padding-bottom:56px}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);align-items:end}
+.hero-copy{grid-column:1/4;padding:0 32px 0 14px}
+.hero h1{font-size:clamp(46px,7.2vw,112px);line-height:.94;letter-spacing:-.045em;max-width:12ch}
+.hero h1 em{font-style:normal;color:var(--stone-2)}
+.hero-sub{margin-top:22px;max-width:46ch;font-size:19px;color:rgba(236,231,216,.88)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.onsite{grid-column:4/5;margin-left:14px;border:1px solid var(--line-strong);background:rgba(20,23,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:18px 18px 16px}
+.onsite .mono{color:#f0c49b;display:block;margin-bottom:12px}
+.onsite ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:14.5px;line-height:1.4}
+.onsite li{display:grid;grid-template-columns:44px 1fr;gap:8px}
+.onsite li span{font-family:var(--f-mono);font-size:11px;color:var(--muted);padding-top:2px}
+@media (max-width:1000px){
+  .hero-copy{grid-column:1/-1}
+  .onsite{display:none}
+}
+@media (max-width:640px){
+  .hero{min-height:640px}
+  .rail-label{left:6px;top:82px}
+  .rail-label b{font-size:12px}
+  .rail-label span{display:none}
+  .rail.is-now .rail-label b::after{display:none}
+  .rail::before{top:76px}
+  .hero-copy{padding:0 4px}
+  .hero-body{padding-bottom:32px}
+  .hero-sub{font-size:17px}
+}
+
+/* services */
+.services{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.services-photo{position:sticky;top:100px}
+.services-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.services-photo figcaption{margin-top:10px;color:var(--muted)}
+.svc{border-top:1px solid var(--line);padding:32px 0;display:grid;grid-template-columns:1fr 200px;gap:24px}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc h3{font-size:30px;margin-bottom:10px}
+.svc p{color:var(--muted);max-width:52ch}
+.svc ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px}
+.svc ul li::before{content:"";display:inline-block;width:6px;height:1px;background:var(--stone-2);margin-right:8px;vertical-align:4px}
+.price{text-align:right}
+.price b{display:block;font-family:var(--f-display);font-size:28px;font-weight:600;letter-spacing:-.02em;color:var(--stone)}
+.price span{font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+  .services{grid-template-columns:1fr;gap:32px}
+  .services-photo{position:static}
+  .services-photo img{aspect-ratio:16/10}
+  .svc{grid-template-columns:1fr}
+  .price{text-align:left}
+}
+
+/* seasonal calendar */
+.calendar{background:var(--moss)}
+.cal{display:grid;grid-template-columns:150px repeat(4,1fr);border-top:1px solid var(--line-strong)}
+.cal > div{padding:18px 18px 20px;border-bottom:1px solid var(--line);border-left:1px solid var(--line);font-size:15px;line-height:1.45}
+.cal .row-h{border-left:none;padding-left:0;color:var(--muted)}
+.cal .col-h{padding-top:22px}
+.cal .col-h b{font-family:var(--f-display);font-size:26px;font-weight:600;letter-spacing:-.02em;display:block}
+.cal .col-h span{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.cal .col-h::before{content:"";display:block;height:6px;margin:-22px -18px 16px}
+.cal .c-sp::before{background:var(--spring)}.cal .c-su::before{background:var(--summer)}.cal .c-au::before{background:var(--autumn)}.cal .c-wi::before{background:var(--winter)}
+.cal i{font-style:italic;color:var(--stone)}
+.cal .is-now{background:rgba(192,122,62,.08)}
+.cal-note{margin-top:22px;color:var(--muted);font-size:14px;max-width:70ch}
+.cal-wrap{overflow:visible}
+@media (max-width:900px){
+  .cal{grid-template-columns:1fr}
+  .cal .row-h.corner{display:none}
+  .cal > div{border-left:none;padding-left:0;padding-right:0}
+  .cal .col-h::before{margin:-22px 0 14px}
+  .cal .row-h{padding-top:28px;padding-bottom:6px;border-bottom:none;color:var(--stone)}
+  /* mobile: regroup by season, label each cell with its row */
+  .cal{display:flex;flex-direction:column;border-top:none}
+  .cal .row-h{display:none}
+  .cal [data-season="spring"]{order:1}.cal [data-season="summer"]{order:2}.cal [data-season="autumn"]{order:3}.cal [data-season="winter"]{order:4}
+  .cal .col-h{margin-top:28px;border-bottom:1px solid var(--line-strong)}
+  .cal [data-row]::before{content:attr(data-row);display:block;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}
+  .cal .is-now{background:none}
+}
+
+/* materials */
+.materials{background:var(--stone);color:var(--stone-ink)}
+.materials .sec-head .kicker,.materials .sec-head p.lede{color:#5d5843}
+.mat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid rgba(42,42,31,.25)}
+.mat{padding:22px 20px 26px 0;border-bottom:1px solid rgba(42,42,31,.25)}
+.mat + .mat{padding-left:20px;border-left:1px solid rgba(42,42,31,.25)}
+.chip{height:120px;margin-bottom:18px;position:relative}
+.chip::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.2px),radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.4px);background-size:7px 7px,11px 11px;background-position:0 0,3px 5px;mix-blend-mode:multiply}
+.mat h3{font-size:18px;margin-bottom:6px}
+.mat p{font-size:14px;line-height:1.45;color:#4f4b39}
+.mat dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:#4f4b39}
+.mat dt{color:#7a735a}.mat dd{margin:0}
+.mat-wide{grid-column:span 2}
+.mat-photo{grid-column:span 2;padding:22px 0 26px 20px;border-left:1px solid rgba(42,42,31,.25);border-bottom:1px solid rgba(42,42,31,.25)}
+.mat-photo img{width:100%;height:100%;min-height:220px;object-fit:cover}
+@media (max-width:1100px){
+  .mat-grid{grid-template-columns:repeat(2,1fr)}
+  .mat:nth-child(odd){padding-left:0;border-left:none}
+  .mat:nth-child(even){padding-left:16px}
+  .mat-photo{grid-column:1/-1;padding-left:0;border-left:none}
+}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof > div{padding:34px 24px 30px;border-left:1px solid var(--line)}
+.proof > div:first-child{border-left:none;padding-left:0}
+.proof b{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(40px,5vw,68px);letter-spacing:-.04em;line-height:1}
+.proof b small{font-size:.42em;letter-spacing:0;margin-left:4px;color:var(--muted)}
+.proof p{margin-top:10px;color:var(--muted);font-size:15px;max-width:26ch}
+@media (max-width:860px){.proof{grid-template-columns:1fr 1fr}.proof>div:nth-child(3){border-left:none;padding-left:0}.proof>div{border-top:1px solid var(--line)}.proof>div:nth-child(-n+2){border-top:none}}
+
+/* process timeline */
+.process{display:grid;grid-template-columns:4fr 8fr;gap:56px}
+.process-aside{position:sticky;top:110px;align-self:start}
+.process-aside h2{margin-bottom:20px}
+.process-aside p{color:var(--muted);max-width:36ch}
+.tl-wrap{position:relative}
+.tl{list-style:none;margin:0;padding:0}
+.tl-track,.tl-fill{position:absolute;left:7px;width:2px;top:0;bottom:0}
+.tl-track{background:var(--line)}
+.tl-fill{background:var(--autumn);transform-origin:top;transform:scaleY(1)}
+.tl li{position:relative;padding:0 0 64px 52px}
+.tl li:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:6px;width:16px;height:16px;background:var(--ink);border:2px solid var(--line-strong);transition:background .3s,border-color .3s}
+.tl li.is-reached .tl-dot{background:var(--autumn);border-color:var(--autumn)}
+.tl .mono{color:var(--muted);display:block;margin-bottom:8px}
+.tl h3{font-size:28px;margin-bottom:10px}
+.tl p{color:var(--muted);max-width:56ch}
+.tl .deliv{margin-top:14px;font-size:15px;color:var(--text);display:flex;gap:8px 18px;flex-wrap:wrap}
+.tl .deliv span::before{content:"→ ";color:var(--autumn)}
+.tl figure{margin:22px 0 0;max-width:560px}
+.tl figure img{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (max-width:900px){.process{grid-template-columns:1fr;gap:32px}.process-aside{position:static}.tl li{padding-left:40px;padding-bottom:48px}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px}
+.g{position:relative;overflow:hidden;margin:0;text-decoration:none;color:var(--text);display:block}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.g:hover img{transform:scale(1.035)}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(0deg,rgba(14,16,12,.85),transparent);display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:15px}
+.g figcaption b{font-family:var(--f-display);font-weight:600;font-size:19px;letter-spacing:-.01em}
+.g figcaption span{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:rgba(236,231,216,.8);white-space:nowrap}
+.g1{grid-column:1/8;grid-row:span 5}
+.g2{grid-column:8/13;grid-row:span 3}
+.g3{grid-column:8/13;grid-row:span 2}
+.g4{grid-column:1/5;grid-row:span 3}
+.g5{grid-column:5/13;grid-row:span 3}
+.gal-foot{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted)}
+@media (max-width:760px){
+  .gal{grid-template-columns:1fr;grid-auto-rows:auto}
+  .g{grid-column:1/-1!important;grid-row:auto!important;aspect-ratio:4/3}
+}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
+.q-main blockquote{margin:0;font-family:var(--f-display);font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1.18;letter-spacing:-.02em}
+.q-main blockquote::before{content:"“";display:block;font-size:80px;line-height:.6;color:var(--autumn);margin-bottom:12px}
+.q-by{margin-top:24px;color:var(--muted);font-size:15px}
+.q-by b{color:var(--text);font-weight:700}
+.q-side{display:grid;gap:0}
+.q-side figure{margin:0;padding:24px 0;border-top:1px solid var(--line)}
+.q-side figure:last-child{border-bottom:1px solid var(--line)}
+.q-side blockquote{margin:0;font-size:17px;line-height:1.5}
+.q-side figcaption{margin-top:10px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){.quotes{grid-template-columns:1fr;gap:32px}}
+
+/* practical */
+.practical{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.practical > div{padding:32px 28px 8px;border-left:1px solid var(--line)}
+.practical > div:first-child{border-left:none;padding-left:0}
+.practical h3{margin-bottom:16px}
+.practical table{width:100%;border-collapse:collapse;font-size:15px}
+.practical td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.practical td:last-child{text-align:right;font-family:var(--f-mono);font-size:13px;color:var(--stone)}
+.practical p{color:var(--muted);font-size:15px;margin-bottom:12px}
+.towns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.towns span{border:1px solid var(--line-strong);padding:4px 10px;font-size:14px}
+@media (max-width:900px){.practical{grid-template-columns:1fr}.practical>div{border-left:none;padding-left:0;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:28px}}
+
+/* CTA + form */
+.cta{position:relative;isolation:isolate;padding:140px 0 120px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;z-index:-2}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,16,12,.92) 0%,rgba(14,16,12,.72) 50%,rgba(14,16,12,.45) 100%)}
+.cta-grid{display:grid;grid-template-columns:6fr 6fr;gap:56px;align-items:start}
+.cta h2{font-size:clamp(40px,5.4vw,78px);max-width:11ch}
+.cta-copy p{margin-top:20px;max-width:44ch;color:rgba(236,231,216,.85);font-size:18px}
+.form{background:rgba(20,23,18,.82);border:1px solid var(--line-strong);padding:28px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;margin-bottom:16px}
+.field label{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--text);background:transparent;border:none;border-bottom:1px solid var(--line-strong);padding:8px 0;border-radius:0;width:100%}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--stone) 50%),linear-gradient(135deg,var(--stone) 50%,transparent 50%);background-position:calc(100% - 10px) 55%,calc(100% - 5px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.field select option{background:var(--ink)}
+.field textarea{resize:vertical;min-height:72px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--spring)}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;box-shadow:0 1px 0 0 var(--spring)}
+.field input:user-invalid{border-bottom-color:#e08a6a}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+.form-ok{display:none;border-left:3px solid var(--spring);padding:10px 14px;margin-top:16px;font-size:15px;background:rgba(183,197,111,.08)}
+.form.sent .form-ok{display:block}
+.form small{display:block;margin-top:12px;color:var(--muted);font-size:13px}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr;gap:36px}.form .row{grid-template-columns:1fr;gap:0}.form{padding:22px 18px}}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Greenfold Gardens, home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Greenfold Gardens</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#seasons">The year</a>
+      <a href="#process">Process</a>
+      <a href="projects.html">Projects</a>
+      <a href="#visit">Area &amp; hours</a>
+      <a class="btn" href="#enquire">Book a site visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO: the garden is the stage, the four seasons are its grid -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero-img"><img src="assets/img/hero-cottage-garden.jpg" alt="Stone cottage behind deep summer borders of roses, salvias and clipped box, with mature trees behind" fetchpriority="high"></div>
+  <div class="rails" aria-hidden="true">
+    <div class="rail" data-season="spring"><div class="rail-label"><b><i class="season-dot sp"></i>Spring</b><span>Mar – May</span></div></div>
+    <div class="rail" data-season="summer"><div class="rail-label"><b><i class="season-dot su"></i>Summer</b><span>Jun – Aug</span></div></div>
+    <div class="rail is-now" data-season="autumn"><div class="rail-label"><b><i class="season-dot au"></i>Autumn</b><span>Sep – Nov</span></div></div>
+    <div class="rail" data-season="winter"><div class="rail-label"><b><i class="season-dot wi"></i>Winter</b><span>Dec – Feb</span></div></div>
+  </div>
+  <div class="hero-body">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-h" class="split">Gardens planned for all <em>four seasons.</em></h1>
+          <p class="hero-sub">We design, build and look after Cotswold gardens. Every plan is drawn across twelve months, so the borders still hold their shape in February.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="#enquire">Book a site visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="projects.html">See the projects</a>
+          </div>
+        </div>
+        <aside class="onsite" aria-label="On site this fortnight">
+          <span class="mono">On site · late October</span>
+          <ul>
+            <li><span>Bibury</span>Tulip bulbs in at 15&nbsp;cm, 1,200 of them</li>
+            <li><span>Tetbury</span>38&nbsp;m² Cotswold stone terrace, day 6 of 9</li>
+            <li><span>Burford</span>Yew hedge reshaped before the frosts</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker mono">What we do</span>
+      <h2 id="svc-h" class="split">One team from the first sketch to the tenth summer.</h2>
+    </div>
+    <div class="services">
+      <figure class="services-photo">
+        <img src="assets/img/planting-plugs.jpg" alt="A gardener's hand pressing young plug plants into a seed tray" loading="lazy" width="1000" height="667">
+        <figcaption class="mono">Plugs grown on for a spring border, Northleach yard</figcaption>
+      </figure>
+      <div>
+        <article class="svc">
+          <div>
+            <h3>Garden design</h3>
+            <p>A measured survey, a concept, then a scaled planting plan with every plant named and placed. You get drawings a builder can price from, whether or not that builder is us.</p>
+            <ul><li>Topographic survey</li><li>1:50 planting plan</li><li>Plant schedule by season</li></ul>
+          </div>
+          <p class="price"><b>from £1,850</b><span>gardens up to 400&nbsp;m²</span></p>
+        </article>
+        <article class="svc">
+          <div>
+            <h3>Landscape build</h3>
+            <p>Terraces, dry-stone walls, paths, pergolas and planting. Our own crew lays the stone. We buy it from quarries within 20 miles of the site.</p>
+            <ul><li>Cotswold stone walling</li><li>Hard landscaping</li><li>Planting &amp; turfing</li></ul>
+          </div>
+          <p class="price"><b>£220–£480</b><span>per m², quoted after survey</span></p>
+        </article>
+        <article class="svc">
+          <div>
+            <h3>Seasonal maintenance</h3>
+            <p>The same two gardeners each visit, working to a calendar written for your garden. Pruning, mulching, lifting and dividing on time, not when someone remembers.</p>
+            <ul><li>Fortnightly or monthly</li><li>Written visit notes</li><li>Green waste removed</li></ul>
+          </div>
+          <p class="price"><b>£48 / hr</b><span>or contracts from £185 / month</span></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL CALENDAR: the thesis made literal -->
+<section class="sec calendar" id="seasons" aria-labelledby="cal-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker mono">The year, in four columns</span>
+      <h2 id="cal-h" class="split">What we plant, cut and protect, season by season.</h2>
+      <p class="lede">This is the calendar our maintenance team works to on a typical Cotswold garden of around 600&nbsp;m², on limestone brash soil.</p>
+    </div>
+    <div class="cal" role="table" aria-label="Seasonal garden calendar">
+      <div class="row-h corner mono" role="columnheader"></div>
+      <div class="col-h c-sp" role="columnheader" data-season="spring"><b>Spring</b><span>MAR – MAY · 7–15 °C</span></div>
+      <div class="col-h c-su" role="columnheader" data-season="summer"><b>Summer</b><span>JUN – AUG · 15–22 °C</span></div>
+      <div class="col-h c-au" role="columnheader" data-season="autumn"><b>Autumn</b><span>SEP – NOV · 6–15 °C</span></div>
+      <div class="col-h c-wi" role="columnheader" data-season="winter"><b>Winter</b><span>DEC – FEB · 1–7 °C</span></div>
+
+      <div class="row-h mono" role="rowheader">We plant</div>
+      <div data-row="We plant" data-season="spring">Perennials from 9&nbsp;cm pots: <i>Geum</i>, <i>Nepeta</i>, <i>Salvia nemorosa</i>. Summer bulbs.</div>
+      <div data-row="We plant" data-season="summer">Late gaps filled with <i>Dahlia</i> and <i>Cosmos</i>. Turf only with irrigation.</div>
+      <div data-row="We plant" data-season="autumn">Tulips, alliums, camassia. Container-grown shrubs while the soil is warm.</div>
+      <div data-row="We plant" data-season="winter">Bare-root hedging and roses: beech, hawthorn, <i>Rosa</i> ‘Gertrude Jekyll’.</div>
+
+      <div class="row-h mono" role="rowheader">We cut</div>
+      <div data-row="We cut" data-season="spring">Grasses and perennials down by mid-March. Dogwoods coppiced.</div>
+      <div data-row="We cut" data-season="summer">Chelsea chop on sedum and phlox. Wisteria summer prune.</div>
+      <div data-row="We cut" data-season="autumn">Hedges reshaped once. Seedheads kept standing for birds.</div>
+      <div data-row="We cut" data-season="winter">Fruit trees and roses. Wisteria back to two buds.</div>
+
+      <div class="row-h mono" role="rowheader">We protect</div>
+      <div data-row="We protect" data-season="spring">5&nbsp;cm mulch of peat-free compost on every bed.</div>
+      <div data-row="We protect" data-season="summer">Deep water weekly for new planting, never daily sprinkles.</div>
+      <div data-row="We protect" data-season="autumn">Dahlias lifted after the first frost. Leaf mould started.</div>
+      <div data-row="We protect" data-season="winter">Off the lawns when frosted. Tools serviced, plans for spring.</div>
+    </div>
+    <p class="cal-note">Timings shift by two to three weeks between the escarpment and the Thames valley edge. We adjust each garden's calendar after the first year.</p>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section class="sec materials" id="materials" aria-labelledby="mat-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker mono">Material swatches</span>
+      <h2 id="mat-h" class="split">Stone from the hills it sits on.</h2>
+      <p class="lede">We keep the palette short. Local limestone weathers to the same honey as the house within three winters.</p>
+    </div>
+    <div class="mat-grid">
+      <div class="mat">
+        <div class="chip" style="background:#cdb27a" aria-hidden="true"></div>
+        <h3>Cotswold walling stone</h3>
+        <p>Dry-laid, no mortar, hearted with rubble. The wall breathes and drains.</p>
+        <dl><dt>Bed</dt><dd>75–150 mm</dd><dt>Use</dt><dd>Walls, raised beds</dd></dl>
+      </div>
+      <div class="mat">
+        <div class="chip" style="background:#d9c79c" aria-hidden="true"></div>
+        <h3>Sawn limestone paving</h3>
+        <p>Riven top, sawn edges. Laid on a full mortar bed, 5&nbsp;mm joints.</p>
+        <dl><dt>Thick</dt><dd>30–40 mm</dd><dt>Use</dt><dd>Terraces</dd></dl>
+      </div>
+      <div class="mat">
+        <div class="chip" style="background:#c9a96a" aria-hidden="true"></div>
+        <h3>Cotswold buff gravel</h3>
+        <p>Crushed local stone. Binds well, stays put on slopes up to 1:12.</p>
+        <dl><dt>Grade</dt><dd>10 – 20 mm</dd><dt>Use</dt><dd>Paths, drives</dd></dl>
+      </div>
+      <div class="mat">
+        <div class="chip" style="background:#8a6b48" aria-hidden="true"></div>
+        <h3>Green oak</h3>
+        <p>Pegged frames for pergolas and gates. Silvers in two years.</p>
+        <dl><dt>Section</dt><dd>150 × 150</dd><dt>Use</dt><dd>Pergolas</dd></dl>
+      </div>
+      <figure class="mat-photo" style="margin:0">
+        <img src="assets/img/cottage-borders.jpg" alt="Brick and stone cottage with mixed borders of roses and hydrangeas leading to the door" loading="lazy" width="1800" height="1200">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec" aria-label="Greenfold in numbers" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="proof">
+      <div><b>214</b><p>gardens designed or built since 2011</p></div>
+      <div><b>61<small>k m²</small></b><p>under seasonal care this year</p></div>
+      <div><b>RHS</b><p>every gardener holds an RHS Level 2 or Level 3 certificate</p></div>
+      <div><b>92<small>%</small></b><p>of maintenance clients renew each spring</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS: scroll progress timeline -->
+<section class="sec" id="process" aria-labelledby="proc-h">
+  <div class="wrap process">
+    <div class="process-aside">
+      <span class="mono" style="color:var(--muted);display:block;margin-bottom:18px">How a garden happens</span>
+      <h2 id="proc-h" class="split">Five steps, about one year.</h2>
+      <p>Most projects start in late summer, are built over winter and are planted in time for their first spring.</p>
+    </div>
+    <div class="tl-wrap" id="tl">
+      <div class="tl-track" aria-hidden="true"></div>
+      <div class="tl-fill" aria-hidden="true"></div>
+      <ol class="tl">
+      <li>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="mono">Week 1 · free</span>
+        <h3>Site visit</h3>
+        <p>Ninety minutes in your garden. We test the soil pH, note the light, and talk through budget honestly.</p>
+        <div class="deliv"><span>Soil reading</span><span>Budget range</span></div>
+      </li>
+      <li>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="mono">Weeks 2–4</span>
+        <h3>Survey &amp; concept</h3>
+        <p>A measured survey to the centimetre, then two layout options with sections and photographs of the materials.</p>
+        <div class="deliv"><span>Survey drawing</span><span>Two concepts</span></div>
+      </li>
+      <li>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="mono">Weeks 5–8</span>
+        <h3>Planting plan</h3>
+        <p>Every plant placed at 1:50, with a four-season schedule. You see what flowers, what holds structure and what dies back, month by month.</p>
+        <div class="deliv"><span>1:50 plan</span><span>Plant schedule</span><span>Fixed build quote</span></div>
+        <figure><img src="assets/img/soil-trowel.jpg" alt="Trowel, secateurs and a pot of fresh compost on a potting bench" loading="lazy" width="1000" height="667"></figure>
+      </li>
+      <li>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="mono">October – March</span>
+        <h3>Build &amp; plant</h3>
+        <p>Hard landscaping first, while the ground is workable. Bare-root plants go in over winter, pots in early spring.</p>
+        <div class="deliv"><span>Weekly photo report</span><span>Snag list</span></div>
+      </li>
+      <li>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="mono">The first twelve months</span>
+        <h3>Aftercare</h3>
+        <p>We replace anything that fails in year one at no charge, as long as we look after it. Then you choose whether we stay.</p>
+        <div class="deliv"><span>12-month plant guarantee</span></div>
+      </li>
+    </ol>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery" aria-labelledby="gal-h" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker mono">Recent gardens</span>
+      <h2 id="gal-h" class="split">Shot in the season they were planned for.</h2>
+    </div>
+    <div class="gal">
+      <a class="g g1" href="projects.html#kestrel-barn"><img src="assets/img/rose-walk.jpg" alt="Gravel path through clipped box edging and climbing roses" loading="lazy"><figcaption><b>Kestrel Barn</b><span>Summer · 620 m²</span></figcaption></a>
+      <a class="g g2" href="projects.html#projects"><img src="assets/img/wisteria-walk.jpg" alt="Wisteria tunnel in full flower over a pale gravel walk" loading="lazy" style="object-position:50% 35%"><figcaption><b>Mill Lane</b><span>Spring · 340 m²</span></figcaption></a>
+      <a class="g g3" href="projects.html#projects"><img src="assets/img/tulips.jpg" alt="Orange tulips lit by low sun against dark foliage" loading="lazy"><figcaption><b>Ablington Farm</b><span>Spring · 1,100 m²</span></figcaption></a>
+      <a class="g g4" href="projects.html#projects"><img src="assets/img/kitchen-beds.jpg" alt="Timber raised beds full of lettuce, chard and herbs" loading="lazy"><figcaption><b>The Glebe</b><span>All year · 180 m²</span></figcaption></a>
+      <a class="g g5" href="projects.html#projects"><img src="assets/img/woodland-garden.jpg" alt="Shaded woodland garden with ferns, grasses and a moss lawn under mature trees" loading="lazy"><figcaption><b>Coln Wood House</b><span>Autumn · 2,400 m²</span></figcaption></a>
+    </div>
+    <div class="gal-foot"><span>Five of the 38 gardens we finished in the last three years.</span><a class="btn btn--ghost" href="projects.html">Read the case studies</a></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" aria-labelledby="q-h" style="padding-top:40px">
+  <div class="wrap">
+    <h2 id="q-h" class="mono" style="color:var(--muted);margin-bottom:36px;font-size:12px;letter-spacing:.04em;font-family:var(--f-mono);font-weight:400">From the people who live with them</h2>
+    <div class="quotes">
+      <figure class="q-main" style="margin:0">
+        <blockquote>We asked for something that looked good in June. They asked what we'd see from the kitchen window in January. That question changed the whole garden.</blockquote>
+        <figcaption class="q-by"><b>Harriet M.</b> · Kestrel Barn, near Bourton-on-the-Water</figcaption>
+      </figure>
+      <div class="q-side">
+        <figure><blockquote>The wall they built looks like it's been there for a century. Two years on, not a single stone has moved.</blockquote><figcaption>Tom R. · Sapperton</figcaption></figure>
+        <figure><blockquote>Same two gardeners every visit, and a note on the table after each one. I finally know what's going on out there.</blockquote><figcaption>Priya S. · Chipping Norton</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICAL -->
+<section class="sec" id="visit" aria-labelledby="visit-h" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker mono">Area &amp; hours</span>
+      <h2 id="visit-h" class="split">Within 25 miles of Northleach.</h2>
+    </div>
+    <div class="practical">
+      <div>
+        <h3>Where we work</h3>
+        <p>Gloucestershire, west Oxfordshire and north Wiltshire. Further for design-only work.</p>
+        <div class="towns"><span>Cirencester</span><span>Stow-on-the-Wold</span><span>Burford</span><span>Bibury</span><span>Tetbury</span><span>Chipping Norton</span><span>Painswick</span><span>Moreton-in-Marsh</span></div>
+      </div>
+      <div>
+        <h3>When we're out</h3>
+        <table>
+          <tr><td>Monday – Friday</td><td>07:30 – 16:30</td></tr>
+          <tr><td>Saturday</td><td>Site visits only</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+          <tr><td>Design studio</td><td>09:00 – 17:00</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <p>Greenfold Gardens<br>The Yard, Fosse Lane<br>Northleach, GL54</p>
+        <p>+44 20 7946 0318<br>hello@greenfold.example.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="enquire" aria-labelledby="cta-h">
+  <div class="cta-bg"><img src="assets/img/woodland-garden.jpg" alt="" loading="lazy"></div>
+  <div class="wrap cta-grid">
+    <div class="cta-copy">
+      <span class="mono" style="color:#f0c49b">Booking spring 2027 builds now</span>
+      <h2 id="cta-h" class="split" style="margin-top:16px">Start with a walk round the garden.</h2>
+      <p>The first visit is free and takes about ninety minutes. We'll tell you what's possible, what it costs, and which season to start in.</p>
+    </div>
+    <form class="form" id="form" novalidate>
+      <div class="row">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-tel">Phone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="row">
+        <div class="field"><label for="f-size">Garden size</label>
+          <select id="f-size" name="size"><option>Under 200 m²</option><option selected>200 – 600 m²</option><option>600 – 1,500 m²</option><option>Over 1,500 m²</option></select></div>
+        <div class="field"><label for="f-svc">Interested in</label>
+          <select id="f-svc" name="svc"><option>Design &amp; build</option><option>Design only</option><option>Maintenance</option></select></div>
+      </div>
+      <div class="field"><label for="f-msg">Postcode &amp; a line about the garden</label><textarea id="f-msg" name="msg" rows="3"></textarea></div>
+      <button class="btn" type="submit">Request a site visit</button>
+      <p class="form-ok" role="status" aria-live="polite" id="form-ok">Thank you. We'll call within two working days to book your visit.</p>
+      <small>We reply within two working days. No mailing list.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Greenfold Gardens</a>
+        <p style="margin-top:14px;max-width:34ch">Garden design, landscape build and seasonal maintenance in the Cotswolds.</p>
+      </div>
+      <div><h4>Site</h4><ul><li><a href="#services">Services</a></li><li><a href="#seasons">The year</a></li><li><a href="projects.html">Projects</a></li><li><a href="#enquire">Book a visit</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>+44 20 7946 0318</li><li>hello@greenfold.example.com</li><li>Northleach, GL54</li></ul></div>
+      <div><h4>Hours</h4><ul><li>Mon–Fri 07:30–16:30</li><li>Sat site visits</li></ul></div>
+    </div>
+    <div class="foot-base"><span>© 2026 Greenfold Gardens. Fictional brand.</span><span>Contenu de démonstration · Photos Unsplash</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdr = document.getElementById('hdr');
+
+  /* current season from the real month: rails + calendar column */
+  var m = new Date().getMonth();
+  var season = m>=2&&m<=4?'spring':m>=5&&m<=7?'summer':m>=8&&m<=10?'autumn':'winter';
+  document.querySelectorAll('.rail').forEach(function(r){r.classList.toggle('is-now', r.dataset.season===season)});
+  document.querySelectorAll('.cal [data-season]').forEach(function(c){c.classList.toggle('is-now', c.dataset.season===season)});
+
+  /* mobile nav */
+  var burger = document.getElementById('burger'), nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click', function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && nav.classList.contains('open')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.focus();} });
+
+  /* header becomes solid after the hero top */
+  function onScroll(){ hdr.classList.toggle('is-solid', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* form */
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.querySelector('#f-name'), email = form.querySelector('#f-email');
+    if(!name.value.trim()){ name.focus(); return; }
+    if(!email.value.trim() || !email.checkValidity()){ email.focus(); return; }
+    form.classList.add('sent');
+    form.querySelector('button').textContent = 'Request sent';
+    form.querySelector('button').disabled = true;
+  });
+
+  /* timeline progress (works without GSAP) */
+  var tl = document.getElementById('tl'), fill = tl.querySelector('.tl-fill'), items = tl.querySelectorAll('li'), track = tl.querySelector('.tl-track');
+  function measure(){
+    var dots = tl.querySelectorAll('.tl-dot'), first = dots[0], last = dots[dots.length-1];
+    var top = first.offsetTop + 8, bottom = last.parentNode.offsetTop + last.offsetTop + 8;
+    track.style.top = fill.style.top = top + 'px';
+    track.style.bottom = fill.style.bottom = 'auto';
+    track.style.height = fill.style.height = (bottom - top) + 'px';
+  }
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var r = tl.getBoundingClientRect(), anchor = window.innerHeight * 0.55;
+    var start = r.top + parseFloat(fill.style.top||0), len = parseFloat(fill.style.height||1);
+    var p = reduce ? 1 : Math.min(1, Math.max(0, (anchor - start) / len));
+    fill.style.transform = 'scaleY(' + p + ')';
+    items.forEach(function(li){
+      var d = li.querySelector('.tl-dot').getBoundingClientRect();
+      li.classList.toggle('is-reached', reduce || d.top + 8 <= anchor);
+    });
+  }
+  measure(); update();
+  window.addEventListener('scroll', function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} }, {passive:true});
+  window.addEventListener('resize', function(){ measure(); update(); });
+  window.addEventListener('load', function(){ measure(); update(); });
+  if(document.fonts) document.fonts.ready.then(function(){ measure(); update(); });
+
+  if(reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* one smooth-scroll engine: Lenis */
+  if(window.Lenis){
+    var lenis = new Lenis({lerp:.11});
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href'); if(id.length<2) return;
+        var t = document.querySelector(id); if(!t) return;
+        e.preventDefault(); lenis.scrollTo(t, {offset:-68});
+      });
+    });
+  }
+
+  /* split headings word by word, keeping an accessible label */
+  document.querySelectorAll('.split').forEach(function(h){
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g,' ').trim());
+    var walk = function(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(w){
+            if(!w) return;
+            if(/^\s+$/.test(w)){ frag.appendChild(document.createTextNode(w)); return; }
+            var o = document.createElement('span'); o.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em';
+            var i = document.createElement('span'); i.className='w'; i.style.display='inline-block'; i.textContent=w;
+            o.setAttribute('aria-hidden','true'); o.appendChild(i); frag.appendChild(o);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if(n.nodeType===1){ walk(n); }
+      });
+    };
+    walk(h);
+  });
+
+  /* hero intro: seasons draw in, then the headline */
+  var intro = gsap.timeline({defaults:{ease:'power3.out'}});
+  intro.from('.hero-img img', {scale:1.08, duration:2.2, ease:'power2.out'}, 0)
+       .from('.rail', {scaleY:0, transformOrigin:'top', duration:1.1, stagger:.12}, .1)
+       .from('.rail-label', {y:-10, opacity:0, duration:.6, stagger:.12}, .5)
+       .from('.hero h1 .w', {yPercent:110, duration:.9, stagger:.06}, .35)
+       .from('.hero-sub, .hero-ctas', {y:16, opacity:0, duration:.7, stagger:.1}, .9)
+       .from('.onsite', {x:20, opacity:0, duration:.7}, 1.1);
+
+  /* slow drift of the hero photograph */
+  gsap.to('.hero-img img', {yPercent:8, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+  document.querySelectorAll('.split').forEach(function(h){
+    if(h.closest('.hero')) return;
+    gsap.from(h.querySelectorAll('.w'), {yPercent:110, duration:.8, stagger:.045, ease:'power3.out', scrollTrigger:{trigger:h, start:'top 85%', once:true}});
+  });
+  gsap.from('.svc', {y:24, opacity:0, duration:.7, stagger:.12, ease:'power2.out', scrollTrigger:{trigger:'.services', start:'top 75%', once:true}});
+  gsap.from('.cal > div', {opacity:0, y:10, duration:.5, stagger:.02, ease:'power2.out', scrollTrigger:{trigger:'.cal', start:'top 80%', once:true}});
+  gsap.from('.chip', {scaleY:0, transformOrigin:'bottom', duration:.8, stagger:.08, ease:'power3.out', scrollTrigger:{trigger:'.mat-grid', start:'top 80%', once:true}});
+  gsap.from('.proof b', {y:30, opacity:0, duration:.8, stagger:.1, ease:'power3.out', scrollTrigger:{trigger:'.proof', start:'top 85%', once:true}});
+  gsap.from('.g', {y:40, opacity:0, duration:.9, stagger:.1, ease:'power3.out', scrollTrigger:{trigger:'.gal', start:'top 80%', once:true}});
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

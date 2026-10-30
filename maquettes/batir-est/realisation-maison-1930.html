@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison 1930 à Villers-lès-Nancy — Réalisation Bâtir Est</title>
+<meta name="description" content="Étude de cas Bâtir Est : rénovation complète et extension d'une maison de 1930 à Villers-lès-Nancy. 166 m², 16 semaines, 212 000 € HT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#0d0d0b;
+  --ink-2:#1c1c19;
+  --paper:#ecebe5;
+  --paper-2:#dfded6;
+  --mute:#6d6c66;
+  --mute-dark:#a3a29b;
+  --signal:#ff5b14;
+  --proof:#d4e8dc;
+  --rule:rgba(13,13,11,.18);
+  --rule-dark:rgba(236,235,229,.2);
+  --f-display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body:"Work Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--f-mono);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;padding:15px 20px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.btn--signal{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.btn--signal:hover{background:var(--paper);border-color:var(--paper)}
+.btn--line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dark .btn--line:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn svg{width:16px;height:16px}
+.dark{background:var(--ink);color:var(--paper)}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--paper);border-bottom:1px solid var(--rule-dark)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font-family:var(--f-display);font-weight:900;font-size:28px;letter-spacing:.01em;line-height:1}
+.logo span{color:var(--mute-dark)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .18s}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--signal)}
+.nav .btn{padding:10px 14px;border-bottom-width:2px}
+.burger{display:none;background:none;border:2px solid var(--paper);color:var(--paper);height:40px;padding:0 12px;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;cursor:pointer}
+@media (max-width:899px){
+  .burger{display:inline-flex;align-items:center}
+  .nav{position:absolute;left:0;right:0;top:60px;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-bottom:2px solid var(--signal);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.is-open{display:flex}
+  .nav a{font-size:15px;padding:14px 0;border-bottom:1px solid var(--rule-dark)}
+  .nav .btn{margin-top:16px;justify-content:center;padding:14px}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-top:28px;padding-bottom:0;overflow:hidden}
+.hero__meta{display:flex;justify-content:space-between;gap:16px;color:var(--mute-dark);padding-bottom:18px;border-bottom:1px solid var(--rule-dark)}
+.hero h1{font-size:clamp(4.1rem, 12.2vw, 11.6rem);line-height:.86;margin-top:14px}
+.hero h1 .ln:last-child{text-align:right}
+@media (max-width:899px){.hero h1 .ln:last-child{text-align:left}.hero__meta span:last-child{display:none}}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+.hero h1 .ln span{display:block}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero__stage{position:relative;margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.hero__photo{position:relative;aspect-ratio:16/7;overflow:hidden;background:var(--ink-2)}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(.35) contrast(1.08)}
+.ticket{position:absolute;right:0;top:0;background:var(--paper);color:var(--ink);width:min(340px,40%);font-family:var(--f-mono);font-size:12px;text-transform:uppercase}
+.ticket header{background:var(--signal);padding:10px 14px;font-weight:600;display:flex;justify-content:space-between}
+.ticket dl{margin:0;padding:6px 14px 12px}
+.ticket dl div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--rule)}
+.ticket dt{color:var(--mute)}
+.ticket dd{margin:0;font-weight:600;text-align:right}
+.ticket .bar{height:8px;background:var(--paper-2);margin:12px 14px 4px;position:relative}
+.ticket .bar i{position:absolute;inset:0 auto 0 0;width:55%;background:var(--ink)}
+.ticket .barlbl{padding:0 14px 14px;color:var(--mute)}
+.hero__pitch{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:end;padding:28px 0 36px}
+.hero__pitch p{margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.45;max-width:36ch;color:#d6d5ce}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+@media (max-width:899px){
+  .hero__photo{aspect-ratio:4/3}
+  .ticket{position:relative;width:100%;}
+  .hero__pitch{grid-template-columns:1fr;gap:22px}
+  .hero__cta{justify-content:flex-start}
+}
+
+/* ---------- counters ---------- */
+.counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule-dark)}
+.count{padding:22px 20px 26px 0;border-right:1px solid var(--rule-dark)}
+.count + .count{padding-left:20px}
+.count:last-child{border-right:0}
+.count b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(3rem,5.4vw,5.2rem);line-height:.9}
+.count b small{font-size:.45em;margin-left:.08em;color:var(--signal)}
+.count > span{display:block;margin-top:8px;color:var(--mute-dark)}
+@media (max-width:899px){
+  .counts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .count{padding:18px 12px 20px 0}
+  .count + .count{padding-left:0}
+  .count:nth-child(even){padding-left:14px;border-right:0}
+  .count:nth-child(n+3){border-top:1px solid var(--rule-dark)}
+}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--signal);color:var(--ink);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.marquee__track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee ul{display:flex;list-style:none;margin:0;padding:0}
+.marquee li{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,3.4vw,46px);line-height:1;padding:16px 0;white-space:nowrap;display:flex;align-items:center}
+.marquee li::after{content:"";width:12px;height:12px;background:var(--ink);margin:0 28px;flex:none}
+.marquee li small{font-family:var(--f-mono);font-size:13px;font-weight:600;margin-left:10px;align-self:flex-start;padding-top:4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- section heads ---------- */
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:40px;align-items:end;padding-bottom:36px;border-bottom:2px solid currentColor}
+.sec-head h2{font-size:clamp(3rem,7.4vw,7rem)}
+.sec-head p{margin:0;max-width:46ch;font-size:18px}
+.sec-head .mono{display:block;margin-bottom:18px;color:var(--mute)}
+.dark .sec-head .mono{color:var(--mute-dark)}
+@media (max-width:899px){.sec{padding:72px 0}.sec-head{grid-template-columns:1fr;gap:18px}}
+
+/* ---------- métiers ---------- */
+.trades{list-style:none;margin:0;padding:0}
+.trade{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,2.4fr) minmax(0,1.2fr) minmax(0,1fr);gap:28px;padding:28px 0;border-bottom:1px solid var(--rule);align-items:start;transition:background .2s}
+.trade:hover{background:var(--paper-2)}
+.trade h3{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,42px);line-height:.95;margin:0}
+.trade p{margin:0;color:#3b3a36}
+.trade .k{display:block;color:var(--mute);margin-bottom:4px}
+.trade .v{font-family:var(--f-mono);font-size:15px;font-weight:600}
+@media (max-width:899px){
+  .trade{grid-template-columns:1fr 1fr;gap:14px 20px}
+  .trade h3,.trade p{grid-column:1/-1}
+}
+
+/* ---------- featured case ---------- */
+.case{padding:0 0 110px}
+.case__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule-dark)}
+.case__media{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink)}
+.case__media figure{margin:0;position:relative}
+.case__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.case__media figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);padding:8px 12px}
+.case__media figure:last-child figcaption{background:var(--signal);color:var(--ink)}
+.case__body{padding:40px 0 40px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.case__body h3{font-size:clamp(3rem,5.6vw,5.6rem)}
+.case__body p{margin:0;color:#cfcec7;max-width:44ch}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule-dark)}
+.figs div{padding:16px 12px 0 0}
+.figs b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(34px,3.4vw,52px);line-height:1}
+.figs span{color:var(--mute-dark)}
+@media (max-width:899px){
+  .case{padding-bottom:72px}
+  .case__grid{grid-template-columns:1fr}
+  .case__body{padding:32px 0 0}
+}
+
+/* ---------- méthode ---------- */
+.method{background:var(--paper)}
+.method__lede{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(2.4rem,5.2vw,5rem);line-height:.92;max-width:16ch;margin:0 0 64px}
+.method__lede span{color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:2px solid var(--ink);list-style:none;margin:0;padding:0}
+.step{padding:22px 22px 8px 0;position:relative}
+.step + .step{padding-left:20px;border-left:1px solid var(--rule)}
+.step .wk{font-family:var(--f-mono);font-weight:600;font-size:13px;background:var(--ink);color:var(--paper);display:inline-block;padding:4px 8px}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:30px;text-transform:uppercase;line-height:.95;margin:16px 0 10px}
+.step p{margin:0;font-size:15px;color:#3b3a36}
+@media (max-width:1099px){
+  .steps{grid-template-columns:1fr}
+  .step,.step + .step{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:110px 1fr;gap:4px 16px}
+  .step .wk{grid-row:1/3;align-self:start;justify-self:start}
+  .step h3{margin:0}
+}
+
+/* ---------- journal / collage ---------- */
+.journal{background:var(--ink);color:var(--paper)}
+.collage{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:48px}
+.shot{margin:0;position:relative;overflow:hidden;background:var(--ink-2)}
+.shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(.55) contrast(1.1);transition:filter .3s}
+.shot:hover img,.shot:focus-within img{filter:none}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(transparent,rgba(13,13,11,.85));display:flex;justify-content:space-between;gap:12px;align-items:end}
+.shot figcaption b{font-family:var(--f-body);font-weight:500;text-transform:none;font-size:14px;letter-spacing:0}
+.shot--a{grid-column:1/8;aspect-ratio:4/3}
+.shot--b{grid-column:8/13;aspect-ratio:4/5;margin-top:80px}
+.shot--c{grid-column:2/6;aspect-ratio:1/1;margin-top:-60px}
+.shot--d{grid-column:6/13;aspect-ratio:16/9}
+.shot--e{grid-column:3/10;aspect-ratio:16/8}
+@media (max-width:899px){
+  .collage{grid-template-columns:1fr 1fr;gap:10px}
+  .shot--a,.shot--d,.shot--e{grid-column:1/-1;margin-top:0}
+  .shot--b,.shot--c{grid-column:auto;margin-top:0;aspect-ratio:3/4}
+  .shot figcaption{flex-direction:column;align-items:flex-start;gap:2px}
+}
+
+/* ---------- avis ---------- */
+.proofs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:48px;border-top:2px solid var(--ink)}
+.proof{background:var(--proof);padding:32px 28px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;border-right:2px solid var(--paper)}
+.proof:nth-child(2){background:#e9d9d2}
+.proof:last-child{border-right:0}
+.proof blockquote{margin:0;font-size:19px;line-height:1.45}
+.proof blockquote::before{content:"«\00a0";font-family:var(--f-display);font-weight:900}
+.proof blockquote::after{content:"\00a0»";font-family:var(--f-display);font-weight:900}
+.proof footer{display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--rule)}
+.proof footer b{font-weight:600}
+@media (max-width:899px){.proofs{grid-template-columns:1fr}.proof{border-right:0;border-bottom:2px solid var(--paper)}}
+
+/* ---------- infos ---------- */
+.infos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.info{padding:28px 28px 32px 0}
+.info + .info{padding-left:28px;border-left:1px solid var(--rule)}
+.info h3{font-family:var(--f-display);font-weight:800;font-size:34px;text-transform:uppercase;margin:0 0 16px;line-height:1}
+.info table{width:100%;border-collapse:collapse;font-size:15px}
+.info td{padding:9px 0;border-bottom:1px dashed var(--rule);vertical-align:top}
+.info td:last-child{text-align:right;font-family:var(--f-mono);font-size:13px}
+.info p{margin:0 0 12px;font-size:15px}
+.deps{display:flex;gap:10px;margin-bottom:16px}
+.deps span{font-family:var(--f-display);font-weight:900;font-size:64px;line-height:.85;border:2px solid var(--ink);padding:6px 10px 2px}
+.deps span:first-child{background:var(--ink);color:var(--paper)}
+@media (max-width:899px){
+  .infos{grid-template-columns:1fr}
+  .info,.info + .info{padding:24px 0;border-left:0;border-bottom:1px solid var(--rule)}
+}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:56px;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:20px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:22px;width:36px;height:36px;border:2px solid var(--ink);display:grid;place-items:center;flex:none;transition:background .18s,color .18s}
+.faq details[open] summary::after{content:"–";background:var(--ink);color:var(--paper)}
+.faq summary:hover::after{background:var(--signal)}
+.faq details p{margin:0 0 24px;max-width:70ch;color:#3b3a36}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.contact h2{font-size:clamp(3.4rem,8vw,8rem)}
+.contact h2 em{font-style:normal;color:var(--signal)}
+.contact .lead{color:#cfcec7;max-width:40ch;margin:28px 0 24px;font-size:18px}
+.contact .direct{font-family:var(--f-mono);font-size:15px;line-height:2}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form label{display:flex;flex-direction:column;gap:6px;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;color:var(--mute-dark)}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{font:inherit;font-family:var(--f-body);font-size:16px;text-transform:none;color:var(--paper);background:transparent;border:0;border-bottom:2px solid var(--rule-dark);padding:10px 0;border-radius:0;transition:border-color .18s}
+.form select option{color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--signal)}
+.form input:user-invalid{border-color:#ff8a8a}
+.form textarea{min-height:110px;resize:vertical}
+.form .btn{justify-self:start}
+.form-ok{grid-column:1/-1;border:2px solid var(--signal);padding:18px 20px;font-size:17px}
+.form-ok b{display:block;font-family:var(--f-display);text-transform:uppercase;font-size:30px;line-height:1;margin-bottom:6px}
+@media (max-width:899px){.contact{grid-template-columns:1fr;gap:40px}.form{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding:56px 0 calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule-dark)}
+.ftr__cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:40px}
+.ftr__cols h4{margin:0 0 12px;color:var(--mute-dark);font-weight:400}
+.ftr__cols ul{list-style:none;margin:0;padding:0;line-height:1.9;font-size:15px}
+.ftr__cols a{text-decoration:none;border-bottom:1px solid var(--rule-dark)}
+.ftr__cols a:hover{border-color:var(--signal)}
+.wordmark{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(5rem,23vw,22rem);line-height:.78;letter-spacing:-.01em;margin:0;white-space:nowrap}
+.ftr__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;margin-top:24px;border-top:1px solid var(--rule-dark);color:var(--mute-dark)}
+@media (max-width:899px){.ftr__cols{grid-template-columns:1fr 1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none;flex-wrap:wrap;width:auto}
+  .marquee ul[aria-hidden]{display:none}
+  .marquee ul{flex-wrap:wrap}
+  *{transition:none!important}
+}
+/* ---------- page étude de cas ---------- */
+.crumbs{padding:18px 0;color:var(--mute-dark);display:flex;gap:10px;flex-wrap:wrap}
+.crumbs a{text-decoration:none;border-bottom:1px solid var(--rule-dark)}
+.ch{padding-bottom:0}
+.ch h1{font-size:clamp(4.4rem,17vw,16rem);margin:10px 0 0}
+.ch h1 .ln{display:block;overflow:hidden}
+.ch h1 .ln span{display:block}
+.ch__row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;padding:28px 0 40px;border-top:1px solid var(--rule-dark);margin-top:20px}
+.ch__row p{margin:0;font-size:clamp(17px,1.5vw,20px);color:#d6d5ce;max-width:48ch}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid var(--paper)}
+.spec div{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule-dark)}
+.spec dt{color:var(--mute-dark)}
+.spec dd{margin:4px 0 0;font-family:var(--f-display);font-weight:800;font-size:clamp(28px,2.6vw,40px);line-height:1;text-transform:uppercase}
+.spec dd small{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--mute-dark);margin-left:6px;text-transform:none}
+@media (max-width:899px){.ch__row{grid-template-columns:1fr;gap:28px}}
+
+.ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px;background:var(--ink)}
+.ba figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden}
+.ba img{width:100%;height:100%;object-fit:cover}
+.ba figcaption{position:absolute;left:0;top:0;display:flex;align-items:stretch}
+.ba figcaption b{background:var(--ink);color:var(--paper);font-family:var(--f-display);font-weight:900;font-size:clamp(28px,3.4vw,52px);line-height:1;padding:10px 16px 6px;text-transform:uppercase}
+.ba figure:last-child figcaption b{background:var(--signal);color:var(--ink)}
+.ba figcaption span{background:var(--paper);color:var(--ink);padding:0 12px;display:flex;align-items:center}
+@media (max-width:699px){.ba{grid-template-columns:1fr}}
+
+.brief{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
+.brief h3{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin:0 0 14px}
+.brief p{margin:0 0 14px;max-width:56ch}
+.brief ul{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.brief li{padding:12px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:150px 1fr;gap:16px}
+.brief li .mono{color:var(--mute);padding-top:3px}
+@media (max-width:899px){.brief{grid-template-columns:1fr;gap:40px}.brief li{grid-template-columns:1fr;gap:2px}}
+
+/* gantt */
+.gantt{margin-top:40px;border-top:2px solid var(--ink);font-size:14px}
+.g-row{display:grid;grid-template-columns:220px repeat(16,minmax(0,1fr));align-items:center;border-bottom:1px solid var(--rule);min-height:44px}
+.g-row > span:first-child{padding-right:12px;font-weight:500}
+.g-head{min-height:34px;color:var(--mute)}
+.g-head span{text-align:center;font-family:var(--f-mono);font-size:11px}
+.g-head span:first-child{text-align:left}
+.g-bar{height:18px;background:var(--ink);grid-row:1}
+.g-bar.late{background:var(--signal)}
+.g-bar.plan{background:transparent;border:2px dashed var(--ink);height:18px}
+.g-legend{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;color:var(--mute)}
+.g-legend i{display:inline-block;width:22px;height:10px;background:var(--ink);margin-right:8px;vertical-align:middle}
+.g-legend i.l{background:var(--signal)}
+.g-legend i.p{background:transparent;border:2px dashed var(--ink)}
+.gantt-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:899px){.gantt{min-width:760px}.g-row{grid-template-columns:160px repeat(16,minmax(0,1fr))}}
+
+/* budget */
+.budget{width:100%;border-collapse:collapse;margin-top:40px;border-top:2px solid var(--paper)}
+.budget th{text-align:left;font-family:var(--f-mono);font-size:12px;font-weight:400;text-transform:uppercase;color:var(--mute-dark);padding:12px 0;border-bottom:1px solid var(--rule-dark)}
+.budget td{padding:16px 0;border-bottom:1px solid var(--rule-dark);vertical-align:middle}
+.budget td:nth-child(2){width:38%;padding:16px 24px}
+.budget td:last-child,.budget th:last-child{text-align:right;font-family:var(--f-mono);font-size:15px;white-space:nowrap}
+.budget .b{height:12px;background:var(--paper);transform-origin:0 50%}
+.budget tfoot td{font-family:var(--f-display);font-weight:900;font-size:clamp(32px,4vw,56px);text-transform:uppercase;border-bottom:0;padding-top:22px}
+.budget tfoot td:last-child{font-family:var(--f-display);font-size:clamp(32px,4vw,56px);color:var(--signal)}
+.budget small{display:block;color:var(--mute-dark);font-family:var(--f-mono);font-size:12px;text-transform:uppercase;margin-top:2px}
+@media (max-width:699px){.budget td:nth-child(2){display:none}}
+
+/* matériaux */
+.mats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;border-top:2px solid var(--ink)}
+.mat{padding:22px 24px 26px 0;border-bottom:1px solid var(--rule)}
+.mat:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--rule)}
+.mat h3{margin:0 0 6px;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.mat .mono{color:var(--signal);background:var(--ink);display:inline-block;padding:3px 7px;margin-bottom:12px}
+.mat p{margin:0;font-size:15px;color:#3b3a36}
+@media (max-width:899px){.mats{grid-template-columns:1fr}.mat,.mat:not(:nth-child(3n+1)){padding:20px 0;border-left:0}}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch}
+.split img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.split blockquote{margin:0;background:var(--proof);padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.split blockquote p{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(30px,3.4vw,50px);line-height:1;text-transform:uppercase}
+.split footer{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:14px}
+@media (max-width:899px){.split{grid-template-columns:1fr}}
+
+.next{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
+.next h2{font-size:clamp(3rem,8vw,8rem)}
+.next h2 em{font-style:normal;color:var(--signal)}
+.next .acts{display:flex;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="Bâtir Est, accueil"><b>BÂTIR EST</b><span class="mono">57·54</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html#metiers">Métiers</a>
+      <a href="realisation-maison-1930.html" aria-current="page">Réalisation</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#infos">Zone & horaires</a>
+      <a class="btn btn--signal" href="index.html#contact">Visite gratuite</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="ch dark" aria-labelledby="h1">
+  <div class="wrap">
+    <nav class="crumbs mono" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span>/</span><span>Réalisations</span><span>/</span><span>Chantier 25-041</span></nav>
+    <h1 class="display" id="h1"><span class="ln"><span>Maison</span></span><span class="ln"><span style="color:var(--signal)">1930</span></span></h1>
+    <div class="ch__row">
+      <p>Villers-lès-Nancy, rue calme, maison de ville en meulière et brique sur deux niveaux. Rien n'avait bougé depuis 1974. Les propriétaires voulaient une pièce de vie ouverte sur le jardin, une vraie isolation et des murs secs. Voici le chantier tel qu'il s'est passé, retard compris.</p>
+      <dl class="spec">
+        <div><dt class="mono">Surface traitée</dt><dd>166 m²<small>142 + 24 neufs</small></dd></div>
+        <div><dt class="mono">Durée</dt><dd>16 sem.<small>prévu : 14</small></dd></div>
+        <div><dt class="mono">Budget final</dt><dd>212 000 €<small>HT</small></dd></div>
+        <div><dt class="mono">Écart devis</dt><dd>+3,1 %<small>2 avenants</small></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="ba">
+    <figure><img src="assets/img/maison1930-curage.jpg" width="1000" height="665" alt="Rez-de-chaussée en curage : cloisons démolies, briques apparentes, étais et gravats." fetchpriority="high"><figcaption><b>Avant</b><span class="mono">S03 · curage</span></figcaption></figure>
+    <figure><img src="assets/img/maison1930-sejour.jpg" width="1000" height="1000" alt="Le séjour terminé : murs blancs lisses, canapé ocre, tapis, miroir en arche."><figcaption><b>Après</b><span class="mono">S16 · réception</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-brief">
+  <div class="wrap">
+    <div class="brief">
+      <div>
+        <span class="mono" style="color:var(--mute);display:block;margin-bottom:14px">Le point de départ</span>
+        <h2 class="display" id="h-brief" style="font-size:clamp(3rem,6vw,6rem);margin-bottom:28px">Des murs<br>qui buvaient</h2>
+        <p>À la visite technique, l'humidimètre affichait 18 % en pied de mur côté rue. Fondations en moellons peu profondes, plancher bas sur vide sanitaire non ventilé, simple vitrage partout. Étiquette énergie : F.</p>
+        <p>Objectif fixé avec les propriétaires : passer en C, ouvrir cuisine et séjour sur 7,40 m, ajouter 24 m² côté jardin, sans toucher à la façade en meulière.</p>
+      </div>
+      <ul>
+        <li><span class="mono">Client</span><span>Particuliers, couple avec deux enfants</span></li>
+        <li><span class="mono">Autorisation</span><span>Déclaration préalable (extension &lt; 40 m²), accordée en 5 semaines</span></li>
+        <li><span class="mono">Équipe</span><span>1 conducteur de travaux, 1 chef d'équipe, 4 compagnons, 2 artisans partenaires (électricité, chauffage)</span></li>
+        <li><span class="mono">Garanties</span><span>Décennale gros œuvre et second œuvre, parfait achèvement 1 an, bon fonctionnement 2 ans</span></li>
+        <li><span class="mono">DPE</span><span>F (312 kWh/m².an) → C (138 kWh/m².an)</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="h-plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Planning réel</span><h2 class="display" id="h-plan">Semaine<br>par semaine</h2></div>
+      <p>Le carrelage a attendu les menuiseries : livraison fournisseur décalée de deux semaines. On a resserré les finitions, mais la réception a glissé de S14 à S16.</p>
+    </div>
+    <div class="gantt-scroll" tabindex="0" aria-label="Diagramme de planning, défilable horizontalement sur mobile">
+      <div class="gantt" role="table" aria-label="Planning du chantier par lot, semaines 1 à 16">
+        <div class="g-row g-head" role="row"><span class="mono" role="columnheader">Lot</span><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>S6</span><span>S7</span><span>S8</span><span>S9</span><span>S10</span><span>S11</span><span>S12</span><span>S13</span><span>S14</span><span>S15</span><span>S16</span></div>
+        <div class="g-row" role="row"><span role="cell">Installation, curage</span><i class="g-bar" style="grid-column:2/4" role="cell" aria-label="S1 à S2"></i></div>
+        <div class="g-row" role="row"><span role="cell">Sous-œuvre, fondations</span><i class="g-bar" style="grid-column:3/6" role="cell" aria-label="S2 à S4"></i></div>
+        <div class="g-row" role="row"><span role="cell">Extension, gros œuvre</span><i class="g-bar" style="grid-column:5/10" role="cell" aria-label="S4 à S8"></i></div>
+        <div class="g-row" role="row"><span role="cell">Trémie, escalier, planchers</span><i class="g-bar" style="grid-column:6/9" role="cell" aria-label="S5 à S7"></i></div>
+        <div class="g-row" role="row"><span role="cell">Réseaux, PAC</span><i class="g-bar" style="grid-column:8/13" role="cell" aria-label="S7 à S11"></i></div>
+        <div class="g-row" role="row"><span role="cell">Isolation, plâtrerie</span><i class="g-bar" style="grid-column:9/14" role="cell" aria-label="S8 à S12"></i></div>
+        <div class="g-row" role="row"><span role="cell">Menuiseries extérieures</span><i class="g-bar plan" style="grid-column:10/12" role="cell" aria-label="Prévu S9 à S10"></i><i class="g-bar late" style="grid-column:12/14" role="cell" aria-label="Réalisé S11 à S12"></i></div>
+        <div class="g-row" role="row"><span role="cell">Sols, peinture, finitions</span><i class="g-bar late" style="grid-column:13/18" role="cell" aria-label="S12 à S16"></i></div>
+      </div>
+    </div>
+    <div class="g-legend mono"><span><i></i>Réalisé dans les temps</span><span><i class="l"></i>Décalé</span><span><i class="p"></i>Prévu initialement</span></div>
+  </div>
+</section>
+
+<section class="sec dark" aria-labelledby="h-budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Budget final, lot par lot</span><h2 class="display" id="h-budget">212 000 € HT,<br>au centime près</h2></div>
+      <p>Devis signé : 205 600 € HT. Deux avenants : reprise d'un linteau fissuré découvert au curage (+3 900 €) et prises supplémentaires demandées par le client (+2 500 €).</p>
+    </div>
+    <table class="budget">
+      <thead><tr><th>Lot</th><th aria-hidden="true"></th><th>€ HT</th></tr></thead>
+      <tbody>
+        <tr><td>Installation, curage, évacuation<small>38 m³ de gravats, benne 15 m³ ×3</small></td><td aria-hidden="true"><div class="b" style="width:31%"></div></td><td>14 600</td></tr>
+        <tr><td>Reprise en sous-œuvre, fondations<small>18 ml par plots béton, drainage périphérique</small></td><td aria-hidden="true"><div class="b" style="width:61%"></div></td><td>28 400</td></tr>
+        <tr><td>Extension, gros œuvre<small>24 m², blocs béton 20 cm, toiture terrasse</small></td><td aria-hidden="true"><div class="b" style="width:100%"></div></td><td>46 800</td></tr>
+        <tr><td>Trémie, escalier, ouverture 7,40 m<small>poutre HEB 240, note de calcul BET</small></td><td aria-hidden="true"><div class="b" style="width:38%"></div></td><td>17 900</td></tr>
+        <tr><td>Isolation<small>murs 120 mm fibre de bois, combles 300 mm</small></td><td aria-hidden="true"><div class="b" style="width:48%"></div></td><td>22 300</td></tr>
+        <tr><td>Menuiseries extérieures<small>11 fenêtres + baie coulissante 3,20 m</small></td><td aria-hidden="true"><div class="b" style="width:57%"></div></td><td>26 700</td></tr>
+        <tr><td>Électricité, plomberie, chauffage<small>PAC air-eau 8 kW, radiateurs basse température</small></td><td aria-hidden="true"><div class="b" style="width:67%"></div></td><td>31 500</td></tr>
+        <tr><td>Plâtrerie, peinture, sols<small>plâtre sur rails, parquet chêne 14 mm</small></td><td aria-hidden="true"><div class="b" style="width:51%"></div></td><td>23 800</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total</td><td aria-hidden="true"></td><td>212 000 €</td></tr></tfoot>
+    </table>
+    <p class="mono" style="color:var(--mute-dark);margin:16px 0 0">Soit 1 277 € HT/m² traité. TVA à 10 % sur la rénovation, 5,5 % sur l'isolation, 20 % sur l'extension.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-mats">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Ce qui a été posé</span><h2 class="display" id="h-mats">Matériaux</h2></div>
+      <p>Choisis pour une maison ancienne qui doit continuer à respirer : pas de pare-vapeur étanche sur la meulière, des enduits perspirants côté rue.</p>
+    </div>
+    <div class="mats">
+      <div class="mat"><span class="mono">Fondations</span><h3>Béton C25/30</h3><p>Plots de reprise tous les 1,20 m, ferraillage HA12. 14 m³ coulés en trois passes.</p></div>
+      <div class="mat"><span class="mono">Extension</span><h3>Blocs béton 20 cm</h3><p>Chaînages verticaux aux angles, linteau béton armé de 3,40 m pour la baie.</p></div>
+      <div class="mat"><span class="mono">Structure</span><h3>Poutre HEB 240</h3><p>Portée 7,40 m, appuis sur sommiers béton, protection feu R30 par plaque.</p></div>
+      <div class="mat"><span class="mono">Isolation murs</span><h3>Fibre de bois 120 mm</h3><p>R = 3,15 m².K/W, frein-vapeur hygrovariable, doublage plâtre sur rails.</p></div>
+      <div class="mat"><span class="mono">Façade rue</span><h3>Enduit chaux NHL 3,5</h3><p>Rejointoiement de la meulière à la chaux, pas de ciment sur le bâti ancien.</p></div>
+      <div class="mat"><span class="mono">Menuiseries</span><h3>Bois-alu, Uw 1,3</h3><p>Double vitrage 4/16/4 argon, volets roulants solaires sur l'extension.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Retour client">
+  <div class="split">
+    <img src="assets/img/plans.jpg" width="1000" height="563" loading="lazy" alt="Conducteur de travaux annotant un plan sur une table de chantier.">
+    <blockquote>
+      <p>Deux semaines de retard, mais on nous l'a dit dès la S9, avec le nouveau planning le lendemain.</p>
+      <footer class="mono"><b>Claire et Thomas R.</b><span>Villers-lès-Nancy</span></footer>
+    </blockquote>
+  </div>
+</section>
+
+<section class="sec dark" aria-labelledby="h-next">
+  <div class="wrap next">
+    <h2 class="display" id="h-next">Votre maison <br>a aussi <em>un âge.</em></h2>
+    <div class="acts">
+      <a class="btn btn--signal" href="index.html#contact">Demander une visite technique</a>
+      <a class="btn btn--line" href="index.html">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__cols">
+      <div><h4 class="mono">Pages</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="realisation-maison-1930.html">Réalisation : maison 1930</a></li><li><a href="index.html#contact">Demander une visite</a></li></ul></div>
+      <div><h4 class="mono">Métiers</h4><ul><li>Gros œuvre</li><li>Rénovation globale</li><li>Extension</li><li>ITE</li></ul></div>
+      <div><h4 class="mono">Contact</h4><ul><li>03 83 47 21 90</li><li>chantiers@batir-est.exemple.fr</li></ul></div>
+      <div><h4 class="mono">Société</h4><ul><li>SAS au capital de 80 000 €</li><li>Décennale n° fictif BE-0912</li><li>22 salariés</li></ul></div>
+    </div>
+    <p class="wordmark" aria-hidden="true">Bâtir Est</p>
+    <div class="ftr__legal mono"><span>© 2026 Bâtir Est — entreprise fictive</span><span>Contenu de démonstration · maquette 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var burger=document.querySelector('.burger'), nav=document.getElementById('nav');
+  function close(){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false');burger.textContent='Menu';}
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('is-open');burger.setAttribute('aria-expanded',o);burger.textContent=o?'Fermer':'Menu';});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){close();burger.focus();}});
+  if(!window.gsap) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){
+    var lenis=new Lenis({lerp:.12});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+  }
+  gsap.from('.ch h1 .ln > span',{yPercent:105,duration:.9,stagger:.12,ease:'power4.out'});
+  gsap.from('.spec div',{y:20,autoAlpha:0,duration:.5,stagger:.06,delay:.4,ease:'power3.out'});
+  gsap.from('.g-bar',{scaleX:0,transformOrigin:'0 50%',duration:.6,stagger:.07,ease:'power3.out',scrollTrigger:{trigger:'.gantt',start:'top 80%',once:true}});
+  gsap.from('.budget .b',{scaleX:0,duration:.8,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'.budget',start:'top 80%',once:true}});
+  gsap.utils.toArray('.sec-head h2, .brief h2, .next h2').forEach(function(h){
+    gsap.from(h,{y:50,autoAlpha:0,duration:.7,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}});
+  });
+  gsap.utils.toArray('.mat').forEach(function(el){
+    gsap.from(el,{y:24,autoAlpha:0,duration:.5,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+  });
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

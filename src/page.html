@@ -1,0 +1,327 @@
+<title>1903RGB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="1903RGB, studio web à Nancy : sites vitrines sur mesure, boutiques en ligne, référencement local et identité visuelle pour les commerces, artisans et indépendants.">
+<link rel="icon" href="assets/brand/icone-pixel.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Sora:wght@400;500;600&family=Azeret+Mono:wght@500&display=swap">
+<style>
+/* Layout : alternance de bandes encre / papier ; grille de maquettes comme preuve centrale ; le pixel RVB comme fil rouge */
+:root{
+  --ink:#121212; --ink-2:#1c1c1b; --paper:#F4F3EF; --paper-2:#E9E7E0; --line:#d8d5cc; --line-d:#2c2c2a;
+  --mute:#5f5d57; --mute-d:#a4a29b; --r:#E8371F; --g:#1F9150; --b:#2549DC;
+  --disp:"Unbounded",ui-sans-serif,system-ui,sans-serif; --body:"Sora",ui-sans-serif,system-ui,sans-serif; --mono:"Azeret Mono",ui-monospace,Menlo,monospace;
+  --gut:max(20px,env(safe-area-inset-left,0px)); --gutr:max(20px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+.band{padding-block:clamp(72px,10vw,128px)}
+.dark{background:var(--ink);color:var(--paper)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--mute)}
+.dark .eyebrow{color:var(--mute-d)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5vw,60px)}
+p{margin:0}
+.lede{font-size:clamp(17px,1.6vw,20px);max-width:60ch;color:var(--mute)}
+.dark .lede{color:var(--mute-d)}
+.pix{display:inline-flex;gap:.18em;vertical-align:middle}
+.pix i{display:block;width:.42em;height:1.3em;border-radius:.1em}
+.pix i:nth-child(1){background:var(--r)}.pix i:nth-child(2){background:var(--g)}.pix i:nth-child(3){background:var(--b)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 15px var(--body);text-decoration:none;border:1.5px solid currentColor;transition:transform .2s,background .2s,color .2s;cursor:pointer;background:transparent;color:inherit}
+.btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dark .btn.solid,.hero .btn.solid,header .btn.solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+
+/* en-tête */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(18,18,18,.92);backdrop-filter:blur(10px);color:var(--paper)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em}
+.logo .pix{font-size:14px}
+.links{display:flex;gap:28px;align-items:center;font-size:15px}
+.links a{text-decoration:none;opacity:.8}.links a:hover{opacity:1}
+.links .btn{height:42px;padding:0 18px;opacity:1;font-size:14px}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto}
+
+/* hero */
+.hero{background:var(--ink);color:var(--paper);overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;padding-block:72px 96px}
+.hero h1{font-size:clamp(38px,5.4vw,74px)}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+.hero .lede{margin-top:28px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line-d)}
+.hero .facts div{min-width:0}
+.hero .facts b{display:block;font-family:var(--disp);font-size:clamp(20px,2.4vw,28px);font-weight:600}
+.hero .facts span{color:var(--mute-d);font-size:14px}
+.wall{position:relative;height:620px;margin-right:calc(-1 * var(--gutr));mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
+.wall .cols{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;transform:rotate(-4deg) translateX(20px)}
+.wall .col{display:flex;flex-direction:column;gap:16px;animation:up 46s linear infinite}
+.wall .col:nth-child(2){animation-direction:reverse;animation-duration:52s}
+.wall img{border-radius:10px;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;box-shadow:0 20px 40px -20px #000}
+@keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+
+/* réalisations */
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:48px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:500 14px var(--body);padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:36px 24px}
+.card{text-decoration:none;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card figure{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2);border:1px solid var(--line);max-width:100%}
+.card img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{transform:scale(1.04)}
+.card .meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.card h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.card p{color:var(--mute);font-size:14px}
+.card .go{font-family:var(--mono);font-size:12px;color:var(--mute);white-space:nowrap}
+.note{margin-top:40px;color:var(--mute);font-size:14px}
+
+/* showreel */
+.reel{border-radius:16px;overflow:hidden;border:1px solid var(--line-d);margin-top:48px;background:#000;aspect-ratio:16/9;max-width:100%}
+.reel video{width:100%;height:100%}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line-d);margin-top:56px}
+.svc article{padding:40px 40px 44px 0;border-bottom:1px solid var(--line-d);display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px}
+.svc article:nth-child(odd){border-right:1px solid var(--line-d)}
+.svc article:nth-child(even){padding-left:40px}
+.svc .bar{width:10px;border-radius:3px;align-self:stretch}
+.svc h3{font-size:clamp(22px,2.4vw,28px)}
+.svc p{color:var(--mute-d);margin-top:12px}
+.svc ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{font-size:13px;padding:5px 12px;border:1px solid var(--line-d);border-radius:999px;color:var(--mute-d)}
+
+/* méthode */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:22px;min-width:0}
+.step .n{font-family:var(--mono);font-size:13px;color:var(--mute)}
+.step h3{font-size:20px;margin-top:14px;letter-spacing:-.01em}
+.step p{color:var(--mute);font-size:15px;margin-top:10px}
+
+/* tarifs */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.plan{border:1.5px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:18px;background:#fff;min-width:0}
+.plan.hl{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.plan .price{font-family:var(--disp);font-size:36px;font-weight:600;letter-spacing:-.02em}
+.plan .price small{font-family:var(--body);font-size:14px;font-weight:400;color:var(--mute);letter-spacing:0;display:block;margin-top:4px}
+.plan.hl .price small,.plan.hl li{color:var(--mute-d)}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px;color:var(--mute)}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:currentColor}
+.plan .btn{margin-top:auto;justify-content:center}
+
+/* à propos */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.about .big{font-family:var(--disp);font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:500;letter-spacing:-.015em}
+.about .txt{display:grid;gap:18px;color:var(--mute-d);max-width:60ch}
+.about dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:12px 0 0;font-size:15px}
+.about dt{color:var(--mute-d);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.about dd{margin:0}
+
+/* faq */
+.faq{margin-top:48px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.faq summary{cursor:pointer;font-family:var(--disp);font-size:clamp(17px,1.8vw,21px);font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mute);margin-top:12px;max-width:70ch}
+
+/* contact */
+.contact{text-align:left}
+.contact h2{font-size:clamp(44px,8vw,112px)}
+.contact .row{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px;align-items:center}
+.mail{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:16px;padding:14px 18px;border:1.5px solid var(--line-d);border-radius:12px;user-select:all}
+.copy{font:600 14px var(--body);background:var(--paper);color:var(--ink);border:0;border-radius:8px;padding:8px 12px;cursor:pointer}
+footer{background:var(--ink);color:var(--mute-d);font-size:13.5px;border-top:1px solid var(--line-d)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px}
+footer a{color:var(--paper)}
+
+/* responsive */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:48px 0}
+  .wall{height:380px;margin-left:calc(-1 * var(--gut))}
+  .head,.about{grid-template-columns:1fr;gap:24px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plans{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--ink);padding:12px var(--gutr) 24px var(--gut);border-bottom:1px solid var(--line-d)}
+  .links.open{display:flex}
+  .links a{padding:10px 0;font-size:17px}
+  .burger{display:block}
+  .svc{grid-template-columns:1fr}
+  .svc article,.svc article:nth-child(even){padding:32px 0;border-right:0}
+  .steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.wall .col{animation:none}html{scroll-behavior:auto}.card img,.btn{transition:none}}
+</style>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="1903RGB, accueil"><span class="pix" aria-hidden="true"><i></i><i></i><i></i></span>1903RGB</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="links" id="menu" aria-label="Navigation principale">
+      <a href="#realisations">Réalisations</a>
+      <a href="#services">Services</a>
+      <a href="#methode">Méthode</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#apropos">Le studio</a>
+      <a class="btn solid" href="#contact">Parlons-en</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="mono eyebrow"><span class="pix" aria-hidden="true" style="font-size:10px"><i></i><i></i><i></i></span>Studio web · Nancy</p>
+      <h1 style="margin-top:26px">Des sites qui font <em>venir</em> des clients.</h1>
+      <p class="lede">Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants. Chaque site a sa propre identité, pensée pour votre métier et lisible d'abord sur téléphone.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#contact">Demander un audit gratuit</a>
+        <a class="btn" href="#realisations">Voir les 20 maquettes</a>
+      </div>
+      <div class="facts">
+        <div><b>20</b><span>métiers déjà maquettés</span></div>
+        <div><b>Mobile</b><span>conçu d'abord pour le téléphone</span></div>
+        <div><b>48 h</b><span>pour recevoir votre devis</span></div>
+      </div>
+    </div>
+    <div class="wall" aria-hidden="true">
+      <div class="cols">{{WALL}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="realisations">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="mono eyebrow">Réalisations</p><h2 style="margin-top:18px">Une identité par métier.</h2></div>
+      <p class="lede">Vingt maquettes complètes, chacune avec une page d'accueil et une page de travail&nbsp;: carte, tarifs, réservation, fiche produit. Cliquez pour les parcourir comme un vrai site.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrer par secteur">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">Tous</button>
+      <button type="button" id="f-commerce" data-f="commerce" aria-pressed="false">Commerces & restauration</button>
+      <button type="button" id="f-sante" data-f="sante" aria-pressed="false">Santé & bien-être</button>
+      <button type="button" id="f-artisans" data-f="artisans" aria-pressed="false">Artisans & BTP</button>
+      <button type="button" id="f-services" data-f="services" aria-pressed="false">Services & hôtellerie</button>
+    </div>
+    <div class="grid" id="grid">{{CARDS}}</div>
+    <p class="note">Marques fictives, créées pour montrer ce que l'on peut faire pour chaque métier. Les maquettes en anglais ont été pensées pour des clients au Royaume-Uni.</p>
+  </div>
+</section>
+
+<section class="band dark" id="services">
+  <div class="wrap">
+    <p class="mono eyebrow">Services</p>
+    <h2 style="margin-top:18px;max-width:16ch">Tout ce qu'il faut pour être trouvé et choisi.</h2>
+    <div class="svc">
+      <article><span class="bar" style="background:var(--r)"></span><div><h3>Site vitrine</h3><p>Un site sur mesure qui présente votre activité, rassure vos clients et les pousse à appeler, réserver ou passer.</p><ul><li>Design unique</li><li>Mobile d'abord</li><li>Formulaire & réservation</li><li>Rapide à charger</li></ul></div></article>
+      <article><span class="bar" style="background:var(--g)"></span><div><h3>Boutique en ligne</h3><p>Vendre vos produits en ligne avec une boutique Shopify claire, des fiches produits soignées et un paiement simple.</p><ul><li>Shopify</li><li>Fiches produits</li><li>Paiement sécurisé</li><li>Prise en main</li></ul></div></article>
+      <article><span class="bar" style="background:var(--b)"></span><div><h3>Référencement local</h3><p>Apparaître quand on cherche votre métier dans votre ville&nbsp;: fiche Google, pages locales, contenu et suivi.</p><ul><li>Fiche Google</li><li>Pages locales</li><li>Mots-clés</li><li>Suivi des positions</li></ul></div></article>
+      <article><span class="bar" style="background:linear-gradient(var(--r),var(--g),var(--b))"></span><div><h3>Identité visuelle</h3><p>Un logo, des couleurs et des visuels cohérents, du site aux réseaux sociaux en passant par vos devis.</p><ul><li>Logo</li><li>Charte</li><li>Visuels réseaux</li><li>Motion design</li></ul></div></article>
+    </div>
+    <div class="reel"><video src="assets/video/showreel.mp4" poster="assets/video/poster.jpg" controls muted playsinline preload="none" aria-label="Vidéo de présentation de 1903RGB, 30 secondes"></video></div>
+  </div>
+</section>
+
+<section class="band" id="methode">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="mono eyebrow">Méthode</p><h2 style="margin-top:18px">Simple, du premier appel à la mise en ligne.</h2></div>
+      <p class="lede">Vous savez à chaque étape ce qui se passe et ce que vous allez recevoir.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">Étape 1</span><h3>On fait le point</h3><p>Un appel de 20 minutes pour comprendre votre activité, vos clients et ce que le site doit leur faire faire.</p></div>
+      <div class="step"><span class="n">Étape 2</span><h3>Vous voyez la maquette</h3><p>Vous recevez la direction visuelle et la page d'accueil avant que l'on construise le reste.</p></div>
+      <div class="step"><span class="n">Étape 3</span><h3>On construit</h3><p>Pages, textes, photos, formulaires. Vous relisez et on ajuste ensemble.</p></div>
+      <div class="step"><span class="n">Étape 4</span><h3>En ligne, et suivi</h3><p>Mise en ligne, fiche Google, prise en main. On reste disponibles pour les évolutions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tarifs" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="mono eyebrow">Tarifs</p><h2 style="margin-top:18px">Des prix clairs, un devis gratuit.</h2></div>
+      <p class="lede">Chaque projet est chiffré sur devis après notre premier échange. Voici les points de départ.</p>
+    </div>
+    <div class="plans">
+      <div class="plan"><p class="mono eyebrow">Site vitrine</p><p class="price">dès 890 €<small>site sur mesure, livré clés en main</small></p><ul><li>Jusqu'à 5 pages</li><li>Design sur mesure, mobile d'abord</li><li>Formulaire de contact</li><li>Fiche Google optimisée</li></ul><a class="btn" href="#contact">Demander un devis</a></div>
+      <div class="plan hl"><p class="mono eyebrow">Boutique en ligne</p><p class="price">sur devis<small>selon le nombre de produits</small></p><ul><li>Boutique Shopify</li><li>Fiches produits rédigées</li><li>Paiement et livraison configurés</li><li>Formation à la gestion</li></ul><a class="btn solid" href="#contact">Parler de ma boutique</a></div>
+      <div class="plan"><p class="mono eyebrow">Référencement & identité</p><p class="price">sur devis<small>en complément ou seul</small></p><ul><li>Référencement local</li><li>Logo et charte</li><li>Visuels pour vos réseaux</li><li>Vidéo de présentation</li></ul><a class="btn" href="#contact">En savoir plus</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="apropos">
+  <div class="wrap about">
+    <div><p class="mono eyebrow">Le studio</p><p class="big" style="margin-top:22px">Un studio indépendant à Nancy, avec un regard de graphiste.</p></div>
+    <div class="txt">
+      <p>1903RGB, c'est un studio web fondé par Junior, graphiste de formation. Le nom vient des trois couleurs de chaque pixel d'écran&nbsp;: rouge, vert, bleu. C'est notre façon de dire que tout se joue dans le détail.</p>
+      <p>On travaille avec des commerces, des artisans et des indépendants qui veulent un site à leur image, pas un modèle de plus. Vous avez un interlocuteur unique, du premier appel au suivi après la mise en ligne.</p>
+      <dl><dt>Basé à</dt><dd>Nancy, Grand Est</dd><dt>Clients</dt><dd>Partout en France, en visio ou en rendez-vous</dd><dt>SIRET</dt><dd>923 060 743 00013</dd></dl>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap">
+    <p class="mono eyebrow">Questions fréquentes</p>
+    <h2 style="margin-top:18px">Ce qu'on nous demande souvent.</h2>
+    <div class="faq">
+      <details><summary>Combien de temps faut-il pour créer mon site&nbsp;?</summary><p>Cela dépend du nombre de pages et de la rapidité des échanges. On vous donne un planning précis avec le devis, et vous voyez la maquette avant que l'on construise le reste.</p></details>
+      <details><summary>Est-ce que le site m'appartient&nbsp;?</summary><p>Oui. Le site, ses textes et ses visuels sont à vous une fois le projet réglé. Vous pouvez le faire évoluer avec nous ou avec quelqu'un d'autre.</p></details>
+      <details><summary>Je n'ai ni textes ni photos, c'est un problème&nbsp;?</summary><p>Non. On vous aide à écrire les textes, et on vous conseille pour les photos&nbsp;: séance, banque d'images libres de droits ou visuels créés pour vous.</p></details>
+      <details><summary>Pourrai-je modifier mon site moi-même&nbsp;?</summary><p>Oui, pour les contenus courants comme les horaires, les tarifs ou les actualités. On vous montre comment faire à la livraison.</p></details>
+      <details><summary>Vous travaillez seulement à Nancy&nbsp;?</summary><p>Non. Le studio est à Nancy, mais on accompagne des clients partout en France, en visio.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band dark contact" id="contact">
+  <div class="wrap">
+    <p class="mono eyebrow"><span class="pix" aria-hidden="true" style="font-size:10px"><i></i><i></i><i></i></span>Contact</p>
+    <h2 style="margin-top:22px">Votre projet&nbsp;?<br>Passez en DM.</h2>
+    <p class="lede" style="margin-top:28px">Écrivez-nous sur Instagram ou par email. Dites-nous votre métier, votre ville et si vous avez déjà un site&nbsp;: on vous répond avec un premier avis gratuit sous 48 h.</p>
+    <div class="row">
+      <span class="mail" id="mail">contact@1903rgb.fr</span>
+      <button class="copy" type="button" id="copy">Copier l'adresse</button>
+      <span id="copied" class="mono" style="color:var(--mute-d)" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 1903RGB · Studio web à Nancy · SIRET 923 060 743 00013</span>
+    <span><a href="mentions-legales.html">Mentions légales</a></span>
+  </div>
+</footer>
+
+<script>
+(()=>{
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}));
+  const btns=[...document.querySelectorAll('.filters button')],cards=[...document.querySelectorAll('.card')];
+  btns.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;btns.forEach(x=>x.setAttribute('aria-pressed',x===b));cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.cat===f));}));
+  const out=document.getElementById('copied');
+  document.getElementById('copy').addEventListener('click',()=>{
+    const t='contact@1903rgb.fr';
+    const done=()=>{out.textContent='Adresse copiée';setTimeout(()=>out.textContent='',2400)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done).catch(sel)}else sel();
+    function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Adresse sélectionnée, copiez-la'}
+  });
+})();
+</script>

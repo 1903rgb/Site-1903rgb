@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Northside Brewing Co.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Northside Brewing Co. — craft brewery and taproom on Kirkstall Road, Leeds. Cans, taproom nights and Saturday brewery tours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Bowlby+One&family=Karla:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#E8E3D3;
+  --paper-2:#DCD5C0;
+  --ink:#161412;
+  --blue:#1F3FD1;
+  --orange:#FF5B1A;
+  --yellow:#F2D23A;
+  --muted:#5A554B;
+  --line:rgba(22,20,18,.85);
+  --f-display:"Bowlby One", "Arial Black", Impact, sans-serif;
+  --f-body:"Karla", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"Azeret Mono", "Courier New", monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --wrap:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:100}
+.skip:focus{left:16px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.02em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:400;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;margin:0}
+/* misregistered overprint: two inks slightly off register */
+.overprint{color:var(--blue);text-shadow:.045em .035em 0 var(--orange)}
+.overprint--inv{color:var(--orange);text-shadow:.045em .035em 0 var(--blue)}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:2px solid var(--ink)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:24px;letter-spacing:-.01em;line-height:1}
+.brand span{font-family:var(--f-mono);font-size:11px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:700;font-size:15px}
+.nav a:not(.btn):hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.burger{display:none;background:none;border:2px solid var(--ink);width:44px;height:40px;padding:0;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;transition:transform .2s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(3px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:800;font-size:16px;text-decoration:none;padding:13px 20px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--orange);transition:transform .15s, box-shadow .15s;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--orange)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--orange)}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:none}
+.btn--ghost:hover{background:var(--ink);color:var(--paper);box-shadow:none;transform:none}
+.btn svg{width:18px;height:18px}
+
+@media (max-width:860px){
+  .burger{display:block}
+  .nav{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));flex-direction:column;align-items:flex-start;gap:0;background:var(--paper);border-bottom:2px solid var(--ink);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.is-open{display:flex}
+  .nav a{font-family:var(--f-display);font-weight:400;font-size:30px;text-transform:uppercase;padding:8px 0}
+  .nav .btn{font-family:var(--f-body);font-size:16px;text-transform:none;margin-top:12px;padding:13px 20px}
+}
+
+/* ---------- screenprint photo ---------- */
+.print{position:relative;overflow:hidden;background:var(--orange);isolation:isolate}
+.print img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.35) brightness(1.05);mix-blend-mode:multiply}
+.print::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at center, rgba(232,227,211,.55) 0 1px, transparent 1.6px);background-size:5px 5px;mix-blend-mode:screen;opacity:.55}
+.print--blue{background:var(--blue)}
+.print--blue img{mix-blend-mode:screen;filter:grayscale(1) contrast(1.4) brightness(.8)}
+.print--yellow{background:var(--yellow)}
+.print--ink{background:var(--paper)}
+.print--ink img{filter:grayscale(1) contrast(1.5)}
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--ink);color:var(--paper);padding:64px 0 32px;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot-mark{font-family:var(--f-display);font-size:clamp(48px,9vw,132px);line-height:.85;text-transform:uppercase;color:var(--orange);margin:0 0 48px}
+.site-foot h3{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;font-weight:500;color:#A9A291;margin:0 0 12px}
+.site-foot ul{list-style:none;margin:0;padding:0}
+.site-foot li{margin:0 0 6px}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:var(--orange)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid #3a3631;margin-top:48px;padding-top:20px;color:#A9A291;font-size:13px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+
+/* ================= HOME ================= */
+/* hero: one big gig poster */
+.hero{position:relative;border-bottom:2px solid var(--ink);overflow:hidden}
+.hero-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.hero-stage{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto;padding-top:clamp(20px,3vw,40px);padding-bottom:clamp(28px,4vw,48px);min-height:calc(100svh - 64px - 52px);align-content:space-between}
+.hero h1{grid-column:1 / -1;grid-row:1;position:relative;z-index:2;font-size:clamp(64px,9vw,150px);mix-blend-mode:multiply;color:var(--orange);text-shadow:none;align-self:start}
+.hero h1 .l{display:block}
+.hero h1 .l2{padding-left:22%}
+.hero h1 .l3{text-align:right}
+.hero-poster{grid-column:5 / 12;grid-row:1;position:relative;z-index:1;margin-top:clamp(60px,6.5vw,104px);aspect-ratio:16/9;transform:rotate(-2.2deg);box-shadow:10px 12px 0 var(--ink)}
+.hero-poster.print{background:var(--blue)}
+.hero-poster.print img{mix-blend-mode:screen;filter:grayscale(1) contrast(1.5) brightness(.75)}
+.hero-poster figcaption{position:absolute;left:12px;bottom:10px;z-index:3;color:var(--paper);background:var(--ink);padding:4px 8px}
+.hero-foot{grid-column:1 / -1;grid-row:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:28px;position:relative;z-index:3}
+.hero-lede{max-width:430px;font-size:19px;line-height:1.45;margin:0;font-weight:500}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.stamp{position:absolute;z-index:4;right:var(--gut-r);top:clamp(380px,37vw,560px);width:132px;height:132px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);display:grid;place-items:center;text-align:center;transform:rotate(12deg);font-family:var(--f-mono);font-size:11px;line-height:1.3;text-transform:uppercase;padding:14px}
+.stamp b{display:block;font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1;margin:2px 0}
+@media (max-width:860px){
+  .hero-stage{min-height:auto;grid-template-columns:1fr}
+  .hero h1{font-size:clamp(52px,16vw,110px)}
+  .hero h1 .l2{padding-left:10%}
+  .hero-poster{grid-column:1;margin:clamp(118px,34vw,190px) 4% 0;}
+  .stamp{width:96px;height:96px;font-size:9px;top:auto;bottom:auto;left:auto;right:var(--gut-r);top:62px;padding:8px;width:84px;height:84px;font-size:8.5px}
+  .stamp b{font-size:15px}
+  .hero-meta .hide-sm{display:none}
+}
+
+/* ticker strip */
+.strip{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:2px solid var(--ink)}
+.strip-row{display:flex;gap:40px;white-space:nowrap;padding:12px 0;width:max-content;animation:strip 38s linear infinite}
+.strip-row span{font-family:var(--f-display);font-size:22px;text-transform:uppercase}
+.strip-row i{font-style:normal;color:var(--orange)}
+@keyframes strip{to{transform:translateX(-50%)}}
+
+/* section heads */
+.sec{padding:clamp(72px,9vw,128px) 0}
+.sec-head{display:grid;grid-template-columns:7fr 5fr;gap:32px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head h2{font-size:clamp(42px,5.8vw,88px)}
+.sec-head p{max-width:470px;margin:0;justify-self:end;font-size:18px}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}}
+
+/* ---------- line-up: horizontal scenes ---------- */
+.lineup{position:relative;background:var(--paper);border-bottom:2px solid var(--ink)}
+.lineup-intro{padding-top:clamp(64px,8vw,110px);padding-bottom:28px}
+.lineup-intro .sec-head{margin-bottom:0}
+.stage{position:relative}
+.viewport{overflow-x:auto;overflow-y:hidden}
+.track{display:flex;width:max-content}
+.scene{width:100vw;flex:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;padding:28px var(--gut-r) 84px var(--gut)}
+.lineup.is-pinned{height:calc(var(--span) * 100vh + 100vh)}
+.lineup.is-pinned .stage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;padding-top:64px}
+.lineup.is-pinned .lineup-intro{padding-top:clamp(20px,3vw,40px);padding-bottom:0;flex:none}
+.lineup.is-pinned .viewport{flex:1;min-height:0;overflow:hidden}
+.lineup.is-pinned .track{height:100%;will-change:transform}
+.lineup.is-pinned .scene{height:100%;padding-top:16px;padding-bottom:16px}
+
+.label{position:relative;aspect-ratio:1.62/1;width:100%;max-width:680px;justify-self:end;border:2px solid var(--ink);display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;padding:clamp(14px,1.8vw,24px);gap:8px;overflow:hidden;box-shadow:12px 12px 0 var(--ink)}
+.label .lb-top{grid-column:1 / -1;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase}
+.label .lb-name{grid-column:1;grid-row:2;align-self:center;font-family:var(--f-display);font-size:clamp(46px,6.4vw,104px);line-height:.84;text-transform:uppercase;margin:0}
+.label .lb-abv{grid-column:2;grid-row:2;align-self:center;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-display);font-size:clamp(30px,3.4vw,52px);line-height:1}
+.label .lb-base{grid-column:1 / -1;display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;border-top:2px solid currentColor;padding-top:8px}
+.label .lb-bar{position:absolute;left:0;right:0;top:44%;height:18%;mix-blend-mode:multiply;opacity:.9;z-index:0}
+.label > *:not(.lb-bar){position:relative;z-index:1}
+.lb-1{background:var(--orange);color:var(--blue)} .lb-1 .lb-bar{background:var(--yellow)}
+.lb-2{background:var(--yellow);color:var(--ink)} .lb-2 .lb-bar{background:var(--orange);opacity:.6}
+.lb-3{background:var(--ink);color:var(--orange)} .lb-3 .lb-bar{background:var(--blue);mix-blend-mode:screen;opacity:.8}
+.lb-4{background:var(--blue);color:var(--paper)} .lb-4 .lb-bar{background:var(--orange);opacity:.9}
+.lb-5{background:var(--paper-2);color:var(--blue)} .lb-5 .lb-bar{background:var(--orange);opacity:.55}
+
+.notes{max-width:520px}
+.notes .style{font-family:var(--f-mono);font-size:13px;text-transform:uppercase;margin:0 0 10px}
+.notes h3{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,4vw,56px);line-height:.95;text-transform:uppercase;margin:0 0 18px}
+.notes p{margin:0 0 20px;font-size:18px}
+.specs{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;border:2px solid var(--ink);margin:0 0 20px}
+.specs div{padding:10px 16px;border-right:2px solid var(--ink)}
+.specs div:last-child{border-right:0}
+.specs dt{font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;color:var(--muted)}
+.specs dd{margin:0;font-family:var(--f-display);font-size:22px;line-height:1.1}
+.notes .price{font-weight:700}
+
+.lineup-ui{flex:none;position:relative;z-index:4;display:flex;align-items:center;gap:20px;padding:0 var(--gut-r) 22px var(--gut)}
+.lineup:not(.is-pinned) .lineup-ui{display:none}
+.lineup-index{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.lineup-index a{display:block;font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;text-decoration:none;padding:6px 10px;border:2px solid var(--ink);opacity:.55;background:var(--paper)}
+.lineup-index a[aria-current="step"]{opacity:1;background:var(--ink);color:var(--paper)}
+.lineup-bar{flex:1;height:4px;background:rgba(22,20,18,.15);position:relative}
+.lineup-bar i{position:absolute;inset:0;background:var(--orange);transform-origin:left;transform:scaleX(var(--prog,0))}
+.lineup-count{font-family:var(--f-mono);font-size:12px;display:none}
+@media (max-width:860px){
+  .scene{grid-template-columns:1fr;align-content:start;gap:22px}
+  .lineup.is-pinned .scene{padding-top:8px}
+  .lineup.is-pinned .lineup-intro .sec-head h2{font-size:44px}
+  .label{justify-self:stretch;box-shadow:7px 7px 0 var(--ink)}
+  .notes p{font-size:16px;margin-bottom:14px}
+  .notes h3{display:none}
+  .specs dd{font-size:18px} .specs div{padding:8px 10px}
+  .lineup-index{display:none}.lineup-count{display:block}
+  .lineup-intro .sec-head p{display:none}
+}
+@media (max-width:860px) and (max-height:760px){ .notes p{display:none} }
+
+/* ---------- proof: ticket stub ---------- */
+.stub{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.stub div{padding:28px 24px 30px;border-right:2px dashed var(--ink)}
+.stub div:last-child{border-right:0}
+.stub b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(46px,5.6vw,84px);line-height:.9;color:var(--blue)}
+.stub span{display:block;margin-top:10px;font-weight:700;max-width:220px}
+.stub small{display:block;margin-top:4px;color:var(--muted);font-size:14px}
+.proof-quote{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,5vw,72px);align-items:center;margin-top:clamp(48px,6vw,88px)}
+.proof-quote .print{aspect-ratio:4/5}
+.proof-quote blockquote{margin:0;font-size:clamp(24px,2.6vw,36px);line-height:1.2;font-weight:500}
+.proof-quote blockquote p{margin:0 0 18px}
+.proof-quote cite{font-style:normal;font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase}
+@media (max-width:860px){.stub{grid-template-columns:1fr 1fr}.stub div:nth-child(2){border-right:0}.stub div:nth-child(-n+2){border-bottom:2px dashed var(--ink)}.proof-quote{grid-template-columns:1fr}.proof-quote .print{aspect-ratio:4/3}}
+
+/* ---------- brew day timeline ---------- */
+.brewday{background:var(--blue);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.brewday .sec-head h2{color:var(--paper);text-shadow:.045em .035em 0 var(--orange)}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--paper)}
+.tl li{padding:22px 22px 26px 0;border-right:1px solid rgba(232,227,211,.35);padding-left:22px}
+.tl li:first-child{padding-left:0}
+.tl li:nth-child(4n){border-right:0}
+.tl li:nth-child(n+5){border-top:1px solid rgba(232,227,211,.35)}
+.tl li:nth-child(4n+1){padding-left:0}
+.tl time{display:block;font-family:var(--f-display);font-size:clamp(30px,3.2vw,46px);line-height:1;color:var(--yellow)}
+.tl h3{font-size:19px;margin:12px 0 6px;font-weight:800}
+.tl p{margin:0;font-size:15.5px;opacity:.92}
+.tl .unit{font-family:var(--f-mono);font-size:12px;display:inline-block;margin-top:10px;border:1px solid var(--paper);padding:3px 7px}
+@media (max-width:860px){.tl{grid-template-columns:1fr 1fr}.tl li{padding-left:16px!important;padding-right:12px}.tl li:nth-child(odd){padding-left:0!important}.tl li:nth-child(2n){border-right:0}.tl li:nth-child(4n){border-right:0}.tl li:nth-child(odd){border-right:1px solid rgba(232,227,211,.35)}.tl li:nth-child(n+3){border-top:1px solid rgba(232,227,211,.35)}}
+@media (max-width:480px){.tl{grid-template-columns:1fr}.tl li{border-right:0!important;padding-left:0!important}.tl li:nth-child(n+2){border-top:1px solid rgba(232,227,211,.35)}}
+
+/* ---------- nights: dither ---------- */
+.nights{position:relative;background:#0c0c0e;color:var(--paper);overflow:hidden}
+.nights canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.nights .wrap{position:relative;z-index:1}
+.nights .sec-head h2{color:var(--orange)}
+.nights .sec-head p{color:#d8d2c0}
+.bill{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,56px);align-items:start}
+.events{list-style:none;margin:0;padding:0;border-top:2px solid var(--paper)}
+.events li{display:grid;grid-template-columns:132px 1fr auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:2px solid var(--paper)}
+.events .d{font-family:var(--f-display);font-size:30px;line-height:1;color:var(--yellow)}
+.events .d small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--paper);margin-bottom:4px}
+.events h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.4vw,34px);line-height:1;text-transform:uppercase}
+.events p{margin:6px 0 0;color:#d8d2c0;font-size:15.5px}
+.events .tag{font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;border:1px solid var(--paper);padding:4px 8px;white-space:nowrap}
+.bill-photo{aspect-ratio:3/4;transform:rotate(1.6deg);box-shadow:-10px 10px 0 var(--orange)}
+.bill-photo figcaption{position:absolute;z-index:3;left:12px;bottom:12px;background:var(--paper);color:var(--ink);padding:4px 8px}
+@media (max-width:860px){.bill{grid-template-columns:1fr}.events li{grid-template-columns:86px 1fr}.events .tag{grid-column:2;justify-self:start}.events .d{font-size:24px}.bill-photo{aspect-ratio:4/3;margin:0 8px}}
+
+/* ---------- gallery: poster wall ---------- */
+.wall{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(0,auto);gap:clamp(14px,2vw,26px);align-items:start}
+.wall figure{margin:0;position:relative}
+.wall .print{height:100%}
+.wall figcaption{margin-top:10px}
+.w1{grid-column:1 / 6}.w1 .print{aspect-ratio:4/5}
+.w2{grid-column:6 / 13;margin-top:60px!important}.w2 .print{aspect-ratio:16/10}
+.w3{grid-column:2 / 7;margin-top:28px!important}.w3 .print{aspect-ratio:3/2}
+.w4{grid-column:8 / 12}.w4 .print{aspect-ratio:1/1}
+.wall figure:nth-child(odd) .print{transform:rotate(-1.2deg)}
+.wall figure:nth-child(even) .print{transform:rotate(1deg)}
+.tape{position:absolute;z-index:3;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(242,210,58,.75);transform:rotate(-4deg)}
+@media (max-width:860px){.wall{grid-template-columns:1fr 1fr}.w1,.w2,.w3,.w4{grid-column:auto;margin-top:0!important}.w2{grid-column:1 / -1;order:-1}}
+
+/* ---------- testimonials ---------- */
+.voices{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,64px);border-top:2px solid var(--ink);padding-top:40px}
+.voice-main p{font-family:var(--f-display);font-size:clamp(30px,3.6vw,52px);line-height:1.02;text-transform:uppercase;margin:0 0 20px}
+.voice-main p em{font-style:normal;color:var(--orange)}
+.voice-side{display:flex;flex-direction:column;gap:28px}
+.voice-side blockquote{margin:0;border-left:6px solid var(--blue);padding-left:18px;font-size:18px}
+.voice-side blockquote p{margin:0 0 8px}
+cite.who{font-style:normal;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;color:var(--muted)}
+@media (max-width:860px){.voices{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit{background:var(--paper-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.visit-grid{display:grid;grid-template-columns:5fr 4fr 3fr;gap:clamp(24px,4vw,56px)}
+.hours{width:100%;border-collapse:collapse;font-size:17px}
+.hours th,.hours td{text-align:left;padding:11px 0;border-bottom:1.5px solid var(--ink)}
+.hours td{text-align:right;font-family:var(--f-mono);font-size:14px}
+.hours tr.closed td{color:var(--muted)}
+.hours tr.today th,.hours tr.today td{color:var(--blue);font-weight:800}
+.visit h3{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;font-weight:500;margin:0 0 14px}
+.visit address{font-style:normal;font-size:22px;line-height:1.3;font-weight:700;margin-bottom:18px}
+.visit ul{margin:0;padding:0;list-style:none}
+.visit ul li{padding:8px 0;border-bottom:1px solid rgba(22,20,18,.25)}
+.open-now{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:700}
+.open-now i{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.open-now.is-open i{background:#1c9a4a}
+@media (max-width:960px){.visit-grid{grid-template-columns:1fr 1fr}.visit-grid > :first-child{grid-column:1 / -1}}
+@media (max-width:560px){.visit-grid{grid-template-columns:1fr}}
+
+/* ---------- CTA ---------- */
+.cta{background:var(--orange);border-bottom:2px solid var(--ink);padding:clamp(64px,8vw,112px) 0}
+.cta .wrap{display:grid;grid-template-columns:8fr 4fr;gap:32px;align-items:end}
+.cta h2{font-size:clamp(52px,8.6vw,138px);color:var(--ink);text-shadow:.04em .03em 0 var(--blue)}
+.cta p{font-size:19px;font-weight:500;margin:0 0 22px}
+.cta .btn{box-shadow:4px 4px 0 var(--blue)}
+@media (max-width:860px){.cta .wrap{grid-template-columns:1fr}}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Northside Brewing Co., home"><b>Northside</b><span>Brewing Co.</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="beers.html">Beers</a>
+      <a href="#lineup">On tap</a>
+      <a href="#nights">Nights</a>
+      <a href="#visit">Visit</a>
+      <a class="btn" href="beers.html#tours">Book a tour</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-meta mono">
+      <span>Brewery &amp; taproom</span>
+      <span class="hide-sm">Arch 9, Viaduct Yard, Kirkstall Road</span>
+      <span>Leeds LS4</span>
+    </div>
+    <div class="wrap hero-stage">
+      <h1 class="display" id="hero-title"><span class="l">Brewed loud</span> <span class="l l2">under the</span> <span class="l l3">arches.</span></h1>
+      <figure class="hero-poster print" style="margin-left:0;margin-right:0">
+        <img src="assets/img/hero-taps.jpg" alt="A pint being poured from a row of chrome taps at the Northside taproom bar" width="1800" height="1200" fetchpriority="high">
+        <figcaption class="mono">Line 7 · Viaduct Pale · 4.2%</figcaption>
+      </figure>
+      <div class="stamp" aria-hidden="true"><span>Taproom<b>Wed–Sun</b>from 16:00</span></div>
+      <div class="hero-foot">
+        <p class="hero-lede">Small-batch beer, canned on site every Thursday in 440&nbsp;ml. Sixteen lines in a railway arch, five minutes from Burley Park.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="beers.html">See the beers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#visit">Opening hours</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-row">
+      <span>Fresh cans Thursday</span><i>✕</i><span>Quiz night Wednesday</span><i>✕</i><span>Vinyl Friday</span><i>✕</i><span>Tours Saturday 13:00 &amp; 15:00</span><i>✕</i><span>Dogs welcome</span><i>✕</i>
+      <span>Fresh cans Thursday</span><i>✕</i><span>Quiz night Wednesday</span><i>✕</i><span>Vinyl Friday</span><i>✕</i><span>Tours Saturday 13:00 &amp; 15:00</span><i>✕</i><span>Dogs welcome</span><i>✕</i>
+    </div>
+  </div>
+
+  <!-- ===== Line-up: horizontal scenes ===== -->
+  <section class="lineup" id="lineup" aria-labelledby="lineup-title" style="--span:4.9">
+    <div class="stage" data-stage>
+    <div class="lineup-intro">
+      <div class="wrap sec-head">
+        <h2 class="display overprint" id="lineup-title">The line-up</h2>
+        <p>Five beers we never take off. Scroll to flick through the cans, or <a href="beers.html">see the full list with seasonals</a>.</p>
+      </div>
+    </div>
+      <div class="viewport">
+      <div class="track" data-track>
+        <article class="scene" id="beer-viaduct" aria-label="Viaduct Pale Ale">
+          <div class="label lb-1"><span class="lb-bar"></span>
+            <div class="lb-top"><span>Northside Brewing Co.</span><span>Leeds</span></div>
+            <p class="lb-name">Via&shy;duct</p><span class="lb-abv">4.2%</span>
+            <div class="lb-base"><span>Pale ale</span><span>440 ml</span><span>Batch 212</span></div>
+          </div>
+          <div class="notes">
+            <p class="style">Pale ale · Citra, Mosaic</p>
+            <h3>The one on line seven.</h3>
+            <p>Bright, dry and easy. Grapefruit up front, a clean bitter finish. The pint we pour more than the rest put together.</p>
+            <dl class="specs"><div><dt>ABV</dt><dd>4.2%</dd></div><div><dt>IBU</dt><dd>32</dd></div><div><dt>Can</dt><dd>440 ml</dd></div><div><dt>Pint</dt><dd>£5.20</dd></div></dl>
+            <p class="price">£4.10 a can · 4 for £15</p>
+          </div>
+        </article>
+        <article class="scene" id="beer-kirkstall" aria-label="Kirkstall Haze IPA">
+          <div class="label lb-2"><span class="lb-bar"></span>
+            <div class="lb-top"><span>Northside Brewing Co.</span><span>Leeds</span></div>
+            <p class="lb-name">Kirk&shy;stall Haze</p><span class="lb-abv">6.5%</span>
+            <div class="lb-base"><span>Hazy IPA</span><span>440 ml</span><span>Batch 209</span></div>
+          </div>
+          <div class="notes">
+            <p class="style">Hazy IPA · Galaxy, Nectaron, oats</p>
+            <h3>Soft, thick, full of fruit.</h3>
+            <p>Double dry-hopped on day three and day six. Mango, pineapple and a pillowy body from flaked oats. Drink it within six weeks.</p>
+            <dl class="specs"><div><dt>ABV</dt><dd>6.5%</dd></div><div><dt>IBU</dt><dd>25</dd></div><div><dt>Can</dt><dd>440 ml</dd></div><div><dt>⅔ pint</dt><dd>£5.40</dd></div></dl>
+            <p class="price">£5.20 a can · 4 for £19</p>
+          </div>
+        </article>
+        <article class="scene" id="beer-nightbus" aria-label="Night Bus Oatmeal Stout">
+          <div class="label lb-3"><span class="lb-bar"></span>
+            <div class="lb-top"><span>Northside Brewing Co.</span><span>Leeds</span></div>
+            <p class="lb-name">Night Bus</p><span class="lb-abv">5.4%</span>
+            <div class="lb-base"><span>Oatmeal stout</span><span>440 ml</span><span>Batch 207</span></div>
+          </div>
+          <div class="notes">
+            <p class="style">Oatmeal stout · roasted barley, chocolate malt</p>
+            <h3>Last orders, first choice.</h3>
+            <p>Roast coffee, cocoa and a smooth oat finish. Poured on nitro in the taproom, canned for the walk home.</p>
+            <dl class="specs"><div><dt>ABV</dt><dd>5.4%</dd></div><div><dt>IBU</dt><dd>38</dd></div><div><dt>Can</dt><dd>440 ml</dd></div><div><dt>Pint</dt><dd>£5.60</dd></div></dl>
+            <p class="price">£4.40 a can · 4 for £16</p>
+          </div>
+        </article>
+        <article class="scene" id="beer-backtoback" aria-label="Back to Back Best Bitter">
+          <div class="label lb-4"><span class="lb-bar"></span>
+            <div class="lb-top"><span>Northside Brewing Co.</span><span>Leeds</span></div>
+            <p class="lb-name">Back to Back</p><span class="lb-abv">3.9%</span>
+            <div class="lb-base"><span>Best bitter</span><span>440 ml</span><span>Batch 211</span></div>
+          </div>
+          <div class="notes">
+            <p class="style">Best bitter · Fuggles, East Kent Goldings</p>
+            <h3>Named after the terraces.</h3>
+            <p>Copper-coloured, biscuity, properly bitter. Served on cask from the handpull, cellared at 12&nbsp;°C.</p>
+            <dl class="specs"><div><dt>ABV</dt><dd>3.9%</dd></div><div><dt>IBU</dt><dd>36</dd></div><div><dt>Can</dt><dd>440 ml</dd></div><div><dt>Pint</dt><dd>£4.60</dd></div></dl>
+            <p class="price">£3.80 a can · 4 for £14</p>
+          </div>
+        </article>
+        <article class="scene" id="beer-aire" aria-label="Aire Pils">
+          <div class="label lb-5"><span class="lb-bar"></span>
+            <div class="lb-top"><span>Northside Brewing Co.</span><span>Leeds</span></div>
+            <p class="lb-name">Aire Pils</p><span class="lb-abv">4.8%</span>
+            <div class="lb-base"><span>Pilsner</span><span>440 ml</span><span>Batch 205</span></div>
+          </div>
+          <div class="notes">
+            <p class="style">Pilsner · Saaz, Hallertau Mittelfrüh</p>
+            <h3>Six weeks cold. Worth it.</h3>
+            <p>Lagered for six weeks at 1&nbsp;°C. Crisp, floral, a little bready. Named after the river at the bottom of the road.</p>
+            <dl class="specs"><div><dt>ABV</dt><dd>4.8%</dd></div><div><dt>IBU</dt><dd>30</dd></div><div><dt>Can</dt><dd>440 ml</dd></div><div><dt>Pint</dt><dd>£5.40</dd></div></dl>
+            <p class="price">£4.20 a can · 4 for £15</p>
+          </div>
+        </article>
+      </div>
+      </div>
+    <div class="lineup-ui">
+      <ol class="lineup-index" data-index>
+        <li><a href="#beer-viaduct" data-go="0" aria-current="step">Viaduct</a></li>
+        <li><a href="#beer-kirkstall" data-go="1">Kirkstall Haze</a></li>
+        <li><a href="#beer-nightbus" data-go="2">Night Bus</a></li>
+        <li><a href="#beer-backtoback" data-go="3">Back to Back</a></li>
+        <li><a href="#beer-aire" data-go="4">Aire Pils</a></li>
+      </ol>
+      <span class="lineup-count" data-count>1 / 5 Viaduct</span>
+      <div class="lineup-bar" aria-hidden="true"><i data-bar></i></div>
+    </div>
+    </div>
+    <p class="sr-live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" data-live></p>
+  </section>
+
+  <!-- ===== Proof ===== -->
+  <section class="sec" aria-labelledby="proof-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display overprint" id="proof-title">Brewed here. Poured here.</h2>
+        <p>Everything happens in two arches on Kirkstall Road: the brewhouse in one, the taproom in the other. You can see the tanks from the bar.</p>
+      </div>
+      <div class="stub">
+        <div><b>20 hl</b><span>Brewhouse</span><small>Around 3,500 pints per brew</small></div>
+        <div><b>16</b><span>Lines in the taproom</span><small>12 keg, 3 cask, 1 nitro</small></div>
+        <div><b>440</b><span>Millilitre cans</span><small>Filled and seamed every Thursday</small></div>
+        <div><b>9 km</b><span>Delivery radius</span><small>Cargo bike, LS1–LS6, Fridays</small></div>
+      </div>
+      <div class="proof-quote">
+        <figure class="print print--yellow" style="margin:0"><img src="assets/img/bar-staff.jpg" alt="Bar staff pouring beers from a chrome tap tower" width="1000" height="667" loading="lazy"></figure>
+        <blockquote>
+          <p>“Best pint of pale on the west side of town, and they’ll tell you exactly which hop did what.”</p>
+          <cite>Dan M. · regular since the first brew</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Brew day ===== -->
+  <section class="sec brewday" aria-labelledby="brew-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display" id="brew-title">Brew day, Tuesday.</h2>
+        <p>Every batch of Viaduct follows the same clock. Here is the one that ends up in your can nine days later.</p>
+      </div>
+      <ol class="tl">
+        <li><time>06:30</time><h3>Mash in</h3><p>Maris Otter and a little wheat, rested in hot liquor.</p><span class="unit">66 °C · 60 min</span></li>
+        <li><time>07:40</time><h3>Sparge</h3><p>Rinse the grain bed, collect the sweet wort.</p><span class="unit">76 °C · 20 hl</span></li>
+        <li><time>08:30</time><h3>Boil</h3><p>Bittering hops go in at the start of the boil.</p><span class="unit">100 °C · 75 min</span></li>
+        <li><time>10:00</time><h3>Whirlpool</h3><p>Citra and Mosaic go in cooler, for aroma not bite.</p><span class="unit">80 °C · 30 min</span></li>
+        <li><time>11:00</time><h3>Knock out</h3><p>Cooled and sent to fermenter four. Yeast pitched.</p><span class="unit">19 °C</span></li>
+        <li><time>Day 3</time><h3>Dry hop</h3><p>Another hop charge while the yeast is still busy.</p><span class="unit">6 g / litre</span></li>
+        <li><time>Day 7</time><h3>Crash</h3><p>Chilled hard so it drops bright.</p><span class="unit">2 °C · 48 h</span></li>
+        <li><time>Thursday</time><h3>Can</h3><p>Filled, seamed and in the fridge by 15:00.</p><span class="unit">440 ml · best before 4 months</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Nights (dither) ===== -->
+  <section class="sec nights" id="nights" aria-labelledby="nights-title">
+    <canvas data-dither aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display" id="nights-title">Taproom nights</h2>
+        <p>Free entry unless it says otherwise. Tables go first come, first served. Kids welcome until 20:00, dogs all night.</p>
+      </div>
+      <div class="bill">
+        <ul class="events">
+          <li><span class="d"><small>Wed</small>5 Nov</span><div><h3>Arch quiz</h3><p>Six rounds, teams of up to five. Winners drink free for an hour.</p></div><span class="tag">19:30 · Free</span></li>
+          <li><span class="d"><small>Fri</small>7 Nov</span><div><h3>Vinyl Friday</h3><p>Northern soul and funk 45s, brought in by our bar team.</p></div><span class="tag">20:00–23:00</span></li>
+          <li><span class="d"><small>Sat</small>8 Nov</span><div><h3>Fresh hop launch</h3><p>First pour of this year’s green-hop pale, picked Monday, brewed Tuesday.</p></div><span class="tag">From 12:00</span></li>
+          <li><span class="d"><small>Thu</small>13 Nov</span><div><h3>Screenprint night</h3><p>Pull your own Northside tote with a local print studio. Bags and ink included.</p></div><span class="tag">£12 · 18:30</span></li>
+        </ul>
+        <figure class="bill-photo print" style="margin:0"><img src="assets/img/gig-night.jpg" alt="A crowd with hands up in front of a lit stage at a night event" width="1000" height="667" loading="lazy"><figcaption class="mono">Fridays, under the arch</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section class="sec" aria-labelledby="wall-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display overprint" id="wall-title">Off the wall</h2>
+        <p>The taproom is one long bar, a dozen benches and a wall of old event posters. Bring a crowd, there’s room.</p>
+      </div>
+      <div class="wall">
+        <figure class="w1"><span class="tape"></span><div class="print print--blue"><img src="assets/img/flight.jpg" alt="A tasting flight of six beers in thirds on a wooden paddle" width="1000" height="667" loading="lazy"></div><figcaption class="mono">Flight of six thirds · £11</figcaption></figure>
+        <figure class="w2"><span class="tape"></span><div class="print"><img src="assets/img/taproom-bar.jpg" alt="Long wooden taproom bar with chalkboard menus and pendant lights" width="1000" height="667" loading="lazy"></div><figcaption class="mono">The bar, arch 9</figcaption></figure>
+        <figure class="w3"><span class="tape"></span><div class="print print--yellow"><img src="assets/img/cheers.jpg" alt="Friends laughing and raising pints at the bar" width="1000" height="667" loading="lazy"></div><figcaption class="mono">Saturday, around 17:00</figcaption></figure>
+        <figure class="w4"><span class="tape"></span><div class="print print--ink"><img src="assets/img/pour.jpg" alt="Close-up of beer pouring from a tap into a glass" width="1000" height="667" loading="lazy"></div><figcaption class="mono">Line 3, nitro</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="sec" aria-labelledby="voices-title" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="display" id="voices-title" style="font-size:clamp(20px,2vw,26px);margin-bottom:24px">What the regulars say</h2>
+      <div class="voices">
+        <figure class="voice-main" style="margin:0">
+          <blockquote style="margin:0"><p>“I came for the quiz. I stayed for <em>Night Bus</em> on nitro. Now I live four streets away.”</p></blockquote>
+          <figcaption><cite class="who">Priya K. · Burley</cite></figcaption>
+        </figure>
+        <div class="voice-side">
+          <blockquote><p>“Booked the Saturday tour for my dad’s birthday. The brewer let him taste straight from the fermenter. He hasn’t stopped talking about it.”</p><cite class="who">Tom W. · Armley</cite></blockquote>
+          <blockquote><p>“Fresh cans on a Thursday is my weekly ritual. The haze never lasts until Saturday.”</p><cite class="who">Sian R. · Chapel Allerton</cite></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Visit ===== -->
+  <section class="sec visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display overprint" id="visit-title">Find the arch</h2>
+        <p>Look for the orange door under the railway viaduct. Step-free entrance, accessible toilet, bike racks outside.</p>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <h3>Taproom hours</h3>
+          <table class="hours" data-hours>
+            <tbody>
+              <tr data-day="1" class="closed"><th scope="row">Monday</th><td>Closed</td></tr>
+              <tr data-day="2" class="closed"><th scope="row">Tuesday</th><td>Closed · brew day</td></tr>
+              <tr data-day="3" data-o="16" data-c="22"><th scope="row">Wednesday</th><td>16:00 – 22:00</td></tr>
+              <tr data-day="4" data-o="16" data-c="22"><th scope="row">Thursday</th><td>16:00 – 22:00</td></tr>
+              <tr data-day="5" data-o="14" data-c="23"><th scope="row">Friday</th><td>14:00 – 23:00</td></tr>
+              <tr data-day="6" data-o="12" data-c="23"><th scope="row">Saturday</th><td>12:00 – 23:00</td></tr>
+              <tr data-day="0" data-o="12" data-c="19"><th scope="row">Sunday</th><td>12:00 – 19:00</td></tr>
+            </tbody>
+          </table>
+          <p class="open-now" data-open><i></i><span>Check today’s hours above</span></p>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <address>Arch 9, Viaduct Yard<br>Kirkstall Road<br>Leeds LS4 2QZ</address>
+          <ul>
+            <li>5 min walk from Burley Park station</li>
+            <li>Buses along Kirkstall Road, stop outside</li>
+            <li>No parking on site, bike racks for 20</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Get in touch</h3>
+          <ul>
+            <li>+44 20 7946 0718</li>
+            <li>hello@example.com</li>
+            <li>Private hire: arch for 60</li>
+            <li>Trade &amp; kegs: trade@example.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="wrap">
+      <h2 class="display" id="cta-title">See where it’s made.</h2>
+      <div>
+        <p>Saturday tours at 13:00 and 15:00. One hour with a brewer, four thirds, straight from the tank. £18 per person, 12 places.</p>
+        <a class="btn" href="beers.html#tours">Book a tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-mark">Northside</p>
+    <div class="foot-grid">
+      <div><h3>Northside Brewing Co.</h3><p style="margin:0;max-width:300px">Independent brewery and taproom. Arch 9, Viaduct Yard, Kirkstall Road, Leeds LS4 2QZ.</p></div>
+      <div><h3>Pages</h3><ul><li><a href="index.html">Home</a></li><li><a href="beers.html">Beers &amp; events</a></li><li><a href="beers.html#tours">Brewery tours</a></li></ul></div>
+      <div><h3>Taproom</h3><ul><li>Wed–Thu 16:00–22:00</li><li>Fri 14:00–23:00</li><li>Sat 12:00–23:00</li><li>Sun 12:00–19:00</li></ul></div>
+      <div><h3>Contact</h3><ul><li>+44 20 7946 0718</li><li>hello@example.com</li></ul></div>
+    </div>
+    <div class="foot-base"><span>Please drink responsibly. ID required if you look under 25.</span><span>Contenu de démonstration · fictional brand · Photos Unsplash</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var b = document.querySelector('.burger'), n = document.getElementById('nav');
+  if (!b || !n) return;
+  function set(open){ b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); n.classList.toggle('is-open', open); }
+  b.addEventListener('click', function(){ set(b.getAttribute('aria-expanded') !== 'true'); });
+  n.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') set(false); });
+})();
+
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- line-up: scroll position is the only state ---------- */
+  var sec = document.querySelector('.lineup');
+  var track = sec.querySelector('[data-track]');
+  var links = [].slice.call(sec.querySelectorAll('[data-go]'));
+  var bar = sec.querySelector('[data-bar]'), count = sec.querySelector('[data-count]'), live = sec.querySelector('[data-live]');
+  var names = ['Viaduct','Kirkstall Haze','Night Bus','Back to Back','Aire Pils'];
+  var N = 5, DWELL = 0.5, MOVE = 0.6, CYC = DWELL + MOVE, SPAN = N*DWELL + (N-1)*MOVE;
+  sec.style.setProperty('--span', SPAN.toFixed(2));
+  sec.classList.add('is-pinned');
+  function clamp01(x){return x<0?0:x>1?1:x}
+  function sstep(a,b,x){var t=clamp01((x-a)/(b-a));return t*t*(3-2*t)}
+  function travel(sp){
+    var u = Math.min(SPAN - 1e-5, sp*SPAN);
+    var i = Math.min(N-1, Math.floor(u/CYC));
+    var local = u - i*CYC;
+    var f = i >= N-1 ? 0 : clamp01((local - DWELL)/MOVE);
+    return {i:i, f:f, fe:sstep(0,1,f), live:Math.min(N-1, f < 0.39 ? i : i+1)};
+  }
+  function progress(){
+    var r = sec.getBoundingClientRect(), range = sec.offsetHeight - window.innerHeight;
+    return range > 0 ? clamp01(-r.top / range) : 0;
+  }
+  var lastLive = -1;
+  function render(){
+    if (!sec.offsetHeight) return;
+    var sp = progress(), t = travel(sp);
+    track.style.transform = 'translate3d(' + (-(t.i + t.fe) * 100) + 'vw,0,0)';
+    bar.style.setProperty('--prog', sp.toFixed(4));
+    if (t.live !== lastLive){
+      links.forEach(function(a,k){ if(k===t.live) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); });
+      count.textContent = (t.live+1) + ' / ' + N + ' ' + names[t.live];
+      lastLive = t.live;
+    }
+  }
+  /* scene k rests at the middle of its dwell */
+  function sceneY(k){
+    var u = k*CYC + DWELL*0.5;
+    return sec.offsetTop + (u/SPAN) * (sec.offsetHeight - window.innerHeight);
+  }
+  var glide = null;
+  function cancelGlide(){ if(glide){ cancelAnimationFrame(glide); glide = null; } }
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var k = +a.dataset.go, target = sceneY(k), start = window.scrollY, dy = target - start;
+      cancelGlide();
+      if (reduce){ window.scrollTo(0, target); live.textContent = 'Beer ' + (k+1) + ' of ' + N + ': ' + names[k]; return; }
+      var dur = Math.max(900, Math.min(2400, 700 + Math.abs(dy)/window.innerHeight*150)), t0 = performance.now();
+      (function step(now){
+        var x = Math.min(1, (now - t0)/dur), e2 = x<.5 ? 4*x*x*x : 1 - Math.pow(-2*x+2,3)/2;
+        window.scrollTo(0, start + dy*e2);
+        if (x < 1) glide = requestAnimationFrame(step); else { glide = null; live.textContent = 'Beer ' + (k+1) + ' of ' + N + ': ' + names[k]; }
+      })(t0);
+    });
+  });
+  ['wheel','touchstart','keydown'].forEach(function(ev){ window.addEventListener(ev, cancelGlide, {passive:true}); });
+  document.addEventListener('visibilitychange', function(){ if(document.hidden) cancelGlide(); });
+  ['scroll','resize','pageshow','load'].forEach(function(ev){ window.addEventListener(ev, render, {passive:true}); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
+  render();
+
+  /* ---------- dither field, inked in cobalt ---------- */
+  var cv = document.querySelector('[data-dither]');
+  if (cv){
+    var ctx = cv.getContext('2d', {alpha:false});
+    var B = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map(function(v){return (v+.5)/16});
+    var pal = [[12,12,14],[17,19,34],[22,30,78],[31,63,209],[92,112,226],[232,227,211]];
+    var cell = 8, cols = 1, rows = 1, w = 1, h = 1, raf = 0, visible = false;
+    function n2(x,y){var v=Math.sin(x*127.1+y*311.7)*43758.5453123;return v-Math.floor(v)}
+    function vn(x,y){var ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy,ux=fx*fx*(3-2*fx),uy=fy*fy*(3-2*fy);
+      return n2(ix,iy)*(1-ux)*(1-uy)+n2(ix+1,iy)*ux*(1-uy)+n2(ix,iy+1)*(1-ux)*uy+n2(ix+1,iy+1)*ux*uy}
+    function fbm(x,y){var v=0,a=.5,f=1;for(var o=0;o<4;o++){v+=vn(x*f,y*f)*a;f*=2.02;a*=.5}return v}
+    function size(){
+      var r = cv.parentNode.getBoundingClientRect();
+      w = Math.max(1, Math.round(r.width)); h = Math.max(1, Math.round(r.height));
+      cols = Math.ceil(w/cell); rows = Math.ceil(h/cell);
+      cv.width = cols; cv.height = rows; /* one canvas pixel per cell, scaled up crisp */
+      cv.style.imageRendering = 'pixelated';
+    }
+    var img;
+    function draw(ms){
+      var t = reduce ? 0 : (ms||0)*0.001*0.05;
+      if (!img || img.width !== cols || img.height !== rows) img = ctx.createImageData(cols, rows);
+      var d = img.data, p = 0;
+      for (var y=0;y<rows;y++){
+        for (var x=0;x<cols;x++){
+          var nx=(x/cols-.5)*2, ny=(y/rows-.5)*2;
+          var dist=Math.sqrt(nx*nx*.84+ny*ny*1.28), vig=1-sstep(.2,1.2,dist);
+          var wave=Math.sin(nx*2.6+ny*1.1+t)*.18+Math.sin(-nx*1.3+ny*3.6-t*.8)*.14;
+          var cl=fbm(nx*1.35+t*.16+3.1, ny*1.35-t*.08);
+          var ridge=sstep(.48,.92,cl+wave);
+          var mass=sstep(1.0,.15,Math.hypot(nx-.55,ny+.35));
+          var b=Math.max(0,Math.min(1,(ridge*vig*.85+mass*.22)*.72));
+          var s=Math.floor(Math.max(0,Math.min(.999,b+B[(y%4)*4+(x%4)]*.18))*pal.length);
+          var c=pal[Math.min(pal.length-1,s)];
+          d[p++]=c[0]; d[p++]=c[1]; d[p++]=c[2]; d[p++]=255;
+        }
+      }
+      ctx.putImageData(img,0,0);
+      if (!reduce && visible && !document.hidden) raf = requestAnimationFrame(throttled);
+    }
+    var lastT = 0;
+    function throttled(ms){ if (ms - lastT > 66){ lastT = ms; draw(ms); } else if (visible && !document.hidden) raf = requestAnimationFrame(throttled); }
+    size(); draw(0);
+    new ResizeObserver(function(){ size(); draw(lastT); }).observe(cv.parentNode);
+    new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting; cancelAnimationFrame(raf);
+      if (visible && !reduce) raf = requestAnimationFrame(throttled);
+    }).observe(cv.parentNode);
+    document.addEventListener('visibilitychange', function(){ cancelAnimationFrame(raf); if(!document.hidden && visible && !reduce) raf = requestAnimationFrame(throttled); });
+  }
+
+  /* ---------- open now ---------- */
+  var openEl = document.querySelector('[data-open]');
+  if (openEl){
+    var now = new Date(), day = now.getDay(), hr = now.getHours() + now.getMinutes()/60;
+    var row = document.querySelector('[data-hours] tr[data-day="'+day+'"]');
+    if (row){
+      row.classList.add('today');
+      var o = +row.dataset.o, c = +row.dataset.c;
+      if (row.dataset.o && hr >= o && hr < c){ openEl.classList.add('is-open'); openEl.lastChild.textContent = 'Open now, last orders ' + (c-1) + ':45'; }
+      else if (row.dataset.o && hr < o){ openEl.lastChild.textContent = 'Opens today at ' + o + ':00'; }
+      else { openEl.lastChild.textContent = 'Closed now. Next open Wednesday to Sunday.'; }
+    }
+  }
+
+  /* ---------- hero intro + section reveals ---------- */
+  if (window.gsap && !reduce){
+    gsap.registerPlugin(ScrollTrigger);
+    var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+    tl.from('.hero h1 .l', {yPercent:40, opacity:0, duration:.8, stagger:.1})
+      .from('.hero-poster', {y:40, rotate:-6, opacity:0, duration:.9}, .15)
+      .from('.stamp', {scale:.4, rotate:-40, opacity:0, duration:.6, ease:'back.out(2)'}, .6);
+    gsap.utils.toArray('.sec-head h2').forEach(function(h){
+      gsap.from(h, {y:36, opacity:0, duration:.7, ease:'power3.out', scrollTrigger:{trigger:h, start:'top 88%', once:true}});
+    });
+    gsap.utils.toArray('.stub div, .tl li, .events li, .wall figure').forEach(function(el, k){
+      gsap.from(el, {y:28, opacity:0, duration:.6, ease:'power2.out', scrollTrigger:{trigger:el, start:'top 92%', once:true}});
+    });
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  }
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

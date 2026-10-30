@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T4 96,40 m² Saurupt — Pierre & Clé Immobilier</title>
+<meta name="description" content="Appartement T4 de 96,40 m² Carrez, quartier Saurupt à Nancy. DPE C, 289 000 € honoraires inclus.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#ECEEEA;
+  --paper-2:#E1E4DF;
+  --sheet:#F6F7F4;
+  --ink:#111518;
+  --ink-2:#454D53;
+  --ink-3:#7A8287;
+  --line:rgba(17,21,24,.16);
+  --line-2:rgba(17,21,24,.34);
+  --wall:#111518;
+  --accent:#2341C9;
+  --accent-soft:rgba(35,65,201,.09);
+  --night:#0D1012;
+  --night-2:#161A1D;
+  --night-line:rgba(236,238,234,.16);
+  --f-display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1360px;
+  --dpe-a:#009C6D;--dpe-b:#52B153;--dpe-c:#A5CC74;--dpe-d:#F4E70F;--dpe-e:#F2B44F;--dpe-f:#EB8235;--dpe-g:#D7221F;
+  --ges-a:#A3DBFC;--ges-b:#8AB5D2;--ges-c:#7692B1;--ges-d:#5D6D90;--ges-e:#4D5272;--ges-f:#393551;--ges-g:#281B34;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:96px 96px;background-position:-1px -1px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:linear-gradient(rgba(17,21,24,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(17,21,24,.05) 1px,transparent 1px);background-size:24px 24px}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(236,238,234,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line-2)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:600;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
+.brand-mark{width:26px;height:26px;border:1.5px solid var(--ink);position:relative;flex:none}
+.brand-mark::before{content:"";position:absolute;left:-1.5px;right:-1.5px;top:9px;border-top:1.5px solid var(--ink)}
+.brand-mark::after{content:"";position:absolute;top:9px;bottom:-1.5px;left:11px;border-left:1.5px solid var(--ink)}
+.brand small{font-family:var(--f-mono);font-weight:400;font-size:10px;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase;margin-left:2px}
+.nav{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav a{text-decoration:none;font-size:14.5px;color:var(--ink-2);position:relative;padding:4px 0}
+.nav a:hover,.nav a[aria-current]{color:var(--ink)}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;border-bottom:1px solid var(--ink);transition:right .25s}
+.nav a:hover::after{right:0}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:600;font-size:14.5px;text-decoration:none;padding:12px 18px;border:1.5px solid var(--ink);background:var(--ink);color:var(--sheet);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.btn svg{width:16px;height:16px}
+.top .btn{padding:9px 14px;font-size:13.5px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--ink);transition:transform .25s,top .25s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:25px}
+.burger[aria-expanded="true"] span:nth-child(1){top:20px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){top:20px;transform:rotate(-45deg)}
+@media (max-width:899px){
+  .burger{display:block}
+  .nav{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));bottom:0;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut-r) 24px var(--gut);border-top:1px solid var(--line-2);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a{font-family:var(--f-display);font-size:28px;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav a::after{display:none}
+  .nav .btn{margin-top:20px;justify-content:center;font-family:var(--f-body);font-size:16px;color:var(--sheet);padding:16px}
+}
+
+/* frames */
+.frame{position:relative;border:1px solid var(--line-2)}
+.frame>.c{position:absolute;width:7px;height:7px;background:var(--paper);border:1px solid var(--ink);z-index:2}
+.c.tl{top:-4px;left:-4px}.c.tr{top:-4px;right:-4px}.c.bl{bottom:-4px;left:-4px}.c.br{bottom:-4px;right:-4px}
+.rail{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink-3);padding:10px 0;border-bottom:1px solid var(--line)}
+
+/* DPE chips */
+.dpe{display:inline-grid;place-items:center;width:26px;height:22px;font-family:var(--f-mono);font-weight:700;font-size:12px;color:#111;clip-path:polygon(0 0,78% 0,100% 50%,78% 100%,0 100%);padding-right:4px}
+.dpe.A{background:var(--dpe-a);color:#fff}.dpe.B{background:var(--dpe-b)}.dpe.C{background:var(--dpe-c)}.dpe.D{background:var(--dpe-d)}.dpe.E{background:var(--dpe-e)}.dpe.F{background:var(--dpe-f)}.dpe.G{background:var(--dpe-g);color:#fff}
+
+/* footer */
+.foot{background:var(--night);color:#C9CDC8;padding:56px 0 28px;margin-top:0}
+.foot a{color:#ECEEEA;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;border-bottom:1px solid var(--night-line)}
+.foot .brand{color:#ECEEEA}
+.foot .brand-mark,.foot .brand-mark::before,.foot .brand-mark::after{border-color:#ECEEEA}
+.foot h4{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7F878C;margin:0 0 14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px}
+.foot p{font-size:14.5px;margin:14px 0 0;max-width:34ch}
+.foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:20px;color:#7F878C}
+@media (max-width:899px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;color:var(--ink-3);padding:18px 0}
+.crumbs a{color:var(--ink-2);text-decoration:none}
+.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.bien-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:18px 0 30px;border-bottom:1px solid var(--line-2)}
+.bien-head .mono{color:var(--accent)}
+.bien-head h1{font-family:var(--f-display);font-weight:500;font-size:clamp(36px,4.6vw,68px);line-height:1;letter-spacing:-.035em;margin:14px 0 0;max-width:18ch}
+.bien-head .addr{color:var(--ink-2);margin:14px 0 0;font-size:17px}
+.bien-head .ref{text-align:right;color:var(--ink-3);line-height:1.8}
+.bien-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr);gap:40px;padding:36px 0 96px;align-items:start}
+/* gallery */
+.gal-main{position:relative;aspect-ratio:3/2;background:var(--paper-2)}
+.gal-main img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:cover;transition:opacity .35s}
+.gal-main figcaption{position:absolute;left:20px;bottom:20px;background:var(--sheet);border:1px solid var(--ink);padding:6px 10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;z-index:3}
+.gal-count{position:absolute;right:20px;bottom:20px;z-index:3;background:var(--ink);color:var(--sheet);padding:6px 10px}
+.thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.thumbs button{padding:0;border:1px solid var(--line-2);background:var(--paper-2);cursor:pointer;aspect-ratio:4/3;position:relative;overflow:hidden}
+.thumbs button img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .2s}
+.thumbs button:hover img,.thumbs button[aria-pressed="true"] img{opacity:1}
+.thumbs button[aria-pressed="true"]{border:2px solid var(--accent)}
+.thumbs span{position:absolute;left:6px;bottom:6px;background:var(--sheet);padding:2px 6px;font-family:var(--f-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.04em}
+/* blocks */
+.blk{margin-top:64px}
+.blk-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line-2);padding-bottom:12px;margin-bottom:24px}
+.blk-h h2{font-family:var(--f-display);font-weight:500;font-size:30px;letter-spacing:-.02em;margin:0;max-width:none}
+.blk-h .mono{color:var(--ink-3)}
+.desc p{font-size:17px;color:var(--ink-2);max-width:62ch;margin:0 0 14px}
+.desc p:first-child{font-size:20px;color:var(--ink);line-height:1.45}
+/* plan */
+.plan-wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start}
+.plan{position:relative;padding:34px 10px 10px 34px;background:var(--sheet);border:1px solid var(--line-2)}
+.plan-grid{display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(7,minmax(34px,1fr));aspect-ratio:9/7;border:3px solid var(--wall);
+  grid-template-areas:"sej sej sej sej sej ch1 ch1 ch1 ch1" "sej sej sej sej sej ch1 ch1 ch1 ch1" "sej sej sej sej sej ch1 ch1 ch1 ch1" "cui cui ent ent ent sdb sdb wc wc" "cui cui ent ent ent ch2 ch2 ch2 ch2" "cui cui ch3 ch3 ch3 ch2 ch2 ch2 ch2" "cui cui ch3 ch3 ch3 ch2 ch2 ch2 ch2"}
+.room{border:1.5px solid var(--wall);margin:-1px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4px;font-size:12px;line-height:1.2;transition:background .2s;cursor:default;min-width:0}
+.room b{font-family:var(--f-display);font-weight:600;font-size:13px}
+.room span{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-2)}
+.room.on{background:var(--accent-soft)}
+.room.on b{color:var(--accent)}
+.r-sej{grid-area:sej}.r-ch1{grid-area:ch1}.r-cui{grid-area:cui}.r-ent{grid-area:ent;background-image:repeating-linear-gradient(45deg,transparent 0 7px,rgba(17,21,24,.05) 7px 8px)}.r-sdb{grid-area:sdb}.r-wc{grid-area:wc}.r-ch2{grid-area:ch2}.r-ch3{grid-area:ch3}
+.plan .cote-h{position:absolute;left:34px;right:10px;top:8px;height:14px}
+.plan .cote-v{position:absolute;top:34px;bottom:10px;left:8px;width:14px}
+.plan .cote-h::before{content:"";position:absolute;left:0;right:0;top:7px;border-top:1px solid var(--ink)}
+.plan .cote-v::before{content:"";position:absolute;top:0;bottom:0;left:7px;border-left:1px solid var(--ink)}
+.plan .cote-h span,.plan .cote-v span{position:absolute;background:var(--sheet);padding:0 6px;font-family:var(--f-mono);font-size:10.5px}
+.plan .cote-h span{left:50%;top:0;transform:translateX(-50%)}
+.plan .cote-v span{top:50%;left:7px;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap}
+.plan-n{position:absolute;right:16px;bottom:-26px;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3)}
+table.rooms{width:100%;border-collapse:collapse;font-size:15px}
+.rooms th,.rooms td{text-align:left;font-weight:400;padding:9px 6px;border-bottom:1px solid var(--line);cursor:default}
+.rooms td{text-align:right;font-family:var(--f-mono);font-size:13.5px}
+.rooms tr.on{background:var(--accent-soft)}
+.rooms tr.on th{color:var(--accent)}
+.rooms tfoot th,.rooms tfoot td{border-top:1.5px solid var(--ink);border-bottom:0;font-weight:600;padding-top:12px}
+.rooms caption{text-align:left;padding-bottom:10px;color:var(--ink-3)}
+/* energie */
+.energy{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.scale h3{font-family:var(--f-display);font-weight:600;font-size:18px;margin:0 0 4px}
+.scale p.u{margin:0 0 14px;color:var(--ink-3);font-size:13px}
+.scale ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.scale li{display:flex;align-items:center;gap:10px;height:26px}
+.scale .bar{height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-family:var(--f-mono);font-size:11px;font-weight:700;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%);color:#111}
+.scale .bar em{font-style:normal;font-weight:400;font-size:10px;opacity:.85;padding-right:6px}
+.scale li.cur .bar{height:34px;margin:-4px 0;box-shadow:inset 0 0 0 2px var(--ink)}
+.scale li .val{font-family:var(--f-mono);font-size:12px;display:none;white-space:nowrap}
+.scale li.cur .val{display:block;font-weight:700}
+.scale li.cur .val::before{content:"◂ ";color:var(--ink)}
+.energy-note{grid-column:1/-1;font-size:14px;color:var(--ink-2);border-left:2px solid var(--accent);padding:4px 0 4px 14px;margin:6px 0 0}
+/* copro */
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.facts div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.facts dt{color:var(--ink-2)}
+.facts dd{margin:0;font-family:var(--f-mono);font-size:13.5px;text-align:right}
+/* aside */
+.aside{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));display:grid;gap:20px}
+.pricebox{background:var(--sheet);padding:26px 26px 24px}
+.pricebox .mono{color:var(--ink-3)}
+.big-price{font-family:var(--f-display);font-weight:600;font-size:52px;letter-spacing:-.035em;line-height:1;margin:10px 0 6px}
+.price-sub{color:var(--ink-2);font-size:14.5px;margin:0 0 18px}
+.price-split{width:100%;border-collapse:collapse;font-size:14.5px;margin-bottom:20px}
+.price-split th,.price-split td{text-align:left;font-weight:400;padding:8px 0;border-bottom:1px solid var(--line)}
+.price-split td{text-align:right;font-family:var(--f-mono);font-size:13.5px}
+.price-split tr:last-child th,.price-split tr:last-child td{font-weight:600;border-bottom:0}
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);margin-bottom:20px}
+.keys div{padding:12px 8px 12px 0}
+.keys div+div{padding-left:12px;border-left:1px solid var(--line)}
+.keys dt{font-family:var(--f-mono);font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+.keys dd{margin:4px 0 0;font-family:var(--f-display);font-size:22px;font-weight:500;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.pricebox .btn{width:100%;justify-content:center}
+.agent{background:var(--ink);color:#E6E9E4;padding:24px 26px}
+.agent .mono{color:#8A9296}
+.agent h3{font-family:var(--f-display);font-weight:500;font-size:24px;margin:8px 0 2px;color:#F6F7F4}
+.agent p{margin:0;font-size:14px;color:#A9B0B3}
+.agent .tel{font-family:var(--f-mono);font-size:17px;color:#F6F7F4;margin:16px 0 18px;display:block}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 14px}
+.slots label{border:1px solid rgba(236,238,234,.3);padding:8px 4px;text-align:center;font-family:var(--f-mono);font-size:11.5px;cursor:pointer;line-height:1.35;color:#C9CDC8}
+.slots label:hover{border-color:#ECEEEA}
+.slots input{position:absolute;opacity:0;pointer-events:none}
+.slots label:has(input:checked){background:#ECEEEA;color:var(--ink);border-color:#ECEEEA}
+.slots label:has(input:focus-visible){outline:2px solid #8FA3FF;outline-offset:2px}
+.agent .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.agent .field label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#8A9296}
+.agent input[type=text],.agent input[type=tel]{font:inherit;font-size:16px;color:#F6F7F4;background:transparent;border:0;border-bottom:1px solid rgba(236,238,234,.35);padding:8px 0;border-radius:0}
+.agent input:focus{outline:none;border-bottom-color:#8FA3FF}
+.agent .btn{width:100%;justify-content:center;background:#ECEEEA;color:var(--ink);border-color:#ECEEEA}
+.agent .btn:hover{background:#8FA3FF;border-color:#8FA3FF}
+.agent .btn:disabled{opacity:.5;cursor:default}
+.agent .confirm{margin-top:14px;border:1px solid #8FA3FF;padding:12px 14px;font-size:14px;color:#F1F3EF}
+.back-row{border-top:1px solid var(--line-2);padding:28px 0 64px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+@media (max-width:1099px){.bien-grid{grid-template-columns:1fr}.aside{position:static;grid-template-columns:1fr 1fr;align-items:start}}
+@media (max-width:899px){.plan-wrap{grid-template-columns:1fr}.energy{grid-template-columns:1fr}.aside{grid-template-columns:1fr}.bien-head{grid-template-columns:1fr}.bien-head .ref{text-align:left}}
+@media (max-width:640px){.facts{grid-template-columns:1fr}.thumbs{gap:6px}.big-price{font-size:42px}.pricebox,.agent{padding:22px 18px}.blk{margin-top:48px}.room{font-size:10px;padding:2px}.room b{font-size:11px}.room span{font-size:9px}.plan{padding:28px 6px 6px 28px}.plan .cote-h{left:28px;right:6px;top:4px}.plan .cote-v{top:28px;bottom:6px;left:4px}.bien-grid{padding-bottom:64px}}
+@media (max-width:1099px){
+  .col-main{display:contents}
+  .gal-main{order:1}.thumbs{order:2;margin-top:-26px}.aside{order:3}.col-main>section{order:4}
+  .bien-grid{gap:40px}
+  .col-main>section.blk{margin-top:24px}
+}
+.price-split td{white-space:nowrap;padding-left:10px}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Pierre &amp; Clé Immobilier, accueil"><span class="brand-mark" aria-hidden="true"></span>Pierre &amp; Clé<small>Nancy</small></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html#biens">Acheter</a>
+      <a href="index.html#services">Vendre</a>
+      <a href="index.html#services">Gestion locative</a>
+      <a href="index.html#agence">L'agence</a>
+      <a href="bien-appartement-t4.html" aria-current="page">Fiche T4 Saurupt</a>
+      <a class="btn" href="index.html#estimation">Estimer mon bien</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <nav class="crumbs mono" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span>/</span><a href="index.html#biens">En vente</a><span>/</span><span aria-current="page">Réf. PC-0412</span></nav>
+
+  <div class="bien-head">
+    <div>
+      <span class="mono">Appartement · 4 pièces · 3 chambres</span>
+      <h1 class="split">T4 traversant avec balcon, quartier Saurupt</h1>
+      <p class="addr">Rue de Saurupt, 54000 Nancy · 3<sup>e</sup> étage sur 5, ascenseur · immeuble 1932</p>
+    </div>
+    <div class="ref mono">Réf. PC-0412<br>Mandat exclusif n° 2026-118<br>Mis en ligne le 14/10/2026</div>
+  </div>
+
+  <div class="bien-grid">
+    <div class="col-main">
+      <figure class="gal-main frame" style="margin:0">
+        <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+        <img id="gal-img" src="assets/img/sejour-parquet.jpg" alt="Séjour de 31,40 m², parquet point de Hongrie et trois fenêtres" width="1800" height="1200">
+        <figcaption id="gal-cap">Séjour · 31,40 m²</figcaption>
+        <span class="gal-count mono" id="gal-count">1 / 4</span>
+      </figure>
+      <div class="thumbs" role="group" aria-label="Photos du bien">
+        <button type="button" aria-pressed="true" data-src="assets/img/sejour-parquet.jpg" data-cap="Séjour · 31,40 m²" data-alt="Séjour de 31,40 m², parquet point de Hongrie et trois fenêtres"><img src="assets/img/sejour-parquet.jpg" alt="" loading="lazy"><span>Séjour</span></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/cuisine.jpg" data-cap="Cuisine · 11,20 m²" data-alt="Cuisine équipée blanche avec îlot et suspensions noires"><img src="assets/img/cuisine.jpg" alt="" loading="lazy"><span>Cuisine</span></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/chambre.jpg" data-cap="Chambre 1 · 14,60 m²" data-alt="Chambre aux murs blancs, commode et lampe sur pied"><img src="assets/img/chambre.jpg" alt="" loading="lazy"><span>Chambre 1</span></button>
+        <button type="button" aria-pressed="false" data-src="assets/img/bureau.jpg" data-cap="Chambre 3 / bureau · 10,30 m²" data-alt="Petite chambre aménagée en bureau, fauteuil jaune"><img src="assets/img/bureau.jpg" alt="" loading="lazy"><span>Chambre 3</span></button>
+      </div>
+
+      <section class="blk desc" aria-labelledby="d-t">
+        <div class="blk-h"><h2 id="d-t">Le bien</h2><span class="mono">Visité et mesuré le 09/10/2026</span></div>
+        <p>Un T4 de 96,40 m² Carrez, traversant est-ouest, dans un immeuble de 1932 à deux pas du parc de Saurupt.</p>
+        <p>Le séjour de 31,40 m² garde son parquet chêne en point de Hongrie et ses 3,10 m sous plafond. La cuisine se ferme. Les trois chambres donnent sur cour, au calme. Salle de bains refaite en 2021, WC séparé, cave de 6 m² au sous-sol.</p>
+        <p>Chauffage collectif au gaz, fenêtres double vitrage bois posées en 2019. Écoles Jules-Ferry et lycée Georges-de-la-Tour à moins de 10 minutes à pied.</p>
+      </section>
+
+      <section class="blk" aria-labelledby="p-t">
+        <div class="blk-h"><h2 id="p-t">Plan et surfaces</h2><span class="mono">Relevé Carrez · loi du 18/12/1996</span></div>
+        <div class="plan-wrap">
+          <div class="plan">
+            <div class="cote-h" aria-hidden="true"><span>11,20 m</span></div>
+            <div class="cote-v" aria-hidden="true"><span>8,70 m</span></div>
+            <div class="plan-grid" role="img" aria-label="Plan schématique : séjour et chambre 1 au nord, cuisine à l'ouest, entrée au centre, salle de bains et WC, chambres 2 et 3 au sud.">
+              <div class="room r-sej" data-r="sej"><b>Séjour</b><span>31,40</span></div>
+              <div class="room r-ch1" data-r="ch1"><b>Ch. 1</b><span>14,60</span></div>
+              <div class="room r-cui" data-r="cui"><b>Cuisine</b><span>11,20</span></div>
+              <div class="room r-ent" data-r="ent"><b>Entrée</b><span>9,00</span></div>
+              <div class="room r-sdb" data-r="sdb"><b>SdB</b><span>6,20</span></div>
+              <div class="room r-wc" data-r="wc"><b>WC</b><span>1,60</span></div>
+              <div class="room r-ch2" data-r="ch2"><b>Ch. 2</b><span>12,10</span></div>
+              <div class="room r-ch3" data-r="ch3"><b>Ch. 3</b><span>10,30</span></div>
+            </div>
+            <span class="plan-n">Schéma non contractuel · N ↑</span>
+          </div>
+          <table class="rooms">
+            <caption class="mono">Surfaces privatives en m²</caption>
+            <tbody>
+              <tr data-r="sej"><th scope="row">Séjour</th><td>31,40</td></tr>
+              <tr data-r="ch1"><th scope="row">Chambre 1</th><td>14,60</td></tr>
+              <tr data-r="ch2"><th scope="row">Chambre 2</th><td>12,10</td></tr>
+              <tr data-r="cui"><th scope="row">Cuisine</th><td>11,20</td></tr>
+              <tr data-r="ch3"><th scope="row">Chambre 3</th><td>10,30</td></tr>
+              <tr data-r="ent"><th scope="row">Entrée et dégagement</th><td>9,00</td></tr>
+              <tr data-r="sdb"><th scope="row">Salle de bains</th><td>6,20</td></tr>
+              <tr data-r="wc"><th scope="row">WC</th><td>1,60</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Surface Carrez</th><td>96,40</td></tr>
+              <tr><th scope="row" style="font-weight:400;border-top:0;padding-top:4px">Hors Carrez : balcon 4,10 · cave 6,00</th><td style="font-weight:400;border-top:0;padding-top:4px">—</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section class="blk" aria-labelledby="e-t">
+        <div class="blk-h"><h2 id="e-t">Performance énergétique</h2><span class="mono">DPE du 02/09/2026 · méthode 3CL</span></div>
+        <div class="energy">
+          <div class="scale">
+            <h3>Consommation énergétique</h3>
+            <p class="u">kWh d'énergie primaire / m² / an</p>
+            <ol aria-label="Étiquette DPE : classe C, 142 kWh par mètre carré et par an">
+              <li><span class="bar" style="width:34%;background:var(--dpe-a);color:#fff">A <em>≤ 70</em></span></li>
+              <li><span class="bar" style="width:43%;background:var(--dpe-b)">B <em>71–110</em></span></li>
+              <li class="cur"><span class="bar" style="width:52%;background:var(--dpe-c)">C <em>111–180</em></span><span class="val">142</span></li>
+              <li><span class="bar" style="width:61%;background:var(--dpe-d)">D <em>181–250</em></span></li>
+              <li><span class="bar" style="width:70%;background:var(--dpe-e)">E <em>251–330</em></span></li>
+              <li><span class="bar" style="width:79%;background:var(--dpe-f)">F <em>331–420</em></span></li>
+              <li><span class="bar" style="width:88%;background:var(--dpe-g);color:#fff">G <em>&gt; 420</em></span></li>
+            </ol>
+          </div>
+          <div class="scale">
+            <h3>Émissions de gaz à effet de serre</h3>
+            <p class="u">kg CO₂ / m² / an</p>
+            <ol aria-label="Étiquette GES : classe C, 24 kilogrammes de CO2 par mètre carré et par an">
+              <li><span class="bar" style="width:34%;background:var(--ges-a)">A <em>≤ 6</em></span></li>
+              <li><span class="bar" style="width:43%;background:var(--ges-b)">B <em>7–11</em></span></li>
+              <li class="cur"><span class="bar" style="width:52%;background:var(--ges-c);color:#fff">C <em>12–30</em></span><span class="val">24</span></li>
+              <li><span class="bar" style="width:61%;background:var(--ges-d);color:#fff">D <em>31–50</em></span></li>
+              <li><span class="bar" style="width:70%;background:var(--ges-e);color:#fff">E <em>51–70</em></span></li>
+              <li><span class="bar" style="width:79%;background:var(--ges-f);color:#fff">F <em>71–100</em></span></li>
+              <li><span class="bar" style="width:88%;background:var(--ges-g);color:#fff">G <em>&gt; 100</em></span></li>
+            </ol>
+          </div>
+          <p class="energy-note">Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1 480 € et 2 040 € par an (prix moyens des énergies indexés au 1<sup>er</sup> janvier 2021).</p>
+        </div>
+      </section>
+
+      <section class="blk" aria-labelledby="c-t">
+        <div class="blk-h"><h2 id="c-t">Copropriété et charges</h2><span class="mono">Art. L.721-1 CCH</span></div>
+        <dl class="facts">
+          <div><dt>Nombre de lots</dt><dd>38</dd></div>
+          <div><dt>Charges courantes</dt><dd>2 160 € / an</dd></div>
+          <div><dt>Taxe foncière 2026</dt><dd>1 420 €</dd></div>
+          <div><dt>Procédure en cours</dt><dd>aucune</dd></div>
+          <div><dt>Chauffage</dt><dd>collectif gaz</dd></div>
+          <div><dt>Fonds de travaux (quote-part)</dt><dd>1 840 €</dd></div>
+          <div><dt>Ravalement</dt><dd>voté 2023, réalisé</dd></div>
+          <div><dt>Disponibilité</dt><dd>janvier 2027</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <aside class="aside" aria-label="Prix et contact">
+      <div class="pricebox frame">
+        <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+        <span class="mono">Prix honoraires inclus</span>
+        <div class="big-price">289 000 €</div>
+        <p class="price-sub">soit 2 998 € / m² Carrez</p>
+        <table class="price-split">
+          <tr><th scope="row">Prix net vendeur</th><td>275 500 €</td></tr>
+          <tr><th scope="row">Honoraires 4,9 % TTC, charge acquéreur</th><td>13 500 €</td></tr>
+          <tr><th scope="row">Prix de vente FAI</th><td>289 000 €</td></tr>
+        </table>
+        <dl class="keys">
+          <div><dt>Carrez</dt><dd>96,40 m²</dd></div>
+          <div><dt>DPE</dt><dd><span class="dpe C">C</span>142</dd></div>
+          <div><dt>GES</dt><dd><span class="dpe C">C</span>24</dd></div>
+        </dl>
+        <a class="btn" href="#visite">Demander une visite</a>
+      </div>
+
+      <div class="agent" id="visite">
+        <span class="mono">Votre interlocutrice</span>
+        <h3>Mathilde G.</h3>
+        <p>Négociatrice, secteur Saurupt · Parc Sainte-Marie</p>
+        <span class="tel">03 83 41 27 94</span>
+        <form data-confirm="&lt;b&gt;Créneau demandé.&lt;/b&gt; Mathilde vous confirme la visite par SMS dans l'heure. (Démonstration : rien n'a été envoyé.)" novalidate>
+          <span class="mono">Créneaux cette semaine</span>
+          <div class="slots">
+            <label><input type="radio" name="slot" checked>Jeu.<br>18:00</label>
+            <label><input type="radio" name="slot">Ven.<br>12:30</label>
+            <label><input type="radio" name="slot">Sam.<br>10:30</label>
+          </div>
+          <div class="field"><label for="v-nom">Nom</label><input type="text" id="v-nom" autocomplete="name" required></div>
+          <div class="field"><label for="v-tel">Téléphone</label><input type="tel" id="v-tel" autocomplete="tel" required></div>
+          <button class="btn" type="submit">Réserver ce créneau</button>
+          <div class="confirm" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <div class="back-row">
+    <a class="btn ghost" href="index.html#biens"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5"/></svg>Tous les biens en vente</a>
+    <a class="btn" href="index.html#estimation">Vous vendez aussi ? Estimation sous 72 h</a>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Pierre &amp; Clé</a>
+        <p>Agence immobilière indépendante. Transaction et gestion locative à Nancy depuis 2011.</p></div>
+      <div><h4>Biens</h4><ul><li><a href="index.html#biens">En vente</a></li><li><a href="bien-appartement-t4.html">Fiche T4 Saurupt</a></li><li><a href="index.html#estimation">Estimer</a></li></ul></div>
+      <div><h4>Agence</h4><ul><li><a href="index.html#services">Barème des honoraires</a></li><li><a href="index.html#agence">Horaires &amp; secteur</a></li><li>03 83 41 27 90</li></ul></div>
+      <div><h4>Mentions</h4><ul><li>Carte pro. T n° CPI 5401 2018 000 0XX</li><li>Garantie financière 120 000 €</li><li>Médiateur de la consommation</li></ul></div>
+    </div>
+    <div class="foot-base mono"><span>© 2026 Pierre &amp; Clé Immobilier — marque fictive</span><span>Contenu de démonstration · Maquette 1903RGB</span></div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* burger */
+  var burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+  if (burger && nav) {
+    var setOpen = function(o){ burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Fermer le menu' : 'Ouvrir le menu'); nav.classList.toggle('open', o); document.documentElement.style.overflow = o ? 'hidden' : ''; };
+    burger.addEventListener('click', function(){ setOpen(burger.getAttribute('aria-expanded') !== 'true'); });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function(){ if (window.innerWidth > 899) setOpen(false); });
+  }
+
+  /* today's opening hours */
+  var d = new Date().getDay(), row = null;
+  document.querySelectorAll('.hours tr[data-d]').forEach(function(tr){
+    var k = +tr.dataset.d;
+    if (k === d || (k === 2 && d >= 2 && d <= 5)) row = tr;
+  });
+  if (row) row.classList.add('today');
+
+  /* fake forms */
+  document.querySelectorAll('form[data-confirm], form.estimate').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = Array.prototype.filter.call(f.querySelectorAll('[required]'), function(i){ return !i.value.trim(); });
+      var box = f.querySelector('.confirm');
+      if (bad.length) { bad[0].focus(); box.hidden = false; box.innerHTML = 'Il manque ' + bad.length + ' champ' + (bad.length > 1 ? 's' : '') + ' obligatoire' + (bad.length > 1 ? 's' : '') + '.'; return; }
+      box.hidden = false;
+      box.innerHTML = f.dataset.confirm || '<b>Demande reçue.</b> Un agent vous rappelle sous 24 h ouvrées pour fixer le rendez-vous de relevé. (Démonstration : rien n\'a été envoyé.)';
+      f.querySelector('button[type=submit]').disabled = true;
+    });
+  });
+
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll: Lenis only */
+  if (window.Lenis) {
+    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){ var id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -72 }); } });
+    });
+  }
+
+  /* split headings into words (accessible label kept) */
+  document.querySelectorAll('.split').forEach(function(h){
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g, ' ').trim());
+    var walk = function(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(w){
+            if (!w) return;
+            if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
+            var o = document.createElement('span'); o.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em';
+            var i = document.createElement('span'); i.className = 'w'; i.style.display = 'inline-block'; i.textContent = w;
+            o.appendChild(i); o.setAttribute('aria-hidden', 'true'); frag.appendChild(o);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(h);
+  });
+
+  var heroH = document.querySelector('.hero .split, .bien-head .split');
+  document.querySelectorAll('.split').forEach(function(h){
+    var cfg = { yPercent: 105, duration: .9, ease: 'power3.out', stagger: .045 };
+    if (h === heroH) { gsap.from(h.querySelectorAll('.w'), Object.assign(cfg, { delay: .15 })); }
+    else { cfg.scrollTrigger = { trigger: h, start: 'top 88%', once: true }; gsap.from(h.querySelectorAll('.w'), cfg); }
+  });
+
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    gsap.from(el, { y: 36, opacity: 0, duration: .9, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+  });
+
+  window.__pc = { gsap: gsap };
+})();
+(function(){
+  var main = document.getElementById('gal-img'), cap = document.getElementById('gal-cap'), cnt = document.getElementById('gal-count');
+  var btns = document.querySelectorAll('.thumbs button');
+  btns.forEach(function(b, i){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      main.style.opacity = 0;
+      setTimeout(function(){ main.src = b.dataset.src; main.alt = b.dataset.alt; cap.textContent = b.dataset.cap; cnt.textContent = (i + 1) + ' / ' + btns.length; main.style.opacity = 1; }, 180);
+    });
+  });
+  var items = document.querySelectorAll('[data-r]');
+  var set = function(r){ items.forEach(function(el){ el.classList.toggle('on', !!r && el.dataset.r === r); }); };
+  items.forEach(function(el){
+    el.addEventListener('mouseenter', function(){ set(el.dataset.r); });
+    el.addEventListener('mouseleave', function(){ set(null); });
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap) return;
+  gsap.from('.gal-main', { clipPath: 'inset(0 0 100% 0)', duration: 1, ease: 'power3.out' });
+  gsap.from('.aside > *', { y: 24, opacity: 0, duration: .7, stagger: .1, delay: .3, ease: 'power2.out' });
+  gsap.from('.room', { opacity: 0, duration: .4, stagger: .06, scrollTrigger: { trigger: '.plan', start: 'top 80%', once: true } });
+  gsap.from('.scale .bar', { scaleX: 0, transformOrigin: '0 50%', duration: .6, stagger: .04, ease: 'power2.out', scrollTrigger: { trigger: '.energy', start: 'top 80%', once: true } });
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

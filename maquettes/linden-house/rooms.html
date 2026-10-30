@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rooms &amp; Rates · The Linden House</title>
+<meta name="description" content="Four room types in a 1790 Bath townhouse: sizes, beds, nightly rates in GBP and a booking enquiry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&family=Spectral:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  color-scheme: light;
+  --ink:#151B26; --ink-2:#232C3B; --ink-line:rgba(233,226,212,.16);
+  --linen:#E9E2D4; --linen-2:#DDD4C2; --paper:#F2EDE3;
+  --stone:#B08F57; --stone-soft:#C9AE7E;
+  --text:#1D2330; --muted:#5A5E66; --muted-ink:#A9A497;
+  --line:rgba(21,27,38,.16);
+  --f-display:"Italiana","Didot","Bodoni 72",Georgia,serif;
+  --f-serif:"Spectral",Georgia,"Times New Roman",serif;
+  --f-sans:"Jost","Futura","Avenir Next","Segoe UI",sans-serif;
+  --gx:max(16px, env(safe-area-inset-left,0px));
+  --gy:max(16px, env(safe-area-inset-right,0px));
+  --shell:1360px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--linen);color:var(--text);font:300 17px/1.6 var(--f-sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--stone);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--shell);margin:0 auto;padding-left:var(--gx);padding-right:var(--gy)}
+.label{font:500 12px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:.005em;margin:0;line-height:1.02}
+.btn{display:inline-flex;align-items:center;gap:.7em;padding:15px 24px;border:1px solid currentColor;font:500 13px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn--stone{background:var(--stone);border-color:var(--stone);color:var(--ink)}
+.btn--stone:hover{background:var(--linen);border-color:var(--linen)}
+.btn--ghost:hover{background:var(--linen);color:var(--ink);border-color:var(--linen)}
+.btn--ink{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.btn--ink:hover{background:transparent;color:var(--ink)}
+
+/* ---------- Nested frames: the facade grid ---------- */
+.frame{position:relative;max-width:var(--shell);margin:0 auto}
+.frame::before,.frame::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none}
+.frame::before{left:var(--gx)}.frame::after{right:var(--gy)}
+.on-ink .frame::before,.on-ink .frame::after{background:var(--ink-line)}
+.corner{position:absolute;width:11px;height:11px;pointer-events:none;z-index:2}
+.corner::before,.corner::after{content:"";position:absolute;background:var(--stone)}
+.corner::before{left:5px;top:0;width:1px;height:11px}.corner::after{top:5px;left:0;height:1px;width:11px}
+.corner.tl{top:-6px;left:calc(var(--gx) - 5px)}.corner.tr{top:-6px;right:calc(var(--gy) - 5px)}
+.inset{padding:clamp(28px,5vw,72px) clamp(20px,4vw,64px)}
+.frame>.inset{margin-left:var(--gx);margin-right:var(--gy)}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(21,27,38,.94);color:var(--linen);border-bottom:1px solid var(--ink-line);backdrop-filter:saturate(1.2) blur(6px)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:34px;height:20px;color:var(--stone)}
+.brand span{font:400 22px/1 var(--f-display);letter-spacing:.04em;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font:400 13px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.82;transition:opacity .25s;padding:8px 0}
+.nav a:hover,.nav a[aria-current]{opacity:1}
+.nav a[aria-current]{border-bottom:1px solid var(--stone)}
+.nav .btn{opacity:1;padding:12px 18px}
+.burger{display:none;background:none;border:1px solid var(--ink-line);color:var(--linen);width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+@media (max-width:900px){
+  .burger{display:inline-flex}
+  .nav{position:fixed;inset:68px 0 auto 0;top:calc(68px + env(safe-area-inset-top,0px));flex-direction:column;align-items:flex-start;gap:4px;background:var(--ink);padding:20px var(--gy) 28px var(--gx);border-bottom:1px solid var(--ink-line);display:none}
+  .nav.open{display:flex}
+  .nav a{font-size:15px;padding:12px 0}
+  .nav .btn{margin-top:10px}
+}
+
+/* ---------- Footer ---------- */
+.ftr{background:var(--ink);color:var(--muted-ink);font-size:14px}
+.ftr .grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-top:56px;padding-bottom:40px}
+.ftr h4{font:500 12px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--linen);margin:0 0 14px}
+.ftr p{margin:0 0 6px}.ftr a{text-decoration:none}.ftr a:hover{color:var(--linen)}
+.ftr .brand span{color:var(--linen)}
+.ftr .base{border-top:1px solid var(--ink-line);padding-top:18px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.04em}
+@media (max-width:800px){.ftr .grid{grid-template-columns:1fr 1fr}.ftr .grid>div:first-child{grid-column:1/-1}}
+
+
+/* ================= ROOMS ================= */
+.on-ink{background:var(--ink);color:var(--linen)}
+.intro>.frame>.inset{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(40px,6vw,72px);display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:end}
+.intro .label{color:var(--stone-soft);display:block;margin-bottom:24px}
+.intro h1{font-size:clamp(48px,7vw,112px)}
+.intro p{color:#CFC8B8;margin:0 0 12px;max-width:42ch;font-size:18px}
+.crumbs{font-size:14px;color:var(--muted-ink);margin-bottom:0}
+.crumbs a{text-decoration:none;border-bottom:1px solid var(--ink-line)}
+@media (max-width:900px){.intro>.frame>.inset{grid-template-columns:1fr}}
+
+.glance{border-top:1px solid var(--ink-line)}
+.glance .inset{padding-top:0;padding-bottom:clamp(40px,5vw,64px)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{text-align:left;padding:16px 12px 16px 0;border-bottom:1px solid var(--ink-line);vertical-align:baseline}
+.tbl thead th{font:500 11px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-ink);padding-top:22px}
+.tbl tbody th{font:400 24px/1.1 var(--f-display);color:var(--linen)}
+.tbl tbody th a{text-decoration:none}
+.tbl tbody th a:hover{color:var(--stone-soft)}
+.tbl td{color:#CFC8B8}
+.tbl td.r{color:var(--stone-soft)}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:700px){
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl th,.tbl td{display:block}
+  .tbl tr{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;padding:18px 0;border-bottom:1px solid var(--ink-line)}
+  .tbl th,.tbl td{border:0;padding:0}
+  .tbl tbody th{grid-column:1/-1;margin-bottom:6px}
+  .tbl td::before{content:attr(data-k);display:block;font:500 10px/1.4 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted-ink)}
+}
+
+.room .inset{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px)}
+.room+.room .frame{border-top:1px solid var(--line)}
+.room-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,64px);align-items:start}
+.room.flip .room-grid{grid-template-columns:5fr 7fr}
+.room.flip .room-media{order:2}
+.room-media{border:1px solid var(--line);padding:12px;background:var(--paper);margin:0}
+.room-media img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.room-media .pair{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.room-media .pair img{aspect-ratio:auto;height:100%;min-height:0}
+.room-media figcaption{font:300 italic 15px/1.4 var(--f-serif);color:var(--muted);padding:12px 4px 2px}
+.room .count{font:500 12px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:#7A5F31}
+.room h2{font-size:clamp(40px,4.6vw,68px);margin:14px 0 18px}
+.room .lede{font:300 20px/1.5 var(--f-serif);margin:0 0 26px;color:var(--ink);max-width:40ch}
+.spec{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin:0 0 26px}
+.spec div{padding:14px 0;border-bottom:1px solid var(--line)}
+.spec div:nth-child(odd){padding-right:16px}
+.spec dt{font:500 11px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.spec dd{margin:6px 0 0;font:400 26px/1.1 var(--f-display);color:var(--ink)}
+.spec dd small{font:300 14px var(--f-sans);color:var(--muted)}
+.amen{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-wrap:wrap;gap:8px}
+.amen li{font-size:14px;border:1px solid var(--line);padding:6px 12px;background:var(--paper)}
+@media (max-width:900px){.room-grid,.room.flip .room-grid{grid-template-columns:1fr}.room.flip .room-media{order:0}}
+
+.every{background:var(--paper)}
+.every .inset{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px);display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,64px)}
+.every h2{font-size:clamp(38px,4.4vw,64px)}
+.every .label{color:#7A5F31;display:block;margin-bottom:18px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.cols ul{list-style:none;margin:0;padding:0}
+.cols li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:baseline}
+.cols li svg{flex:0 0 12px;width:12px;height:12px;color:var(--stone);transform:translateY(1px)}
+.policies{margin-top:40px}
+.policies h3{font-size:30px;margin-bottom:12px}
+.policies p{margin:0 0 8px;color:var(--muted);font-size:15px}
+@media (max-width:900px){.every .inset{grid-template-columns:1fr}}
+@media (max-width:560px){.cols{grid-template-columns:1fr}}
+
+.enq .inset{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,9vw,120px);display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(28px,5vw,80px)}
+.enq h2{font-size:clamp(42px,5.4vw,84px)}
+.enq .label{color:var(--stone-soft);display:block;margin-bottom:20px}
+.enq aside p{color:var(--muted-ink);max-width:36ch}
+.enq aside .direct{margin-top:28px;border-top:1px solid var(--ink-line);padding-top:18px;font-size:15px;color:#CFC8B8}
+form.enquiry{border:1px solid var(--ink-line);padding:clamp(20px,3vw,36px);background:var(--ink-2)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.full{grid-column:1/-1}
+.f label{font:500 11px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-ink)}
+.f input,.f select,.f textarea{font:300 16px/1.4 var(--f-sans);color:var(--linen);background:transparent;border:0;border-bottom:1px solid rgba(233,226,212,.35);padding:10px 0;border-radius:0;width:100%;color-scheme:dark}
+.f select option{color:var(--ink)}
+.f textarea{min-height:90px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-bottom-color:var(--stone)}
+.f input:focus-visible,.f select:focus-visible,.f textarea:focus-visible{outline:2px solid var(--stone);outline-offset:4px}
+.f input[aria-invalid="true"]{border-bottom-color:#D98C6E}
+.est{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid var(--ink-line);padding-top:18px;margin-top:6px;flex-wrap:wrap}
+.est span{color:var(--muted-ink);font-size:14px}
+.est b{font:400 34px/1 var(--f-display);color:var(--stone-soft)}
+.form-foot{grid-column:1/-1;display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.form-foot small{color:var(--muted-ink);font-size:13px;max-width:34ch}
+.err{color:#E3A48B;font-size:14px;min-height:1em;grid-column:1/-1;margin:0}
+.done{border:1px solid var(--stone);padding:clamp(24px,3vw,40px);background:var(--ink-2)}
+.done h3{font-size:40px;margin-bottom:12px;color:var(--linen)}
+.done p{color:#CFC8B8;margin:0 0 8px}
+@media (max-width:900px){.enq .inset{grid-template-columns:1fr}}
+@media (max-width:520px){.fgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Linden House, home">
+      <svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 19a15 15 0 0 1 30 0"/><path d="M8 19a9 9 0 0 1 18 0"/><path d="M17 19V4M17 19 7.5 8.5M17 19l9.5-10.5M17 19 4 13.5M17 19l13-5.5"/><path d="M1 19h32"/></svg>
+      <span>The Linden House</span>
+    </a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h16M2 14h16"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="rooms.html" aria-current="page">Rooms</a>
+      <a href="index.html#dining">Dining</a>
+      <a href="index.html#house">The house</a>
+      <a href="index.html#visit">Visit</a>
+      <a class="btn btn--stone" href="#enquire">Enquire</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="intro on-ink" aria-labelledby="h-rooms">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset">
+        <div>
+          <span class="label">Rooms &amp; rates · 2026</span>
+          <h1 id="h-rooms">Eleven rooms, four ways to stay.</h1>
+        </div>
+        <div>
+          <p>Rooms grow as you go down the house: low and snug under the roof, tall and wide on the first floor. Rates include breakfast for two and VAT.</p>
+          <p class="crumbs"><a href="index.html">The Linden House</a> / Rooms</p>
+        </div>
+      </div>
+    </div>
+    <div class="glance">
+      <div class="frame"><div class="inset">
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption class="sr">Room types at a glance</caption>
+            <thead><tr><th scope="col">Room</th><th scope="col">Size</th><th scope="col">Bed</th><th scope="col">Floor</th><th scope="col">Sun–Thu</th><th scope="col">Fri–Sat</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><a href="#townhouse">Townhouse Double</a></th><td data-k="Size">18 m²</td><td data-k="Bed">135 cm double</td><td data-k="Floor">Second · 4 rooms</td><td class="r" data-k="Sun–Thu">£185</td><td class="r" data-k="Fri–Sat">£225</td></tr>
+              <tr><th scope="row"><a href="#garden">Garden Room</a></th><td data-k="Size">24 m²</td><td data-k="Bed">150 cm king</td><td data-k="Floor">Ground · 3 rooms</td><td class="r" data-k="Sun–Thu">£245</td><td class="r" data-k="Fri–Sat">£295</td></tr>
+              <tr><th scope="row"><a href="#ink">Ink Room</a></th><td data-k="Size">28 m²</td><td data-k="Bed">180 cm super king</td><td data-k="Floor">First · 3 rooms</td><td class="r" data-k="Sun–Thu">£285</td><td class="r" data-k="Fri–Sat">£340</td></tr>
+              <tr><th scope="row"><a href="#suite">Drawing Room Suite</a></th><td data-k="Size">42 m²</td><td data-k="Bed">180 cm + sofa bed</td><td data-k="Floor">First · 1 suite</td><td class="r" data-k="Sun–Thu">£395</td><td class="r" data-k="Fri–Sat">£460</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="room" id="townhouse" aria-labelledby="h-r1">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset room-grid">
+        <figure class="room-media"><img src="assets/img/room-attic.jpg" alt="A second-floor double with oak boards, a patterned rug and two windows." width="1000" height="667"><figcaption>Room 9, second floor. Two windows over Linden Row.</figcaption></figure>
+        <div>
+          <span class="count">Second floor · 4 rooms</span>
+          <h2 id="h-r1">Townhouse Double</h2>
+          <p class="lede">The old family bedrooms. Lower ceilings, wide oak boards and the best view of the rooftops.</p>
+          <dl class="spec">
+            <div><dt>Size</dt><dd>18 m²</dd></div>
+            <div><dt>Bed</dt><dd>135 cm <small>double</small></dd></div>
+            <div><dt>Sun–Thu</dt><dd>£185 <small>/ night</small></dd></div>
+            <div><dt>Fri–Sat</dt><dd>£225 <small>/ night</small></dd></div>
+          </dl>
+          <ul class="amen"><li>Rain shower</li><li>Shutters</li><li>Desk</li><li>Two flights, no lift</li></ul>
+          <a class="btn btn--ink" href="#enquire" data-room="Townhouse Double">Enquire for this room</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room flip" id="garden" aria-labelledby="h-r2">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset room-grid">
+        <figure class="room-media"><img src="assets/img/room-garden.jpg" alt="The Garden Room with a buttoned headboard, grey throw and an upholstered bench." width="1000" height="667" loading="lazy"><figcaption>Room 2, ground floor. French windows to the walled garden.</figcaption></figure>
+        <div>
+          <span class="count">Ground floor · 3 rooms</span>
+          <h2 id="h-r2">Garden Room</h2>
+          <p class="lede">Step out to the linden tree with your morning tea. The only rooms where dogs are welcome.</p>
+          <dl class="spec">
+            <div><dt>Size</dt><dd>24 m²</dd></div>
+            <div><dt>Bed</dt><dd>150 cm <small>king</small></dd></div>
+            <div><dt>Sun–Thu</dt><dd>£245 <small>/ night</small></dd></div>
+            <div><dt>Fri–Sat</dt><dd>£295 <small>/ night</small></dd></div>
+          </dl>
+          <ul class="amen"><li>Garden access</li><li>Walk-in shower</li><li>Dogs £25 / night</li><li>Step-free</li></ul>
+          <a class="btn btn--ink" href="#enquire" data-room="Garden Room">Enquire for this room</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room" id="ink" aria-labelledby="h-r3">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset room-grid">
+        <figure class="room-media"><img src="assets/img/room-ink.jpg" alt="The Ink Room: deep blue-black walls, a channelled bed, brass ceiling light and long curtains." width="1000" height="667" loading="lazy"><figcaption>Room 5, first floor. Walls in a blue-black limewash.</figcaption></figure>
+        <div>
+          <span class="count">First floor · 3 rooms</span>
+          <h2 id="h-r3">Ink Room</h2>
+          <p class="lede">Dark walls, tall windows, a deep bath at the foot of the bed. The room our regulars ask for by name.</p>
+          <dl class="spec">
+            <div><dt>Size</dt><dd>28 m²</dd></div>
+            <div><dt>Bed</dt><dd>180 cm <small>super king</small></dd></div>
+            <div><dt>Sun–Thu</dt><dd>£285 <small>/ night</small></dd></div>
+            <div><dt>Fri–Sat</dt><dd>£340 <small>/ night</small></dd></div>
+          </dl>
+          <ul class="amen"><li>Roll-top bath</li><li>3.6 m ceiling</li><li>Blackout shutters</li><li>Twin on request</li></ul>
+          <a class="btn btn--ink" href="#enquire" data-room="Ink Room">Enquire for this room</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room flip" id="suite" aria-labelledby="h-r4">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset room-grid">
+        <figure class="room-media"><div class="pair"><img src="assets/img/hero-drawing-room.jpg" alt="The Drawing Room Suite: sofa, lamp-lit bed and tall curtained windows." width="1800" height="1200" loading="lazy"><img src="assets/img/bath.jpg" alt="The suite's freestanding bath against a limewashed wall." width="1000" height="667" loading="lazy"></div><figcaption>The suite, first floor front. Bathroom in the former dressing room.</figcaption></figure>
+        <div>
+          <span class="count">First floor · 1 suite</span>
+          <h2 id="h-r4">Drawing Room Suite</h2>
+          <p class="lede">The grandest room of 1790, three windows wide. A sofa bed makes it work for a family of four.</p>
+          <dl class="spec">
+            <div><dt>Size</dt><dd>42 m²</dd></div>
+            <div><dt>Bed</dt><dd>180 cm <small>+ sofa bed</small></dd></div>
+            <div><dt>Sun–Thu</dt><dd>£395 <small>/ night</small></dd></div>
+            <div><dt>Fri–Sat</dt><dd>£460 <small>/ night</small></dd></div>
+          </dl>
+          <ul class="amen"><li>Freestanding bath</li><li>Separate shower</li><li>Sleeps 4</li><li>Breakfast in room</li></ul>
+          <a class="btn btn--ink" href="#enquire" data-room="Drawing Room Suite">Enquire for this suite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="every" id="policies" aria-labelledby="h-every">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset">
+        <div>
+          <span class="label">In every room</span>
+          <h2 id="h-every">Small things, done properly.</h2>
+          <div class="policies">
+            <h3>House policies</h3>
+            <p>Check-in 15:00–23:00. Check-out by 11:00; late check-out to 13:00 at £40 when free.</p>
+            <p>Two-night minimum on Saturdays, April to October.</p>
+            <p>Free cancellation up to 7 days before arrival. After that, the first night is charged.</p>
+            <p>Children over 8 welcome. No lift: the house has four floors and a 1790 staircase.</p>
+          </div>
+        </div>
+        <div class="cols">
+          <ul>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Irish linen, 400 thread count</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Feather and hypoallergenic pillows</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Working shutters, no blinds</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Loose-leaf tea, fresh milk on request</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Underfloor heating in bathrooms</li>
+          </ul>
+          <ul>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Fibre wi-fi, 300 Mb/s</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>A radio, no television</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Bath products made in Somerset</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Turn-down from 19:00</li>
+            <li><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor"/></svg>Breakfast for two included</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="enq on-ink" id="enquire" aria-labelledby="h-enq">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <div class="inset">
+        <aside>
+          <span class="label">Booking enquiry</span>
+          <h2 id="h-enq">Tell us when. We’ll hold the room.</h2>
+          <p>A person reads every enquiry and replies the same day, usually within two hours between 08:00 and 20:00. Nothing is charged until you confirm.</p>
+          <p class="direct">Rather talk? +44 20 7946 0318<br>reservations@example.com</p>
+        </aside>
+        <div id="enq-box">
+          <form class="enquiry" novalidate>
+            <div class="fgrid">
+              <div class="f full"><label for="room">Room</label>
+                <select id="room" name="room">
+                  <option value="185|225">Townhouse Double</option>
+                  <option value="245|295">Garden Room</option>
+                  <option value="285|340" selected>Ink Room</option>
+                  <option value="395|460">Drawing Room Suite</option>
+                </select></div>
+              <div class="f"><label for="arr">Arrival</label><input id="arr" name="arr" type="date" required></div>
+              <div class="f"><label for="dep">Departure</label><input id="dep" name="dep" type="date" required></div>
+              <div class="f"><label for="guests">Guests</label>
+                <select id="guests" name="guests"><option>1 adult</option><option selected>2 adults</option><option>2 adults, 1 child</option><option>2 adults, 2 children</option></select></div>
+              <div class="f"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+              <div class="f full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+              <div class="f full"><label for="note">Anything we should know?</label><textarea id="note" name="note" placeholder="Arrival time, a dog, an anniversary, a table for dinner…"></textarea></div>
+              <div class="est" aria-live="polite"><span id="est-label">Choose dates to see an estimate</span><b id="est-val">£—</b></div>
+              <p class="err" id="err" role="alert"></p>
+              <div class="form-foot">
+                <button class="btn btn--stone" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
+                <small>Estimate includes breakfast and VAT. Saturday stays need two nights from April to October.</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap grid">
+    <div>
+      <a class="brand" href="index.html"><svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 19a15 15 0 0 1 30 0"/><path d="M8 19a9 9 0 0 1 18 0"/><path d="M17 19V4M17 19 7.5 8.5M17 19l9.5-10.5M17 19 4 13.5M17 19l13-5.5"/><path d="M1 19h32"/></svg><span>The Linden House</span></a>
+      <p style="margin-top:16px;max-width:34ch">An eleven-room hotel and restaurant in a 1790 townhouse, Bath.</p>
+    </div>
+    <div><h4>House</h4><p><a href="rooms.html">Rooms &amp; rates</a></p><p><a href="index.html#dining">The Linden Room</a></p><p><a href="index.html#house">History</a></p></div>
+    <div><h4>Plan</h4><p><a href="#enquire">Enquire</a></p><p><a href="#policies">House policies</a></p><p><a href="index.html#visit">Getting here</a></p></div>
+    <div><h4>Contact</h4><p>+44 20 7946 0318</p><p>reservations@example.com</p></div>
+  </div>
+  <div class="wrap base"><span>© 2026 The Linden House. Contenu de démonstration, fictional business.</span><span>Photos: Unsplash</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var b=document.querySelector('.burger'),n=document.getElementById('nav');
+  if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');});
+    n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+
+  // enquiry form
+  var form=document.querySelector('form.enquiry'),room=document.getElementById('room'),arr=document.getElementById('arr'),dep=document.getElementById('dep'),
+      estL=document.getElementById('est-label'),estV=document.getElementById('est-val'),err=document.getElementById('err');
+  function iso(d){return d.toISOString().slice(0,10)}
+  var t=new Date();t.setHours(12,0,0,0);arr.min=iso(t);
+  function nightsInfo(){
+    if(!arr.value||!dep.value)return null;
+    var a=new Date(arr.value+'T12:00:00'),d=new Date(dep.value+'T12:00:00');
+    var n=Math.round((d-a)/864e5);if(n<1)return {n:n};
+    var r=room.value.split('|').map(Number),tot=0,sat=false;
+    for(var i=0;i<n;i++){var x=new Date(a.getTime()+i*864e5),w=x.getDay();if(w===6)sat=true;tot+=(w===5||w===6)?r[1]:r[0];}
+    var m=a.getMonth();return {n:n,tot:tot,satRule:sat&&n<2&&m>=3&&m<=9};
+  }
+  function update(){
+    if(arr.value){var m=new Date(arr.value+'T12:00:00');m.setDate(m.getDate()+1);dep.min=iso(m);}
+    var i=nightsInfo();
+    if(!i){estL.textContent='Choose dates to see an estimate';estV.textContent='£—';return;}
+    if(i.n<1){estL.textContent='Departure must be after arrival';estV.textContent='£—';return;}
+    estL.textContent=i.n+(i.n===1?' night':' nights')+' · '+room.options[room.selectedIndex].text+(i.satRule?' · Saturdays need 2 nights':'');
+    estV.textContent='£'+i.tot.toLocaleString('en-GB');
+  }
+  [room,arr,dep].forEach(function(el){el.addEventListener('change',update);el.addEventListener('input',update)});
+  document.querySelectorAll('[data-room]').forEach(function(a){a.addEventListener('click',function(){
+    for(var k=0;k<room.options.length;k++){if(room.options[k].text===a.dataset.room)room.selectedIndex=k;}update();});});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var bad=[];
+    ['arr','dep','name','email'].forEach(function(id){var el=document.getElementById(id),ok=el.value.trim()!==''&&(id!=='email'||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));el.setAttribute('aria-invalid',!ok);if(!ok)bad.push(el);});
+    var i=nightsInfo();
+    if(bad.length){err.textContent='Please add your dates, name and a valid email.';bad[0].focus();return;}
+    if(!i||i.n<1){err.textContent='Your departure date needs to be after arrival.';dep.focus();return;}
+    if(i.satRule){err.textContent='From April to October, Saturday stays are two nights minimum.';dep.focus();return;}
+    err.textContent='';
+    var box=document.getElementById('enq-box'),nm=document.getElementById('name').value.trim().split(' ')[0];
+    box.innerHTML='<div class="done" tabindex="-1"><h3>Thank you, '+nm.replace(/[<>&"]/g,'')+'.</h3><p>We have your enquiry for the '+room.options[room.selectedIndex].text+', '+i.n+(i.n===1?' night':' nights')+', estimated at £'+i.tot.toLocaleString('en-GB')+'.</p><p>The room is held for 48 hours. A reply will reach you today. Nothing has been charged.</p></div>';
+    box.querySelector('.done').focus();
+  });
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!window.gsap||!window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){
+    var lenis=new Lenis({duration:1.15,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000)}); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-68});}});});
+  }
+  gsap.from('.intro h1, .intro p',{y:22,opacity:0,duration:1.1,stagger:.1,ease:'power3.out'});
+  gsap.from('.tbl tbody tr',{y:12,opacity:0,duration:.8,stagger:.08,delay:.4,ease:'power2.out'});
+  gsap.utils.toArray('.room-media').forEach(function(m){
+    gsap.from(m.querySelector('img'),{clipPath:'inset(0 0 100% 0)',duration:1.4,ease:'power2.inOut',scrollTrigger:{trigger:m,start:'top 85%',once:true}});
+  });
+  gsap.utils.toArray('.room h2, .spec, .amen, .cols li, .policies, form.enquiry').forEach(function(el){
+    gsap.from(el,{y:20,opacity:0,duration:.9,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+  });
+  window.addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dépannage &amp; tarifs — Hydro Lorraine</title>
+<meta name="description" content="Types de pannes, grille tarifaire TTC, zone d'intervention et demande de devis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#E9ECE8;
+  --paper-2:#DDE2DE;
+  --sheet:#F6F7F4;
+  --ink:#0C1920;
+  --ink-2:#1A2A33;
+  --steel:#56656D;
+  --line:rgba(12,25,32,.16);
+  --line-strong:rgba(12,25,32,.55);
+  --copper:#B4531F;
+  --copper-deep:#8E3E14;
+  --copper-soft:#F0D9C8;
+  --live:#17A865;
+  --on-ink:#E9ECE8;
+  --on-ink-dim:rgba(233,236,232,.62);
+  --line-ink:rgba(233,236,232,.16);
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+  --head-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;font-variation-settings:"wdth" 100;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--on-ink);padding:10px 14px;z-index:100}
+.skip:focus{left:12px;top:12px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.ico{width:1em;height:1em;flex:none;vertical-align:-.14em}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em;text-transform:uppercase}
+.label{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--steel)}
+.disp{font-family:var(--f-display);font-variation-settings:"wdth" 80;font-weight:800;letter-spacing:-.02em;line-height:.95;margin:0}
+h2.disp{font-size:clamp(2.2rem,5.2vw,4.4rem)}
+.lede{font-size:1.15rem;max-width:38ch;color:var(--ink-2)}
+
+/* Urgent bar + header */
+.topbar{background:var(--ink);color:var(--on-ink);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.03em;text-transform:uppercase}
+.topbar .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;min-height:34px}
+.topbar a{text-decoration:none;color:var(--on-ink)}
+.topbar .live{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(23,168,101,.6);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(23,168,101,.55)}70%{box-shadow:0 0 0 9px rgba(23,168,101,0)}100%{box-shadow:0 0 0 0 rgba(23,168,101,0)}}
+.topbar .tb-extra{color:var(--on-ink-dim)}
+@media (max-width:700px){.topbar .tb-extra{display:none}}
+
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(233,236,232,.94);backdrop-filter:saturate(1.2) blur(6px);-webkit-backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--head-h);gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.brand-mark{min-width:38px;height:34px;padding:0 6px;white-space:nowrap;letter-spacing:.02em;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:900;font-size:.95rem;font-variation-settings:"wdth" 75}
+.brand-mark span{color:var(--copper)}
+.brand b{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 88;font-weight:800;font-size:1.02rem;letter-spacing:.01em;text-transform:uppercase}
+.brand small{display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.06em;color:var(--steel);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--copper);transition:right .25s ease}
+.nav a:hover::after,.nav a[aria-current="page"]::after{right:0}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border:2px solid var(--ink);background:var(--ink);color:var(--on-ink);text-decoration:none;font-weight:700;font-size:.98rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s}
+.btn:hover{background:var(--copper);border-color:var(--copper)}
+.btn:active{transform:translateY(1px)}
+.btn .ico{font-size:1.25em}
+.btn-copper{background:var(--copper);border-color:var(--copper);color:#fff}
+.btn-copper:hover{background:var(--copper-deep);border-color:var(--copper-deep)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.head-cta{min-height:42px;padding:0 14px;font-family:var(--f-mono);font-size:.86rem;letter-spacing:.01em}
+.burger{display:none;background:none;border:0;padding:6px;font-size:30px;line-height:0;cursor:pointer}
+@media (max-width:900px){
+  .nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:2px solid var(--ink);padding:8px var(--gut-r) 20px var(--gut);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .nav a::after{display:none}
+  .burger{display:block}
+  .head-cta .t-long{display:none}
+}
+@media (max-width:420px){.brand small{display:none}.head-cta{padding:0 10px}}
+
+/* Footer */
+.foot{background:var(--ink);color:var(--on-ink);padding:64px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+.foot a{color:var(--on-ink);text-decoration:none}
+.foot a:hover{color:var(--copper-soft)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot h3{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-ink-dim);font-weight:400;margin:0 0 14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot .big-tel{font-family:var(--f-display);font-variation-settings:"wdth" 78;font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1;display:block;margin:10px 0 8px;letter-spacing:-.01em}
+.foot-base{margin-top:56px;padding-top:20px;border-top:1px solid var(--line-ink);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.03em;color:var(--on-ink-dim);text-transform:uppercase}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>:first-child{grid-column:1/-1}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+
+/* Sticky mobile call */
+.callbar{display:none}
+@media (max-width:700px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;gap:0;border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--ink)}
+  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;text-decoration:none;font-weight:700;color:var(--on-ink)}
+  .callbar a:first-child{background:var(--copper);color:#fff}
+  .callbar .ico{font-size:1.3em}
+  body{padding-bottom:56px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+.ihero{border-bottom:2px solid var(--ink)}
+.ihero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:0}
+.ihero-copy{padding:44px 40px 50px 0;border-right:2px solid var(--ink)}
+.crumbs{display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.ihero h1{font-family:var(--f-display);font-variation-settings:"wdth" 78;font-weight:800;font-size:clamp(2.8rem,7vw,6.4rem);line-height:.9;letter-spacing:-.03em;margin:22px 0 22px;max-width:12ch}
+.ihero h1 em{font-style:normal;color:var(--copper)}
+.ihero .lede{margin:0 0 26px}
+.ihero-side{position:relative;overflow:hidden;background:var(--ink);min-height:360px}
+.ihero-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 45%;filter:grayscale(1) contrast(1.1)}
+.ihero-stat{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:var(--on-ink);padding:18px 22px;display:flex;align-items:baseline;gap:14px}
+.ihero-stat b{font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:800;font-size:4.2rem;line-height:.85;letter-spacing:-.03em}
+.ihero-stat b small{font-size:.4em;color:var(--copper-soft);letter-spacing:0}
+.ihero-stat > span{color:var(--on-ink-dim);font-size:.9rem;max-width:24ch}
+@media (max-width:900px){
+  .ihero-grid{grid-template-columns:1fr}
+  .ihero-copy{border-right:0;padding:28px 0 36px}
+  .ihero-side{margin:0 calc(-1 * var(--gut-r)) 0 calc(-1 * var(--gut));border-top:2px solid var(--ink)}
+  .ihero .btn{width:100%;justify-content:center}
+}
+
+.block{padding:100px 0}
+.block + .block{padding-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head .label{display:block;margin-bottom:14px}
+.sec-head p{margin:0;max-width:44ch;color:var(--ink-2)}
+
+/* Pannes */
+.lvl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.lvl{padding:24px 28px 10px 0}
+.lvl+.lvl{padding-left:28px;border-left:1px solid var(--line)}
+.lvl-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.lvl-top h3{margin:0;font-family:var(--f-display);font-variation-settings:"wdth" 86;font-size:1.45rem;font-weight:700;line-height:1.05}
+.badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--ink);white-space:nowrap}
+.lvl.red .badge{background:var(--copper);border-color:var(--copper);color:#fff}
+.lvl.amb .badge{background:var(--ink);color:var(--on-ink)}
+.lvl ul{list-style:none;margin:0;padding:0}
+.lvl li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 0;border-top:1px solid var(--line)}
+.lvl li .ico{font-size:1.5rem;color:var(--copper)}
+.lvl li b{display:block}
+.lvl li span{font-size:.9rem;color:var(--steel)}
+.gas-alert{margin-top:30px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px 20px;border:2px solid var(--copper);background:var(--sheet)}
+.gas-alert .ico{font-size:2.2rem;color:var(--copper)}
+.gas-alert p{margin:0}
+.gas-alert b{font-family:var(--f-mono);font-weight:600}
+@media (max-width:900px){
+  .lvl-grid{grid-template-columns:1fr}
+  .lvl,.lvl+.lvl{padding:22px 0 6px;border-left:0}
+  .lvl+.lvl{border-top:2px solid var(--ink)}
+}
+
+/* Tarifs */
+.tarifs{background:var(--sheet);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:100px 0!important}
+.t-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:start}
+.price-table{width:100%;border-collapse:collapse;font-size:.96rem}
+.price-table caption{text-align:left;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--steel);padding:0 0 10px}
+.price-table th,.price-table td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.price-table thead th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--steel);font-weight:400;border-bottom:2px solid var(--ink)}
+.price-table td.n,.price-table th.n{text-align:right;font-family:var(--f-mono);white-space:nowrap;padding-right:0}
+.price-table td.n.ttc{font-weight:600;color:var(--ink);font-size:1rem}
+.price-table tbody th{font-weight:600}
+.price-table tbody th small{display:block;font-weight:400;color:var(--steel);font-size:.82rem;margin-top:2px}
+.price-table tr.grp th{padding-top:26px;font-family:var(--f-display);font-variation-settings:"wdth" 86;font-weight:700;font-size:1.2rem;border-bottom:2px solid var(--ink)}
+.price-foot{margin-top:16px;font-size:.86rem;color:var(--steel);max-width:70ch}
+
+.calc{position:sticky;top:calc(var(--head-h) + 20px);background:var(--ink);color:var(--on-ink);padding:26px 24px 24px}
+.calc h3{margin:0 0 4px;font-family:var(--f-display);font-variation-settings:"wdth" 86;font-weight:700;font-size:1.5rem}
+.calc > p{margin:0 0 18px;color:var(--on-ink-dim);font-size:.9rem}
+.calc fieldset{border:0;margin:0 0 16px;padding:0}
+.calc legend{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--on-ink-dim);margin-bottom:8px;padding:0}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-ink)}
+.seg.two{grid-template-columns:1fr 1fr}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:block;text-align:center;padding:10px 4px;font-size:.86rem;border-left:1px solid var(--line-ink);transition:background .15s}
+.seg label:first-child span{border-left:0}
+.seg input:checked+span{background:var(--copper);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--copper-soft);outline-offset:-2px}
+.range-row{display:flex;align-items:center;gap:14px}
+.range-row input{flex:1;accent-color:var(--copper)}
+.range-row output{font-family:var(--f-mono);min-width:5ch;text-align:right}
+.total{border-top:1px solid var(--line-ink);margin-top:20px;padding-top:16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.total b{font-family:var(--f-display);font-variation-settings:"wdth" 74;font-weight:800;font-size:3.2rem;line-height:.9;letter-spacing:-.02em}
+.total span{font-family:var(--f-mono);font-size:.74rem;color:var(--on-ink-dim);text-transform:uppercase}
+.calc .detail{font-family:var(--f-mono);font-size:.74rem;color:var(--on-ink-dim);margin:10px 0 0;line-height:1.5}
+@media (max-width:1000px){.t-grid{grid-template-columns:1fr}.calc{position:static}}
+@media (max-width:600px){
+  .price-table thead th.ht,.price-table td.ht{display:none}
+}
+
+/* Zone */
+.zone-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.zone-col h3{display:flex;justify-content:space-between;align-items:baseline;margin:0;padding-bottom:12px;border-bottom:2px solid var(--ink);font-family:var(--f-display);font-variation-settings:"wdth" 86;font-weight:700;font-size:1.35rem}
+.zone-col h3 span{font-family:var(--f-mono);font-size:.82rem;font-weight:600;color:var(--copper)}
+.zone-col ul{list-style:none;margin:0;padding:0;columns:2;column-gap:30px}
+.zone-col li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.zone-col li span{font-family:var(--f-mono);font-size:.82rem;color:var(--steel);white-space:nowrap}
+@media (max-width:900px){.zone-grid{grid-template-columns:1fr;gap:40px}}
+@media (max-width:480px){.zone-col ul{columns:1}}
+
+/* Form */
+.devis{background:var(--ink);color:var(--on-ink);padding:100px 0}
+.devis .label{color:var(--on-ink-dim)}
+.d-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:60px;align-items:start}
+.d-intro p{color:var(--on-ink-dim);max-width:36ch}
+.d-intro .tel{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 74;font-weight:800;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1;text-decoration:none;margin-top:26px;color:var(--on-ink)}
+.d-intro .tel:hover{color:var(--copper-soft)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--on-ink-dim);padding:0}
+fieldset.field{border:0;padding:0;margin:0;min-width:0}
+.form input[type=text],.form input[type=tel],.form input[type=email],.form select,.form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(233,236,232,.45);padding:10px 0;color:var(--on-ink);font-size:1.05rem;border-radius:0;transition:border-color .2s}
+.form select option{color:var(--ink)}
+.form textarea{min-height:110px;resize:vertical;border:1px solid rgba(233,236,232,.45);padding:10px 12px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--copper-soft)}
+.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.form [aria-invalid="true"]{border-color:#F08A5D!important}
+.err{font-size:.82rem;color:#F7B08E;min-height:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chips label{position:relative;cursor:pointer;font-family:var(--f-body);text-transform:none;letter-spacing:0;font-size:.92rem;color:var(--on-ink)}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips span{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid rgba(233,236,232,.4);transition:background .15s,border-color .15s}
+.chips input:checked+span{background:var(--copper);border-color:var(--copper);color:#fff}
+.chips input:focus-visible+span{outline:2px solid var(--copper-soft);outline-offset:2px}
+.form .consent{grid-column:1/-1;display:flex;gap:10px;font-size:.86rem;color:var(--on-ink-dim);align-items:flex-start}
+.form .consent input{accent-color:var(--copper);margin-top:4px;width:18px;height:18px;flex:none}
+.form .submit{grid-column:1/-1;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.form .btn{background:var(--copper);border-color:var(--copper);color:#fff;min-height:54px}
+.form .btn:hover{background:#fff;color:var(--ink);border-color:#fff}
+.form .btn[disabled]{opacity:.6;cursor:progress}
+.ok{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:20px;border:2px solid var(--live);background:rgba(23,168,101,.08)}
+.ok .ico{font-size:2rem;color:var(--live)}
+.ok h3{margin:0 0 4px}
+.ok p{margin:0;color:var(--on-ink-dim)}
+@media (max-width:900px){.d-grid{grid-template-columns:1fr;gap:40px}}
+@media (max-width:600px){.form{grid-template-columns:1fr}.form .btn{width:100%;justify-content:center}}
+
+.form [hidden],.ok[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-bath" viewBox="0 0 24 24"><g fill="currentColor"><path d="M21.75 11C22.1642 11 22.5 11.3358 22.5 11.75C22.5 12.1642 22.1642 12.5 21.75 12.5H21.4824C21.4889 12.5449 21.4931 12.5907 21.4961 12.6367C21.4998 12.6942 21.5 12.7565 21.5 12.8164V12.8545C21.5 13.2297 21.4999 13.45 21.4844 13.6953C21.3424 15.9315 20.1341 17.9963 18.3828 19.3467C18.1782 19.5111 17.4498 19.9512 17.1113 20.1504C16.3097 20.5561 15.4379 20.8232 14.5312 20.915C14.2868 20.9398 14.1369 20.9455 13.8828 20.9551H13.876C13.1359 20.9829 12.4114 21 11.75 21C11.0886 21 10.3641 20.9829 9.62402 20.9551H9.61719C9.36306 20.9455 9.21319 20.9398 8.96875 20.915C8.06209 20.8232 7.19027 20.5561 6.38867 20.1504C6.03067 19.935 5.27488 19.4722 5.11719 19.3467C3.36595 17.9963 2.1576 15.9315 2.01562 13.6953C2.00005 13.45 1.99999 13.2298 2 12.8545V12.5H1.75C1.33579 12.5 1 12.1642 1 11.75C1 11.3358 1.33579 11 1.75 11H21.75Z"/><path d="M8.15527 3.24608C8.94857 3.04484 9.80977 3.09186 10.6211 3.43847C11.6363 3.87223 12.3756 4.69021 12.7539 5.65038C12.9024 6.02719 12.7244 6.45396 12.3525 6.61425L6.3916 9.18065C6.20518 9.26091 5.99402 9.26159 5.80664 9.18358C5.6194 9.10557 5.47185 8.9553 5.39746 8.76659C5.01925 7.80673 4.99668 6.69516 5.41699 5.66015C5.7162 4.92344 6.20144 4.31891 6.7959 3.88573L8.15527 3.24608Z"/><g opacity=".5"><path d="M5.11719 19.3477C5.27488 19.4731 6.03067 19.935 6.38867 20.1504L5.4209 22.0859C5.23559 22.4561 4.78538 22.6059 4.41504 22.4209C4.04466 22.2357 3.8941 21.7855 4.0791 21.415L5.0791 19.415C5.09072 19.3918 5.10357 19.3691 5.11719 19.3477Z"/><path d="M18.4209 19.415L19.4209 21.415C19.6059 21.7855 19.4553 22.2357 19.085 22.4209C18.7146 22.6059 18.2644 22.4561 18.0791 22.0859L17.1113 20.1504C17.4498 19.9512 18.1782 19.5111 18.3828 19.3467C18.3966 19.3684 18.4092 19.3916 18.4209 19.415Z"/><path d="M5.13477 1C6.4167 1 7.56975 1.78049 8.0459 2.9707L8.15625 3.24609L6.79688 3.88574L6.65332 3.52832C6.405 2.90752 5.80339 2.5 5.13477 2.5C4.23201 2.50022 3.50022 3.23201 3.5 4.13477V11H2V4.13477C2.00022 2.40358 3.40358 1.00022 5.13477 1Z"/></g></g></symbol><symbol id="i-bolt-circle" viewBox="0 0 24 24"><g fill="currentColor"><path d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" opacity=".5"/><path d="M11.2274 8.56904L9.21236 10.1737C8.36695 10.8469 7.94424 11.1836 8.02675 11.5594L8.03114 11.578C8.12514 11.9515 8.66096 12.0951 9.73259 12.3823C10.3281 12.5418 10.6259 12.6216 10.7656 12.8473L10.7727 12.8592C10.9075 13.0876 10.8308 13.3737 10.6775 13.9459L10.6374 14.0954L10.6374 14.0954C10.2123 15.6818 9.99979 16.4749 10.4091 16.7311C10.8184 16.9872 11.4697 16.4686 12.7722 15.4314L12.7723 15.4314L14.7873 13.8267C15.6327 13.1535 16.0554 12.8169 15.9729 12.441L15.9686 12.4224C15.8745 12.0489 15.3387 11.9053 14.2671 11.6182C13.6716 11.4586 13.3738 11.3788 13.2341 11.1531L13.227 11.1412C13.0922 10.9128 13.1689 10.6267 13.3222 10.0546L13.3623 9.905C13.7873 8.31864 13.9999 7.52547 13.5905 7.26931C13.1812 7.01316 12.5299 7.53179 11.2274 8.56904Z"/></g></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><g fill="currentColor"><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" opacity=".5"/><path d="M16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z"/></g></symbol><symbol id="i-close-circle" viewBox="0 0 24 24"><g fill="currentColor"><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" opacity=".5"/><path d="M8.96967 8.96967C9.26256 8.67678 9.73744 8.67678 10.0303 8.96967L12 10.9394L13.9697 8.96969C14.2626 8.6768 14.7374 8.6768 15.0303 8.96969C15.3232 9.26258 15.3232 9.73746 15.0303 10.0304L13.0607 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0304 15.0303C9.73746 15.3232 9.26258 15.3232 8.96969 15.0303C8.6768 14.7374 8.6768 14.2626 8.96969 13.9697L10.9394 12L8.96967 10.0303C8.67678 9.73744 8.67678 9.26256 8.96967 8.96967Z"/></g></symbol><symbol id="i-danger-triangle" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 3C9.68925 3 8.23007 5.58716 5.31171 10.7615L4.94805 11.4063C2.52291 15.7061 1.31034 17.856 2.40626 19.428C3.50217 21 6.21356 21 11.6363 21H12.3637C17.7864 21 20.4978 21 21.5937 19.428C22.6897 17.856 21.4771 15.7061 19.0519 11.4063L18.6883 10.7615C15.7699 5.58716 14.3107 3 12 3Z" opacity=".5"/><path d="M12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25Z"/><path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z"/></g></symbol><symbol id="i-document-text" viewBox="0 0 24 24"><g fill="currentColor"><path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z" opacity=".5"/><path d="M13 15.25C13.4142 15.25 13.75 15.5858 13.75 16C13.75 16.4142 13.4142 16.75 13 16.75H8C7.58579 16.75 7.25 16.4142 7.25 16C7.25 15.5858 7.58579 15.25 8 15.25H13Z"/><path d="M16 11.25C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16Z"/><path d="M16 7.25C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16Z"/></g></symbol><symbol id="i-fire" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12.8324 21.8013C15.9583 21.1747 20 18.926 20 13.1112C20 7.8196 16.1267 4.29593 13.3415 2.67685C12.7235 2.31757 12 2.79006 12 3.50492V5.3334C12 6.77526 11.3938 9.40711 9.70932 10.5018C8.84932 11.0607 7.92052 10.2242 7.816 9.20388L7.73017 8.36604C7.6304 7.39203 6.63841 6.80075 5.85996 7.3946C4.46147 8.46144 3 10.3296 3 13.1112C3 20.2223 8.28889 22.0001 10.9333 22.0001C11.0871 22.0001 11.2488 21.9955 11.4171 21.9858C11.863 21.9296 11.4171 22.085 12.8324 21.8013Z" opacity=".5"/><path d="M8 18.4442C8 21.064 10.1113 21.8742 11.4171 21.9858C11.863 21.9296 11.4171 22.085 12.8324 21.8013C13.871 21.4343 15 20.4922 15 18.4442C15 17.1465 14.1814 16.3459 13.5401 15.9711C13.3439 15.8564 13.1161 16.0008 13.0985 16.2273C13.0429 16.9454 12.3534 17.5174 11.8836 16.9714C11.4685 16.4889 11.2941 15.784 11.2941 15.3331V14.7439C11.2941 14.3887 10.9365 14.1533 10.631 14.3346C9.49507 15.0085 8 16.3949 8 18.4442Z"/></g></symbol><symbol id="i-hamburger-menu" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22Z" opacity=".5"/><path d="M18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"/><path d="M18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12Z"/><path d="M18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16Z"/></g></symbol><symbol id="i-phone-calling" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.5562 14.5477L15.1007 15.0272C15.1007 15.0272 14.0181 16.167 11.0631 13.0559C8.10812 9.94484 9.1907 8.80507 9.1907 8.80507L9.47752 8.50311C10.1841 7.75924 10.2507 6.56497 9.63424 5.6931L8.37326 3.90961C7.61028 2.8305 6.13596 2.68795 5.26145 3.60864L3.69185 5.26114C3.25823 5.71766 2.96765 6.30945 3.00289 6.96594C3.09304 8.64546 3.81071 12.259 7.81536 16.4752C12.0621 20.9462 16.0468 21.1239 17.6763 20.9631C18.1917 20.9122 18.6399 20.6343 19.0011 20.254L20.4217 18.7584C21.3806 17.7489 21.1102 16.0182 19.8833 15.312L17.9728 14.2123C17.1672 13.7486 16.1858 13.8848 15.5562 14.5477Z" opacity=".5"/><path d="M13.2595 1.87983C13.3257 1.47094 13.7122 1.19357 14.1211 1.25976C14.1464 1.26461 14.2279 1.27983 14.2705 1.28933C14.3559 1.30834 14.4749 1.33759 14.6233 1.38082C14.9201 1.46726 15.3347 1.60967 15.8323 1.8378C16.8286 2.29456 18.1544 3.09356 19.5302 4.46936C20.906 5.84516 21.705 7.17097 22.1617 8.16725C22.3899 8.66487 22.5323 9.07947 22.6187 9.37625C22.6619 9.52466 22.6912 9.64369 22.7102 9.72901C22.7197 9.77168 22.7267 9.80594 22.7315 9.83125L22.7373 9.86245C22.8034 10.2713 22.5286 10.6739 22.1197 10.7401C21.712 10.8061 21.3279 10.53 21.2601 10.1231C21.258 10.1121 21.2522 10.0828 21.2461 10.0551C21.2337 9.9997 21.2124 9.91188 21.1786 9.79572C21.1109 9.56339 20.9934 9.21806 20.7982 8.79238C20.4084 7.94207 19.7074 6.76789 18.4695 5.53002C17.2317 4.29216 16.0575 3.59117 15.2072 3.20134C14.7815 3.00618 14.4362 2.88865 14.2038 2.82097C14.0877 2.78714 13.9417 2.75363 13.8863 2.7413C13.4793 2.67347 13.1935 2.28755 13.2595 1.87983Z"/><path fill-rule="evenodd" d="M13.4857 5.3293C13.5995 4.93102 14.0146 4.7004 14.4129 4.81419L14.2069 5.53534C14.4129 4.81419 14.4129 4.81419 14.4129 4.81419L14.4144 4.81461L14.4159 4.81505L14.4192 4.81602L14.427 4.81834L14.4468 4.8245C14.4618 4.82932 14.4807 4.8356 14.5031 4.84357C14.548 4.85951 14.6074 4.88217 14.6802 4.91337C14.8259 4.97581 15.0249 5.07223 15.2695 5.21694C15.7589 5.50662 16.4271 5.9878 17.2121 6.77277C17.9971 7.55775 18.4782 8.22593 18.7679 8.7154C18.9126 8.95991 19.009 9.15897 19.0715 9.30466C19.1027 9.37746 19.1254 9.43682 19.1413 9.48173C19.1493 9.50418 19.1555 9.52301 19.1604 9.53809L19.1665 9.55788L19.1688 9.56563L19.1698 9.56896L19.1702 9.5705C19.1702 9.5705 19.1707 9.57194 18.4495 9.77798L19.1707 9.57194C19.2845 9.97021 19.0538 10.3853 18.6556 10.4991C18.2607 10.6119 17.8492 10.3862 17.7313 9.99413L17.7276 9.98335C17.7223 9.96832 17.7113 9.93874 17.6928 9.89554C17.6558 9.8092 17.5887 9.66797 17.4771 9.47938C17.2541 9.10264 16.8514 8.53339 16.1514 7.83343C15.4515 7.13348 14.8822 6.73078 14.5055 6.50781C14.3169 6.39619 14.1757 6.32909 14.0893 6.29209C14.0461 6.27358 14.0165 6.26254 14.0015 6.25721L13.9907 6.25352C13.5987 6.13564 13.3729 5.72419 13.4857 5.3293Z" clip-rule="evenodd"/></g></symbol><symbol id="i-ruler-angular" viewBox="0 0 24 24"><g fill="currentColor"><path d="M6 2H8.25H9.75H11.25H12.75H14.25H15.75H17.25L18.75 2.00008C19.9896 2.00126 20.6376 2.02062 21.1111 2.33706C21.3295 2.48298 21.517 2.67048 21.6629 2.88886C22 3.39331 22 4.09554 22 5.5C22 6.90446 22 7.60669 21.6629 8.11114C21.517 8.32952 21.3295 8.51702 21.1111 8.66294C20.6067 9 19.9045 9 18.5 9H11C10.0572 9 9.58579 9 9.29289 9.29289C9 9.58579 9 10.0572 9 11V18.5C9 19.9045 9 20.6067 8.66294 21.1111C8.51702 21.3295 8.32952 21.517 8.11114 21.6629C7.60669 22 6.90446 22 5.5 22C4.09554 22 3.39331 22 2.88886 21.6629C2.67048 21.517 2.48298 21.3295 2.33706 21.1111C2.02062 20.6376 2.00126 19.9896 2.00008 18.75L2 17.25V15.75V14.25V12.75V11.25V9.75V8.25V6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2Z" opacity=".5"/><path d="M4 17.25H2L2.00008 18.75H4C4.41421 18.75 4.75 18.4142 4.75 18C4.75 17.5858 4.41421 17.25 4 17.25Z"/><path d="M5 14.25L2 14.25V15.75L5 15.75C5.41421 15.75 5.75 15.4142 5.75 15C5.75 14.5858 5.41421 14.25 5 14.25Z"/><path d="M4 11.25H2V12.75H4C4.41421 12.75 4.75 12.4142 4.75 12C4.75 11.5858 4.41421 11.25 4 11.25Z"/><path d="M5 8.25H2V9.75H5C5.41421 9.75 5.75 9.41421 5.75 9C5.75 8.58579 5.41421 8.25 5 8.25Z"/><path d="M9.75 5L9.75 2H8.25L8.25 5C8.25 5.41421 8.58579 5.75 9 5.75C9.41421 5.75 9.75 5.41421 9.75 5Z"/><path d="M12.75 4V2H11.25V4C11.25 4.41421 11.5858 4.75 12 4.75C12.4142 4.75 12.75 4.41421 12.75 4Z"/><path d="M15.75 5V2H14.25V5C14.25 5.41421 14.5858 5.75 15 5.75C15.4142 5.75 15.75 5.41421 15.75 5Z"/><path d="M18.75 4V2.00008L17.25 2V4C17.25 4.41421 17.5858 4.75 18 4.75C18.4142 4.75 18.75 4.41421 18.75 4Z"/></g></symbol><symbol id="i-settings" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M14.2788 2.15224C13.9085 2 13.439 2 12.5 2C11.561 2 11.0915 2 10.7212 2.15224C10.2274 2.35523 9.83509 2.74458 9.63056 3.23463C9.53719 3.45834 9.50065 3.7185 9.48635 4.09799C9.46534 4.65568 9.17716 5.17189 8.69017 5.45093C8.20318 5.72996 7.60864 5.71954 7.11149 5.45876C6.77318 5.2813 6.52789 5.18262 6.28599 5.15102C5.75609 5.08178 5.22018 5.22429 4.79616 5.5472C4.47814 5.78938 4.24339 6.1929 3.7739 6.99993C3.30441 7.80697 3.06967 8.21048 3.01735 8.60491C2.94758 9.1308 3.09118 9.66266 3.41655 10.0835C3.56506 10.2756 3.77377 10.437 4.0977 10.639C4.57391 10.936 4.88032 11.4419 4.88029 12C4.88026 12.5581 4.57386 13.0639 4.0977 13.3608C3.77372 13.5629 3.56497 13.7244 3.41645 13.9165C3.09108 14.3373 2.94749 14.8691 3.01725 15.395C3.06957 15.7894 3.30432 16.193 3.7738 17C4.24329 17.807 4.47804 18.2106 4.79606 18.4527C5.22008 18.7756 5.75599 18.9181 6.28589 18.8489C6.52778 18.8173 6.77305 18.7186 7.11133 18.5412C7.60852 18.2804 8.2031 18.27 8.69012 18.549C9.17714 18.8281 9.46533 19.3443 9.48635 19.9021C9.50065 20.2815 9.53719 20.5417 9.63056 20.7654C9.83509 21.2554 10.2274 21.6448 10.7212 21.8478C11.0915 22 11.561 22 12.5 22C13.439 22 13.9085 22 14.2788 21.8478C14.7726 21.6448 15.1649 21.2554 15.3694 20.7654C15.4628 20.5417 15.4994 20.2815 15.5137 19.902C15.5347 19.3443 15.8228 18.8281 16.3098 18.549C16.7968 18.2699 17.3914 18.2804 17.8886 18.5412C18.2269 18.7186 18.4721 18.8172 18.714 18.8488C19.2439 18.9181 19.7798 18.7756 20.2038 18.4527C20.5219 18.2105 20.7566 17.807 21.2261 16.9999C21.6956 16.1929 21.9303 15.7894 21.9827 15.395C22.0524 14.8691 21.9088 14.3372 21.5835 13.9164C21.4349 13.7243 21.2262 13.5628 20.9022 13.3608C20.4261 13.0639 20.1197 12.558 20.1197 11.9999C20.1197 11.4418 20.4261 10.9361 20.9022 10.6392C21.2263 10.4371 21.435 10.2757 21.5836 10.0835C21.9089 9.66273 22.0525 9.13087 21.9828 8.60497C21.9304 8.21055 21.6957 7.80703 21.2262 7C20.7567 6.19297 20.522 5.78945 20.2039 5.54727C19.7799 5.22436 19.244 5.08185 18.7141 5.15109C18.4722 5.18269 18.2269 5.28136 17.8887 5.4588C17.3915 5.71959 16.7969 5.73002 16.3099 5.45096C15.8229 5.17191 15.5347 4.65566 15.5136 4.09794C15.4993 3.71848 15.4628 3.45833 15.3694 3.23463C15.1649 2.74458 14.7726 2.35523 14.2788 2.15224Z" clip-rule="evenodd" opacity=".5"/><path d="M15.5227 12C15.5227 13.6569 14.1694 15 12.4999 15C10.8304 15 9.47705 13.6569 9.47705 12C9.47705 10.3431 10.8304 9 12.4999 9C14.1694 9 15.5227 10.3431 15.5227 12Z"/></g></symbol><symbol id="i-temperature" viewBox="0 0 24 24"><g fill="currentColor"><path d="M17.5 16.5C17.5 19.5376 15.0376 22 12 22C8.96243 22 6.5 19.5376 6.5 16.5C6.5 14.7636 7.30465 13.2152 8.56141 12.2072C8.82505 11.9957 9 11.6857 9 11.3477V5C9 3.34315 10.3431 2 12 2C13.6569 2 15 3.34315 15 5V11.3477C15 11.6857 15.1749 11.9957 15.4386 12.2072C16.6954 13.2152 17.5 14.7636 17.5 16.5Z" opacity=".5"/><path d="M12.75 5C12.75 4.58579 12.4142 4.25 12 4.25C11.5858 4.25 11.25 4.58579 11.25 5V13.3804C11.25 13.8172 10.9527 14.1876 10.592 14.4339C9.93273 14.8841 9.5 15.6415 9.5 16.5C9.5 17.8807 10.6193 19 12 19C13.3807 19 14.5 17.8807 14.5 16.5C14.5 15.6415 14.0673 14.8841 13.408 14.4339C13.0473 14.1876 12.75 13.8172 12.75 13.3804V5Z"/></g></symbol><symbol id="i-waterdrop" viewBox="0 0 24 24"><g fill="currentColor"><path d="M11.6115 22H12.3885C17.1445 22 21 18.0569 21 13.1928V12.9281C21 8.31651 18.2715 4.16347 14.0967 2.42077C12.7527 1.85974 11.2473 1.85974 9.90329 2.42077C5.72854 4.16347 3 8.31651 3 12.9281V13.1928C3 18.0569 6.85549 22 11.6115 22Z" opacity=".5"/><path d="M12.0663 5.96126C12.2401 6.33722 12.0763 6.78293 11.7003 6.95679C10.1548 7.6715 8.90701 9.12514 8.3295 10.9497C8.20451 11.3447 7.78305 11.5635 7.38814 11.4385C6.99324 11.3135 6.77443 10.892 6.89942 10.4971C7.59142 8.31077 9.10582 6.50399 11.0707 5.59533C11.4467 5.42146 11.8924 5.5853 12.0663 5.96126Z"/></g></symbol></svg>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="topbar"><div class="wrap"><a class="live" href="tel:+33383412790"><span class="dot" aria-hidden="true"></span>Urgence 24h/24 · 03 83 41 27 90</a><span class="tb-extra">RGE QualiPAC · Déplacement 39 € TTC · Grand Nancy</span></div></div>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Hydro Lorraine Services, accueil"><span class="brand-mark" aria-hidden="true">H<span>L</span></span><span><b>Hydro Lorraine</b><small>Services · Plomberie Chauffage</small></span></a>
+  <nav class="nav" id="nav" aria-label="Navigation principale">
+    <a href="depannage.html" aria-current="page">Dépannage</a>
+    <a href="depannage.html#tarifs">Tarifs</a>
+    <a href="index.html#services">Services</a>
+    <a href="depannage.html#zone">Zone</a>
+    <a href="depannage.html#devis">Devis</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:6px">
+    <a class="btn head-cta" href="tel:+33383412790" aria-label="Appeler le 03 83 41 27 90"><svg class="ico" aria-hidden="true"><use href="#i-phone-calling"/></svg><span class="t-long">03 83 41 27 90</span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><svg class="ico"><use href="#i-hamburger-menu"/></svg></button>
+  </div>
+</div></header>
+<main id="contenu">
+<section class="ihero" aria-labelledby="ih-title">
+  <div class="wrap ihero-grid">
+    <div class="ihero-copy">
+      <nav class="crumbs label" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Dépannage</span></nav>
+      <h1 id="ih-title" class="split">Dépannage plomberie &amp; <em>chauffage.</em></h1>
+      <p class="lede">Les pannes qu'on traite, ce qu'elles coûtent, jusqu'où on se déplace. Tout est affiché avant que vous appeliez.</p>
+      <a class="btn btn-copper" href="tel:+33383412790"><svg class="ico" aria-hidden="true"><use href="#i-phone-calling"/></svg>Urgence&nbsp;: 03 83 41 27 90</a>
+    </div>
+    <div class="ihero-side">
+      <img src="assets/img/fuite-robinet.jpg" alt="Goutte d'eau qui tombe d'un robinet" width="1000" height="667">
+      <div class="ihero-stat"><b><span data-count="38">38</span><small>min</small></b><span>délai moyen d'arrivée en 2025, toutes communes confondues</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pannes" aria-labelledby="pannes-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="label">Types de pannes</span><h2 id="pannes-title" class="disp split">Ce qui part tout de suite, ce qui peut attendre.</h2></div>
+      <p>Le régulateur classe votre appel en trois niveaux. Le niveau décide de l'ordre de départ, pas du prix.</p>
+    </div>
+    <div class="lvl-grid">
+      <div class="lvl red">
+        <div class="lvl-top"><h3>Urgence immédiate</h3><span class="badge">Départ &lt; 10 min</span></div>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-waterdrop"/></svg><div><b>Fuite active, dégât des eaux</b><span>Canalisation percée, flexible éclaté, eau chez le voisin du dessous.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-bath"/></svg><div><b>Refoulement d'égout</b><span>Eaux usées qui remontent par la douche ou le WC.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-danger-triangle"/></svg><div><b>Chaudière en sécurité, logement froid</b><span>Nourrisson, personne âgée ou malade à domicile.</span></div></li>
+        </ul>
+      </div>
+      <div class="lvl amb">
+        <div class="lvl-top"><h3>Dans la journée</h3><span class="badge">Sous 4 h</span></div>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-fire"/></svg><div><b>Chaudière en panne</b><span>Code erreur, pression basse, brûleur qui ne s'allume pas.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-temperature"/></svg><div><b>Plus d'eau chaude</b><span>Ballon électrique, chauffe-eau gaz, thermodynamique.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-bolt-circle"/></svg><div><b>Pompe à chaleur à l'arrêt</b><span>Givrage, défaut compresseur, alarme haute pression.</span></div></li>
+        </ul>
+      </div>
+      <div class="lvl">
+        <div class="lvl-top"><h3>Sur rendez-vous</h3><span class="badge">Sous 48 h</span></div>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-waterdrop"/></svg><div><b>Robinet qui goutte, chasse qui coule</b><span>Cartouche, joint, mécanisme de chasse.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-settings"/></svg><div><b>Entretien annuel</b><span>Chaudière gaz ou fioul, PAC, adoucisseur.</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-ruler-angular"/></svg><div><b>Remplacement d'équipement</b><span>Chaudière, ballon, WC suspendu, sur devis gratuit.</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gas-alert" role="note"><svg class="ico" aria-hidden="true"><use href="#i-danger-triangle"/></svg><p><strong>Odeur de gaz&nbsp;?</strong> Sortez, n'actionnez aucun interrupteur et appelez d'abord Urgence Sécurité Gaz au <b>0 800 47 33 33</b> (gratuit, 24h/24). Nous intervenons ensuite pour la remise en service.</p></div>
+  </div>
+</section>
+
+<section class="block tarifs" id="tarifs" aria-labelledby="tarifs-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="label">Grille tarifaire 2026</span><h2 id="tarifs-title" class="disp split">Les prix, avant l'intervention.</h2></div>
+      <p>TVA à 10&nbsp;% pour un logement de plus de 2 ans (20&nbsp;% sinon). Pièces facturées au prix catalogue fournisseur, détaillées au devis.</p>
+    </div>
+    <div class="t-grid">
+      <div style="overflow-x:auto">
+        <table class="price-table">
+          <caption>Tarifs particuliers, Métropole du Grand Nancy</caption>
+          <thead><tr><th scope="col">Prestation</th><th scope="col" class="n ht">HT</th><th scope="col" class="n">TTC</th></tr></thead>
+          <tbody>
+            <tr class="grp"><th colspan="3">Déplacement</th></tr>
+            <tr><th>Zone 1 · 16 communes<small>Nancy et première couronne</small></th><td class="n ht">35,45&nbsp;€</td><td class="n ttc">39,00&nbsp;€</td></tr>
+            <tr><th>Zone 2 · 4 communes<small>Ludres, Fléville, Seichamps, Pulnoy</small></th><td class="n ht">50,00&nbsp;€</td><td class="n ttc">55,00&nbsp;€</td></tr>
+            <tr class="grp"><th colspan="3">Main d'œuvre</th></tr>
+            <tr><th>Heure de technicien<small>1<sup>re</sup> heure due, puis par tranche de 30 min</small></th><td class="n ht">60,00&nbsp;€</td><td class="n ttc">66,00&nbsp;€</td></tr>
+            <tr><th>Majoration nuit<small>19h – 8h, sur la main d'œuvre</small></th><td class="n ht">+50&nbsp;%</td><td class="n ttc">+50&nbsp;%</td></tr>
+            <tr><th>Majoration dimanche &amp; férié</th><td class="n ht">+75&nbsp;%</td><td class="n ttc">+75&nbsp;%</td></tr>
+            <tr class="grp"><th colspan="3">Forfaits (hors déplacement)</th></tr>
+            <tr><th>Réparation de fuite apparente<small>Joint, raccord, flexible · fournitures incluses</small></th><td class="n ht">80,91&nbsp;€</td><td class="n ttc">89,00&nbsp;€</td></tr>
+            <tr><th>Diagnostic chaudière<small>Lecture code erreur, test brûleur, rapport</small></th><td class="n ht">99,09&nbsp;€</td><td class="n ttc">109,00&nbsp;€</td></tr>
+            <tr><th>Débouchage au furet<small>Évier, lavabo, douche, WC</small></th><td class="n ht">108,18&nbsp;€</td><td class="n ttc">119,00&nbsp;€</td></tr>
+            <tr><th>Entretien annuel chaudière gaz<small>Attestation remise sur place</small></th><td class="n ht">117,27&nbsp;€</td><td class="n ttc">129,00&nbsp;€</td></tr>
+            <tr><th>Groupe de sécurité ballon<small>Pièce NF incluse</small></th><td class="n ht">131,82&nbsp;€</td><td class="n ttc">145,00&nbsp;€</td></tr>
+            <tr><th>Entretien pompe à chaleur<small>Contrôle d'étanchéité fluide inclus</small></th><td class="n ht">171,82&nbsp;€</td><td class="n ttc">189,00&nbsp;€</td></tr>
+            <tr><th>Recherche de fuite non destructive<small>Gaz traceur, caméra thermique, rapport assurance</small></th><td class="n ht">263,64&nbsp;€</td><td class="n ttc">290,00&nbsp;€</td></tr>
+          </tbody>
+        </table>
+        <p class="price-foot">Déplacement offert si vous signez un devis de remplacement d'équipement. Aucun paiement n'est demandé avant la fin de l'intervention. Carte, virement ou chèque.</p>
+      </div>
+      <aside class="calc" aria-labelledby="calc-title">
+        <h3 id="calc-title">Estimer un dépannage</h3>
+        <p>Déplacement + main d'œuvre, hors pièces.</p>
+        <form id="calc" onsubmit="return false">
+          <fieldset><legend>Zone</legend><div class="seg two">
+            <label><input type="radio" name="zone" value="39" checked><span>Zone 1 · 39 €</span></label>
+            <label><input type="radio" name="zone" value="55"><span>Zone 2 · 55 €</span></label>
+          </div></fieldset>
+          <fieldset><legend>Créneau</legend><div class="seg">
+            <label><input type="radio" name="slot" value="0" checked><span>Jour</span></label>
+            <label><input type="radio" name="slot" value="0.5"><span>Nuit +50&nbsp;%</span></label>
+            <label><input type="radio" name="slot" value="0.75"><span>Dim. +75&nbsp;%</span></label>
+          </div></fieldset>
+          <fieldset><legend>Durée estimée</legend><div class="range-row">
+            <input type="range" name="dur" min="0.5" max="4" step="0.5" value="1" aria-label="Durée estimée en heures">
+            <output name="durOut">1 h</output>
+          </div></fieldset>
+        </form>
+        <div class="total"><span>Total estimé TTC</span><b data-total>105&nbsp;€</b></div>
+        <p class="detail" data-detail>39 € déplacement + 66 € main d'œuvre</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="zone" aria-labelledby="zone-title" style="padding-top:100px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="label">Zone d'intervention</span><h2 id="zone-title" class="disp split">20 communes, 4 techniciens, 1 atelier à Laxou.</h2></div>
+      <p>Délais moyens mesurés en 2025, de l'appel à l'arrivée, heures de pointe comprises.</p>
+    </div>
+    <div class="zone-grid">
+      <div class="zone-col">
+        <h3>Zone 1 <span>39 € TTC</span></h3>
+        <ul>
+          <li>Nancy <span>31 min</span></li><li>Laxou <span>22 min</span></li><li>Maxéville <span>26 min</span></li><li>Villers-lès-Nancy <span>29 min</span></li>
+          <li>Vandœuvre <span>36 min</span></li><li>Jarville <span>40 min</span></li><li>Essey-lès-Nancy <span>38 min</span></li><li>Malzéville <span>33 min</span></li>
+          <li>Tomblaine <span>41 min</span></li><li>Saint-Max <span>37 min</span></li><li>Heillecourt <span>44 min</span></li><li>Houdemont <span>46 min</span></li>
+          <li>Champigneulles <span>34 min</span></li><li>Laneuveville <span>47 min</span></li><li>Dommartemont <span>39 min</span></li><li>Art-sur-Meurthe <span>48 min</span></li>
+        </ul>
+      </div>
+      <div class="zone-col">
+        <h3>Zone 2 <span>55 € TTC</span></h3>
+        <ul>
+          <li>Ludres <span>52 min</span></li><li>Fléville <span>55 min</span></li><li>Seichamps <span>49 min</span></li><li>Pulnoy <span>51 min</span></li>
+        </ul>
+        <p class="zone-note" style="margin-top:18px;color:var(--steel);font-size:.9rem">Hors de ces 20 communes (Pont-à-Mousson, Lunéville, Toul)&nbsp;: intervention programmée sur devis, pas de dépannage d'urgence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="devis" id="devis" aria-labelledby="devis-title">
+  <div class="wrap d-grid">
+    <div class="d-intro">
+      <span class="label">Demande de devis</span>
+      <h2 id="devis-title" class="disp split" style="margin-top:14px">Pas d'urgence&nbsp;? Décrivez, on chiffre.</h2>
+      <p>Réponse par téléphone sous 2 h ouvrées, devis écrit sous 48 h. Pour une fuite en cours, n'écrivez pas&nbsp;: appelez.</p>
+      <a class="tel" href="tel:+33383412790">03 83 41 27 90</a>
+      <p class="label" style="margin-top:10px">devis@exemple.fr</p>
+    </div>
+    <form class="form" id="devis-form" novalidate>
+      <div class="field"><label for="f-nom">Nom</label><input id="f-nom" name="nom" type="text" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required placeholder="06 12 34 56 78"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-commune">Commune</label><select id="f-commune" name="commune" required><option value="">Choisir…</option><option>Nancy</option><option>Laxou</option><option>Maxéville</option><option>Villers-lès-Nancy</option><option>Vandœuvre-lès-Nancy</option><option>Jarville-la-Malgrange</option><option>Essey-lès-Nancy</option><option>Malzéville</option><option>Tomblaine</option><option>Saint-Max</option><option>Ludres</option><option>Seichamps</option><option>Autre commune</option></select><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-marque">Marque de l'équipement</label><input id="f-marque" name="marque" type="text" placeholder="ex. Frisquet Prestige"></div>
+      <fieldset class="field full"><legend>Type de demande</legend><div class="chips">
+        <label><input type="radio" name="type" value="chaudiere" checked><span><svg class="ico" aria-hidden="true"><use href="#i-fire"/></svg>Chaudière</span></label>
+        <label><input type="radio" name="type" value="pac"><span><svg class="ico" aria-hidden="true"><use href="#i-bolt-circle"/></svg>Pompe à chaleur</span></label>
+        <label><input type="radio" name="type" value="ecs"><span><svg class="ico" aria-hidden="true"><use href="#i-temperature"/></svg>Eau chaude</span></label>
+        <label><input type="radio" name="type" value="sdb"><span><svg class="ico" aria-hidden="true"><use href="#i-bath"/></svg>Salle de bain</span></label>
+        <label><input type="radio" name="type" value="fuite"><span><svg class="ico" aria-hidden="true"><use href="#i-waterdrop"/></svg>Fuite</span></label>
+      </div></fieldset>
+      <div class="field full"><label for="f-msg">Votre besoin</label><textarea id="f-msg" name="msg" placeholder="Âge de l'installation, symptômes, code erreur affiché, disponibilités…"></textarea></div>
+      <label class="consent"><input type="checkbox" name="rgpd" required id="f-rgpd"><span>J'accepte d'être rappelé au sujet de cette demande. Données conservées 12 mois, jamais revendues.</span></label>
+      <div class="submit"><button class="btn" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-document-text"/></svg>Envoyer la demande</button><span class="label" style="color:var(--on-ink-dim)">Gratuit · sans engagement</span></div>
+      <div class="ok" hidden role="status"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg><div><h3>Demande reçue.</h3><p>Un technicien vous rappelle sous 2 h ouvrées au numéro indiqué. Référence <span class="mono" data-ref>HL-0000</span>.</p></div></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot-grid">
+    <div><h3>Hydro Lorraine Services</h3><a class="big-tel" href="tel:+33383412790">03 83 41 27 90</a><p style="color:var(--on-ink-dim);margin:0;max-width:34ch">Plombier-chauffagiste à Laxou depuis 2011. Dépannage 7j/7, 24h/24 dans 20 communes du Grand Nancy.</p></div>
+    <div><h3>Pages</h3><ul><li><a href="index.html">Accueil</a></li><li><a href="depannage.html">Dépannage</a></li><li><a href="depannage.html#tarifs">Grille tarifaire</a></li><li><a href="depannage.html#devis">Demande de devis</a></li></ul></div>
+    <div><h3>Atelier</h3><ul><li>Zone d'activités, 54520 Laxou</li><li>Lun – ven, 8h – 18h</li><li>contact@exemple.fr</li></ul></div>
+    <div><h3>Qualifications</h3><ul><li>RGE QualiPAC</li><li>PG — Professionnel du Gaz</li><li>Assurance décennale</li></ul></div>
+  </div>
+  <div class="foot-base"><span>© 2026 Hydro Lorraine Services · Marque fictive</span><span>Contenu de démonstration · Maquette 1903RGB</span></div>
+</div></footer>
+<nav class="callbar" aria-label="Actions rapides"><a href="tel:+33383412790"><svg class="ico" aria-hidden="true"><use href="#i-phone-calling"/></svg>Appeler</a><a href="depannage.html#devis"><svg class="ico" aria-hidden="true"><use href="#i-document-text"/></svg>Devis</a></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var doc=document;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Mobile nav */
+  var burger=doc.querySelector(".burger"), nav=doc.getElementById("nav");
+  if(burger&&nav){
+    var setOpen=function(open){
+      nav.classList.toggle("open",open);
+      burger.setAttribute("aria-expanded",open?"true":"false");
+      burger.setAttribute("aria-label",open?"Fermer le menu":"Ouvrir le menu");
+      burger.querySelector("use").setAttribute("href",open?"#i-close-circle":"#i-hamburger-menu");
+    };
+    burger.addEventListener("click",function(){setOpen(!nav.classList.contains("open"));});
+    nav.addEventListener("click",function(e){if(e.target.closest("a"))setOpen(false);});
+    doc.addEventListener("keydown",function(e){if(e.key==="Escape"&&nav.classList.contains("open")){setOpen(false);burger.focus();}});
+  }
+
+  /* Paris clock + current rate slot */
+  function parisNow(){
+    try{
+      var parts=new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Paris",hour:"2-digit",minute:"2-digit",weekday:"short",hour12:false}).formatToParts(new Date());
+      var o={};parts.forEach(function(p){o[p.type]=p.value;});
+      return {h:parseInt(o.hour,10)%24,m:o.minute,wd:o.weekday};
+    }catch(e){var d=new Date();return {h:d.getHours(),m:("0"+d.getMinutes()).slice(-2),wd:["dim.","lun.","mar.","mer.","jeu.","ven.","sam."][d.getDay()]};}
+  }
+  function slotOf(t){
+    if(/^dim/.test(t.wd))return "sun";
+    if(t.h<8||t.h>=19)return "night";
+    if(/^sam/.test(t.wd))return "sat";
+    return "day";
+  }
+  var labels={day:"Jour · sans majoration",sat:"Samedi · sans majoration",night:"Nuit · +50 % main d'œuvre",sun:"Dimanche · +75 % main d'œuvre"};
+  function tick(){
+    var t=parisNow(), s=slotOf(t);
+    doc.querySelectorAll("[data-clock]").forEach(function(el){el.textContent=("0"+t.h).slice(-2)+":"+t.m;});
+    doc.querySelectorAll("[data-rate]").forEach(function(el){el.textContent=labels[s];el.classList.toggle("rate-night",s==="night"||s==="sun");});
+    doc.querySelectorAll("[data-hours] tr").forEach(function(tr){tr.classList.toggle("today",tr.getAttribute("data-slot")===s);});
+  }
+  tick(); setInterval(tick,20000);
+
+  /* Motion */
+  if(reduce||!window.gsap) return;
+  var gsap=window.gsap;
+  if(window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
+  var ST=window.ScrollTrigger;
+
+  if(window.Lenis&&ST){
+    var lenis=new window.Lenis({duration:1.05,smoothWheel:true});
+    lenis.on("scroll",ST.update);
+    gsap.ticker.add(function(time){lenis.raf(time*1000);});
+    gsap.ticker.lagSmoothing(0);
+    doc.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click",function(e){var id=a.getAttribute("href");if(id.length>1&&doc.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-80});}});
+    });
+    window.addEventListener("pagehide",function(){lenis.destroy();});
+  }
+
+  /* Split headings into words (accessible name kept on the heading) */
+  doc.querySelectorAll(".split").forEach(function(h){
+    h.setAttribute("aria-label",h.textContent.replace(/\s+/g," ").trim());
+    var frag=doc.createDocumentFragment();
+    Array.prototype.slice.call(h.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        n.textContent.split(/([ \t\n\r]+)/).forEach(function(part){
+          if(!part)return;
+          if(/^[ \t\n\r]+$/.test(part)){frag.appendChild(doc.createTextNode(" "));return;}
+          var s=doc.createElement("span");s.className="w";s.setAttribute("aria-hidden","true");s.style.display="inline-block";s.textContent=part;frag.appendChild(s);
+        });
+      }else{
+        var w=doc.createElement("span");w.className="w";w.setAttribute("aria-hidden","true");w.style.display="inline-block";w.appendChild(n.cloneNode(true));frag.appendChild(w);
+      }
+    });
+    h.textContent="";h.appendChild(frag);
+  });
+
+  function countUp(el,delay){
+    var end=parseFloat(el.getAttribute("data-count"));if(isNaN(end))return;
+    var o={v:0};
+    gsap.to(o,{v:end,duration:1.3,delay:delay||0,ease:"power3.out",onUpdate:function(){el.textContent=Math.round(o.v);},onComplete:function(){el.textContent=end;}});
+  }
+
+  /* Hero intro */
+  var hero=doc.querySelector(".hero, .ihero");
+  if(hero){
+    var tl=gsap.timeline({defaults:{ease:"power3.out"}});
+    var big=hero.querySelector(".minutes");
+    if(big){tl.from(big,{yPercent:12,opacity:0,duration:.8},0);countUp(big.querySelector("[data-count]"),.05);}
+    tl.from(hero.querySelectorAll("h1 .w"),{y:"0.5em",opacity:0,duration:.6,stagger:.045},.25);
+    tl.from(hero.querySelectorAll(".minutes-cap, .hero-ctas, .specs, .lede, .ihero-copy > .btn"),{y:16,opacity:0,duration:.6,stagger:.08},.45);
+    var media=hero.querySelector(".hero-media img, .ihero-side img");
+    if(media)tl.from(media,{scale:1.08,duration:1.6,ease:"power2.out"},0);
+    var disp=hero.querySelector(".dispatch, .ihero-stat");
+    if(disp)tl.from(disp,{y:30,opacity:0,duration:.7},.7);
+    var istat=hero.querySelector(".ihero-stat [data-count]");if(istat)countUp(istat,.6);
+  }
+
+  if(!ST) return;
+  doc.querySelectorAll("main section:not(.hero):not(.ihero) .split").forEach(function(h){
+    gsap.from(h.querySelectorAll(".w"),{y:"0.45em",opacity:0,duration:.6,stagger:.04,ease:"power3.out",scrollTrigger:{trigger:h,start:"top 88%",once:true}});
+  });
+  var groups=[".figures",".certs",".svc-list",".steps",".brand-cols",".g-grid",".v-grid",".p-grid",".cta-grid",".lvl-grid",".price-table tbody",".zone-grid",".form"];
+  groups.forEach(function(sel){
+    doc.querySelectorAll(sel).forEach(function(g){
+      var kids=g.children; if(!kids.length)return;
+      gsap.from(kids,{y:26,opacity:0,duration:.6,stagger:.06,ease:"power2.out",clearProps:"transform,opacity",scrollTrigger:{trigger:g,start:"top 86%",once:true}});
+    });
+  });
+  doc.querySelectorAll(".figures [data-count]").forEach(function(el){
+    ST.create({trigger:el,start:"top 90%",once:true,onEnter:function(){countUp(el);}});
+  });
+  doc.querySelectorAll(".process-photo img, .brands-img img").forEach(function(img){
+    gsap.fromTo(img,{yPercent:-6,scale:1.12},{yPercent:6,scale:1.12,ease:"none",scrollTrigger:{trigger:img.parentNode,start:"top bottom",end:"bottom top",scrub:true}});
+  });
+  window.addEventListener("load",function(){ST.refresh();});
+  if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(function(){ST.refresh();});
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+  var MO=66;
+  var calc=document.getElementById("calc");
+  if(calc){
+    var out=calc.querySelector("output"), total=document.querySelector("[data-total]"), detail=document.querySelector("[data-detail]");
+    var fmt=function(n){return (Math.round(n*100)/100).toLocaleString("fr-FR",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2})+" €";};
+    var update=function(){
+      var zone=parseFloat(calc.querySelector('input[name="zone"]:checked').value);
+      var maj=parseFloat(calc.querySelector('input[name="slot"]:checked').value);
+      var dur=parseFloat(calc.dur.value);
+      var billed=Math.max(1,dur);
+      var mo=MO*billed*(1+maj);
+      out.textContent=(dur%1?dur.toLocaleString("fr-FR"):dur)+" h";
+      total.textContent=fmt(zone+mo);
+      detail.textContent=fmt(zone)+" déplacement + "+fmt(mo)+" main d'œuvre"+(dur<1?" (1re heure due)":"")+(maj?" · majoration +"+Math.round(maj*100)+" %":"");
+    };
+    calc.addEventListener("input",update); calc.addEventListener("change",update); update();
+  }
+
+  var form=document.getElementById("devis-form");
+  if(form){
+    var setErr=function(input,msg){
+      var err=input.parentNode.querySelector(".err");
+      input.setAttribute("aria-invalid",msg?"true":"false");
+      if(err)err.textContent=msg||"";
+    };
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ok=true, first=null;
+      var nom=form.nom, tel=form.tel, com=form.commune, rgpd=form.rgpd;
+      if(!nom.value.trim()){setErr(nom,"Indiquez votre nom.");ok=false;first=first||nom;}else setErr(nom);
+      var digits=tel.value.replace(/\D/g,"");
+      if(digits.length<10){setErr(tel,"Un numéro à 10 chiffres, pour vous rappeler.");ok=false;first=first||tel;}else setErr(tel);
+      if(!com.value){setErr(com,"Choisissez votre commune.");ok=false;first=first||com;}else setErr(com);
+      if(!rgpd.checked){rgpd.setAttribute("aria-invalid","true");ok=false;first=first||rgpd;}else rgpd.removeAttribute("aria-invalid");
+      if(!ok){first.focus();return;}
+      var btn=form.querySelector('button[type="submit"]');
+      btn.disabled=true; btn.lastChild.textContent="Envoi…";
+      setTimeout(function(){
+        Array.prototype.forEach.call(form.children,function(c){if(!c.classList.contains("ok"))c.hidden=true;});
+        var box=form.querySelector(".ok");
+        box.querySelector("[data-ref]").textContent="HL-"+String(Math.floor(1000+Math.random()*9000));
+        box.hidden=false; box.setAttribute("tabindex","-1"); box.focus();
+      },700);
+    });
+  }
+})();
+
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

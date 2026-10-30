@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Maison Fournil</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Maison Fournil, boulangerie-pâtisserie au levain naturel, rue Saint-Dizier à Nancy. Trois fournées par jour : 6h30, 11h, 16h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --farine:#ECE5D8;
+  --farine-2:#E2D9C8;
+  --mie:#F6F1E7;
+  --croute:#2A1C13;
+  --croute-2:#5E4A3A;
+  --croute-3:#8B7663;
+  --ligne:rgba(42,28,19,.16);
+  --ligne-fort:rgba(42,28,19,.32);
+  --ble:#B47B10;
+  --ble-texte:#875A06;
+  --four:#1F150E;
+  --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--farine);color:var(--croute);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ble);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:clamp(var(--gut),4vw,56px);padding-right:clamp(var(--gut-r),4vw,56px)}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em}
+.skip{position:absolute;left:-999px;top:0;background:var(--croute);color:var(--mie);padding:10px 14px;z-index:100}
+.skip:focus{left:16px;top:16px}
+
+/* grain de farine : bruit très léger sur le fond */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .2  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+main,header,footer{position:relative;z-index:1}
+
+/* header */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(236,229,216,.88);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--ligne)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.02em;font-stretch:80%;font-variation-settings:"wdth" 80}
+@media (max-width:480px){.logo small{display:none}}
+.logo small{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.04em;color:var(--croute-3);font-stretch:100%}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15px;color:var(--croute-2);padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--croute);border-color:var(--croute)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--f-body);text-decoration:none;padding:15px 20px;border-radius:var(--r);border:1px solid var(--croute);background:var(--croute);color:var(--mie);cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:hover{background:var(--four);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--croute)}
+.btn.ghost:hover{background:var(--croute);color:var(--mie)}
+.btn svg{width:16px;height:16px}
+.nav .btn{padding:11px 16px;color:var(--mie);border-bottom:1px solid var(--croute)}
+.nav .btn:hover{color:var(--mie)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--ligne-fort);background:transparent;border-radius:var(--r);cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1.5px;background:var(--croute);position:relative;transition:transform .25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--croute);transition:transform .25s,top .25s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:68px;flex-direction:column;align-items:stretch;gap:0;background:var(--mie);border-bottom:1px solid var(--ligne);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:16px 0;border-bottom:1px solid var(--ligne);font-size:18px}
+  .nav .btn{margin-top:16px;justify-content:center;padding:16px}
+}
+
+/* status dot (fournée en cours) */
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ble);display:inline-block;box-shadow:0 0 0 0 rgba(180,123,16,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(180,123,16,.45)}70%{box-shadow:0 0 0 9px rgba(180,123,16,0)}100%{box-shadow:0 0 0 0 rgba(180,123,16,0)}}
+
+/* titres */
+.h-xl{font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;letter-spacing:-.012em;word-spacing:.04em;line-height:.9;margin:0}
+.h-l{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 80;font-stretch:80%;letter-spacing:-.03em;line-height:.95;font-size:clamp(40px,5.6vw,84px);margin:0}
+.h-m{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 85;font-stretch:85%;letter-spacing:-.02em;line-height:1.02;font-size:clamp(24px,2.4vw,34px);margin:0}
+.kicker{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--croute-2);margin:0 0 22px}
+.lede{font-size:clamp(17px,1.35vw,20px);color:var(--croute-2);max-width:36ch}
+.word-mask{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.word{display:inline-block;will-change:transform}
+
+/* tableau de fournée */
+.board{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ligne-fort);border-radius:var(--r);background:rgba(246,241,231,.6)}
+.slot{padding:16px 18px;border-left:1px solid var(--ligne)}
+.slot:first-child{border-left:0}
+.slot b{display:block;font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;font-size:34px;letter-spacing:-.02em;line-height:1}
+.slot span{display:block;font-family:var(--f-mono);font-size:11.5px;color:var(--croute-2);margin-top:6px}
+.slot.next{background:var(--croute);color:var(--mie)}
+.slot.next span{color:#D9CBB6}
+.slot.done b{color:var(--croute-3);text-decoration:line-through;text-decoration-thickness:2px}
+.board-cap{display:flex;align-items:center;gap:10px;margin-top:12px;font-family:var(--f-mono);font-size:12.5px;color:var(--croute-2)}
+
+/* footer */
+.ft{background:var(--four);color:#D9CBB6;padding:72px 0 calc(32px + env(safe-area-inset-bottom,0px));margin-top:0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:1px solid rgba(217,203,182,.18)}
+.ft .logo{color:var(--mie);font-size:40px}
+.ft h3{font-family:var(--f-mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#A8957E;margin:0 0 14px}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.ft a{text-decoration:none;color:#EDE2D1}
+.ft a:hover{text-decoration:underline}
+.ft-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-family:var(--f-mono);font-size:11.5px;color:#A8957E}
+@media (max-width:860px){.ft-grid{grid-template-columns:1fr 1fr}.ft-grid>:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------- accueil ---------- */
+.hero{padding:28px 0 72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:stretch}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding-top:clamp(8px,2vw,24px)}
+.hero h1{font-size:clamp(52px,6.6vw,104px)}
+.hero h1 em{font-style:normal;color:var(--ble-texte)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-media{position:relative;margin:0;min-height:520px;height:calc(100svh - 68px - 56px);max-height:820px;border-radius:var(--r);overflow:hidden;background:var(--farine-2)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero-media figcaption{position:absolute;left:16px;right:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--f-mono);font-size:12px;background:rgba(246,241,231,.92);color:var(--croute);padding:7px 10px;border-radius:2px}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{height:auto;min-height:0;aspect-ratio:4/3;order:-1}
+  .hero{padding-top:16px}
+  .hero-media figcaption .tag:nth-child(n+3){display:none}
+  .tag{font-size:11px;padding:6px 8px}
+}
+
+section{scroll-margin-top:80px}
+.sec{padding:clamp(72px,10vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:56px}
+.sec-head p{margin:0;color:var(--croute-2);max-width:42ch}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;gap:20px;margin-bottom:36px}}
+
+/* fournée du jour */
+.fournee{border-top:1px solid var(--croute)}
+.row{display:grid;grid-template-columns:120px minmax(0,1.6fr) repeat(3,minmax(0,.7fr)) 90px;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--ligne);text-decoration:none;transition:background .25s,padding .25s}
+.row:hover{background:var(--mie);padding-left:12px;padding-right:12px}
+.row .thumb{width:120px;height:80px;border-radius:2px;overflow:hidden}
+.row .thumb img{width:100%;height:100%;object-fit:cover}
+.row h3{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 85;font-stretch:85%;font-size:clamp(22px,2vw,30px);letter-spacing:-.02em;line-height:1;margin:0}
+.row h3 + p{margin:6px 0 0;font-size:14.5px;color:var(--croute-2)}
+.row dl{margin:0}
+.row dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--croute-3)}
+.row dd{margin:2px 0 0;font-family:var(--f-mono);font-size:15px;font-weight:500}
+.row .price{font-family:var(--f-display);font-weight:700;font-size:24px;text-align:right;letter-spacing:-.02em}
+.row-head{display:grid;grid-template-columns:120px minmax(0,1.6fr) repeat(3,minmax(0,.7fr)) 90px;gap:20px;padding:12px 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--croute-3)}
+.fournee-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:32px}
+.fournee-foot p{margin:0;font-family:var(--f-mono);font-size:13px;color:var(--croute-2)}
+@media (max-width:860px){
+  .row-head{display:none}
+  .row{grid-template-columns:88px minmax(0,1fr) auto;grid-template-areas:"t n p" "t d d";gap:10px 16px;padding:18px 0}
+  .row .thumb{grid-area:t;width:88px;height:88px}
+  .row .name{grid-area:n}
+  .row .price{grid-area:p;font-size:20px}
+  .row .specs{grid-area:d;display:flex;gap:16px;flex-wrap:wrap}
+  .row:hover{padding-left:0;padding-right:0;background:none}
+}
+@media (min-width:861px){.row .specs{display:contents}}
+
+/* preuve : le four */
+.four{background:var(--four);color:var(--mie);padding:clamp(72px,10vw,130px) 0;overflow:hidden}
+.four .kicker{color:#BFAE97}
+.four-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.four-media{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;max-height:680px}
+.four-media img{width:100%;height:100%;object-fit:cover}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(246,241,231,.2);margin-top:44px}
+.fact{padding:24px 20px 24px 0;border-bottom:1px solid rgba(246,241,231,.2)}
+.fact:nth-child(even){padding-left:20px;border-left:1px solid rgba(246,241,231,.2)}
+.fact b{display:block;font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;font-size:clamp(44px,5vw,72px);line-height:.9;letter-spacing:-.03em;color:#F0D9A8}
+.fact span{display:block;margin-top:10px;font-size:15px;color:#D3C3AC;max-width:24ch}
+.four p.lede{color:#D3C3AC}
+@media (max-width:860px){.four-grid{grid-template-columns:1fr}.four-media{aspect-ratio:4/3}}
+
+/* processus : 38 heures */
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--croute);position:relative}
+.step{padding:28px 24px 8px 0;position:relative}
+.step + .step{padding-left:24px;border-left:1px solid var(--ligne)}
+.step time{display:block;font-family:var(--f-mono);font-size:13px;color:var(--ble-texte);font-weight:500;margin-bottom:28px}
+.step h3{margin-bottom:12px}
+.step p{margin:0;font-size:15.5px;color:var(--croute-2)}
+.step .unit{display:inline-block;margin-top:16px;font-family:var(--f-mono);font-size:12px;border:1px solid var(--ligne-fort);padding:5px 8px;border-radius:2px}
+.process-media{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;margin-top:56px}
+.process-media figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2}
+.process-media figure:last-child{aspect-ratio:auto}
+.process-media img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){
+  .timeline{grid-template-columns:1fr 1fr}
+  .step:nth-child(3){padding-left:0;border-left:0}
+  .step{border-bottom:1px solid var(--ligne);padding-bottom:24px}
+  .process-media{grid-template-columns:1fr}
+  .process-media figure:last-child{aspect-ratio:3/2}
+}
+@media (max-width:520px){
+  .timeline{grid-template-columns:1fr}
+  .step + .step{padding-left:0;border-left:0}
+  .step time{margin-bottom:12px}
+}
+
+/* galerie : la mie */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(90px,9vw,130px);gap:12px}
+.gal figure{margin:0;overflow:hidden;border-radius:var(--r);position:relative;background:var(--farine-2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:10px;bottom:10px}
+.g1{grid-column:1/6;grid-row:span 5}
+.g2{grid-column:6/10;grid-row:span 3}
+.g3{grid-column:10/13;grid-row:span 3}
+.g4{grid-column:6/13;grid-row:span 2}
+@media (max-width:860px){
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .gal figure{aspect-ratio:1}
+  .g1{grid-column:1/-1;aspect-ratio:4/5!important}
+  .g2,.g3{grid-column:auto}
+  .g4{grid-column:1/-1;aspect-ratio:16/9!important}
+}
+
+/* avis */
+.avis{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:0;border-top:1px solid var(--croute)}
+.quote{margin:0;padding:32px 32px 8px 0}
+.quote + .quote{padding-left:32px;border-left:1px solid var(--ligne)}
+.quote p{margin:0;font-size:17px}
+.quote:first-child p{font-family:var(--f-display);font-weight:600;font-variation-settings:"wdth" 85;font-stretch:85%;font-size:clamp(26px,2.6vw,38px);line-height:1.08;letter-spacing:-.02em}
+.quote footer{margin-top:22px;font-family:var(--f-mono);font-size:12.5px;color:var(--croute-2)}
+@media (max-width:860px){
+  .avis{grid-template-columns:1fr}
+  .quote,.quote + .quote{padding:28px 0;border-left:0;border-bottom:1px solid var(--ligne)}
+}
+
+/* infos pratiques */
+.infos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.panel{background:var(--mie);border:1px solid var(--ligne);border-radius:var(--r);padding:clamp(24px,3vw,40px)}
+.panel.dark{background:var(--croute);color:var(--mie);border-color:var(--croute)}
+.hours{width:100%;border-collapse:collapse;font-size:16px;margin-top:18px}
+.hours th{text-align:left;font-weight:500;padding:12px 0;border-bottom:1px solid var(--ligne)}
+.hours td{text-align:right;font-family:var(--f-mono);font-size:14px;padding:12px 0;border-bottom:1px solid var(--ligne)}
+.hours tr.closed td{color:var(--croute-3)}
+.hours tr.today th,.hours tr.today td{font-weight:600;color:var(--croute)}
+.hours tr.today th::after{content:" · aujourd'hui";font-family:var(--f-mono);font-size:11px;color:var(--ble-texte);font-weight:500}
+.addr{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 80;font-stretch:80%;font-size:clamp(30px,3.2vw,46px);line-height:1;letter-spacing:-.02em;margin:18px 0 22px}
+.panel.dark .kicker{color:#BFAE97}
+.zone{list-style:none;padding:0;margin:0;display:grid;gap:0;border-top:1px solid rgba(246,241,231,.18)}
+.zone li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(246,241,231,.18);font-size:15px}
+.zone li span:last-child{font-family:var(--f-mono);font-size:13px;color:#D3C3AC;text-align:right}
+.contact-line{margin-top:22px;font-family:var(--f-mono);font-size:13.5px;color:#D3C3AC;display:grid;gap:4px}
+@media (max-width:860px){.infos{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{padding:clamp(80px,11vw,150px) 0;border-top:1px solid var(--ligne)}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:end}
+.cta h2{font-size:clamp(52px,7.6vw,120px)}
+.cta p{color:var(--croute-2);margin:0 0 24px;max-width:34ch}
+@media (max-width:860px){.cta-grid{grid-template-columns:1fr}}
+</style>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Maison Fournil, accueil">Maison Fournil <small>Nancy · depuis 2019</small></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="nos-pains.html">Nos pains</a>
+      <a href="#fournee">Fournée du jour</a>
+      <a href="#atelier">L'atelier</a>
+      <a href="#infos">Horaires</a>
+      <a class="btn" href="nos-pains.html#precommande">Précommander</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div>
+          <p class="kicker"><span class="dot" aria-hidden="true"></span>Boulangerie au levain · 41 rue Saint-Dizier</p>
+          <h1 class="h-xl" data-masked-reveal data-hero>Du levain, de la farine, trente-huit heures.</h1>
+          <p class="lede" style="margin-top:28px">Nos pains fermentent lentement, cuisent sur sole et sortent du four trois fois par jour. Réservez le vôtre, on le met de côté encore chaud.</p>
+          <div class="hero-cta">
+            <a class="btn" href="nos-pains.html#precommande">Réserver pour la prochaine fournée
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+            <a class="btn ghost" href="nos-pains.html">Voir les pains</a>
+          </div>
+        </div>
+        <div>
+          <div class="board" data-board aria-label="Horaires de sortie du four">
+            <div class="slot"><b>6h30</b><span>Miches, tradition, viennoiseries</span></div>
+            <div class="slot"><b>11h00</b><span>Seigle, graines, fougasses</span></div>
+            <div class="slot"><b>16h00</b><span>Tradition, pain du soir</span></div>
+          </div>
+          <p class="board-cap"><span class="dot" aria-hidden="true"></span><span data-board-cap aria-live="polite">Trois fournées du mardi au samedi, une le dimanche à 6h30.</span></p>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/img/hero-miche.jpg" width="1800" height="1200" alt="Miche de campagne au levain, croûte fleurée de farine et grigne ouverte, posée sur une planche" fetchpriority="high">
+        <figcaption>
+          <span class="tag">Miche de campagne</span><span class="tag">1 000 g</span><span class="tag">pâte 78 %</span><span class="tag">sortie 6h30</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="fournee" style="padding-top:clamp(40px,6vw,80px)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Fournée du jour</p>
+          <h2 class="h-l" data-masked-reveal>Ce qui sort du four aujourd'hui.</h2>
+        </div>
+        <p>Chaque pain a son poids, sa pâte, son heure. Les chiffres ci-dessous sont ceux du fournil, pas ceux d'une fiche marketing.</p>
+      </div>
+
+      <div class="row-head" aria-hidden="true"><span></span><span>Pain</span><span>Poids</span><span>Hydratation</span><span>Sortie</span><span style="text-align:right">Prix</span></div>
+      <div class="fournee">
+        <a class="row" href="nos-pains.html#miche">
+          <span class="thumb"><img src="assets/img/hero-miche.jpg" width="1800" height="1200" alt="" loading="lazy"></span>
+          <div class="name"><h3>Miche de campagne</h3><p>T80 de meule, levain liquide, 38 h de fermentation</p></div>
+          <div class="specs">
+            <dl><dt>Poids</dt><dd>1 000 g</dd></dl>
+            <dl><dt>Levain / pâte</dt><dd>100 / 78 %</dd></dl>
+            <dl><dt>Sortie</dt><dd>6h30</dd></dl>
+          </div>
+          <span class="price">7,90 €</span>
+        </a>
+        <a class="row" href="nos-pains.html#seigle">
+          <span class="thumb"><img src="assets/img/grigne.jpg" width="1000" height="1500" alt="" loading="lazy"></span>
+          <div class="name"><h3>Tourte de seigle</h3><p>Seigle T130, levain de seigle, mie dense et acidulée</p></div>
+          <div class="specs">
+            <dl><dt>Poids</dt><dd>800 g</dd></dl>
+            <dl><dt>Levain / pâte</dt><dd>80 / 85 %</dd></dl>
+            <dl><dt>Sortie</dt><dd>11h00</dd></dl>
+          </div>
+          <span class="price">7,20 €</span>
+        </a>
+        <a class="row" href="nos-pains.html#graines">
+          <span class="thumb"><img src="assets/img/graines.jpg" width="1000" height="665" alt="" loading="lazy"></span>
+          <div class="name"><h3>Pain aux graines</h3><p>Tournesol, lin brun, sésame torréfiés la veille</p></div>
+          <div class="specs">
+            <dl><dt>Poids</dt><dd>500 g</dd></dl>
+            <dl><dt>Levain / pâte</dt><dd>100 / 80 %</dd></dl>
+            <dl><dt>Sortie</dt><dd>11h00</dd></dl>
+          </div>
+          <span class="price">4,90 €</span>
+        </a>
+        <a class="row" href="nos-pains.html#tradition">
+          <span class="thumb"><img src="assets/img/pain-tranche.jpg" width="1000" height="667" alt="" loading="lazy"></span>
+          <div class="name"><h3>Baguette tradition</h3><p>Pointage 18 h au froid, façonnée à la main</p></div>
+          <div class="specs">
+            <dl><dt>Poids</dt><dd>250 g</dd></dl>
+            <dl><dt>Levain / pâte</dt><dd>100 / 72 %</dd></dl>
+            <dl><dt>Sortie</dt><dd>6h30 · 16h00</dd></dl>
+          </div>
+          <span class="price">1,40 €</span>
+        </a>
+      </div>
+      <div class="fournee-foot">
+        <p>11 pains et 3 viennoiseries au catalogue · prix TTC à l'unité</p>
+        <a class="btn ghost" href="nos-pains.html">Tout le catalogue
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="four" aria-labelledby="four-t">
+    <div class="wrap four-grid">
+      <figure class="four-media" data-unmask>
+        <img src="assets/img/grigne.jpg" width="1000" height="1500" alt="Tourte au levain vue du dessus, grigne éclatée et farine sur la croûte" loading="lazy">
+      </figure>
+      <div>
+        <p class="kicker">Le four à sole</p>
+        <h2 class="h-l" id="four-t" data-masked-reveal>Une croûte, ça se mérite.</h2>
+        <p class="lede" style="margin-top:24px">Pas d'améliorant, pas de levure ajoutée dans la miche. Juste un levain nourri matin et soir, des farines de meule et un four qui monte à 260 °C.</p>
+        <div class="facts">
+          <div class="fact" data-rise><b>38 h</b><span>du rafraîchi du levain à la sortie du four</span></div>
+          <div class="fact" data-rise><b>260 °C</b><span>sur la sole en pierre, avec buée à l'enfournement</span></div>
+          <div class="fact" data-rise><b>42 km</b><span>entre le moulin à meule de pierre et le fournil</span></div>
+          <div class="fact" data-rise><b>0</b><span>additif, améliorant ou conservateur</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="atelier">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">L'atelier, la veille et le jour même</p>
+          <h2 class="h-l" data-masked-reveal>Trente-huit heures pour une miche.</h2>
+        </div>
+        <p>Le pain de 6h30 commence la veille à 16h. Voici le parcours d'une miche de campagne, heure par heure.</p>
+      </div>
+      <ol class="timeline" style="list-style:none;margin:0;padding:0">
+        <li class="step" data-rise>
+          <time>J-1 · 16h00</time>
+          <h3 class="h-m">Rafraîchi</h3>
+          <p>Le levain chef reçoit sa farine et son eau. Il double de volume en 5 heures à 26 °C.</p>
+          <span class="unit">levain liquide 100 %</span>
+        </li>
+        <li class="step" data-rise>
+          <time>J-1 · 21h30</time>
+          <h3 class="h-m">Pétrissage lent</h3>
+          <p>Autolyse de 45 min, puis pétrissage en première vitesse. La pâte sort à 24 °C.</p>
+          <span class="unit">pâte 78 % · sel 1,8 %</span>
+        </li>
+        <li class="step" data-rise>
+          <time>J-1 · 23h → J · 4h</time>
+          <h3 class="h-m">Pointage au froid</h3>
+          <p>Façonnée, la pâte repose en bannetons à 4 °C. Les arômes de noisette viennent de là.</p>
+          <span class="unit">4 °C · 15 h</span>
+        </li>
+        <li class="step" data-rise>
+          <time>J · 5h40 → 6h30</time>
+          <h3 class="h-m">Cuisson sur sole</h3>
+          <p>Grignée à la lame, enfournée à 260 °C, buée, puis 50 minutes de cuisson.</p>
+          <span class="unit">50 min · 260 → 230 °C</span>
+        </li>
+      </ol>
+      <div class="process-media">
+        <figure data-unmask><img src="assets/img/petrissage.jpg" width="1000" height="667" alt="Mains d'un boulanger qui façonnent une pâte sur un plan fariné" loading="lazy"></figure>
+        <figure data-unmask><img src="assets/img/boutique.jpg" width="1000" height="745" alt="Comptoir de la boutique avec pains et viennoiseries en rayon" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="mie-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">De près</p>
+          <h2 class="h-l" id="mie-t" data-masked-reveal>La mie ne ment pas.</h2>
+        </div>
+        <p>Alvéoles irrégulières, croûte qui chante en refroidissant, farine restée dans les plis du banneton.</p>
+      </div>
+      <div class="gal">
+        <figure class="g1" data-unmask><img src="assets/img/tranches.jpg" width="1000" height="1500" alt="Pain au levain tranché, alvéoles de la mie visibles" loading="lazy"><figcaption class="tag">Pain complet · 72 h de levain</figcaption></figure>
+        <figure class="g2" data-unmask><img src="assets/img/croissants.jpg" width="1000" height="800" alt="Croissants au beurre saupoudrés de sucre glace" loading="lazy"><figcaption class="tag">Croissant · beurre AOP Charentes-Poitou</figcaption></figure>
+        <figure class="g3" data-unmask><img src="assets/img/graines.jpg" width="1000" height="665" alt="Pains aux graines et épis de blé" loading="lazy"></figure>
+        <figure class="g4" data-unmask><img src="assets/img/pain-tranche.jpg" width="1000" height="667" alt="Pain de campagne tranché sur une planche en bois" loading="lazy"><figcaption class="tag">Campagne · se garde 5 jours</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="avis-t">
+    <div class="wrap">
+      <p class="kicker" id="avis-t">Ils passent tous les matins</p>
+      <div class="avis">
+        <blockquote class="quote" data-rise>
+          <p>« Je réserve la miche le soir sur mon téléphone, je la récupère à 7h en allant au travail. Elle tient toute la semaine. »</p>
+          <footer>Claire M. · Vieille-Ville</footer>
+        </blockquote>
+        <blockquote class="quote" data-rise>
+          <p>« Le seigle de 11h est le seul que mon père, alsacien, accepte de manger hors de chez lui. »</p>
+          <footer>Thomas R. · Saint-Epvre</footer>
+        </blockquote>
+        <blockquote class="quote" data-rise>
+          <p>« On voit le fournil depuis la boutique. Les enfants regardent les grignes s'ouvrir. »</p>
+          <footer>Inès B. · Trois-Maisons</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="infos" style="padding-top:0" aria-labelledby="infos-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Infos pratiques</p>
+          <h2 class="h-l" id="infos-t" data-masked-reveal>Venir au fournil.</h2>
+        </div>
+        <p>À deux pas de la place Saint-Epvre. Click &amp; collect en boutique, livraison à vélo le samedi matin.</p>
+      </div>
+      <div class="infos">
+        <div class="panel">
+          <p class="kicker" style="margin:0">Horaires boutique</p>
+          <table class="hours" data-hours>
+            <tbody>
+              <tr data-d="1" class="closed"><th scope="row">Lundi</th><td>fermé</td></tr>
+              <tr data-d="2"><th scope="row">Mardi</th><td>6h30 – 19h30</td></tr>
+              <tr data-d="3"><th scope="row">Mercredi</th><td>6h30 – 19h30</td></tr>
+              <tr data-d="4"><th scope="row">Jeudi</th><td>6h30 – 19h30</td></tr>
+              <tr data-d="5"><th scope="row">Vendredi</th><td>6h30 – 19h30</td></tr>
+              <tr data-d="6"><th scope="row">Samedi</th><td>6h30 – 19h00</td></tr>
+              <tr data-d="0"><th scope="row">Dimanche</th><td>6h30 – 13h00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel dark">
+          <p class="kicker" style="margin:0">Adresse</p>
+          <p class="addr">41 rue Saint-Dizier<br>54000 Nancy</p>
+          <ul class="zone">
+            <li><span>Click &amp; collect</span><span>commande avant 22h la veille</span></li>
+            <li><span>Livraison vélo (sam.)</span><span>Nancy centre · 3 € · dès 20 €</span></li>
+            <li><span>Tram</span><span>ligne 1 · arrêt Point Central</span></li>
+            <li><span>Parking</span><span>Saint-Sébastien · 3 min à pied</span></li>
+          </ul>
+          <div class="contact-line"><span>03 83 47 21 06</span><span>bonjour@maisonfournil.exemple.fr</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-t">
+    <div class="wrap cta-grid">
+      <h2 class="h-xl" id="cta-t" data-masked-reveal>Votre miche vous attend à 6h30.</h2>
+      <div>
+        <p>Commandez avant 22h, payez au comptoir. On met votre pain de côté à la sortie du four, avec votre nom sur l'étiquette.</p>
+        <a class="btn" href="nos-pains.html#precommande">Précommander mon pain
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="logo" href="index.html">Maison Fournil</a>
+        <p style="max-width:34ch;margin:16px 0 0;font-size:15px">Boulangerie-pâtisserie au levain naturel. Farines de meule, four à sole, trois fournées par jour.</p>
+      </div>
+      <div>
+        <h3>Le fournil</h3>
+        <ul>
+          <li><a href="nos-pains.html">Nos pains</a></li>
+          <li><a href="nos-pains.html#precommande">Précommande</a></li>
+          <li><a href="index.html#atelier">L'atelier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Fournées</h3>
+        <ul class="mono" style="font-size:13px">
+          <li>6h30 · mar → dim</li>
+          <li>11h00 · mar → sam</li>
+          <li>16h00 · mar → sam</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul style="font-size:14px">
+          <li>41 rue Saint-Dizier, Nancy</li>
+          <li>03 83 47 21 06</li>
+          <li>bonjour@maisonfournil.exemple.fr</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Maison Fournil · Contenu de démonstration, marque fictive</span>
+      <span>Maquette 1903RGB · Photos Unsplash</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* nav mobile */
+  var burger = document.querySelector(".burger"), nav = document.getElementById("nav");
+  if (burger && nav){
+    burger.addEventListener("click", function(){
+      var open = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!open));
+      nav.classList.toggle("open", !open);
+    });
+    nav.addEventListener("click", function(e){
+      if (e.target.closest("a")){ burger.setAttribute("aria-expanded","false"); nav.classList.remove("open"); }
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && nav.classList.contains("open")){ burger.setAttribute("aria-expanded","false"); nav.classList.remove("open"); burger.focus(); }
+    });
+  }
+
+  /* tableau de fournée : état en direct selon l'heure du visiteur */
+  var SLOTS = [390, 660, 960]; // 6h30, 11h00, 16h00
+  function fmt(m){ var h = Math.floor(m/60), mn = m%60; return h + " h " + (mn<10?"0":"") + mn; }
+  function delay(d){ return d < 60 ? d + " min" : Math.floor(d/60) + " h " + String(d%60).padStart(2,"0"); }
+  function updateBoards(){
+    var now = new Date(), day = now.getDay(), m = now.getHours()*60 + now.getMinutes();
+    document.querySelectorAll("[data-board]").forEach(function(board){
+      var slots = board.querySelectorAll(".slot"), cap = board.parentNode.querySelector("[data-board-cap]");
+      slots.forEach(function(s){ s.classList.remove("next","done"); });
+      if (!cap) return;
+      if (day === 1){ cap.textContent = "Fermé le lundi : le four repart mardi, sortie 6h30."; return; }
+      var nextIdx = -1;
+      for (var i=0;i<SLOTS.length;i++){ if (m < SLOTS[i]){ nextIdx = i; break; } slots[i] && slots[i].classList.add("done"); }
+      if (day === 0 && nextIdx > 0){ nextIdx = -1; }
+      if (nextIdx >= 0){
+        slots[nextIdx].classList.add("next");
+        cap.textContent = "Prochaine sortie du four dans " + delay(SLOTS[nextIdx] - m) + ".";
+      } else {
+        cap.textContent = day === 0 ? "Le dimanche, une seule fournée à 6h30. Retour mardi." : "Dernière fournée sortie à 16h00. Prochaine : demain 6h30.";
+      }
+    });
+  }
+  updateBoards(); setInterval(updateBoards, 60000);
+
+  /* motion */
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (window.Lenis){
+    var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click", function(e){
+        var id = a.getAttribute("href"); if (id.length < 2) return;
+        var el = document.querySelector(id); if (!el) return;
+        e.preventDefault(); lenis.scrollTo(el, { offset: -70 });
+      });
+    });
+  }
+
+  function esc(v){ return v.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  document.querySelectorAll("[data-masked-reveal]").forEach(function(el){
+    var text = el.textContent.trim().replace(/\s+/g," ");
+    el.setAttribute("aria-label", text);
+    el.innerHTML = text.split(" ").map(function(w){
+      return '<span class="word-mask" aria-hidden="true"><span class="word">' + esc(w) + '</span></span>';
+    }).join(" ");
+    var hero = el.hasAttribute("data-hero");
+    gsap.from(el.querySelectorAll(".word"), {
+      yPercent: 110, duration: hero ? 1 : .8, ease: "power3.out", stagger: hero ? .06 : .035, delay: hero ? .15 : 0,
+      scrollTrigger: hero ? null : { trigger: el, start: "top 82%", once: true }
+    });
+  });
+
+  document.querySelectorAll("[data-rise]").forEach(function(el){
+    gsap.from(el, { y: 28, opacity: 0, duration: .8, ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+  });
+
+  document.querySelectorAll("[data-unmask]").forEach(function(el){
+    gsap.from(el, { clipPath: "inset(100% 0% 0% 0%)", duration: 1.2, ease: "expo.out",
+      scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+    var img = el.querySelector("img");
+    if (img) gsap.from(img, { scale: 1.15, duration: 1.6, ease: "expo.out",
+      scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+  });
+
+  window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
+})();
+
+(function(){
+  var d = new Date().getDay(), r = document.querySelector('[data-hours] tr[data-d="'+d+'"]');
+  if (r) r.classList.add("today");
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

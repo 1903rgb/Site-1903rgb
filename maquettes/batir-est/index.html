@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"></head><body style="margin:0">
+<title>Bâtir Est</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Bâtir Est, entreprise de gros œuvre et de rénovation en Moselle et Meurthe-et-Moselle. Devis chiffré en € HT sous 10 jours ouvrés, garantie décennale, plannings tenus en semaines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#0d0d0b;
+  --ink-2:#1c1c19;
+  --paper:#ecebe5;
+  --paper-2:#dfded6;
+  --mute:#6d6c66;
+  --mute-dark:#a3a29b;
+  --signal:#ff5b14;
+  --proof:#d4e8dc;
+  --rule:rgba(13,13,11,.18);
+  --rule-dark:rgba(236,235,229,.2);
+  --f-display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body:"Work Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--f-mono);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;padding:15px 20px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.btn--signal{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.btn--signal:hover{background:var(--paper);border-color:var(--paper)}
+.btn--line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dark .btn--line:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn svg{width:16px;height:16px}
+.dark{background:var(--ink);color:var(--paper)}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--paper);border-bottom:1px solid var(--rule-dark)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font-family:var(--f-display);font-weight:900;font-size:28px;letter-spacing:.01em;line-height:1}
+.logo span{color:var(--mute-dark)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .18s}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--signal)}
+.nav .btn{padding:10px 14px;border-bottom-width:2px}
+.burger{display:none;background:none;border:2px solid var(--paper);color:var(--paper);height:40px;padding:0 12px;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;cursor:pointer}
+@media (max-width:899px){
+  .burger{display:inline-flex;align-items:center}
+  .nav{position:absolute;left:0;right:0;top:60px;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-bottom:2px solid var(--signal);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.is-open{display:flex}
+  .nav a{font-size:15px;padding:14px 0;border-bottom:1px solid var(--rule-dark)}
+  .nav .btn{margin-top:16px;justify-content:center;padding:14px}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-top:28px;padding-bottom:0;overflow:hidden}
+.hero__meta{display:flex;justify-content:space-between;gap:16px;color:var(--mute-dark);padding-bottom:18px;border-bottom:1px solid var(--rule-dark)}
+.hero h1{font-size:clamp(4.1rem, 12.2vw, 11.6rem);line-height:.86;margin-top:14px}
+.hero h1 .ln:last-child{text-align:right}
+@media (max-width:899px){.hero h1 .ln:last-child{text-align:left}.hero__meta span:last-child{display:none}}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+.hero h1 .ln span{display:block}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero__stage{position:relative;margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.hero__photo{position:relative;aspect-ratio:16/7;overflow:hidden;background:var(--ink-2)}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(.35) contrast(1.08)}
+.ticket{position:absolute;right:0;top:0;background:var(--paper);color:var(--ink);width:min(340px,40%);font-family:var(--f-mono);font-size:12px;text-transform:uppercase}
+.ticket header{background:var(--signal);padding:10px 14px;font-weight:600;display:flex;justify-content:space-between}
+.ticket dl{margin:0;padding:6px 14px 12px}
+.ticket dl div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--rule)}
+.ticket dt{color:var(--mute)}
+.ticket dd{margin:0;font-weight:600;text-align:right}
+.ticket .bar{height:8px;background:var(--paper-2);margin:12px 14px 4px;position:relative}
+.ticket .bar i{position:absolute;inset:0 auto 0 0;width:55%;background:var(--ink)}
+.ticket .barlbl{padding:0 14px 14px;color:var(--mute)}
+.hero__pitch{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:end;padding:28px 0 36px}
+.hero__pitch p{margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.45;max-width:36ch;color:#d6d5ce}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+@media (max-width:899px){
+  .hero__photo{aspect-ratio:4/3}
+  .ticket{position:relative;width:100%;}
+  .hero__pitch{grid-template-columns:1fr;gap:22px}
+  .hero__cta{justify-content:flex-start}
+}
+
+/* ---------- counters ---------- */
+.counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule-dark)}
+.count{padding:22px 20px 26px 0;border-right:1px solid var(--rule-dark)}
+.count + .count{padding-left:20px}
+.count:last-child{border-right:0}
+.count b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(3rem,5.4vw,5.2rem);line-height:.9}
+.count b small{font-size:.45em;margin-left:.08em;color:var(--signal)}
+.count > span{display:block;margin-top:8px;color:var(--mute-dark)}
+@media (max-width:899px){
+  .counts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .count{padding:18px 12px 20px 0}
+  .count + .count{padding-left:0}
+  .count:nth-child(even){padding-left:14px;border-right:0}
+  .count:nth-child(n+3){border-top:1px solid var(--rule-dark)}
+}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--signal);color:var(--ink);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.marquee__track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee ul{display:flex;list-style:none;margin:0;padding:0}
+.marquee li{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,3.4vw,46px);line-height:1;padding:16px 0;white-space:nowrap;display:flex;align-items:center}
+.marquee li::after{content:"";width:12px;height:12px;background:var(--ink);margin:0 28px;flex:none}
+.marquee li small{font-family:var(--f-mono);font-size:13px;font-weight:600;margin-left:10px;align-self:flex-start;padding-top:4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- section heads ---------- */
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:40px;align-items:end;padding-bottom:36px;border-bottom:2px solid currentColor}
+.sec-head h2{font-size:clamp(3rem,7.4vw,7rem)}
+.sec-head p{margin:0;max-width:46ch;font-size:18px}
+.sec-head .mono{display:block;margin-bottom:18px;color:var(--mute)}
+.dark .sec-head .mono{color:var(--mute-dark)}
+@media (max-width:899px){.sec{padding:72px 0}.sec-head{grid-template-columns:1fr;gap:18px}}
+
+/* ---------- métiers ---------- */
+.trades{list-style:none;margin:0;padding:0}
+.trade{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,2.4fr) minmax(0,1.2fr) minmax(0,1fr);gap:28px;padding:28px 0;border-bottom:1px solid var(--rule);align-items:start;transition:background .2s}
+.trade:hover{background:var(--paper-2)}
+.trade h3{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,42px);line-height:.95;margin:0}
+.trade p{margin:0;color:#3b3a36}
+.trade .k{display:block;color:var(--mute);margin-bottom:4px}
+.trade .v{font-family:var(--f-mono);font-size:15px;font-weight:600}
+@media (max-width:899px){
+  .trade{grid-template-columns:1fr 1fr;gap:14px 20px}
+  .trade h3,.trade p{grid-column:1/-1}
+}
+
+/* ---------- featured case ---------- */
+.case{padding:0 0 110px}
+.case__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule-dark)}
+.case__media{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink)}
+.case__media figure{margin:0;position:relative}
+.case__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.case__media figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);padding:8px 12px}
+.case__media figure:last-child figcaption{background:var(--signal);color:var(--ink)}
+.case__body{padding:40px 0 40px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.case__body h3{font-size:clamp(3rem,5.6vw,5.6rem)}
+.case__body p{margin:0;color:#cfcec7;max-width:44ch}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule-dark)}
+.figs div{padding:16px 12px 0 0}
+.figs b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(34px,3.4vw,52px);line-height:1}
+.figs span{color:var(--mute-dark)}
+@media (max-width:899px){
+  .case{padding-bottom:72px}
+  .case__grid{grid-template-columns:1fr}
+  .case__body{padding:32px 0 0}
+}
+
+/* ---------- méthode ---------- */
+.method{background:var(--paper)}
+.method__lede{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(2.4rem,5.2vw,5rem);line-height:.92;max-width:16ch;margin:0 0 64px}
+.method__lede span{color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:2px solid var(--ink);list-style:none;margin:0;padding:0}
+.step{padding:22px 22px 8px 0;position:relative}
+.step + .step{padding-left:20px;border-left:1px solid var(--rule)}
+.step .wk{font-family:var(--f-mono);font-weight:600;font-size:13px;background:var(--ink);color:var(--paper);display:inline-block;padding:4px 8px}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:30px;text-transform:uppercase;line-height:.95;margin:16px 0 10px}
+.step p{margin:0;font-size:15px;color:#3b3a36}
+@media (max-width:1099px){
+  .steps{grid-template-columns:1fr}
+  .step,.step + .step{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:110px 1fr;gap:4px 16px}
+  .step .wk{grid-row:1/3;align-self:start;justify-self:start}
+  .step h3{margin:0}
+}
+
+/* ---------- journal / collage ---------- */
+.journal{background:var(--ink);color:var(--paper)}
+.collage{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:48px}
+.shot{margin:0;position:relative;overflow:hidden;background:var(--ink-2)}
+.shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(.55) contrast(1.1);transition:filter .3s}
+.shot:hover img,.shot:focus-within img{filter:none}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(transparent,rgba(13,13,11,.85));display:flex;justify-content:space-between;gap:12px;align-items:end}
+.shot figcaption b{font-family:var(--f-body);font-weight:500;text-transform:none;font-size:14px;letter-spacing:0}
+.shot--a{grid-column:1/8;aspect-ratio:4/3}
+.shot--b{grid-column:8/13;aspect-ratio:4/5;margin-top:80px}
+.shot--c{grid-column:2/6;aspect-ratio:1/1;margin-top:-60px}
+.shot--d{grid-column:6/13;aspect-ratio:16/9}
+.shot--e{grid-column:3/10;aspect-ratio:16/8}
+@media (max-width:899px){
+  .collage{grid-template-columns:1fr 1fr;gap:10px}
+  .shot--a,.shot--d,.shot--e{grid-column:1/-1;margin-top:0}
+  .shot--b,.shot--c{grid-column:auto;margin-top:0;aspect-ratio:3/4}
+  .shot figcaption{flex-direction:column;align-items:flex-start;gap:2px}
+}
+
+/* ---------- avis ---------- */
+.proofs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:48px;border-top:2px solid var(--ink)}
+.proof{background:var(--proof);padding:32px 28px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;border-right:2px solid var(--paper)}
+.proof:nth-child(2){background:#e9d9d2}
+.proof:last-child{border-right:0}
+.proof blockquote{margin:0;font-size:19px;line-height:1.45}
+.proof blockquote::before{content:"«\00a0";font-family:var(--f-display);font-weight:900}
+.proof blockquote::after{content:"\00a0»";font-family:var(--f-display);font-weight:900}
+.proof footer{display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--rule)}
+.proof footer b{font-weight:600}
+@media (max-width:899px){.proofs{grid-template-columns:1fr}.proof{border-right:0;border-bottom:2px solid var(--paper)}}
+
+/* ---------- infos ---------- */
+.infos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.info{padding:28px 28px 32px 0}
+.info + .info{padding-left:28px;border-left:1px solid var(--rule)}
+.info h3{font-family:var(--f-display);font-weight:800;font-size:34px;text-transform:uppercase;margin:0 0 16px;line-height:1}
+.info table{width:100%;border-collapse:collapse;font-size:15px}
+.info td{padding:9px 0;border-bottom:1px dashed var(--rule);vertical-align:top}
+.info td:last-child{text-align:right;font-family:var(--f-mono);font-size:13px}
+.info p{margin:0 0 12px;font-size:15px}
+.deps{display:flex;gap:10px;margin-bottom:16px}
+.deps span{font-family:var(--f-display);font-weight:900;font-size:64px;line-height:.85;border:2px solid var(--ink);padding:6px 10px 2px}
+.deps span:first-child{background:var(--ink);color:var(--paper)}
+@media (max-width:899px){
+  .infos{grid-template-columns:1fr}
+  .info,.info + .info{padding:24px 0;border-left:0;border-bottom:1px solid var(--rule)}
+}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:56px;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:20px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:22px;width:36px;height:36px;border:2px solid var(--ink);display:grid;place-items:center;flex:none;transition:background .18s,color .18s}
+.faq details[open] summary::after{content:"–";background:var(--ink);color:var(--paper)}
+.faq summary:hover::after{background:var(--signal)}
+.faq details p{margin:0 0 24px;max-width:70ch;color:#3b3a36}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.contact h2{font-size:clamp(3.4rem,8vw,8rem)}
+.contact h2 em{font-style:normal;color:var(--signal)}
+.contact .lead{color:#cfcec7;max-width:40ch;margin:28px 0 24px;font-size:18px}
+.contact .direct{font-family:var(--f-mono);font-size:15px;line-height:2}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form label{display:flex;flex-direction:column;gap:6px;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;color:var(--mute-dark)}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{font:inherit;font-family:var(--f-body);font-size:16px;text-transform:none;color:var(--paper);background:transparent;border:0;border-bottom:2px solid var(--rule-dark);padding:10px 0;border-radius:0;transition:border-color .18s}
+.form select option{color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--signal)}
+.form input:user-invalid{border-color:#ff8a8a}
+.form textarea{min-height:110px;resize:vertical}
+.form .btn{justify-self:start}
+.form-ok{grid-column:1/-1;border:2px solid var(--signal);padding:18px 20px;font-size:17px}
+.form-ok b{display:block;font-family:var(--f-display);text-transform:uppercase;font-size:30px;line-height:1;margin-bottom:6px}
+@media (max-width:899px){.contact{grid-template-columns:1fr;gap:40px}.form{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--paper);padding:56px 0 calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule-dark)}
+.ftr__cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:40px}
+.ftr__cols h4{margin:0 0 12px;color:var(--mute-dark);font-weight:400}
+.ftr__cols ul{list-style:none;margin:0;padding:0;line-height:1.9;font-size:15px}
+.ftr__cols a{text-decoration:none;border-bottom:1px solid var(--rule-dark)}
+.ftr__cols a:hover{border-color:var(--signal)}
+.wordmark{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(5rem,23vw,22rem);line-height:.78;letter-spacing:-.01em;margin:0;white-space:nowrap}
+.ftr__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;margin-top:24px;border-top:1px solid var(--rule-dark);color:var(--mute-dark)}
+@media (max-width:899px){.ftr__cols{grid-template-columns:1fr 1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none;flex-wrap:wrap;width:auto}
+  .marquee ul[aria-hidden]{display:none}
+  .marquee ul{flex-wrap:wrap}
+  *{transition:none!important}
+}
+</style>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="Bâtir Est, accueil"><b>BÂTIR EST</b><span class="mono">57·54</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#metiers">Métiers</a>
+      <a href="realisation-maison-1930.html">Réalisation</a>
+      <a href="#methode">Méthode</a>
+      <a href="#infos">Zone & horaires</a>
+      <a class="btn btn--signal" href="#contact">Visite gratuite</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero dark" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero__meta mono"><span>Gros œuvre · Rénovation · Extension</span><span>Pont-à-Mousson — depuis 2009</span></div>
+    <h1 class="display" id="h1"><span class="ln"><span>On coule,</span></span><span class="ln"><span>on monte,</span></span><span class="ln"><span><em>on livre.</em></span></span></h1>
+    <div class="hero__stage">
+      <div class="hero__photo">
+        <img src="assets/img/hero-ferraillage.jpg" width="1800" height="1192" alt="Vue plongeante sur un plancher en cours de ferraillage, deux compagnons en gilet orange posent les armatures." fetchpriority="high">
+      </div>
+      <aside class="ticket" aria-label="Chantier en cours">
+        <header><span>Chantier en cours</span><span>N° 24-118</span></header>
+        <dl>
+          <div><dt>Commune</dt><dd>Laxou (54)</dd></div>
+          <div><dt>Ouvrage</dt><dd>Extension 38 m²</dd></div>
+          <div><dt>Lot</dt><dd>Dalle + élévation</dd></div>
+          <div><dt>Budget</dt><dd>71 300 € HT</dd></div>
+        </dl>
+        <div class="bar" role="img" aria-label="Avancement 6 semaines sur 11"><i></i></div>
+        <div class="barlbl">Semaine 06 / 11 — dans les temps</div>
+      </aside>
+    </div>
+    <div class="hero__pitch">
+      <p>Entreprise de maçonnerie et de rénovation lourde en Moselle et en Meurthe-et-Moselle. Nos équipes salariées tiennent un planning en semaines, un budget en € HT, et une garantie décennale sur chaque mur.</p>
+      <div class="hero__cta">
+        <a class="btn btn--signal" href="#contact">Demander une visite technique</a>
+        <a class="btn btn--line" href="realisation-maison-1930.html">Voir un chantier complet</a>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b data-count="312">312</b><span class="mono">chantiers livrés depuis 2009</span></div>
+      <div class="count"><b><span data-count="10">10</span><small>ans</small></b><span class="mono">garantie décennale sur le gros œuvre</span></div>
+      <div class="count"><b><span data-count="10">10</span><small>j</small></b><span class="mono">ouvrés pour un devis chiffré</span></div>
+      <div class="count"><b><span data-count="94">94</span><small>%</small></b><span class="mono">livrés à la semaine prévue (2025)</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-label="Communes où nous intervenons">
+  <div class="marquee__track">
+    <ul>
+      <li>Nancy<small>54</small></li><li>Metz<small>57</small></li><li>Pont-à-Mousson<small>54</small></li><li>Thionville<small>57</small></li><li>Toul<small>54</small></li><li>Lunéville<small>54</small></li><li>Montigny-lès-Metz<small>57</small></li><li>Vandœuvre<small>54</small></li><li>Woippy<small>57</small></li><li>Saint-Avold<small>57</small></li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Nancy<small>54</small></li><li>Metz<small>57</small></li><li>Pont-à-Mousson<small>54</small></li><li>Thionville<small>57</small></li><li>Toul<small>54</small></li><li>Lunéville<small>54</small></li><li>Montigny-lès-Metz<small>57</small></li><li>Vandœuvre<small>54</small></li><li>Woippy<small>57</small></li><li>Saint-Avold<small>57</small></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec" id="metiers" aria-labelledby="h-metiers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Ce qu'on fait nous-mêmes</span><h2 class="display" id="h-metiers">Cinq métiers,<br>zéro sous-traitance</h2></div>
+      <p>Les prix ci-dessous sont des fourchettes 2026 constatées sur nos chantiers, hors taxes, fournitures comprises. Le chiffre exact sort de la visite technique, pas d'un simulateur.</p>
+    </div>
+    <ul class="trades">
+      <li class="trade">
+        <h3>Gros œuvre &amp; maçonnerie</h3>
+        <p>Fondations, dalles, murs en blocs béton ou brique, chaînages, linteaux. Béton dosé à 350 kg/m³, étude béton armé incluse.</p>
+        <div><span class="k mono">Dalle portée</span><span class="v">95–140 € HT/m²</span></div>
+        <div><span class="k mono">Délai type</span><span class="v">3–6 sem.</span></div>
+      </li>
+      <li class="trade">
+        <h3>Rénovation globale</h3>
+        <p>Curage, reprise des planchers, redistribution, réseaux, isolation, finitions. Un seul interlocuteur du permis aux clés.</p>
+        <div><span class="k mono">Plateau rénové</span><span class="v">950–1 450 € HT/m²</span></div>
+        <div><span class="k mono">Délai type</span><span class="v">12–20 sem.</span></div>
+      </li>
+      <li class="trade">
+        <h3>Extension &amp; surélévation</h3>
+        <p>Extensions maçonnées ou ossature bois jusqu'à 40 m² en déclaration préalable. Raccord toiture et étanchéité compris.</p>
+        <div><span class="k mono">Extension clos-couvert</span><span class="v">1 750–2 300 € HT/m²</span></div>
+        <div><span class="k mono">Délai type</span><span class="v">9–14 sem.</span></div>
+      </li>
+      <li class="trade">
+        <h3>Ouverture de mur porteur</h3>
+        <p>Note de calcul, étaiement, pose de poutre IPN ou HEB, reprise des appuis. Copropriété : dossier syndic fourni.</p>
+        <div><span class="k mono">Forfait jusqu'à 4 m</span><span class="v">3 900–7 200 € HT</span></div>
+        <div><span class="k mono">Délai type</span><span class="v">1–2 sem.</span></div>
+      </li>
+      <li class="trade">
+        <h3>Isolation par l'extérieur</h3>
+        <p>ITE sous enduit, laine de roche ou fibre de bois 140 à 200 mm, R ≥ 3,7 m².K/W. Échafaudage et ravalement inclus.</p>
+        <div><span class="k mono">Façade isolée</span><span class="v">145–195 € HT/m²</span></div>
+        <div><span class="k mono">Délai type</span><span class="v">4–7 sem.</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="case dark" aria-labelledby="h-case">
+  <div class="wrap">
+    <div class="sec-head" style="padding-top:110px;margin-bottom:0">
+      <div><span class="mono">Réalisation détaillée</span><h2 class="display">Un chantier,<br>de bout en bout</h2></div>
+      <p>Budget lot par lot, planning semaine par semaine, matériaux posés. On publie tout, y compris les deux semaines de retard sur la menuiserie.</p>
+    </div>
+    <div class="case__grid">
+      <div class="case__media">
+        <figure><img src="assets/img/maison1930-curage.jpg" width="1000" height="665" loading="lazy" alt="Intérieur de la maison en cours de curage : cloisons ouvertes, briques apparentes, gravats au sol."><figcaption class="mono">S03 · curage</figcaption></figure>
+        <figure><img src="assets/img/maison1930-sejour.jpg" width="1000" height="1000" loading="lazy" alt="Séjour terminé, murs blancs, canapé ocre et tapis berbère."><figcaption class="mono">S16 · livraison</figcaption></figure>
+      </div>
+      <div class="case__body">
+        <div>
+          <span class="mono" style="color:var(--mute-dark)">Villers-lès-Nancy (54) — 2025</span>
+          <h3 class="display" id="h-case" style="margin-top:12px">Maison 1930</h3>
+        </div>
+        <p>Une maison de ville en meulière et brique, restée dans son jus depuis 1974. Reprise en sous-œuvre, trémie d'escalier, isolation complète et extension de 24 m² sur jardin.</p>
+        <div class="figs">
+          <div><b>166 m²</b><span class="mono">traités</span></div>
+          <div><b>16 sem.</b><span class="mono">de chantier</span></div>
+          <div><b>212 k€</b><span class="mono">HT, tous lots</span></div>
+        </div>
+        <a class="btn btn--line" href="realisation-maison-1930.html" style="align-self:flex-start">Lire l'étude de cas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec method" id="methode" aria-labelledby="h-method">
+  <div class="wrap">
+    <span class="mono" style="color:var(--mute);display:block;margin-bottom:18px">Méthode</span>
+    <h2 class="method__lede" id="h-method">Un chantier, c'est un planning tenu. <span>Le reste se discute.</span></h2>
+    <ol class="steps">
+      <li class="step"><span class="wk">S−4</span><h3>Visite technique</h3><p>Un conducteur de travaux vient chez vous, sonde les murs, relève les cotes. 1 h 30, gratuite.</p></li>
+      <li class="step"><span class="wk">S−3</span><h3>Devis par lot</h3><p>Sous 10 jours ouvrés : quantités, prix unitaires en € HT, attestation décennale jointe.</p></li>
+      <li class="step"><span class="wk">S−2</span><h3>Planning signé</h3><p>Diagramme semaine par semaine. Acompte de 30 %, puis situations mensuelles au réel.</p></li>
+      <li class="step"><span class="wk">S0 → Sn</span><h3>Chantier</h3><p>Chef d'équipe dédié, photo-journal chaque vendredi, réunion sur site toutes les deux semaines.</p></li>
+      <li class="step"><span class="wk">Sn+1</span><h3>Réception</h3><p>PV contradictoire, levée des réserves sous 30 jours, DOE et garanties remis en main propre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec journal" aria-labelledby="h-journal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Journal de chantier</span><h2 class="display" id="h-journal">Vu du terrain</h2></div>
+      <p>Chaque vendredi, le chef d'équipe envoie cinq photos au client. Voici quelques extraits, sans retouche.</p>
+    </div>
+    <div class="collage">
+      <figure class="shot shot--a" tabindex="0"><img src="assets/img/voiles-beton.jpg" width="1000" height="728" loading="lazy" alt="Compagnons sur des cages d'armatures verticales avant coulage des voiles."><figcaption class="mono"><span>S04 · Metz-Borny</span><b>Armatures des voiles, avant coulage</b></figcaption></figure>
+      <figure class="shot shot--b" tabindex="0"><img src="assets/img/charpente.jpg" width="1000" height="667" loading="lazy" alt="Charpentier casqué traçant une coupe sur une poutre en bois."><figcaption class="mono"><span>S07 · Toul</span><b>Débit des solives d'extension</b></figcaption></figure>
+      <figure class="shot shot--c" tabindex="0"><img src="assets/img/isolation.jpg" width="1000" height="668" loading="lazy" alt="Pose de laine minérale entre montants d'ossature."><figcaption class="mono"><span>S09 · Laxou</span><b>Isolation des rampants</b></figcaption></figure>
+      <figure class="shot shot--d" tabindex="0"><img src="assets/img/equipe-dalle.jpg" width="1000" height="667" loading="lazy" alt="Équipe en gilets de sécurité sur une dalle, réseaux en attente au sol."><figcaption class="mono"><span>S02 · Thionville</span><b>Réception des réseaux sous dallage</b></figcaption></figure>
+      <figure class="shot shot--e" tabindex="0"><img src="assets/img/electricite.jpg" width="1000" height="668" loading="lazy" alt="Électricien casqué contrôlant un tableau avec un testeur."><figcaption class="mono"><span>S12 · Nancy</span><b>Contrôle du tableau avant Consuel</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-avis">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono">Ils ont signé la réception</span><h2 class="display" id="h-avis">Ce qu'en disent<br>les clients</h2></div>
+      <p>Retours recueillis après la levée des réserves, pas avant.</p>
+    </div>
+    <div class="proofs">
+      <article class="proof"><blockquote>Le planning prévoyait 11 semaines, on a eu les clés la 11e. Le chef d'équipe nous envoyait ses photos chaque vendredi, on savait toujours où on en était.</blockquote><footer class="mono"><b>Hélène M.</b><span>Extension · Laxou</span></footer></article>
+      <article class="proof"><blockquote>Mur porteur ouvert sur 3,60 m en copropriété. Ils ont monté le dossier pour le syndic, l'étaiement a tenu deux jours, zéro fissure chez le voisin.</blockquote><footer class="mono"><b>Karim B.</b><span>Ouverture · Metz</span></footer></article>
+      <article class="proof"><blockquote>Devis le plus détaillé des trois reçus, et pas le moins cher. À l'arrivée, l'écart avec la facture finale : 1,8 %, expliqué ligne par ligne.</blockquote><footer class="mono"><b>Sophie L.</b><span>Rénovation · Toul</span></footer></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="infos" style="padding-top:0" aria-labelledby="h-infos">
+  <div class="wrap">
+    <div class="sec-head" style="border-bottom:0;padding-bottom:28px">
+      <div><span class="mono">Infos pratiques</span><h2 class="display" id="h-infos">Zone, horaires,<br>assurances</h2></div>
+      <p>Dépôt et bureau à Pont-à-Mousson, à mi-chemin entre Metz et Nancy. Nous intervenons dans un rayon de 60 km.</p>
+    </div>
+    <div class="infos">
+      <div class="info">
+        <h3>Zone</h3>
+        <div class="deps" aria-label="Départements 57 et 54"><span>57</span><span>54</span></div>
+        <p>Moselle et Meurthe-et-Moselle, rayon 60 km autour de Pont-à-Mousson. Au-delà : chantiers de plus de 150 k€ HT uniquement.</p>
+      </div>
+      <div class="info">
+        <h3>Horaires</h3>
+        <table>
+          <tr><td>Bureau, lun.–ven.</td><td>7h30–17h30</td></tr>
+          <tr><td>Chantiers, lun.–ven.</td><td>7h30–16h30</td></tr>
+          <tr><td>Samedi</td><td>visites sur RDV</td></tr>
+          <tr><td>Urgence étaiement</td><td>sous 48 h</td></tr>
+        </table>
+      </div>
+      <div class="info">
+        <h3>Assurances</h3>
+        <table>
+          <tr><td>Garantie décennale</td><td>gros œuvre + second œuvre</td></tr>
+          <tr><td>Responsabilité civile pro</td><td>jusqu'à 3 M€</td></tr>
+          <tr><td>Parfait achèvement</td><td>1 an</td></tr>
+          <tr><td>Bon fonctionnement</td><td>2 ans</td></tr>
+        </table>
+        <p style="margin-top:14px">Attestations à jour jointes à chaque devis.</p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <details><summary>Faites-vous les petits chantiers ?</summary><p>Oui à partir de 8 000 € HT. En dessous, nous vous orientons vers un artisan du secteur avec qui nous travaillons régulièrement.</p></details>
+      <details><summary>Qui dépose le permis ou la déclaration préalable ?</summary><p>Nous montons le dossier (plans, notice, insertion) avec un dessinateur partenaire, forfait 1 200 € HT. Au-delà de 150 m² de surface de plancher, un architecte est obligatoire : nous travaillons avec trois cabinets lorrains.</p></details>
+      <details><summary>Comment sont gérés les imprévus ?</summary><p>Tout travail supplémentaire fait l'objet d'un avenant chiffré, signé avant exécution. Sur nos 40 derniers chantiers, les avenants représentent en moyenne 4,2 % du marché initial.</p></details>
+      <details><summary>Êtes-vous éligibles aux aides à la rénovation ?</summary><p>Pour l'isolation et la rénovation d'ampleur, nos devis sont rédigés au format attendu par les accompagnateurs. Nous vous indiquons lors de la visite les lots concernés.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" id="contact" aria-labelledby="h-contact">
+  <div class="wrap contact">
+    <div>
+      <h2 class="display" id="h-contact">Parlons <em>chantier.</em></h2>
+      <p class="lead">Décrivez votre projet en quatre lignes. Un conducteur de travaux vous rappelle sous 48 h pour caler la visite technique.</p>
+      <div class="direct">03 83 47 21 90<br>chantiers@batir-est.exemple.fr<br>ZA du Breuil, 54700 Pont-à-Mousson</div>
+    </div>
+    <form class="form" id="form" novalidate>
+      <label>Nom<input name="nom" autocomplete="name" required></label>
+      <label>Commune du chantier<input name="commune" required placeholder="ex. Woippy"></label>
+      <label>Type de travaux
+        <select name="type"><option>Rénovation globale</option><option>Extension / surélévation</option><option>Gros œuvre neuf</option><option>Ouverture de mur porteur</option><option>Isolation par l'extérieur</option></select>
+      </label>
+      <label>Surface concernée (m²)<input name="surface" inputmode="numeric" placeholder="ex. 45"></label>
+      <label class="full">Téléphone ou email<input name="contact" required></label>
+      <label class="full">Le projet en quelques lignes<textarea name="msg" placeholder="Maison de 1960, on veut ouvrir la cuisine sur le séjour…"></textarea></label>
+      <button class="btn btn--signal" type="submit">Demander la visite
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div class="form-ok" id="form-ok" role="status" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__cols">
+      <div><h4 class="mono">Pages</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="realisation-maison-1930.html">Réalisation : maison 1930</a></li><li><a href="#contact">Demander une visite</a></li></ul></div>
+      <div><h4 class="mono">Métiers</h4><ul><li>Gros œuvre</li><li>Rénovation globale</li><li>Extension</li><li>ITE</li></ul></div>
+      <div><h4 class="mono">Contact</h4><ul><li>03 83 47 21 90</li><li>chantiers@batir-est.exemple.fr</li></ul></div>
+      <div><h4 class="mono">Société</h4><ul><li>SAS au capital de 80 000 €</li><li>Décennale n° fictif BE-0912</li><li>22 salariés</li></ul></div>
+    </div>
+    <p class="wordmark" aria-hidden="true">Bâtir Est</p>
+    <div class="ftr__legal mono"><span>© 2026 Bâtir Est — entreprise fictive</span><span>Contenu de démonstration · maquette 1903RGB</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var burger=document.querySelector('.burger'), nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('is-open');burger.setAttribute('aria-expanded',o);burger.textContent=o?'Fermer':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false');burger.textContent='Menu';}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){nav.classList.remove('is-open');burger.setAttribute('aria-expanded','false');burger.textContent='Menu';burger.focus();}});
+
+  var form=document.getElementById('form'), ok=document.getElementById('form-ok');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var miss=[].filter.call(form.querySelectorAll('[required]'),function(i){return !i.value.trim();});
+    if(miss.length){miss[0].focus();ok.hidden=false;ok.innerHTML='<b>Il manque une info</b>Nom, commune et un moyen de vous joindre suffisent.';return;}
+    ok.hidden=false;ok.innerHTML='<b>Demande reçue</b>Un conducteur de travaux vous rappelle sous 48 h ouvrées pour fixer la visite à '+form.commune.value.replace(/[<>&]/g,'')+'. (Maquette : rien n’a été envoyé.)';
+    form.querySelector('button').disabled=true;
+  });
+
+  if(!window.gsap) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){
+    var lenis=new Lenis({lerp:.12});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-60});}});});
+  }
+  var tl=gsap.timeline({defaults:{ease:'power4.out'}});
+  tl.from('.hero h1 .ln > span',{yPercent:105,duration:.9,stagger:.12})
+    .from('.hero__photo img',{scale:1.12,duration:1.4,ease:'power2.out'},'<')
+    .from('.ticket',{x:40,autoAlpha:0,duration:.6},'-=1')
+    .from('.ticket .bar i',{scaleX:0,transformOrigin:'0 50%',duration:.9},'-=.3');
+
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var end=+el.dataset.count, o={v:0};
+    gsap.to(o,{v:end,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true},onUpdate:function(){el.textContent=Math.round(o.v);}});
+  });
+  gsap.utils.toArray('.sec-head h2, .method__lede').forEach(function(h){
+    gsap.from(h,{y:50,autoAlpha:0,duration:.7,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}});
+  });
+  gsap.utils.toArray('.trade, .step, .proof, .info').forEach(function(el){
+    gsap.from(el,{y:30,autoAlpha:0,duration:.6,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+  });
+  gsap.utils.toArray('.shot img').forEach(function(img,i){
+    gsap.fromTo(img,{yPercent:-3,scale:1.08},{yPercent:3,scale:1.08,ease:'none',scrollTrigger:{trigger:img.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body></html>

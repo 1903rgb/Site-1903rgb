@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nos pains et précommande — Maison Fournil, Nancy</title>
+<meta name="description" content="Catalogue des pains au levain de Maison Fournil et précommande click & collect. Fournées à 6h30, 11h et 16h, rue Saint-Dizier à Nancy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --farine:#ECE5D8;
+  --farine-2:#E2D9C8;
+  --mie:#F6F1E7;
+  --croute:#2A1C13;
+  --croute-2:#5E4A3A;
+  --croute-3:#8B7663;
+  --ligne:rgba(42,28,19,.16);
+  --ligne-fort:rgba(42,28,19,.32);
+  --ble:#B47B10;
+  --ble-texte:#875A06;
+  --four:#1F150E;
+  --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --max:1320px;
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--farine);color:var(--croute);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ble);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:clamp(var(--gut),4vw,56px);padding-right:clamp(var(--gut-r),4vw,56px)}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em}
+.skip{position:absolute;left:-999px;top:0;background:var(--croute);color:var(--mie);padding:10px 14px;z-index:100}
+.skip:focus{left:16px;top:16px}
+
+/* grain de farine : bruit très léger sur le fond */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .2  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+main,header,footer{position:relative;z-index:1}
+
+/* header */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(236,229,216,.88);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--ligne)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.02em;font-stretch:80%;font-variation-settings:"wdth" 80}
+@media (max-width:480px){.logo small{display:none}}
+.logo small{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.04em;color:var(--croute-3);font-stretch:100%}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15px;color:var(--croute-2);padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--croute);border-color:var(--croute)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--f-body);text-decoration:none;padding:15px 20px;border-radius:var(--r);border:1px solid var(--croute);background:var(--croute);color:var(--mie);cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:hover{background:var(--four);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--croute)}
+.btn.ghost:hover{background:var(--croute);color:var(--mie)}
+.btn svg{width:16px;height:16px}
+.nav .btn{padding:11px 16px;color:var(--mie);border-bottom:1px solid var(--croute)}
+.nav .btn:hover{color:var(--mie)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--ligne-fort);background:transparent;border-radius:var(--r);cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1.5px;background:var(--croute);position:relative;transition:transform .25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--croute);transition:transform .25s,top .25s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:68px;flex-direction:column;align-items:stretch;gap:0;background:var(--mie);border-bottom:1px solid var(--ligne);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:16px 0;border-bottom:1px solid var(--ligne);font-size:18px}
+  .nav .btn{margin-top:16px;justify-content:center;padding:16px}
+}
+
+/* status dot (fournée en cours) */
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ble);display:inline-block;box-shadow:0 0 0 0 rgba(180,123,16,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(180,123,16,.45)}70%{box-shadow:0 0 0 9px rgba(180,123,16,0)}100%{box-shadow:0 0 0 0 rgba(180,123,16,0)}}
+
+/* titres */
+.h-xl{font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;letter-spacing:-.012em;word-spacing:.04em;line-height:.9;margin:0}
+.h-l{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 80;font-stretch:80%;letter-spacing:-.03em;line-height:.95;font-size:clamp(40px,5.6vw,84px);margin:0}
+.h-m{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 85;font-stretch:85%;letter-spacing:-.02em;line-height:1.02;font-size:clamp(24px,2.4vw,34px);margin:0}
+.kicker{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--croute-2);margin:0 0 22px}
+.lede{font-size:clamp(17px,1.35vw,20px);color:var(--croute-2);max-width:36ch}
+.word-mask{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.word{display:inline-block;will-change:transform}
+
+/* tableau de fournée */
+.board{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ligne-fort);border-radius:var(--r);background:rgba(246,241,231,.6)}
+.slot{padding:16px 18px;border-left:1px solid var(--ligne)}
+.slot:first-child{border-left:0}
+.slot b{display:block;font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;font-size:34px;letter-spacing:-.02em;line-height:1}
+.slot span{display:block;font-family:var(--f-mono);font-size:11.5px;color:var(--croute-2);margin-top:6px}
+.slot.next{background:var(--croute);color:var(--mie)}
+.slot.next span{color:#D9CBB6}
+.slot.done b{color:var(--croute-3);text-decoration:line-through;text-decoration-thickness:2px}
+.board-cap{display:flex;align-items:center;gap:10px;margin-top:12px;font-family:var(--f-mono);font-size:12.5px;color:var(--croute-2)}
+
+/* footer */
+.ft{background:var(--four);color:#D9CBB6;padding:72px 0 calc(32px + env(safe-area-inset-bottom,0px));margin-top:0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:1px solid rgba(217,203,182,.18)}
+.ft .logo{color:var(--mie);font-size:40px}
+.ft h3{font-family:var(--f-mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#A8957E;margin:0 0 14px}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.ft a{text-decoration:none;color:#EDE2D1}
+.ft a:hover{text-decoration:underline}
+.ft-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-family:var(--f-mono);font-size:11.5px;color:#A8957E}
+@media (max-width:860px){.ft-grid{grid-template-columns:1fr 1fr}.ft-grid>:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------- nos pains ---------- */
+.ph{padding:clamp(36px,6vw,80px) 0 40px;border-bottom:1px solid var(--ligne)}
+.ph-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:end}
+.ph h1{font-size:clamp(54px,7.4vw,116px)}
+.ph .lede{margin:24px 0 0}
+@media (max-width:900px){.ph-grid{grid-template-columns:1fr}}
+
+.shop{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(24px,4vw,56px);align-items:start;padding-top:40px;padding-bottom:clamp(72px,9vw,120px)}
+@media (max-width:1020px){.shop{grid-template-columns:1fr}}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.chip{font:500 14px/1 var(--f-body);padding:10px 14px;border:1px solid var(--ligne-fort);background:transparent;color:var(--croute);border-radius:2px;cursor:pointer;transition:background .2s,color .2s}
+.chip:hover{background:var(--mie)}
+.chip[aria-pressed="true"]{background:var(--croute);color:var(--mie);border-color:var(--croute)}
+.chip .n{font-family:var(--f-mono);font-size:11px;opacity:.7;margin-left:4px}
+
+.cat-group{margin-top:40px}
+.cat-group > h2{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--croute);padding-bottom:12px;margin:0}
+.cat-group > h2 small{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--croute-2);letter-spacing:0}
+.item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:12px 20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--ligne);scroll-margin-top:90px;transition:opacity .25s}
+.item .ph-img{width:96px;height:96px;border-radius:2px;overflow:hidden;background:var(--farine-2);display:flex;align-items:center;justify-content:center}
+.item .ph-img img{width:100%;height:100%;object-fit:cover}
+.item .ph-img span{font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;font-size:30px;color:var(--croute-3);letter-spacing:-.03em}
+.item h3{font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 85;font-stretch:85%;font-size:clamp(21px,1.8vw,26px);letter-spacing:-.02em;line-height:1.05;margin:0}
+.item .desc{margin:4px 0 10px;font-size:14.5px;color:var(--croute-2)}
+.specs{display:flex;flex-wrap:wrap;gap:6px}
+.spec{font-family:var(--f-mono);font-size:11.5px;padding:4px 7px;border:1px solid var(--ligne);border-radius:2px;background:rgba(246,241,231,.6);white-space:nowrap}
+.spec.slot-s{border-color:var(--ligne-fort)}
+.buy{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.buy .price{font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:-.02em}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--ligne-fort);border-radius:2px;background:var(--mie)}
+.qty button{width:38px;height:38px;border:0;background:transparent;color:var(--croute);font:500 18px/1 var(--f-mono);cursor:pointer}
+.qty button:hover:not(:disabled){background:var(--farine-2)}
+.qty button:disabled{color:var(--croute-3);cursor:not-allowed}
+.qty output{min-width:30px;text-align:center;font-family:var(--f-mono);font-size:14px}
+.item.has-qty .qty{border-color:var(--croute);box-shadow:inset 0 0 0 1px var(--croute)}
+.item .off-note{display:none;font-family:var(--f-mono);font-size:11px;color:var(--ble-texte);text-align:right;max-width:16ch}
+.item.off{opacity:.45}
+.item.off .off-note{display:block}
+.item[hidden]{display:none}
+@media (max-width:560px){
+  .item{grid-template-columns:72px minmax(0,1fr);grid-template-areas:"i t" "b b"}
+  .item .ph-img{width:72px;height:72px;grid-area:i;align-self:start}
+  .item .txt{grid-area:t}
+  .buy{grid-area:b;flex-direction:row;justify-content:space-between;align-items:center}
+  .item .off-note{text-align:left}
+}
+
+/* panneau précommande */
+.order{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));background:var(--mie);border:1px solid var(--ligne-fort);border-radius:var(--r);scroll-margin-top:84px}
+.order-h{padding:22px 24px 18px;border-bottom:1px solid var(--ligne)}
+.order-h h2{font-size:30px}
+.order-b{padding:20px 24px}
+.order fieldset{border:0;margin:0 0 20px;padding:0}
+.order legend,.order label.lbl{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--croute-2);margin-bottom:8px}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slots label{position:relative;cursor:pointer}
+.slots input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.slots span{display:block;text-align:center;padding:12px 4px;border:1px solid var(--ligne-fort);border-radius:2px;font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 75;font-stretch:75%;font-size:22px;line-height:1;transition:background .2s,color .2s}
+.slots span small{display:block;font-family:var(--f-mono);font-weight:400;font-size:10.5px;margin-top:5px;color:var(--croute-2);font-stretch:100%}
+.slots input:checked + span{background:var(--croute);color:var(--mie);border-color:var(--croute)}
+.slots input:checked + span small{color:#D9CBB6}
+.slots input:focus-visible + span{outline:2px solid var(--ble);outline-offset:2px}
+.field{margin-bottom:14px}
+.field input,.field select{width:100%;font:16px var(--f-body);color:var(--croute);background:var(--farine);border:1px solid var(--ligne-fort);border-radius:2px;padding:12px 12px}
+.field input:focus,.field select:focus{outline:none;border-color:var(--croute);box-shadow:0 0 0 1px var(--croute)}
+.field input[aria-invalid="true"]{border-color:#9B2C1C;box-shadow:0 0 0 1px #9B2C1C}
+.err{display:block;font-size:13px;color:#9B2C1C;margin-top:6px;min-height:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lines{list-style:none;margin:0 0 14px;padding:0;font-size:14.5px}
+.lines li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--ligne)}
+.lines li span:last-child{font-family:var(--f-mono);font-size:13px}
+.lines .empty{color:var(--croute-3);border:0;font-size:14px}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 18px;border-top:1px solid var(--croute)}
+.total b{font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:-.02em}
+.order .btn{width:100%;justify-content:center}
+.order .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.note{font-family:var(--f-mono);font-size:11.5px;color:var(--croute-2);margin:12px 0 0}
+.confirm{display:none;padding:24px}
+.confirm.show{display:block}
+.confirm h3{font-size:30px;margin:10px 0 10px}
+.confirm p{margin:0 0 8px;color:var(--croute-2)}
+.confirm .ticket{margin:16px 0;padding:14px;border:1px dashed var(--croute);font-family:var(--f-mono);font-size:13px;line-height:1.7}
+
+/* barre mobile */
+.mbar{display:none}
+@media (max-width:1020px){
+  .order{position:relative;top:0}
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px var(--gut-r) calc(12px + env(safe-area-inset-bottom,0px)) var(--gut);background:var(--croute);color:var(--mie);transform:translateY(110%);transition:transform .3s}
+  .mbar.show{transform:none}
+  .mbar span{font-family:var(--f-mono);font-size:13px}
+  .mbar a{color:var(--croute);background:var(--mie);border-color:var(--mie);padding:12px 16px}
+}
+
+/* rappel fournées */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:8px}
+.rules div{padding:20px 20px 0 0}
+.rules div + div{padding-left:20px;border-left:1px solid var(--ligne)}
+.rules h3{margin-bottom:8px;font-size:22px}
+.rules p{margin:0;font-size:15px;color:var(--croute-2)}
+@media (max-width:760px){.rules{grid-template-columns:1fr}.rules div,.rules div + div{padding:18px 0;border-left:0;border-bottom:1px solid var(--ligne)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Maison Fournil, accueil">Maison Fournil <small>Nancy · depuis 2019</small></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="nos-pains.html" aria-current="page">Nos pains</a>
+      <a href="index.html#fournee">Fournée du jour</a>
+      <a href="index.html#atelier">L'atelier</a>
+      <a href="index.html#infos">Horaires</a>
+      <a class="btn" href="#precommande">Précommander</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="ph">
+    <div class="wrap ph-grid">
+      <div>
+        <p class="kicker"><span class="dot" aria-hidden="true"></span>Catalogue &amp; click &amp; collect</p>
+        <h1 class="h-xl" data-masked-reveal data-hero>Nos pains, fournée par fournée.</h1>
+        <p class="lede">Choisissez l'heure de sortie du four, composez votre panier, payez au comptoir. Commande avant 22h pour le lendemain.</p>
+      </div>
+      <div>
+        <div class="board" data-board aria-label="Horaires de sortie du four">
+          <div class="slot"><b>6h30</b><span>Miches, tradition, viennoiseries</span></div>
+          <div class="slot"><b>11h00</b><span>Seigle, graines, fougasses</span></div>
+          <div class="slot"><b>16h00</b><span>Tradition, pain du soir</span></div>
+        </div>
+        <p class="board-cap"><span class="dot" aria-hidden="true"></span><span data-board-cap aria-live="polite">Trois fournées du mardi au samedi, une le dimanche à 6h30.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap shop">
+    <div>
+      <div class="filters" role="group" aria-label="Filtrer le catalogue">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Tout <span class="n">14</span></button>
+        <button class="chip" type="button" data-filter="levain" aria-pressed="false">Levain froment <span class="n">8</span></button>
+        <button class="chip" type="button" data-filter="seigle" aria-pressed="false">Seigle &amp; méteil <span class="n">3</span></button>
+        <button class="chip" type="button" data-filter="vienn" aria-pressed="false">Viennoiseries <span class="n">3</span></button>
+      </div>
+      
+      <section class="cat-group" data-cat="levain" aria-label="Levain froment">
+        <h2 class="h-m">Levain froment <small>levain liquide nourri 2×/jour</small></h2>
+        <article class="item" id="miche" data-name="Miche de campagne" data-price="790" data-slots="0630">
+          <span class="ph-img"><img src="assets/img/hero-miche.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Miche de campagne</h3><p class="desc">T80 de meule, croûte épaisse, se garde 5 jours</p><div class="specs"><span class="spec">1 000 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 78 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">7,90 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Miche de campagne"><button type="button" data-d="-1" aria-label="Retirer un Miche de campagne">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Miche de campagne">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="demi-miche" data-name="Demi-miche" data-price="410" data-slots="0630">
+          <span class="ph-img" aria-hidden="true"><span>500<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Demi-miche</h3><p class="desc">La même, pour deux</p><div class="specs"><span class="spec">500 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 78 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">4,10 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Demi-miche"><button type="button" data-d="-1" aria-label="Retirer un Demi-miche">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Demi-miche">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="tradition" data-name="Baguette tradition" data-price="140" data-slots="0630 1600">
+          <span class="ph-img"><img src="assets/img/pain-tranche.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Baguette tradition</h3><p class="desc">Pointage 18 h au froid, façonnée à la main</p><div class="specs"><span class="spec">250 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 72 %</span><span class="spec slot-s">sortie 6h30 · 16h00</span></div></div>
+          <div class="buy">
+            <span class="price">1,40 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Baguette tradition"><button type="button" data-d="-1" aria-label="Retirer un Baguette tradition">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Baguette tradition">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="complet" data-name="Pain complet T150" data-price="620" data-slots="0630">
+          <span class="ph-img"><img src="assets/img/tranches.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Pain complet T150</h3><p class="desc">Farine intégrale, mie brune et humide</p><div class="specs"><span class="spec">750 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 82 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">6,20 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Pain complet T150"><button type="button" data-d="-1" aria-label="Retirer un Pain complet T150">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Pain complet T150">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="epeautre" data-name="Petit épeautre" data-price="680" data-slots="1100">
+          <span class="ph-img" aria-hidden="true"><span>600<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Petit épeautre</h3><p class="desc">Petit épeautre de Haute-Provence, goût de noisette</p><div class="specs"><span class="spec">600 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 75 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">6,80 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Petit épeautre"><button type="button" data-d="-1" aria-label="Retirer un Petit épeautre">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Petit épeautre">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="graines" data-name="Pain aux graines" data-price="490" data-slots="1100">
+          <span class="ph-img"><img src="assets/img/graines.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Pain aux graines</h3><p class="desc">Tournesol, lin brun, sésame torréfiés la veille</p><div class="specs"><span class="spec">500 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 80 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">4,90 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Pain aux graines"><button type="button" data-d="-1" aria-label="Retirer un Pain aux graines">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Pain aux graines">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="fougasse" data-name="Fougasse olives & thym" data-price="420" data-slots="1100">
+          <span class="ph-img" aria-hidden="true"><span>300<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Fougasse olives & thym</h3><p class="desc">Olives de Nyons, huile d'olive, cuite en premier</p><div class="specs"><span class="spec">300 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 80 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">4,20 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Fougasse olives & thym"><button type="button" data-d="-1" aria-label="Retirer un Fougasse olives & thym">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Fougasse olives & thym">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="soir" data-name="Bâtard du soir" data-price="290" data-slots="1600">
+          <span class="ph-img" aria-hidden="true"><span>400<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Bâtard du soir</h3><p class="desc">Croûte fine, pour le dîner et le petit-déjeuner</p><div class="specs"><span class="spec">400 g</span><span class="spec">levain 100 %</span><span class="spec">pâte 74 %</span><span class="spec slot-s">sortie 16h00</span></div></div>
+          <div class="buy">
+            <span class="price">2,90 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Bâtard du soir"><button type="button" data-d="-1" aria-label="Retirer un Bâtard du soir">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Bâtard du soir">+</button></div>
+          </div>
+        </article>
+      </section>
+      <section class="cat-group" data-cat="seigle" aria-label="Seigle & méteil">
+        <h2 class="h-m">Seigle & méteil <small>levain de seigle à 80 %</small></h2>
+        <article class="item" id="seigle" data-name="Tourte de seigle" data-price="720" data-slots="1100">
+          <span class="ph-img"><img src="assets/img/grigne.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Tourte de seigle</h3><p class="desc">Seigle T130, mie dense et acidulée</p><div class="specs"><span class="spec">800 g</span><span class="spec">levain 80 %</span><span class="spec">pâte 85 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">7,20 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Tourte de seigle"><button type="button" data-d="-1" aria-label="Retirer un Tourte de seigle">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Tourte de seigle">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="meteil" data-name="Méteil" data-price="560" data-slots="1100">
+          <span class="ph-img" aria-hidden="true"><span>600<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Méteil</h3><p class="desc">Moitié seigle, moitié froment</p><div class="specs"><span class="spec">600 g</span><span class="spec">levain 80 %</span><span class="spec">pâte 80 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">5,60 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Méteil"><button type="button" data-d="-1" aria-label="Retirer un Méteil">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Méteil">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="seigle-noix" data-name="Seigle aux noix" data-price="590" data-slots="1100">
+          <span class="ph-img" aria-hidden="true"><span>400<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Seigle aux noix</h3><p class="desc">Noix de Grenoble, à couper fin pour le fromage</p><div class="specs"><span class="spec">400 g</span><span class="spec">levain 80 %</span><span class="spec">pâte 82 %</span><span class="spec slot-s">sortie 11h00</span></div></div>
+          <div class="buy">
+            <span class="price">5,90 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Seigle aux noix"><button type="button" data-d="-1" aria-label="Retirer un Seigle aux noix">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Seigle aux noix">+</button></div>
+          </div>
+        </article>
+      </section>
+      <section class="cat-group" data-cat="vienn" aria-label="Viennoiseries">
+        <h2 class="h-m">Viennoiseries <small>pâte levée feuilletée</small></h2>
+        <article class="item" id="croissant" data-name="Croissant" data-price="150" data-slots="0630">
+          <span class="ph-img"><img src="assets/img/croissants.jpg" alt="" loading="lazy" width="96" height="96"></span>
+          <div class="txt"><h3>Croissant</h3><p class="desc">Beurre AOP Charentes-Poitou, 27 couches</p><div class="specs"><span class="spec">70 g</span><span class="spec">levain dur 55 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">1,50 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Croissant"><button type="button" data-d="-1" aria-label="Retirer un Croissant">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Croissant">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="pain-choc" data-name="Pain au chocolat" data-price="170" data-slots="0630">
+          <span class="ph-img" aria-hidden="true"><span>80<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Pain au chocolat</h3><p class="desc">Deux bâtons de chocolat noir 64 %</p><div class="specs"><span class="spec">80 g</span><span class="spec">levain dur 55 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">1,70 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Pain au chocolat"><button type="button" data-d="-1" aria-label="Retirer un Pain au chocolat">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Pain au chocolat">+</button></div>
+          </div>
+        </article>
+        <article class="item" id="brioche" data-name="Brioche Nanteuil" data-price="890" data-slots="0630">
+          <span class="ph-img" aria-hidden="true"><span>450<small style="font-size:14px">g</small></span></span>
+          <div class="txt"><h3>Brioche Nanteuil</h3><p class="desc">Brioche au levain, beurre et œufs fermiers, à partager</p><div class="specs"><span class="spec">450 g</span><span class="spec">levain dur 55 %</span><span class="spec slot-s">sortie 6h30</span></div></div>
+          <div class="buy">
+            <span class="price">8,90 €</span>
+            <span class="off-note">pas à cette fournée</span>
+            <div class="qty" role="group" aria-label="Quantité Brioche Nanteuil"><button type="button" data-d="-1" aria-label="Retirer un Brioche Nanteuil">−</button><output aria-live="polite">0</output><button type="button" data-d="1" aria-label="Ajouter un Brioche Nanteuil">+</button></div>
+          </div>
+        </article>
+      </section>
+
+      <div class="cat-group">
+        <h2 class="h-m">Comment ça marche</h2>
+        <div class="rules">
+          <div><h3 class="h-m">Avant 22h</h3><p>Commande pour le lendemain. Le jour même, jusqu'à 2 h avant la fournée choisie, dans la limite du four.</p></div>
+          <div><h3 class="h-m">Au comptoir</h3><p>Votre sac est prêt à votre nom, à droite de la caisse. Paiement carte, espèces ou titre-restaurant.</p></div>
+          <div><h3 class="h-m">Pas venu ?</h3><p>Le pain reste à vous jusqu'à la fermeture. Ensuite, il part en pain perdu ou à une association du quartier.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="order" id="precommande" aria-labelledby="order-t">
+      <form id="order-form" novalidate>
+        <div class="order-h">
+          <p class="kicker" style="margin-bottom:8px">Précommande</p>
+          <h2 class="h-m" id="order-t">Mon sac à pain</h2>
+        </div>
+        <div class="order-b">
+          <fieldset>
+            <legend>Sortie du four</legend>
+            <div class="slots">
+              <label><input type="radio" name="slot" value="0630" checked><span>6h30<small>miches</small></span></label>
+              <label><input type="radio" name="slot" value="1100"><span>11h00<small>seigle</small></span></label>
+              <label><input type="radio" name="slot" value="1600"><span>16h00<small>soir</small></span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label class="lbl" for="jour">Jour de retrait</label>
+            <select id="jour" name="jour"></select>
+          </div>
+          <ul class="lines" aria-live="polite"><li class="empty">Ajoutez des pains avec les boutons +.</li></ul>
+          <div class="total"><span>Total à régler au comptoir</span><b data-total>0,00 €</b></div>
+          <div class="two">
+            <div class="field">
+              <label class="lbl" for="nom">Nom</label>
+              <input id="nom" name="nom" autocomplete="family-name" placeholder="Martin">
+              <span class="err" id="nom-err"></span>
+            </div>
+            <div class="field">
+              <label class="lbl" for="tel">Téléphone</label>
+              <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+              <span class="err" id="tel-err"></span>
+            </div>
+          </div>
+          <button class="btn" type="submit" disabled>Réserver ma fournée</button>
+          <p class="note">Aucun paiement en ligne. Annulation possible par téléphone jusqu'à 20h la veille.</p>
+        </div>
+      </form>
+      <div class="confirm" role="status" tabindex="-1">
+        <p class="kicker" style="margin:0"><span class="dot" aria-hidden="true"></span>Réservation enregistrée</p>
+        <h3 class="h-m">C'est noté, on enfourne.</h3>
+        <div class="ticket" data-ticket></div>
+        <p>Un SMS de rappel part la veille à 19h. Ceci est une démonstration : aucune commande n'a été transmise.</p>
+        <button class="btn ghost" type="button" data-again style="margin-top:12px">Nouvelle commande</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div class="mbar" aria-hidden="true"><span data-mbar>0 article · 0,00 €</span><a class="btn" href="#precommande" tabindex="-1">Voir mon sac</a></div>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="logo" href="index.html">Maison Fournil</a>
+        <p style="max-width:34ch;margin:16px 0 0;font-size:15px">Boulangerie-pâtisserie au levain naturel. Farines de meule, four à sole, trois fournées par jour.</p>
+      </div>
+      <div>
+        <h3>Le fournil</h3>
+        <ul>
+          <li><a href="nos-pains.html">Nos pains</a></li>
+          <li><a href="nos-pains.html#precommande">Précommande</a></li>
+          <li><a href="index.html#atelier">L'atelier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Fournées</h3>
+        <ul class="mono" style="font-size:13px">
+          <li>6h30 · mar → dim</li>
+          <li>11h00 · mar → sam</li>
+          <li>16h00 · mar → sam</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul style="font-size:14px">
+          <li>41 rue Saint-Dizier, Nancy</li>
+          <li>03 83 47 21 06</li>
+          <li>bonjour@maisonfournil.exemple.fr</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Maison Fournil · Contenu de démonstration, marque fictive</span>
+      <span>Maquette 1903RGB · Photos Unsplash</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* nav mobile */
+  var burger = document.querySelector(".burger"), nav = document.getElementById("nav");
+  if (burger && nav){
+    burger.addEventListener("click", function(){
+      var open = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!open));
+      nav.classList.toggle("open", !open);
+    });
+    nav.addEventListener("click", function(e){
+      if (e.target.closest("a")){ burger.setAttribute("aria-expanded","false"); nav.classList.remove("open"); }
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && nav.classList.contains("open")){ burger.setAttribute("aria-expanded","false"); nav.classList.remove("open"); burger.focus(); }
+    });
+  }
+
+  /* tableau de fournée : état en direct selon l'heure du visiteur */
+  var SLOTS = [390, 660, 960]; // 6h30, 11h00, 16h00
+  function fmt(m){ var h = Math.floor(m/60), mn = m%60; return h + " h " + (mn<10?"0":"") + mn; }
+  function delay(d){ return d < 60 ? d + " min" : Math.floor(d/60) + " h " + String(d%60).padStart(2,"0"); }
+  function updateBoards(){
+    var now = new Date(), day = now.getDay(), m = now.getHours()*60 + now.getMinutes();
+    document.querySelectorAll("[data-board]").forEach(function(board){
+      var slots = board.querySelectorAll(".slot"), cap = board.parentNode.querySelector("[data-board-cap]");
+      slots.forEach(function(s){ s.classList.remove("next","done"); });
+      if (!cap) return;
+      if (day === 1){ cap.textContent = "Fermé le lundi : le four repart mardi, sortie 6h30."; return; }
+      var nextIdx = -1;
+      for (var i=0;i<SLOTS.length;i++){ if (m < SLOTS[i]){ nextIdx = i; break; } slots[i] && slots[i].classList.add("done"); }
+      if (day === 0 && nextIdx > 0){ nextIdx = -1; }
+      if (nextIdx >= 0){
+        slots[nextIdx].classList.add("next");
+        cap.textContent = "Prochaine sortie du four dans " + delay(SLOTS[nextIdx] - m) + ".";
+      } else {
+        cap.textContent = day === 0 ? "Le dimanche, une seule fournée à 6h30. Retour mardi." : "Dernière fournée sortie à 16h00. Prochaine : demain 6h30.";
+      }
+    });
+  }
+  updateBoards(); setInterval(updateBoards, 60000);
+
+  /* motion */
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (window.Lenis){
+    var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click", function(e){
+        var id = a.getAttribute("href"); if (id.length < 2) return;
+        var el = document.querySelector(id); if (!el) return;
+        e.preventDefault(); lenis.scrollTo(el, { offset: -70 });
+      });
+    });
+  }
+
+  function esc(v){ return v.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  document.querySelectorAll("[data-masked-reveal]").forEach(function(el){
+    var text = el.textContent.trim().replace(/\s+/g," ");
+    el.setAttribute("aria-label", text);
+    el.innerHTML = text.split(" ").map(function(w){
+      return '<span class="word-mask" aria-hidden="true"><span class="word">' + esc(w) + '</span></span>';
+    }).join(" ");
+    var hero = el.hasAttribute("data-hero");
+    gsap.from(el.querySelectorAll(".word"), {
+      yPercent: 110, duration: hero ? 1 : .8, ease: "power3.out", stagger: hero ? .06 : .035, delay: hero ? .15 : 0,
+      scrollTrigger: hero ? null : { trigger: el, start: "top 82%", once: true }
+    });
+  });
+
+  document.querySelectorAll("[data-rise]").forEach(function(el){
+    gsap.from(el, { y: 28, opacity: 0, duration: .8, ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+  });
+
+  document.querySelectorAll("[data-unmask]").forEach(function(el){
+    gsap.from(el, { clipPath: "inset(100% 0% 0% 0%)", duration: 1.2, ease: "expo.out",
+      scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+    var img = el.querySelector("img");
+    if (img) gsap.from(img, { scale: 1.15, duration: 1.6, ease: "expo.out",
+      scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+  });
+
+  window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
+})();
+
+(function(){
+  var form = document.getElementById("order-form");
+  var items = Array.prototype.slice.call(document.querySelectorAll(".item"));
+  var linesEl = form.querySelector(".lines"), totalEl = form.querySelector("[data-total]");
+  var submit = form.querySelector('button[type="submit"]');
+  var mbar = document.querySelector(".mbar"), mbarTxt = document.querySelector("[data-mbar]");
+  var SLOT_LABEL = { "0630": "6h30", "1100": "11h00", "1600": "16h00" };
+  var eur = function(c){ return (c/100).toFixed(2).replace(".", ",") + " €"; };
+
+  /* jours de retrait : 7 prochains jours ouverts */
+  var sel = document.getElementById("jour"), d = new Date(), added = 0;
+  var fmt = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+  d.setDate(d.getDate() + 1);
+  while (added < 7){
+    if (d.getDay() !== 1){
+      var o = document.createElement("option");
+      o.value = d.toISOString().slice(0,10); o.dataset.dow = d.getDay();
+      var t = fmt.format(d); o.textContent = (added === 0 ? "Demain, " : "") + t;
+      sel.appendChild(o); added++;
+    }
+    d.setDate(d.getDate() + 1);
+  }
+
+  function slot(){ return form.querySelector('input[name="slot"]:checked').value; }
+  function isSunday(){ var o = sel.options[sel.selectedIndex]; return o && o.dataset.dow === "0"; }
+
+  function applySlot(){
+    var s = slot();
+    /* dimanche : seule la fournée de 6h30 */
+    form.querySelectorAll('input[name="slot"]').forEach(function(r){
+      r.disabled = isSunday() && r.value !== "0630";
+      r.parentNode.style.opacity = r.disabled ? .4 : 1;
+    });
+    if (isSunday() && s !== "0630"){ form.querySelector('input[value="0630"]').checked = true; s = "0630"; }
+    items.forEach(function(it){
+      var ok = it.dataset.slots.split(" ").indexOf(s) !== -1;
+      it.classList.toggle("off", !ok);
+      if (!ok) setQty(it, 0);
+      it.querySelectorAll(".qty button").forEach(function(b){ b.disabled = !ok || (b.dataset.d === "-1" && +it.dataset.q === 0); });
+    });
+    render();
+  }
+
+  function setQty(it, q){
+    q = Math.max(0, Math.min(20, q));
+    it.dataset.q = q;
+    it.querySelector("output").textContent = q;
+    it.classList.toggle("has-qty", q > 0);
+    var minus = it.querySelector('[data-d="-1"]'); minus.disabled = q === 0 || it.classList.contains("off");
+  }
+
+  function render(){
+    var html = "", total = 0, n = 0;
+    items.forEach(function(it){
+      var q = +it.dataset.q || 0; if (!q) return;
+      var c = q * (+it.dataset.price); total += c; n += q;
+      html += "<li><span>" + q + " × " + it.dataset.name + "</span><span>" + eur(c) + "</span></li>";
+    });
+    linesEl.innerHTML = html || '<li class="empty">Ajoutez des pains avec les boutons +.</li>';
+    totalEl.textContent = eur(total);
+    submit.disabled = n === 0;
+    submit.textContent = n ? "Réserver pour " + SLOT_LABEL[slot()] : "Réserver ma fournée";
+    mbarTxt.textContent = n + (n > 1 ? " articles · " : " article · ") + eur(total);
+    mbar.classList.toggle("show", n > 0);
+  }
+
+  items.forEach(function(it){
+    it.dataset.q = 0;
+    it.querySelectorAll(".qty button").forEach(function(b){
+      b.addEventListener("click", function(){ setQty(it, (+it.dataset.q) + (+b.dataset.d)); render(); });
+    });
+  });
+  form.querySelectorAll('input[name="slot"]').forEach(function(r){ r.addEventListener("change", applySlot); });
+  sel.addEventListener("change", applySlot);
+
+  /* filtres */
+  document.querySelectorAll("[data-filter]").forEach(function(chip){
+    chip.addEventListener("click", function(){
+      var f = chip.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach(function(c){ c.setAttribute("aria-pressed", String(c === chip)); });
+      document.querySelectorAll(".cat-group[data-cat]").forEach(function(g){ g.hidden = !(f === "all" || g.dataset.cat === f); });
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    });
+  });
+
+  /* validation + confirmation (aucun envoi) */
+  function check(id, test, msg){
+    var el = document.getElementById(id), ok = test(el.value.trim());
+    el.setAttribute("aria-invalid", String(!ok));
+    document.getElementById(id + "-err").textContent = ok ? "" : msg;
+    return ok;
+  }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var a = check("nom", function(v){ return v.length >= 2; }, "Indiquez un nom pour l'étiquette.");
+    var b = check("tel", function(v){ return v.replace(/\D/g,"").length >= 10; }, "Numéro à 10 chiffres.");
+    if (!a || !b) return;
+    var lines = Array.prototype.map.call(linesEl.querySelectorAll("li"), function(li){ return li.firstChild.textContent; });
+    var ref = "MF-" + String(Math.floor(1000 + Math.random()*9000));
+    document.querySelector("[data-ticket]").innerHTML =
+      "Réf. " + ref + "<br>" + sel.options[sel.selectedIndex].textContent + " · sortie " + SLOT_LABEL[slot()] +
+      "<br>Au nom de : " + document.getElementById("nom").value.trim().replace(/</g,"&lt;") +
+      "<br>" + lines.join("<br>") + "<br>Total : " + totalEl.textContent;
+    form.style.display = "none";
+    var c = document.querySelector(".confirm"); c.classList.add("show"); c.focus();
+    mbar.classList.remove("show");
+  });
+  document.querySelector("[data-again]").addEventListener("click", function(){
+    items.forEach(function(it){ setQty(it, 0); });
+    document.querySelector(".confirm").classList.remove("show");
+    form.style.display = ""; applySlot();
+  });
+
+  applySlot();
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

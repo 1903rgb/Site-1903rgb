@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expertises et honoraires — Ferrand &amp; Associés</title>
+<meta name="description" content="Domaines d'intervention, honoraires HT, équipe et premier rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --shell:#141619;
+  --shell-2:#1c1f23;
+  --shell-line:rgba(255,255,255,.12);
+  --shell-ink:#e9e8e3;
+  --shell-mute:#9b9ea5;
+  --paper:#f6f6f2;
+  --paper-2:#ecebe5;
+  --ink:#15171c;
+  --ink-2:#43464e;
+  --mute:#767982;
+  --line:rgba(21,23,28,.14);
+  --line-strong:rgba(21,23,28,.42);
+  --texture:rgba(21,23,28,.03);
+  --accent:#8a1b22;
+  --accent-ink:#fff;
+  --f-display:'Libre Caslon Display','Libre Caslon Text',Georgia,'Times New Roman',serif;
+  --f-text:'Libre Caslon Text',Georgia,serif;
+  --f-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --pad:clamp(20px,3.2vw,48px);
+  --corner:14px;
+  --rail:232px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--shell);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3,h4{margin:0;font-weight:400}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:8px 12px;z-index:100}
+.skip:focus{left:16px;top:16px}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header (dark shell) ---------- */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(20,22,25,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--shell-line);color:var(--shell-ink)}
+.hd-in{max-width:1480px;margin:0 auto;display:flex;align-items:center;gap:28px;height:64px;padding-left:var(--gut);padding-right:var(--gut-r)}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:23px;letter-spacing:.005em}
+.brand b i{font-style:italic;color:#d9a3a6}
+.brand span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--shell-mute)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--shell-mute);padding:8px 10px;border:1px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--shell-ink);border-color:var(--shell-line)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 18px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:hover{background:#6f141a;border-color:#6f141a}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:14px;height:14px;flex:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn.ghost:hover{border-color:var(--ink);background:rgba(21,23,28,.04)}
+.hd .btn{padding:10px 14px}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--shell-line);color:var(--shell-ink);width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1px;background:currentColor;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1px;background:currentColor;transition:transform .25s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav{display:none}
+
+/* ---------- shell + folio ---------- */
+.shell{padding:22px var(--gut-r) 0 var(--gut);background:var(--shell)}
+.folio{max-width:1480px;margin:0 auto;background:
+  repeating-linear-gradient(135deg,transparent 0 11px,var(--texture) 11px 12px),
+  linear-gradient(90deg,rgba(0,0,0,.05),transparent 14px,transparent calc(100% - 14px),rgba(0,0,0,.05)),
+  var(--paper);
+  display:grid;grid-template-columns:var(--rail) minmax(0,1fr);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,.6)}
+.rail{border-right:1px solid var(--line);position:relative}
+.rail::after{content:"";position:absolute;top:0;bottom:0;right:3px;width:1px;background:var(--line)}
+.rail-in{position:sticky;top:88px;padding:36px 22px 36px 26px}
+.rail h2{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.rail ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rail li{border-bottom:1px solid var(--line)}
+.rail a{display:grid;grid-template-columns:58px 1fr;gap:6px;padding:10px 0;text-decoration:none;font-size:15px;line-height:1.3;color:var(--ink-2);position:relative;transition:color .2s}
+.rail a small{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute);padding-top:2px}
+.rail a::before{content:"";position:absolute;left:-26px;top:50%;width:12px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--accent)}
+.rail a.on small{color:var(--accent)}
+.rail a.on::before{transform:scaleX(1)}
+.rail-foot a{display:inline;padding:0;font:inherit;color:inherit}
+.rail-foot a:hover{color:var(--accent)}
+.rail-foot{margin-top:28px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute);line-height:1.7;text-transform:uppercase}
+
+.body{min-width:0}
+.art{border-bottom:1px solid var(--line);padding:clamp(48px,7vw,104px) var(--pad);scroll-margin-top:70px}
+.art-h{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 24px;align-items:end;margin-bottom:clamp(32px,4.5vw,64px)}
+.art-num{grid-column:span 3;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding-bottom:12px;border-bottom:1px solid var(--accent);align-self:end}
+.art-t{grid-column:span 9;font-family:var(--f-display);font-size:clamp(34px,4.2vw,62px);line-height:1.04;letter-spacing:-.01em;padding-bottom:6px}
+.art-t em{font-style:italic;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.lede{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--ink-2);max-width:40em}
+
+/* framed with brackets */
+.frame{position:relative;border:1px solid var(--line);padding:var(--pad)}
+.br{background:
+  linear-gradient(var(--line-strong),var(--line-strong)) left top/var(--corner) 1px no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) left top/1px var(--corner) no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) right top/var(--corner) 1px no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) right top/1px var(--corner) no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) left bottom/var(--corner) 1px no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) left bottom/1px var(--corner) no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) right bottom/var(--corner) 1px no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) right bottom/1px var(--corner) no-repeat}
+
+/* plates (images) */
+.plate{margin:0}
+.plate .ph{position:relative;overflow:hidden;border:1px solid var(--line-strong);padding:6px;background:var(--paper)}
+.plate img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.02)}
+.plate figcaption{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding-top:9px}
+.plate figcaption b{color:var(--ink);font-weight:500}
+
+/* alinéa lists */
+.al{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.al li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:18px 0 20px;border-bottom:1px solid var(--line)}
+.al .ref{font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;color:var(--accent);padding-top:5px}
+.al h4{font-family:var(--f-text);font-size:19px;line-height:1.3;margin-bottom:4px}
+.al p{margin:0;color:var(--ink-2);font-size:16px}
+.al .key{display:block;margin-top:8px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink)}
+
+/* margin note */
+.note{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.note .mono{display:block;color:var(--accent);margin-bottom:8px;font-size:11px}
+.note q{quotes:"« " " »";font-style:italic}
+
+/* forms */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:rgba(255,255,255,.55);border:1px solid var(--line-strong);border-radius:0;padding:12px 12px;min-height:46px;width:100%}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.field input:user-invalid{border-color:var(--accent)}
+.form .btn{grid-column:1/-1;justify-self:start;white-space:nowrap}
+.done{grid-column:1/-1;border-left:2px solid var(--accent);padding:12px 16px;background:rgba(138,27,34,.06);font-size:16px}
+.done[hidden]{display:none}
+
+/* footer (dark shell) */
+.ft{background:var(--shell);color:var(--shell-mute);padding:56px var(--gut-r) calc(32px + env(safe-area-inset-bottom,0px)) var(--gut)}
+.ft-in{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;border-top:1px solid var(--shell-line);padding-top:32px}
+.ft .brand b{color:var(--shell-ink)}
+.ft p{font-size:15px;margin:12px 0 0;max-width:30em}
+.ft h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--shell-ink);margin-bottom:12px}
+.ft ul{list-style:none;margin:0;padding:0;font-size:15px;line-height:1.9}
+.ft a{text-decoration:none}
+.ft a:hover{color:var(--shell-ink);text-decoration:underline}
+.ft-bot{max-width:1480px;margin:40px auto 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.ft-bot .demo{color:#d9a3a6}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{display:none}
+  .hd .btn.hd-cta{display:none}
+  .burger{display:inline-flex}
+  .mnav{display:block;position:fixed;inset:64px 0 auto 0;background:var(--shell);border-bottom:1px solid var(--shell-line);padding:8px var(--gut-r) 20px var(--gut);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .mnav.open{opacity:1;transform:none;visibility:visible}
+  .mnav a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--shell-line);color:var(--shell-ink);text-decoration:none;font-family:var(--f-text);font-size:20px}
+  .mnav a small{font-family:var(--f-mono);font-size:11px;color:var(--shell-mute);letter-spacing:.06em;padding-top:6px}
+  .mnav .btn{margin-top:18px;width:100%;justify-content:center}
+  .folio{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .shell{padding-top:12px}
+  .art-h{grid-template-columns:1fr}
+  .art-num{grid-column:1;justify-self:start;margin-bottom:16px;padding-bottom:8px}
+  .art-t{grid-column:1}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .grid>*{grid-column:1/-1!important}
+  .al li{grid-template-columns:1fr;gap:4px}
+  .form{grid-template-columns:1fr}
+  .ft-in{grid-template-columns:1fr 1fr}
+  .ft-in>div:first-child{grid-column:1/-1}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+/* ---------- home ---------- */
+.hero{padding:clamp(40px,5vw,72px) var(--pad) 0;border-bottom:1px solid var(--line)}
+.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mute);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.hero-top b{color:var(--accent);font-weight:500}
+.hero-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding:clamp(32px,4vw,56px) 0 clamp(40px,5vw,64px)}
+.hero-txt{grid-column:1/span 7;display:flex;flex-direction:column}
+.hero-kick{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.hero h1{font-family:var(--f-display);font-size:clamp(46px,6.1vw,98px);line-height:.98;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero h1 .w{display:inline-block}
+.hero-al{margin-top:clamp(28px,3vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px;max-width:36em}
+.hero-al span{font-family:var(--f-text);font-style:italic;color:var(--accent);font-size:18px;line-height:1.55}
+.hero-al p{margin:0;font-size:clamp(17px,1.35vw,19.5px);color:var(--ink-2);line-height:1.55}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero-side{grid-column:8/span 5;display:flex;flex-direction:column;gap:20px}
+.hero-side .plate .ph{aspect-ratio:4/4.4}
+.hero-side .plate img{object-position:30% 50%}
+.hero-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.hero-meta div{padding:16px 16px 22px 0;border-right:1px solid var(--line)}
+.hero-meta div+div{padding-left:16px}
+.hero-meta div:last-child{border-right:0}
+.hero-meta dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.hero-meta dd{margin:0;font-family:var(--f-text);font-size:17px;line-height:1.3}
+
+/* domaines */
+.dom{grid-column:span 6}
+.dom h3{font-family:var(--f-display);font-size:clamp(26px,2.4vw,34px);line-height:1.1;margin-bottom:6px}
+.dom .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.dom-more{margin-top:28px;display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent)}
+.dom-more:hover{text-decoration:underline}
+
+/* preuve */
+.facts{grid-column:span 7;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.fact{padding:22px 22px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact strong{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(46px,4.6vw,72px);line-height:1;letter-spacing:-.02em}
+.fact strong sup{font-size:.4em;vertical-align:top;position:relative;top:.35em;margin-left:4px;color:var(--accent)}
+.fact span{display:block;margin-top:10px;color:var(--ink-2);font-size:15.5px;line-height:1.45}
+.proof-side{grid-column:span 5;display:flex;flex-direction:column;gap:24px}
+.proof-side .ph{aspect-ratio:5/4}
+
+/* procédure */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.step{padding:22px 22px 28px 0;border-right:1px solid var(--line)}
+.step+.step{padding-left:22px}
+.step:last-child{border-right:0}
+.step .rn{font-family:var(--f-display);font-style:italic;font-size:30px;color:var(--accent);line-height:1}
+.step h3{font-family:var(--f-text);font-size:20px;line-height:1.25;margin:16px 0 8px}
+.step p{font-size:15.5px;color:var(--ink-2);margin:0}
+.step .tag{display:inline-block;margin-top:16px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink);border-top:1px solid var(--line-strong);padding-top:8px}
+.law-foot{margin-top:28px;font-size:14.5px;color:var(--mute);max-width:52em}
+.law-foot b{font-family:var(--f-mono);font-weight:400;font-size:12px;color:var(--accent)}
+
+/* galerie */
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto;gap:24px}
+.gal .g1{grid-column:1/span 5;grid-row:1/span 2}
+.gal .g1 .ph{height:calc(100% - 28px);min-height:420px}
+.gal .g2{grid-column:6/span 7}
+.gal .g2 .ph{aspect-ratio:16/8}
+.gal .g3{grid-column:6/span 4}
+.gal .g3 .ph{aspect-ratio:4/3}
+.gal .g4{grid-column:10/span 3}
+.gal .g4 .ph{aspect-ratio:3/4}
+.gal .g1{display:flex;flex-direction:column}
+
+/* attendus */
+.att{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.att blockquote{margin:0}
+.att .a1{grid-column:1/span 7}
+.att .a1 p{font-family:var(--f-display);font-size:clamp(26px,2.6vw,38px);line-height:1.2;letter-spacing:-.005em}
+.att .side{grid-column:8/span 5;display:flex;flex-direction:column;gap:24px}
+.att .side p{font-family:var(--f-text);font-size:18px;line-height:1.5}
+.att p::first-line{}
+.att .attendu{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:12px}
+.att cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;color:var(--mute);margin-top:6px}
+.att cite b{color:var(--ink);font-weight:500}
+
+/* accès */
+.acc{grid-column:span 4}
+.acc h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.acc address{font-style:normal;font-family:var(--f-text);font-size:20px;line-height:1.45}
+.acc table{width:100%;border-collapse:collapse;font-size:16px}
+.acc td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.acc td+td{text-align:right;font-family:var(--f-mono);font-size:13px;padding-top:11px}
+.acc p{font-size:16px;color:var(--ink-2)}
+.acc .contact{margin-top:16px;font-family:var(--f-mono);font-size:13px;line-height:1.9}
+.juris{grid-column:1/-1;margin-top:8px}
+.juris p{margin:0;font-size:16.5px;color:var(--ink-2);max-width:62em}
+.juris .mono{color:var(--accent);display:block;margin-bottom:8px;font-size:11px}
+
+/* dispositif */
+.disp{background:var(--shell-2);color:var(--shell-ink);border-bottom:0}
+.disp .art-num{color:#d9a3a6;border-color:#d9a3a6}
+.disp .art-t em{color:#d9a3a6}
+.disp-l{grid-column:span 5}
+.disp-l p{color:var(--shell-mute);font-size:17px}
+.disp-l .price{margin-top:24px;border-top:1px solid var(--shell-line);padding-top:16px;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15.5px}
+.disp-l .price dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--shell-mute);padding-top:3px}
+.disp-l .price dd{margin:0;color:var(--shell-ink)}
+.disp-r{grid-column:7/span 6}
+.disp .field label{color:var(--shell-mute)}
+.disp .field input,.disp .field select,.disp .field textarea{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.26);color:var(--shell-ink)}
+.disp .field select option{color:#111}
+.disp .done{background:rgba(217,163,166,.1);border-color:#d9a3a6;color:var(--shell-ink)}
+.disp .br{--line-strong:rgba(255,255,255,.4)}
+.disp .frame{border-color:rgba(255,255,255,.14)}
+
+@media (max-width:1100px){
+  .hero-txt{grid-column:1/-1}
+  .hero-side{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .hero-side .plate .ph{aspect-ratio:4/3}
+  .facts,.proof-side{grid-column:1/-1}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(3){padding-left:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .acc{grid-column:span 6}
+  .disp-l,.disp-r{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .hero-side{grid-template-columns:1fr}
+  .hero-top span:last-child{display:none}
+  .hero-meta{grid-template-columns:1fr 1fr}
+  .hero-meta div:nth-child(2){border-right:0}
+  .hero-meta div:nth-child(3){padding-left:0}
+  .hero-meta div:nth-child(n+3){border-top:1px solid var(--line)}
+  .dom{grid-column:1/-1}
+  .dom+.dom{margin-top:40px}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact{padding:16px 14px 20px}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step{padding:20px 0;border-right:0;border-top:1px solid var(--line)}
+  .step:first-child{border-top:0}
+  .gal{grid-template-columns:1fr 1fr;gap:16px}
+  .gal .g1,.gal .g2{grid-column:1/-1;grid-row:auto}
+  .gal .g1 .ph{height:auto;min-height:0;aspect-ratio:4/5}
+  .gal .g3,.gal .g4{grid-column:span 1}
+  .gal .g3 .ph,.gal .g4 .ph{aspect-ratio:3/4}
+  .att .a1,.att .side{grid-column:1/-1}
+  .acc{grid-column:1/-1}
+}
+/* ---------- expertises ---------- */
+.ihero{padding:clamp(40px,5vw,72px) var(--pad) clamp(40px,5vw,64px);border-bottom:1px solid var(--line)}
+.ihero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mute);padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:clamp(32px,4vw,56px)}
+.ihero-top b{color:var(--accent);font-weight:500}
+.ihero-t{grid-column:1/span 7}
+.ihero h1{font-family:var(--f-display);font-size:clamp(42px,5.2vw,82px);line-height:1;letter-spacing:-.02em}
+.ihero h1 em{font-style:italic;color:var(--accent)}
+.ihero h1 .w{display:inline-block}
+.ihero .lede{margin-top:28px}
+.ihero-p{grid-column:8/span 5}
+.ihero-p .ph{aspect-ratio:4/3}
+.toc{margin-top:32px;display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-strong);padding:8px 12px;transition:border-color .2s,color .2s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+
+.ch-intro{grid-column:1/span 4}
+.ch-intro p{color:var(--ink-2)}
+.ch-list{grid-column:5/span 8}
+.al.big li{grid-template-columns:140px minmax(0,1fr);padding:22px 0 24px}
+.al.big h4{font-size:21px}
+
+/* honoraires */
+.fee{grid-column:span 6}
+.fee h3{font-family:var(--f-display);font-size:30px;line-height:1.1;margin-bottom:4px}
+.fee .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.fee table{width:100%;border-collapse:collapse;border-top:1px solid var(--ink)}
+.fee th{text-align:left;font-family:var(--f-mono);font-weight:400;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:10px 0;border-bottom:1px solid var(--line)}
+.fee th:last-child,.fee td:last-child{text-align:right;white-space:nowrap}
+.fee td{padding:14px 0;border-bottom:1px solid var(--line);vertical-align:top;font-size:16px}
+.fee td:first-child{padding-right:16px}
+.fee td small{display:block;color:var(--mute);font-size:14px;margin-top:2px}
+.fee td:last-child{font-family:var(--f-mono);font-size:14px;padding-top:16px;color:var(--ink)}
+.fee-notes{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:16px}
+.fee-notes p{margin:0;font-size:15px;color:var(--ink-2)}
+.fee-notes .mono{display:block;color:var(--accent);margin-bottom:8px;font-size:11px}
+
+/* équipe */
+.member{grid-column:span 6;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+.member .ph{aspect-ratio:4/5}
+.member .plate img{object-position:50% 20%}
+.member h3{font-family:var(--f-display);font-size:32px;line-height:1.05}
+.member .role{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:8px 0 14px}
+.member p{font-size:16px;color:var(--ink-2)}
+.member dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px;border-top:1px solid var(--line);padding-top:12px}
+.member dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+.member dd{margin:0}
+.team-more{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;color:var(--ink-2);font-size:16px}
+
+/* rdv */
+.rdv-l{grid-column:span 5}
+.rdv-l h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.rdv-l h3:first-child{margin-top:0}
+.rdv-l ul{margin:0;padding:0;list-style:none}
+.rdv-l li{padding:8px 0 8px 22px;border-bottom:1px solid var(--line);position:relative;font-size:16px}
+.rdv-l li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+.rdv-r{grid-column:7/span 6}
+
+@media (max-width:1100px){
+  .ihero-t,.ihero-p{grid-column:1/-1}
+  .ch-intro,.ch-list{grid-column:1/-1}
+  .fee{grid-column:1/-1}
+  .member{grid-column:1/-1}
+  .rdv-l,.rdv-r{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .ihero-top span:last-child{display:none}
+  .al.big li{grid-template-columns:1fr}
+  .fee-notes{grid-template-columns:1fr}
+  .member{grid-template-columns:1fr 1.3fr;gap:16px}
+  .member h3{font-size:26px}
+}
+@media (max-width:480px){
+  .member{grid-template-columns:1fr}
+  .member .ph{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="hd">
+  <div class="hd-in">
+    <a class="brand" href="index.html" aria-label="Ferrand &amp; Associés, accueil"><b>Ferrand <i>&amp;</i> Associés</b><span>Avocats · Strasbourg</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Le cabinet</a>
+      <a href="expertises.html" aria-current="page">Expertises</a>
+      <a href="expertises.html#honoraires">Honoraires</a>
+      <a href="expertises.html#equipe">Équipe</a>
+      <a href="index.html#acces">Accès</a>
+    </nav>
+    <a class="btn hd-cta" href="expertises.html#rdv">Rendez-vous <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Ouvrir le menu"><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Navigation mobile">
+    <a href="index.html">Le cabinet <small>Livre I</small></a>
+    <a href="expertises.html">Expertises <small>Livre II</small></a>
+    <a href="expertises.html#honoraires">Honoraires <small>Ch. 3</small></a>
+    <a href="expertises.html#equipe">Équipe <small>Ch. 4</small></a>
+    <a href="index.html#acces">Accès <small>Art. 6</small></a>
+    <a class="btn" href="expertises.html#rdv">Premier rendez-vous — 180 € HT</a>
+  </nav>
+</header>
+<div class="shell">
+<div class="folio">
+  <aside class="rail" aria-label="Sommaire du livre II">
+    <div class="rail-in">
+      <h2>Livre II — Expertises</h2>
+      <ol>
+        <li><a href="#travail"><small>Ch. 1</small>Droit du travail</a></li>
+        <li><a href="#affaires"><small>Ch. 2</small>Droit des affaires</a></li>
+        <li><a href="#honoraires"><small>Ch. 3</small>Honoraires</a></li>
+        <li><a href="#equipe"><small>Ch. 4</small>Équipe</a></li>
+        <li><a href="#rdv"><small>Ch. 5</small>Premier rendez-vous</a></li>
+      </ol>
+      <p class="rail-foot"><a href="index.html" style="color:inherit">← Retour au livre I</a><br>Barème en vigueur<br>au 1er janvier 2026</p>
+    </div>
+  </aside>
+
+  <main class="body" id="main">
+    <section class="ihero" aria-labelledby="h-exp">
+      <div class="ihero-top mono"><span><b>Livre II</b> — Domaines d'intervention et honoraires</span><span><a href="index.html" style="color:inherit;text-decoration:none">Accueil</a> / Expertises</span></div>
+      <div class="grid">
+        <div class="ihero-t">
+          <h1 id="h-exp" class="split">Ce que nous plaidons, <em>ce que nous rédigeons</em>.</h1>
+          <p class="lede">Deux matières, traitées par deux associés qui partagent les dossiers. Chaque domaine ci-dessous renvoie à ses articles, à ses délais et à son prix.</p>
+          <nav class="toc" aria-label="Chapitres"><a href="#travail">Travail</a><a href="#affaires">Affaires</a><a href="#honoraires">Honoraires</a><a href="#equipe">Équipe</a><a href="#rdv">Rendez-vous</a></nav>
+        </div>
+        <figure class="plate ihero-p">
+          <div class="ph"><img src="assets/img/consultation.jpg" alt="Deux femmes échangent autour d'un ordinateur portable lors d'un rendez-vous" width="1000" height="667" fetchpriority="high"></div>
+          <figcaption><span><b>Pl. VII</b> — Consultation</span><span>Quai Kléber</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="art" id="travail" aria-labelledby="h-tr">
+      <header class="art-h"><p class="art-num">Chapitre 1</p><h2 class="art-t split" id="h-tr">Droit <em>du travail</em>.</h2></header>
+      <div class="grid">
+        <div class="ch-intro reveal">
+          <p>Nous conseillons les employeurs de 5 à 500 salariés, et les cadres dirigeants qui négocient leur départ. Nous ne défendons pas les deux parties d'un même dossier.</p>
+          <aside class="note frame br" style="margin-top:24px"><span class="mono">C. trav., art. L.1471-1</span>Toute action portant sur la rupture du contrat de travail se prescrit par douze mois à compter de la notification de la rupture.</aside>
+        </div>
+        <ul class="al big ch-list reveal">
+          <li><span class="ref">L.1232-1 s.</span><div><h4>Licenciement pour motif personnel</h4><p>Convocation, entretien préalable, lettre de licenciement. Nous relisons la lettre avant envoi : c'est elle qui fixe les limites du litige.</p><span class="key">Délai : 2 jours ouvrables min. après l'entretien (L.1232-6)</span></div></li>
+          <li><span class="ref">L.1237-11 s.</span><div><h4>Rupture conventionnelle</h4><p>Calcul de l'indemnité spécifique, rédaction de la convention, dépôt sur TéléRC.</p><span class="key">Rétractation : 15 jours calendaires · Homologation : 15 jours ouvrables</span></div></li>
+          <li><span class="ref">L.1233-3 s.</span><div><h4>Licenciement économique</h4><p>Motif, critères d'ordre, recherche de reclassement, consultation du CSE, CSP.</p><span class="key">Information DREETS sous 8 jours</span></div></li>
+          <li><span class="ref">L.1221-19</span><div><h4>Période d'essai et contrats</h4><p>Contrats de travail, clauses de non-concurrence, de mobilité, forfaits jours.</p><span class="key">Essai cadre : 4 mois max., renouvelable une fois</span></div></li>
+          <li><span class="ref">L.2312-8</span><div><h4>CSE et dialogue social</h4><p>Consultations récurrentes et ponctuelles, accords d'entreprise, NAO.</p></div></li>
+          <li><span class="ref">L.1411-1</span><div><h4>Contentieux prud'homal</h4><p>Bureau de conciliation et d'orientation, puis bureau de jugement. Appel devant la cour de Colmar.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="art" id="affaires" aria-labelledby="h-af">
+      <header class="art-h"><p class="art-num">Chapitre 2</p><h2 class="art-t split" id="h-af">Droit <em>des affaires</em>.</h2></header>
+      <div class="grid">
+        <div class="ch-intro reveal">
+          <p>De la création de la société à sa cession, et chaque contrat entre les deux. Clients français, allemands et suisses : nous rédigeons en français et en allemand.</p>
+          <figure class="plate" style="margin-top:24px"><div class="ph" style="aspect-ratio:4/3"><img src="assets/img/contrat.jpg" alt="Stylo-plume sur un contrat posé sur un bureau en bois" width="1000" height="667" loading="lazy"></div><figcaption><span><b>Pl. VIII</b> — Relecture</span></figcaption></figure>
+        </div>
+        <ul class="al big ch-list reveal">
+          <li><span class="ref">L.227-1 C. com.</span><div><h4>Création et statuts</h4><p>SAS, SASU, SARL. Statuts sur mesure, pacte d'associés, clauses d'agrément et de préemption.</p></div></li>
+          <li><span class="ref">L.223-14 C. com.</span><div><h4>Cessions de parts et d'actions</h4><p>Protocole de cession, garantie d'actif et de passif, audit juridique.</p></div></li>
+          <li><span class="ref">L.441-1 C. com.</span><div><h4>CGV et négociation commerciale</h4><p>Conditions générales, conventions annuelles, pénalités de retard.</p><span class="key">Indemnité forfaitaire de recouvrement : 40 €</span></div></li>
+          <li><span class="ref">L.442-1 C. com.</span><div><h4>Rupture brutale de relations établies</h4><p>Durée du préavis, évaluation du préjudice, négociation ou action.</p><span class="key">Préavis de 18 mois : pas de responsabilité pour brutalité</span></div></li>
+          <li><span class="ref">L.145-1 C. com.</span><div><h4>Baux commerciaux</h4><p>Renouvellement, révision triennale, déplafonnement, congé.</p><span class="key">Durée minimale : 9 ans (L.145-4)</span></div></li>
+          <li><span class="ref">1405 CPC</span><div><h4>Recouvrement et contentieux</h4><p>Injonction de payer, référé-provision, chambre commerciale du tribunal judiciaire.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="art" id="honoraires" aria-labelledby="h-ho">
+      <header class="art-h"><p class="art-num">Chapitre 3</p><h2 class="art-t split" id="h-ho">Honoraires, <em>hors taxes</em>.</h2></header>
+      <div class="grid">
+        <div class="fee reveal">
+          <h3>Au forfait</h3>
+          <p class="sub">Prix ferme, indiqué dans la convention</p>
+          <table>
+            <thead><tr><th scope="col">Prestation</th><th scope="col">HT</th></tr></thead>
+            <tbody>
+              <tr><td>Premier rendez-vous<small>45 min, déduit si mandat</small></td><td>180 €</td></tr>
+              <tr><td>Audit d'un contrat de travail<small>Note écrite sous 5 jours</small></td><td>450 €</td></tr>
+              <tr><td>Rupture conventionnelle<small>Négociation, convention, homologation</small></td><td>1 200 €</td></tr>
+              <tr><td>Statuts de SAS<small>Hors frais de greffe et d'annonce</small></td><td>1 500 €</td></tr>
+              <tr><td>Conditions générales de vente<small>Rédaction et une révision</small></td><td>900 €</td></tr>
+              <tr><td>Pacte d'associés<small>Jusqu'à 4 associés</small></td><td>2 400 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fee reveal">
+          <h3>Au temps passé</h3>
+          <p class="sub">Relevé détaillé joint à chaque facture</p>
+          <table>
+            <thead><tr><th scope="col">Intervenant</th><th scope="col">Taux horaire HT</th></tr></thead>
+            <tbody>
+              <tr><td>Avocat associé<small>Stratégie, audience, négociation</small></td><td>290 €</td></tr>
+              <tr><td>Avocat collaborateur<small>Recherches, rédaction, actes</small></td><td>190 €</td></tr>
+              <tr><td>Juriste<small>Formalités, suivi de procédure</small></td><td>110 €</td></tr>
+              <tr><td>Contentieux prud'homal<small>Première instance, forfait de base</small></td><td>dès 3 500 €</td></tr>
+              <tr><td>Abonnement conseil PME<small>4 h / mois, questions écrites et appels</small></td><td>950 € / mois</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fee-notes reveal">
+          <p><span class="mono">TVA</span>Tous les montants sont hors taxes. TVA au taux de 20 % en sus. Débours (greffe, huissier, annonces légales) refacturés à l'euro près.</p>
+          <p><span class="mono">Honoraire de résultat</span>Possible en complément d'un honoraire fixe, jamais seul : le pacte de quota litis est interdit aux avocats.</p>
+          <p><span class="mono">Loi n° 71-1130, art. 10</span>Une convention d'honoraires écrite est signée pour chaque dossier, avant toute diligence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="art" id="equipe" aria-labelledby="h-eq">
+      <header class="art-h"><p class="art-num">Chapitre 4</p><h2 class="art-t split" id="h-eq">Les associés <em>signataires</em>.</h2></header>
+      <div class="grid">
+        <article class="member reveal">
+          <figure class="plate"><div class="ph"><img src="assets/img/claire.jpg" alt="Portrait de Claire Ferrand, avocate associée" width="800" height="1200" loading="lazy"></div></figure>
+          <div>
+            <h3>Claire Ferrand</h3>
+            <p class="role">Associée fondatrice · Droit du travail</p>
+            <p>Quinze ans de conseil aux employeurs industriels du Bas-Rhin. Elle suit les restructurations et plaide devant le conseil de prud'hommes de Strasbourg.</p>
+            <dl><dt>Serment</dt><dd>2009, Barreau de Strasbourg</dd><dt>Langues</dt><dd>Français, anglais</dd><dt>Ligne</dt><dd>03 83 41 27 91</dd></dl>
+          </div>
+        </article>
+        <article class="member reveal">
+          <figure class="plate"><div class="ph"><img src="assets/img/mathieu.jpg" alt="Portrait de Mathieu Roth, avocat associé" width="800" height="1200" loading="lazy"></div></figure>
+          <div>
+            <h3>Mathieu Roth</h3>
+            <p class="role">Associé · Droit des affaires</p>
+            <p>Ancien juriste d'un groupe de distribution à Karlsruhe. Il rédige les pactes, négocie les cessions et traite les ruptures de relations commerciales.</p>
+            <dl><dt>Serment</dt><dd>2013, Barreau de Strasbourg</dd><dt>Langues</dt><dd>Français, allemand</dd><dt>Ligne</dt><dd>03 83 41 27 92</dd></dl>
+          </div>
+        </article>
+        <p class="team-more reveal">Avec eux : deux avocates collaboratrices et une juriste. Chaque dossier garde un associé référent, du premier rendez-vous à la dernière facture.</p>
+      </div>
+    </section>
+
+    <section class="art disp" id="rdv" aria-labelledby="h-rdv">
+      <header class="art-h"><p class="art-num">Chapitre 5</p><h2 class="art-t split" id="h-rdv">Premier <em>rendez-vous</em>.</h2></header>
+      <div class="grid">
+        <div class="rdv-l reveal">
+          <h3>Format</h3>
+          <ul><li>45 minutes, au cabinet ou en visio</li><li>180 € HT, déduits si vous nous confiez le dossier</li><li>Note écrite sous 5 jours ouvrés</li></ul>
+          <h3>Pièces à apporter — travail</h3>
+          <ul><li>Contrat de travail et avenants</li><li>Trois derniers bulletins de paie</li><li>Courriers échangés, convention collective</li></ul>
+          <h3>Pièces à apporter — affaires</h3>
+          <ul><li>Extrait Kbis et statuts à jour</li><li>Contrat ou CGV en cause</li><li>Factures et relances</li></ul>
+        </div>
+        <div class="rdv-r reveal">
+          <form class="form frame br" data-form novalidate>
+            <div class="field"><label for="r-nom">Nom</label><input id="r-nom" name="nom" autocomplete="name" required></div>
+            <div class="field"><label for="r-soc">Société</label><input id="r-soc" name="societe" autocomplete="organization"></div>
+            <div class="field"><label for="r-mail">E-mail</label><input id="r-mail" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="r-tel">Téléphone</label><input id="r-tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="r-dom">Domaine</label><select id="r-dom" name="domaine"><option>Droit du travail</option><option>Droit des affaires</option><option>Je ne sais pas encore</option></select></div>
+            <div class="field"><label for="r-fmt">Format</label><select id="r-fmt" name="format"><option>Au cabinet, quai Kléber</option><option>En visio</option></select></div>
+            <div class="field full"><label for="r-msg">La situation, en trois lignes</label><textarea id="r-msg" name="message" rows="3"></textarea></div>
+            <button class="btn" type="submit">Réserver le premier rendez-vous</button>
+            <p class="done" role="status" hidden>Demande enregistrée. Un associé vous rappelle sous 48 heures ouvrées pour fixer la date.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</div>
+<footer class="ft">
+  <div class="ft-in">
+    <div>
+      <a class="brand" href="index.html"><b>Ferrand <i>&amp;</i> Associés</b></a>
+      <p>SELARL d'avocats inscrite au Barreau de Strasbourg. Droit des affaires et droit du travail pour les entreprises d'Alsace et de Moselle.</p>
+    </div>
+    <div><h3>Cabinet</h3><ul><li><a href="index.html#domaines">Domaines</a></li><li><a href="index.html#procedure">Procédure</a></li><li><a href="index.html#acces">Accès</a></li></ul></div>
+    <div><h3>Expertises</h3><ul><li><a href="expertises.html#travail">Droit du travail</a></li><li><a href="expertises.html#affaires">Droit des affaires</a></li><li><a href="expertises.html#honoraires">Honoraires</a></li><li><a href="expertises.html#rdv">Rendez-vous</a></li></ul></div>
+    <div><h3>Contact</h3><ul><li>14, quai Kléber, Strasbourg</li><li>03 83 41 27 90</li><li>contact@ferrand-avocats.exemple.fr</li></ul></div>
+  </div>
+  <div class="ft-bot">
+    <span>Toque 214 · Médiateur de la consommation de la profession d'avocat</span>
+    <span class="demo">Contenu de démonstration — cabinet fictif, maquette 1903RGB</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* burger */
+  var bg = document.querySelector('.burger'), mn = document.getElementById('mnav');
+  if (bg && mn) {
+    var close = function(){ bg.setAttribute('aria-expanded','false'); mn.classList.remove('open'); };
+    bg.addEventListener('click', function(){
+      var o = bg.getAttribute('aria-expanded') === 'true';
+      bg.setAttribute('aria-expanded', String(!o)); mn.classList.toggle('open', !o);
+    });
+    mn.addEventListener('click', function(e){ if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function(){ if (window.innerWidth > 1100) close(); });
+  }
+
+  /* forms: demo only */
+  document.querySelectorAll('[data-form]').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = Array.prototype.find.call(f.querySelectorAll('[required]'), function(i){ return !i.checkValidity(); });
+      if (bad) { bad.focus(); bad.setAttribute('aria-invalid','true'); return; }
+      var d = f.querySelector('.done'); if (d) d.hidden = false;
+      var b = f.querySelector('button[type=submit]'); if (b) { b.disabled = true; b.textContent = 'Demande envoyée'; }
+    });
+    f.addEventListener('input', function(e){ e.target.removeAttribute('aria-invalid'); });
+  });
+
+  /* rail: active article */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a[href^="#"]'));
+  if ('IntersectionObserver' in window && links.length) {
+    var map = {};
+    links.forEach(function(a){ var s = document.querySelector(a.getAttribute('href')); if (s) map[s.id] = a; });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function(l){ l.classList.remove('on'); l.removeAttribute('aria-current'); });
+          map[en.target.id].classList.add('on'); map[en.target.id].setAttribute('aria-current','true');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+  }
+
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll: Lenis only */
+  if (window.Lenis) {
+    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -64 }); }
+      });
+    });
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  }
+
+  /* split headings into words (accessible name kept on the heading) */
+  document.querySelectorAll('.split').forEach(function(h){
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g,' ').trim());
+    var walk = function(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(p){
+            if (!p) return;
+            if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+            var s = document.createElement('span'); s.className = 'w'; s.setAttribute('aria-hidden','true'); s.textContent = p; frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { walk(n); }
+      });
+    };
+    walk(h);
+  });
+
+  /* hero intro */
+  var hero = document.querySelector('.hero, .ihero');
+  if (hero) {
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from(hero.querySelectorAll('.hero-top, .ihero-top'), { opacity: 0, duration: .6 })
+      .from(hero.querySelectorAll('h1 .w'), { yPercent: 60, opacity: 0, duration: .8, stagger: .045 }, '-=.3')
+      .from(hero.querySelectorAll('.hero-kick, .hero-al > *, .hero-cta, .lede, .toc'), { y: 14, opacity: 0, duration: .6, stagger: .05 }, '-=.5')
+      .from(hero.querySelectorAll('.plate .ph'), { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'power4.inOut' }, .2)
+      .from(hero.querySelectorAll('.note, .hero-meta > div'), { y: 12, opacity: 0, duration: .5, stagger: .06 }, '-=.6');
+  }
+
+  /* section headings */
+  document.querySelectorAll('.art-h').forEach(function(h){
+    gsap.from(h.querySelectorAll('.art-t .w'), { yPercent: 50, opacity: 0, duration: .7, stagger: .04, ease: 'power3.out',
+      scrollTrigger: { trigger: h, start: 'top 85%', once: true } });
+    gsap.from(h.querySelector('.art-num'), { scaleX: .2, transformOrigin: 'left', opacity: 0, duration: .7, ease: 'power3.out',
+      scrollTrigger: { trigger: h, start: 'top 85%', once: true } });
+  });
+  /* blocks */
+  document.querySelectorAll('.reveal').forEach(function(el){
+    gsap.from(el, { y: 26, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+  document.querySelectorAll('.reveal-group').forEach(function(g){
+    gsap.from(g.children, { y: 22, opacity: 0, duration: .7, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: g, start: 'top 85%', once: true } });
+  });
+  /* alinéas: references slide in one after another */
+  document.querySelectorAll('.al').forEach(function(l){
+    gsap.from(l.querySelectorAll('.ref'), { x: -10, opacity: 0, duration: .5, stagger: .07, ease: 'power2.out', scrollTrigger: { trigger: l, start: 'top 85%', once: true } });
+  });
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>

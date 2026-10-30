@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prendre rendez-vous — Axis Ostéo</title>
+<meta name="description" content="Réservez une séance d'ostéopathie ou de kinésithérapie du sport à Vandœuvre-lès-Nancy. 45 min, 60 €, facture pour votre mutuelle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&family=Urbanist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  color-scheme: light;
+  --sky-deep:#1f5fc4;
+  --sky:#4f8fe6;
+  --sky-soft:#9cc3f4;
+  --mist:#e6f0fb;
+  --paper:#f6f9fd;
+  --white:#ffffff;
+  --ink:#0d2242;
+  --ink-soft:#4b5f7c;
+  --ink-mute:#7d8ea8;
+  --line:rgba(13,34,66,.12);
+  --line-w:rgba(255,255,255,.38);
+  --display:"Urbanist", "Avenir Next", "Segoe UI", sans-serif;
+  --body:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --accent:"Newsreader", Georgia, serif;
+  --shell:1240px;
+  --gut:max(16px, env(safe-area-inset-left,0px));
+  --gut-r:max(16px, env(safe-area-inset-right,0px));
+  --r:22px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sky-deep);outline-offset:3px;border-radius:6px}
+.shell{max-width:calc(var(--shell) + 64px);margin:0 auto;padding-left:max(32px,var(--gut));padding-right:max(32px,var(--gut-r))}
+@media (max-width:700px){.shell{padding-left:var(--gut);padding-right:var(--gut-r)}}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.025em;line-height:1.02;margin:0}
+em.ac{font-family:var(--accent);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-deep);margin:0 0 18px}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.w>span{display:inline-block}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .35s var(--ease),background .25s,box-shadow .35s}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 14px 30px -12px rgba(13,34,66,.55)}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(13,34,66,.6)}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px var(--line-w);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.24)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+
+/* header + top progressive blur */
+.topblur{position:fixed;z-index:40;inset:0 0 auto 0;height:120px;pointer-events:none}
+.topblur>div,.topblur::before,.topblur::after{position:absolute;inset:0}
+.topblur::before{content:"";z-index:1;backdrop-filter:blur(.5px);-webkit-mask:linear-gradient(to top,transparent 0%,#000 12.5%,#000 25%,transparent 37.5%);mask:linear-gradient(to top,transparent 0%,#000 12.5%,#000 25%,transparent 37.5%)}
+.topblur>div:nth-of-type(1){z-index:2;backdrop-filter:blur(1px);-webkit-mask:linear-gradient(to top,transparent 12.5%,#000 25%,#000 37.5%,transparent 50%);mask:linear-gradient(to top,transparent 12.5%,#000 25%,#000 37.5%,transparent 50%)}
+.topblur>div:nth-of-type(2){z-index:3;backdrop-filter:blur(2px);-webkit-mask:linear-gradient(to top,transparent 25%,#000 37.5%,#000 50%,transparent 62.5%);mask:linear-gradient(to top,transparent 25%,#000 37.5%,#000 50%,transparent 62.5%)}
+.topblur>div:nth-of-type(3){z-index:4;backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to top,transparent 37.5%,#000 50%,#000 62.5%,transparent 75%);mask:linear-gradient(to top,transparent 37.5%,#000 50%,#000 62.5%,transparent 75%)}
+.topblur>div:nth-of-type(4){z-index:5;backdrop-filter:blur(8px);-webkit-mask:linear-gradient(to top,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%);mask:linear-gradient(to top,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%)}
+.topblur>div:nth-of-type(5){z-index:6;backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to top,transparent 62.5%,#000 75%,#000 100%);mask:linear-gradient(to top,transparent 62.5%,#000 75%,#000 100%)}
+.topblur::after{content:"";z-index:7;background:linear-gradient(to bottom,rgba(246,249,253,.0),rgba(246,249,253,0));transition:background .4s}
+body.scrolled .topblur::after{background:linear-gradient(to bottom,rgba(246,249,253,.82) 0%,rgba(246,249,253,.5) 55%,rgba(246,249,253,0) 100%)}
+
+.site-header{position:fixed;z-index:50;left:0;right:0;top:env(safe-area-inset-top,0px);color:#fff;transition:color .35s}
+body.scrolled .site-header{color:var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 20px/1 var(--display);letter-spacing:-.02em}
+.brand svg{width:22px;height:28px}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+.nav-links a{text-decoration:none;opacity:.86;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;background:#fff;color:var(--ink);transition:background .3s,color .3s}
+body.scrolled .nav-cta{background:var(--ink);color:#fff}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;margin-right:-10px;cursor:pointer}
+.burger span{display:block;width:22px;height:1.5px;background:currentColor;margin:6px auto;transition:transform .3s var(--ease),opacity .2s}
+.menu-open .burger span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)}
+.mobile-menu{display:none}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mobile-menu{position:fixed;z-index:45;inset:0;background:linear-gradient(180deg,var(--sky-deep),var(--sky) 60%,var(--sky-soft));color:#fff;padding:110px var(--gut-r) 40px var(--gut);flex-direction:column;gap:6px}
+  .menu-open .mobile-menu{display:flex}
+  .menu-open .site-header{color:#fff}
+  .mobile-menu a{font:400 34px/1.25 var(--display);text-decoration:none;letter-spacing:-.02em}
+  .mobile-menu .btn{margin-top:28px;align-self:flex-start;font-size:16px}
+}
+
+
+.cloud{position:absolute;border-radius:50%;pointer-events:none;filter:blur(48px);opacity:.55;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,0));will-change:transform}
+.c1{width:62vw;height:26vw;left:-14vw;top:16%;animation:drift 38s ease-in-out infinite alternate}
+.c2{width:48vw;height:20vw;right:-10vw;top:6%;opacity:.38;animation:drift 46s ease-in-out infinite alternate-reverse}
+.c3{width:80vw;height:30vw;left:12vw;top:52%;opacity:.5;animation:drift 52s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-3vw,0,0)}to{transform:translate3d(5vw,-1.5vw,0)}}
+.rails{position:absolute;inset:0;pointer-events:none}
+@media (max-width:700px){.rails{display:none}}
+.rails .shell{position:relative;height:100%}
+.rails .shell::before,.rails .shell::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.32),rgba(255,255,255,.08) 80%,transparent)}
+.rails .shell::before{left:max(32px,var(--gut))}
+.rails .shell::after{right:max(32px,var(--gut-r))}
+.corner{position:absolute;width:7px;height:7px;background:#fff;opacity:.8}
+/* footer */
+.site-footer{background:#0d2242;color:rgba(255,255,255,.72);padding:64px 0 calc(36px + env(safe-area-inset-bottom,0px));font-size:15px}
+.foot{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:40px}
+.site-footer .brand{color:#fff;margin-bottom:16px}
+.site-footer h4{margin:0 0 14px;color:#fff;font:600 13px/1 var(--body);letter-spacing:.07em;text-transform:uppercase}
+.site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.site-footer a{text-decoration:none}
+.site-footer a:hover{color:#fff}
+.legal{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.55)}
+@media (max-width:800px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){
+  .cloud{animation:none}
+  *{transition-duration:.01ms!important}
+}
+
+
+/* PAGE HEAD */
+.phead{position:relative;overflow:hidden;color:#fff;padding:calc(150px + env(safe-area-inset-top,0px)) 0 120px;background:linear-gradient(180deg,#1a55b8 0%,#3d80df 42%,#78aef0 72%,#cfe2f8 92%,var(--paper) 100%)}
+.phead .c1{top:30%}.phead .c2{top:0}
+.phead-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.crumb{font-size:14px;margin:0 0 22px;opacity:.85}
+.crumb a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+.phead h1{font-size:clamp(46px,7.2vw,104px);font-weight:300;letter-spacing:-.045em;line-height:.95;max-width:900px}
+.phead-facts{display:flex;gap:34px;margin:0}
+.phead-facts dt{font-size:12px;letter-spacing:.07em;text-transform:uppercase;opacity:.8}
+.phead-facts dd{margin:4px 0 0;font:500 26px/1 var(--display)}
+@media (max-width:860px){.phead{padding:calc(118px + env(safe-area-inset-top,0px)) 0 84px}.phead-inner{grid-template-columns:1fr}.phead-facts{gap:24px}.phead-facts dd{font-size:22px}}
+
+/* BOOKING */
+.booking{padding:40px 0 130px}
+.book-grid>div{min-width:0}
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:start}
+.bstep{padding:0 0 56px;margin:0 0 56px;border:0;border-bottom:1px solid var(--line);min-width:0}
+.bstep:last-of-type{border-bottom:0;margin-bottom:0}
+.bstep legend{padding:0;display:flex;align-items:baseline;gap:14px;margin-bottom:26px;width:100%}
+.bstep legend h2{font-size:clamp(28px,3vw,40px)}
+.bstep legend small{font-size:14px;color:var(--ink-mute);margin-left:auto}
+.types{display:grid;gap:10px}
+.type{position:relative;display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:4px 16px;align-items:center;padding:20px 22px;border-radius:18px;background:var(--white);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;transition:box-shadow .25s,background .25s}
+.type:hover{box-shadow:inset 0 0 0 1px rgba(31,95,196,.45)}
+.type input{position:absolute;opacity:0;pointer-events:none}
+.type .radio{width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ink-mute);transition:box-shadow .2s}
+.type input:checked ~ .radio{box-shadow:inset 0 0 0 6px var(--sky-deep)}
+.type input:focus-visible ~ .radio{outline:2px solid var(--sky-deep);outline-offset:3px}
+.type:has(input:checked){box-shadow:inset 0 0 0 1.5px var(--sky-deep);background:#f3f8ff}
+.type .t-name{font:500 21px/1.2 var(--display);letter-spacing:-.01em}
+.type .t-desc{grid-column:2/3;font-size:15px;color:var(--ink-soft)}
+.type .t-price{grid-row:1/3;grid-column:3;text-align:right;font:500 24px/1 var(--display)}
+.type .t-price small{display:block;margin-top:6px;font:500 13px/1 var(--body);color:var(--ink-mute)}
+@media (max-width:560px){.type{grid-template-columns:22px minmax(0,1fr);padding:18px}.type .t-price{grid-row:auto;grid-column:2;text-align:left;margin-top:8px;font-size:20px}.type .t-price small{display:inline;margin-left:8px}}
+
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px 18px;scrollbar-width:thin}
+.day{flex:0 0 auto;min-width:84px;padding:12px 10px;border-radius:16px;border:0;background:var(--white);box-shadow:inset 0 0 0 1px var(--line);font:500 13px/1.2 var(--body);color:var(--ink-soft);cursor:pointer;text-align:center;transition:background .2s,color .2s,box-shadow .2s}
+.day b{display:block;font:500 26px/1.1 var(--display);color:var(--ink);margin-top:2px}
+.day:hover{box-shadow:inset 0 0 0 1px rgba(31,95,196,.45)}
+.day[aria-pressed="true"]{background:var(--ink);color:rgba(255,255,255,.75);box-shadow:none}
+.day[aria-pressed="true"] b{color:#fff}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.slot{padding:13px 0;border-radius:12px;border:0;background:var(--mist);color:var(--ink);font:600 15px/1 var(--body);font-variant-numeric:tabular-nums;cursor:pointer;transition:background .2s,color .2s}
+.slot:hover:not(:disabled){background:#d3e5fa}
+.slot[aria-pressed="true"]{background:var(--sky-deep);color:#fff}
+.slot:disabled{background:transparent;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-mute);text-decoration:line-through;cursor:not-allowed}
+.slot-legend{margin:14px 0 0;font-size:14px;color:var(--ink-mute)}
+
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;font-weight:600}
+.field input,.field textarea{font:400 16px/1.4 var(--body);color:var(--ink);background:var(--white);border:0;border-radius:14px;padding:15px 16px;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
+.field input:focus,.field textarea:focus{outline:0;box-shadow:inset 0 0 0 2px var(--sky-deep)}
+.field input[aria-invalid="true"]{box-shadow:inset 0 0 0 2px #c2413b}
+.field textarea{min-height:110px;resize:vertical}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink-soft)}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--sky-deep)}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+.form-error{margin:18px 0 0;color:#a3322d;font-size:15px;font-weight:500;min-height:1.4em}
+
+.summary{position:sticky;top:110px;background:var(--white);border-radius:24px;padding:28px;box-shadow:0 30px 60px -36px rgba(13,34,66,.35),inset 0 0 0 1px var(--line)}
+.summary h2{font-size:26px;margin-bottom:20px}
+.sum-list{margin:0;display:grid;gap:0}
+.sum-list div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.sum-list dt{color:var(--ink-soft)}
+.sum-list dd{margin:0;font-weight:600;text-align:right}
+.sum-total{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 22px}
+.sum-total span{font-size:15px;color:var(--ink-soft)}
+.sum-total strong{font:400 44px/1 var(--display);letter-spacing:-.03em}
+.summary .btn{width:100%;justify-content:center}
+.sum-note{margin:16px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-mute)}
+.done{display:none;margin-top:4px;padding:22px;border-radius:18px;background:#eaf6ef;color:#174a31}
+.done.show{display:block}
+.done b{display:block;font:500 22px/1.2 var(--display);margin-bottom:6px}
+@media (max-width:960px){.book-grid{grid-template-columns:minmax(0,1fr)}.summary{position:relative;top:0}}
+
+/* REMBOURSEMENT */
+.rembo{background:var(--white);padding:120px 0}
+.rembo-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px}
+.rembo h2{font-size:clamp(36px,4.4vw,60px)}
+.rembo-lead{margin:22px 0 0;color:var(--ink-soft);max-width:420px}
+.rcases{display:grid;gap:0;border-top:1px solid var(--line)}
+.rcase{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.rcase h3{font-size:24px;letter-spacing:-.015em}
+.rcase h3 small{display:block;margin-top:8px;font:500 14px/1.3 var(--body);color:var(--sky-deep)}
+.rcase p{margin:0;color:var(--ink-soft);font-size:16px}
+.rcase p+p{margin-top:10px}
+.example{margin-top:36px;padding:26px 28px;border-radius:20px;background:var(--mist)}
+.example h3{font:600 14px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px}
+.ex-row{display:flex;justify-content:space-between;padding:8px 0;font-size:16px;font-variant-numeric:tabular-nums}
+.ex-row.total{border-top:1px solid rgba(13,34,66,.18);margin-top:6px;padding-top:14px;font-weight:600}
+@media (max-width:900px){.rembo{padding:84px 0}.rembo-grid{grid-template-columns:1fr;gap:40px}.rcase{grid-template-columns:1fr;gap:10px}}
+
+/* FAQ */
+.faq{padding:120px 0}
+.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:72px}
+.faq h2{font-size:clamp(34px,4vw,54px)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:500 21px/1.3 var(--display);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:0 0 14px;height:14px;margin-top:6px;background:linear-gradient(currentColor,currentColor) center/14px 1.6px no-repeat,linear-gradient(currentColor,currentColor) center/1.6px 14px no-repeat;transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 24px;color:var(--ink-soft);max-width:640px}
+@media (max-width:860px){.faq{padding:84px 0}.faq-grid{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body>
+<div class="topblur" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div>
+
+<header class="site-header">
+  <nav class="nav shell" aria-label="Navigation principale">
+    <a class="brand" href="index.html" aria-label="Axis Ostéo, accueil">
+      <svg viewBox="0 0 22 28" fill="none" aria-hidden="true"><line x1="11" y1="1" x2="11" y2="27" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="9" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c2.2-1.6 4.5-2.4 7-2.4s4.8.8 7 2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Axis Ostéo
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#soins">Soins</a></li>
+      <li><a href="index.html#seance">La séance</a></li>
+      <li><a href="index.html#cabinet">Le cabinet</a></li>
+      <li><a href="index.html#infos">Accès &amp; horaires</a></li>
+      <li><a class="nav-cta" href="rendez-vous.html">Prendre rendez-vous</a></li>
+    </ul>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#soins">Soins</a>
+  <a href="index.html#seance">La séance</a>
+  <a href="index.html#cabinet">Le cabinet</a>
+  <a href="index.html#infos">Accès &amp; horaires</a>
+  <a class="btn btn-dark" href="rendez-vous.html">Prendre rendez-vous</a>
+</div>
+
+
+<main>
+  <section class="phead" aria-labelledby="ph-title">
+    <div class="cloud c1" aria-hidden="true"></div>
+    <div class="cloud c2" aria-hidden="true"></div>
+    <div class="shell phead-inner">
+      <div>
+        <p class="crumb"><a href="index.html">Accueil</a> · Rendez-vous</p>
+        <h1 id="ph-title" data-split>Réserver une séance, <em class="ac">en trois choix</em>.</h1>
+      </div>
+      <dl class="phead-facts">
+        <div><dt>Séance</dt><dd>45 min</dd></div>
+        <div><dt>Tarif</dt><dd>60 €</dd></div>
+        <div><dt>Annulation</dt><dd>24 h</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="booking" aria-label="Réservation">
+    <div class="shell">
+      <form class="book-grid" id="book" novalidate>
+        <div>
+          <fieldset class="bstep">
+            <legend><h2>Le type de consultation</h2><small>Étape 1 sur 3</small></legend>
+            <div class="types" role="radiogroup">
+              <label class="type"><input type="radio" name="type" value="osteo" data-name="Ostéopathie adulte" data-dur="45 min" data-price="60" checked><span class="radio" aria-hidden="true"></span>
+                <span class="t-name">Ostéopathie adulte</span><span class="t-price">60 €<small>45 min</small></span>
+                <span class="t-desc">Première visite ou suivi. Facture remise pour votre mutuelle.</span></label>
+              <label class="type"><input type="radio" name="type" value="coureur" data-name="Bilan du coureur" data-dur="60 min" data-price="75"><span class="radio" aria-hidden="true"></span>
+                <span class="t-name">Bilan du coureur</span><span class="t-price">75 €<small>60 min</small></span>
+                <span class="t-desc">Analyse de foulée filmée, tests de mobilité, plan de reprise écrit.</span></label>
+              <label class="type"><input type="radio" name="type" value="nourrisson" data-name="Grossesse ou nourrisson" data-dur="30 min" data-price="50"><span class="radio" aria-hidden="true"></span>
+                <span class="t-name">Grossesse ou nourrisson</span><span class="t-price">50 €<small>30 min</small></span>
+                <span class="t-desc">Douleurs de bassin, torticolis du nourrisson. Carnet de santé à apporter.</span></label>
+              <label class="type"><input type="radio" name="type" value="kine" data-name="Kiné du sport" data-dur="30 min" data-price="0"><span class="radio" aria-hidden="true"></span>
+                <span class="t-name">Kinésithérapie du sport</span><span class="t-price">Conventionné<small>30 min</small></span>
+                <span class="t-desc">Sur ordonnance. Tiers payant&nbsp;: carte Vitale et attestation de mutuelle.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="bstep">
+            <legend><h2>Le créneau</h2><small>Étape 2 sur 3</small></legend>
+            <div class="days" id="days" aria-label="Jour"></div>
+            <div class="slots" id="slots" aria-label="Heure"></div>
+            <p class="slot-legend">Les créneaux barrés sont déjà pris. Besoin d'un horaire plus tard&nbsp;? Appelez le 03 83 47 21 90.</p>
+          </fieldset>
+
+          <fieldset class="bstep">
+            <legend><h2>Vos coordonnées</h2><small>Étape 3 sur 3</small></legend>
+            <div class="fields">
+              <div class="field"><label for="f-name">Prénom et nom</label><input id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required></div>
+              <div class="field full"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr"></div>
+              <div class="field full"><label for="f-motif">Motif, en quelques mots</label><textarea id="f-motif" name="motif" placeholder="Ex. douleur lombaire depuis trois semaines, pire le matin."></textarea></div>
+              <label class="check field full"><input type="checkbox" name="first" checked><span>C'est ma première visite au cabinet</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="summary" aria-labelledby="sum-title">
+          <h2 id="sum-title">Votre rendez-vous</h2>
+          <dl class="sum-list">
+            <div><dt>Consultation</dt><dd id="s-type">Ostéopathie adulte</dd></div>
+            <div><dt>Durée</dt><dd id="s-dur">45 min</dd></div>
+            <div><dt>Date</dt><dd id="s-date">À choisir</dd></div>
+            <div><dt>Heure</dt><dd id="s-time">À choisir</dd></div>
+          </dl>
+          <div class="sum-total"><span>À régler au cabinet</span><strong id="s-price">60 €</strong></div>
+          <button class="btn btn-dark" type="submit">Confirmer le rendez-vous
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <div class="done" id="done" role="status" tabindex="-1"></div>
+          <p class="sum-note">CB, espèces ou chèque. Facture avec numéro ADELI remise en fin de séance. Annulation gratuite jusqu'à 24 h avant.</p>
+        </aside>
+      </form>
+    </div>
+  </section>
+
+  <section class="rembo" id="remboursement" aria-labelledby="rb-title">
+    <div class="shell rembo-grid">
+      <div>
+        <p class="kicker">Remboursement</p>
+        <h2 id="rb-title" data-split>Ce que votre mutuelle <em class="ac">vous rend</em>.</h2>
+        <p class="rembo-lead">L'ostéopathie n'est pas remboursée par l'Assurance maladie, mais la plupart des mutuelles prévoient un forfait. La kiné sur ordonnance, elle, est prise en charge.</p>
+      </div>
+      <div>
+        <div class="rcases">
+          <div class="rcase">
+            <h3>Ostéopathie<small>Forfait mutuelle «&nbsp;médecines douces&nbsp;»</small></h3>
+            <div><p>Selon votre contrat, 2 à 5 séances par an, de 20 à 60 € chacune. On vous remet une facture à votre nom avec le numéro ADELI du praticien.</p><p>Envoyez-la à votre mutuelle depuis son appli. Comptez une à deux semaines.</p></div>
+          </div>
+          <div class="rcase">
+            <h3>Kinésithérapie<small>Sur prescription médicale</small></h3>
+            <div><p>Assurance maladie 60 %, mutuelle 40 %. Avec le tiers payant, vous n'avancez rien. Apportez votre ordonnance de moins d'un an et votre carte Vitale.</p></div>
+          </div>
+          <div class="rcase">
+            <h3>Bilan du coureur<small>Selon contrat</small></h3>
+            <div><p>Facturé comme un acte d'ostéopathie. Certaines mutuelles sportives et licences fédérales le couvrent en partie&nbsp;: demandez-nous une facture détaillée.</p></div>
+          </div>
+        </div>
+        <div class="example">
+          <h3>Exemple, forfait de 40 € par séance</h3>
+          <div class="ex-row"><span>Séance d'ostéopathie, 45 min</span><span>60,00 €</span></div>
+          <div class="ex-row"><span>Remboursé par la mutuelle</span><span>− 40,00 €</span></div>
+          <div class="ex-row total"><span>Reste à votre charge</span><span>20,00 €</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="shell faq-grid">
+      <h2 id="faq-title" data-split>Avant <em class="ac">de venir</em>.</h2>
+      <div>
+        <details open><summary>Faut-il une ordonnance pour l'ostéopathie&nbsp;?</summary><p>Non. Vous pouvez consulter directement. Si on repère un signe qui demande un avis médical, on vous oriente vers votre médecin avant de traiter.</p></details>
+        <details><summary>Combien de séances faudra-t-il&nbsp;?</summary><p>Pour une douleur récente, une à trois séances espacées de deux à trois semaines suffisent souvent. On vous le dit dès la fin du premier bilan.</p></details>
+        <details><summary>Et si je dois annuler&nbsp;?</summary><p>Annulation gratuite jusqu'à 24 h avant, par téléphone ou en répondant au SMS de rappel. En dessous, la séance est due, sauf urgence.</p></details>
+        <details><summary>Je viens pour mon enfant ou mon bébé.</summary><p>Choisissez «&nbsp;Grossesse ou nourrisson&nbsp;». Apportez le carnet de santé. Un parent reste présent pendant toute la séance.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 22 28" fill="none" aria-hidden="true"><line x1="11" y1="1" x2="11" y2="27" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="9" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c2.2-1.6 4.5-2.4 7-2.4s4.8.8 7 2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Axis Ostéo</a>
+        <p style="margin:0;max-width:320px">Ostéopathie et kinésithérapie du sport à Vandœuvre-lès-Nancy.</p>
+      </div>
+      <div><h4>Cabinet</h4><ul><li><a href="index.html#soins">Soins</a></li><li><a href="index.html#seance">La séance</a></li><li><a href="index.html#infos">Accès</a></li></ul></div>
+      <div><h4>Rendez-vous</h4><ul><li><a href="rendez-vous.html">Réserver en ligne</a></li><li><a href="rendez-vous.html#remboursement">Remboursement</a></li><li>03 83 47 21 90</li></ul></div>
+      <div><h4>Praticiens</h4><ul><li>Ostéopathe D.O.</li><li>ADELI 540 004 127</li><li>Kinés MKDE, secteur 1</li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Axis Ostéo · Contenu de démonstration, marque fictive</span>
+      <span>Maquette réalisée par 1903RGB</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  function onScroll(){ body.classList.toggle('scrolled', window.scrollY > 260); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  var burger = document.querySelector('.burger'), menu = document.getElementById('mobile-menu');
+  function closeMenu(){ body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); burger.setAttribute('aria-label','Ouvrir le menu'); }
+  burger.addEventListener('click', function(){
+    var open = !body.classList.contains('menu-open');
+    body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+
+  /* ---- booking ---- */
+  var DAYS=['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'];
+  var DAYS_L=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var MONTHS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  var MONTHS_L=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var state = {day:null, time:null};
+  var daysEl = document.getElementById('days'), slotsEl = document.getElementById('slots');
+  var form = document.getElementById('book');
+
+  function slotsFor(date){
+    var dow = date.getDay(), list = [];
+    var end = dow===6 ? 12*60+15 : dow===5 ? 18*60+15 : 19*60+15;
+    var start = dow===6 ? 8*60+30 : 8*60;
+    for(var m=start; m<=end; m+=45){ if(m>=12*60+30 && m<13*60+45 && dow!==6) continue; list.push(m); }
+    var seed = date.getDate()*7 + date.getMonth()*3;
+    return list.map(function(m,i){ return {m:m, taken: ((seed + i*5) % 7) < 3}; });
+  }
+  function fmt(m){ var h=Math.floor(m/60), mm=m%60; return h+' h '+(mm<10?'0':'')+mm; }
+
+  var open = [], d = new Date(); d.setHours(0,0,0,0);
+  while(open.length < 8){ d.setDate(d.getDate()+1); if(d.getDay()!==0) open.push(new Date(d)); }
+
+  open.forEach(function(date, i){
+    var b = document.createElement('button'); b.type='button'; b.className='day';
+    b.setAttribute('aria-pressed', i===0?'true':'false');
+    b.setAttribute('aria-label', DAYS_L[date.getDay()]+' '+date.getDate()+' '+MONTHS_L[date.getMonth()]);
+    b.innerHTML = DAYS[date.getDay()]+'<b>'+date.getDate()+'</b>'+MONTHS[date.getMonth()];
+    b.addEventListener('click', function(){ selectDay(i); });
+    daysEl.appendChild(b);
+  });
+
+  function selectDay(i){
+    state.day = open[i]; state.time = null;
+    daysEl.querySelectorAll('.day').forEach(function(b,j){ b.setAttribute('aria-pressed', String(i===j)); });
+    slotsEl.innerHTML='';
+    slotsFor(open[i]).forEach(function(s){
+      var b = document.createElement('button'); b.type='button'; b.className='slot'; b.textContent = fmt(s.m);
+      b.setAttribute('aria-pressed','false');
+      if(s.taken){ b.disabled = true; b.setAttribute('aria-label', fmt(s.m)+', complet'); }
+      b.addEventListener('click', function(){
+        state.time = fmt(s.m);
+        slotsEl.querySelectorAll('.slot').forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+        update();
+      });
+      slotsEl.appendChild(b);
+    });
+    update();
+  }
+
+  function current(){ return form.querySelector('input[name="type"]:checked'); }
+  function update(){
+    var t = current();
+    document.getElementById('s-type').textContent = t.dataset.name;
+    document.getElementById('s-dur').textContent = t.dataset.dur;
+    document.getElementById('s-price').textContent = t.dataset.price==='0' ? 'Tiers payant' : t.dataset.price+' €';
+    document.getElementById('s-date').textContent = state.day ? DAYS_L[state.day.getDay()]+' '+state.day.getDate()+' '+MONTHS_L[state.day.getMonth()] : 'À choisir';
+    document.getElementById('s-time').textContent = state.time || 'À choisir';
+    document.getElementById('form-error').textContent = '';
+  }
+  form.querySelectorAll('input[name="type"]').forEach(function(r){ r.addEventListener('change', update); });
+  selectDay(0);
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = document.getElementById('form-error'), name = form.elements.name, tel = form.elements.tel;
+    name.removeAttribute('aria-invalid'); tel.removeAttribute('aria-invalid');
+    if(!state.time){ err.textContent = 'Choisissez une heure à l\'étape 2.'; return; }
+    if(!name.value.trim()){ name.setAttribute('aria-invalid','true'); err.textContent = 'Indiquez votre prénom et votre nom.'; name.focus(); return; }
+    if(tel.value.replace(/\D/g,'').length < 10){ tel.setAttribute('aria-invalid','true'); err.textContent = 'Indiquez un numéro de téléphone à 10 chiffres.'; tel.focus(); return; }
+    err.textContent = '';
+    var done = document.getElementById('done');
+    done.innerHTML = '<b>C\'est noté, '+name.value.trim().split(' ')[0].replace(/[<>&]/g,'')+'.</b>'+document.getElementById('s-type').textContent+', '+document.getElementById('s-date').textContent+' à '+state.time+'. Un SMS de confirmation part sur votre téléphone.';
+    done.classList.add('show'); done.focus();
+    form.querySelector('.summary .btn').setAttribute('disabled','');
+    form.querySelector('.summary .btn').style.opacity = '.45';
+  });
+
+  /* ---- split + motion ---- */
+  document.querySelectorAll('[data-split]').forEach(function(h){
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g,' ').trim());
+    var frag = document.createDocumentFragment();
+    Array.prototype.slice.call(h.childNodes).forEach(function(node){
+      var isEl = node.nodeType === 1;
+      node.textContent.split(/(\s+)/).forEach(function(part){
+        if(!part) return;
+        if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
+        var w = document.createElement('span'); w.className='w'; w.setAttribute('aria-hidden','true');
+        var inner = document.createElement('span');
+        if(isEl){ var c = node.cloneNode(false); c.textContent = part; inner.appendChild(c); } else inner.textContent = part;
+        w.appendChild(inner); frag.appendChild(w);
+      });
+    });
+    h.innerHTML=''; h.appendChild(frag);
+  });
+
+  if(typeof gsap === 'undefined' || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(typeof Lenis !== 'undefined'){
+    var lenis = new Lenis({lerp:0.1});
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    window.addEventListener('pagehide', function(){ lenis.destroy(); });
+  }
+  gsap.from('.phead h1 .w>span', {yPercent:110, duration:1.1, stagger:.07, ease:'power3.out'});
+  gsap.from('.crumb, .phead-facts > div', {y:14, opacity:0, duration:.7, stagger:.08, delay:.3, ease:'power3.out'});
+  gsap.from('.type', {y:18, opacity:0, duration:.7, stagger:.07, delay:.4, ease:'power3.out'});
+  document.querySelectorAll('[data-split]:not(#ph-title)').forEach(function(h){
+    gsap.from(h.querySelectorAll('.w>span'), {yPercent:110, duration:1, ease:'power3.out', stagger:.06, scrollTrigger:{trigger:h, start:'top 85%', once:true}});
+  });
+  document.querySelectorAll('.rcase, .example, .faq details').forEach(function(el){
+    gsap.from(el, {y:24, opacity:0, duration:.8, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 90%', once:true}});
+  });
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+<a href="../../index.html#realisations" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#121212;color:#F4F3EF;font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="display:inline-flex;gap:2px"><i style="width:4px;height:12px;background:#E8371F;border-radius:1px"></i><i style="width:4px;height:12px;background:#1F9150;border-radius:1px"></i><i style="width:4px;height:12px;background:#2549DC;border-radius:1px"></i></span>MAQUETTE 1903RGB · RETOUR</a></body>
+</html>
