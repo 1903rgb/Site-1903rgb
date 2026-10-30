@@ -1,6 +1,6 @@
 <title>Création de site web à Nancy · Studio 1903RGB</title>
 {{HEADMETA}}
-<meta name="description" content="1903RGB, studio web à Nancy : sites vitrines sur mesure, boutiques en ligne, référencement local et identité visuelle pour les commerces, artisans et indépendants. Devis sous 48 h après un rendez-vous gratuit.">
+<meta name="description" content="1903RGB, studio web à Nancy : sites vitrines sur mesure, boutiques en ligne, référencement local et identité visuelle pour les commerces, artisans et indépendants. Devis sous 48 h après un rendez-vous gratuit.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#121212">
 <link rel="canonical" href="{{BASE}}">
@@ -27,6 +27,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
 img,video{max-width:100%;display:block}
+[hidden]{display:none!important}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--paper);color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:600;text-decoration:none}
@@ -105,6 +106,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rg
 /* showreel */
 .reel{border-radius:16px;overflow:hidden;border:1px solid var(--line-d);margin-top:48px;background:#000;aspect-ratio:16/9;max-width:100%}
 .reel video{width:100%;height:100%}
+.reel:focus-within{outline:2px solid var(--paper);outline-offset:3px}
 .reel-desc{margin-top:14px;color:var(--mute-d);font-size:14px;max-width:80ch}
 
 /* services */
@@ -228,7 +230,7 @@ footer a{color:var(--paper);display:inline-block;padding:4px 0}
       <p class="lede">Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants de Nancy et d’ailleurs.</p>
       <div class="ctas">
         <a class="btn solid" href="#rdv">Prendre rendez&#8209;vous</a>
-        <a class="btn" href="#realisations">Voir les 20 maquettes</a>
+        <a class="btn" href="#realisations" data-all>Voir les 20 maquettes</a>
       </div>
       <div class="facts">
         <div><b>20</b><span>métiers déjà maquettés</span></div>
@@ -310,7 +312,7 @@ footer a{color:var(--paper);display:inline-block;padding:4px 0}
       </div>
       <div class="two">
         <label>Email<input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" maxlength="120"></label>
-        <label><span>Téléphone <small>(facultatif)</small></span><input id="f-tel" name="telephone" type="tel" autocomplete="tel" maxlength="20" pattern="[0-9 +().\-]{6,20}"></label>
+        <label><span>Téléphone <small>(facultatif)</small></span><input id="f-tel" name="telephone" type="tel" autocomplete="tel" maxlength="20" pattern="[0-9 +\(\)\.\-]{6,20}"></label>
       </div>
       <label>Votre besoin
         <select id="f-besoin" name="besoin">
@@ -326,7 +328,7 @@ footer a{color:var(--paper);display:inline-block;padding:4px 0}
         <label class="chk"><input type="radio" name="format" value="Téléphone" id="f-telformat">Téléphone</label>
         <label class="chk"><input type="radio" name="format" value="À Nancy" id="f-nancy">À Nancy</label>
       </fieldset>
-      <label><span>Un mot sur votre projet <small>(facultatif)</small></span><textarea id="f-msg" name="message" rows="3" maxlength="2000" placeholder="Avez-vous déjà un site ? Une date en tête ?"></textarea></label>
+      <label><span>Un mot sur votre projet <small>(facultatif)</small></span><textarea id="f-msg" name="message" rows="3" maxlength="2000" placeholder="Avez-vous déjà un site ? Une date en tête ?"></textarea></label>
       <div class="sr" aria-hidden="true"><label>Ne pas remplir<input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off"></label></div>
       <p class="fine">Les champs nom, activité et email sont obligatoires. Vos informations servent uniquement à vous répondre et à préparer votre devis&nbsp;; elles transitent par le service Web3Forms jusqu’à notre boîte mail. <a href="mentions-legales.html#donnees">Vos données et vos droits</a>.</p>
       <button class="btn solid" type="submit" id="f-send">Demander mon rendez&#8209;vous</button>

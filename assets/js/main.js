@@ -4,8 +4,10 @@
 
   // Menu mobile
   const burger = $("burger"), menu = $("menu");
-  const closeMenu = () => { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); };
-  burger.addEventListener("click", () => { const o = menu.classList.toggle("open"); burger.setAttribute("aria-expanded", String(o)); });
+  const setMenu = (o) => { menu.classList.toggle("open", o); burger.setAttribute("aria-expanded", String(o)); burger.setAttribute("aria-label", o ? "Fermer le menu" : "Ouvrir le menu"); };
+  const closeMenu = () => setMenu(false);
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  document.addEventListener("click", (e) => { if (menu.classList.contains("open") && !menu.contains(e.target) && !burger.contains(e.target)) closeMenu(); });
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && menu.classList.contains("open")) { closeMenu(); burger.focus(); } });
 
@@ -22,6 +24,7 @@
     grid.classList.toggle("all", f !== "all");
   }));
   $("more").addEventListener("click", () => { grid.classList.add("all"); cards[6] && cards[6].focus(); });
+  document.querySelectorAll("[data-all]").forEach((a) => a.addEventListener("click", () => grid.classList.add("all")));
 
   // Copier l'adresse
   const out = $("copied");
@@ -36,12 +39,14 @@
   const ENDPOINT = "https://api.web3forms.com/submit";
   const ACCESS_KEY = "dae0c910-f6f4-419a-8588-f95cfcf4809e"; // clé Web3Forms (publique, liée à 1903rgb@gmail.com)
   const form = $("book"), fo = $("f-out"), send = $("f-send"), loaded = Date.now();
-  const d = $("f-jour"); const t = new Date(); t.setDate(t.getDate() + 1); d.min = t.toISOString().slice(0, 10);
+  const d = $("f-jour"); const t = new Date(); t.setDate(t.getDate() + 1);
+  const iso = (x) => x.getFullYear() + "-" + String(x.getMonth() + 1).padStart(2, "0") + "-" + String(x.getDate()).padStart(2, "0");
+  d.min = iso(t);
   const req = ["f-nom", "f-activite", "f-email"].map($);
   const say = (cls, msg) => { fo.className = "form-msg " + cls; fo.textContent = msg; };
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    req.forEach((i) => { i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); });
+    [...req, $("f-tel"), d].forEach((i) => { i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); });
     const bad = req.find((i) => !i.value.trim() || (i.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim())));
     if (bad) {
       bad.setAttribute("aria-invalid", "true"); bad.setAttribute("aria-describedby", "f-out");
@@ -49,7 +54,8 @@
       bad.focus(); return;
     }
     const tel = $("f-tel");
-    if (tel.value && !tel.checkValidity()) { tel.setAttribute("aria-invalid", "true"); say("err", "Le numéro de téléphone ne semble pas valide."); tel.focus(); return; }
+    if (tel.value && !tel.checkValidity()) { tel.setAttribute("aria-invalid", "true"); tel.setAttribute("aria-describedby", "f-out"); say("err", "Le numéro de téléphone ne semble pas valide."); tel.focus(); return; }
+    if (d.value && d.value < d.min) { d.setAttribute("aria-invalid", "true"); d.setAttribute("aria-describedby", "f-out"); say("err", "Choisissez une date à partir de demain."); d.focus(); return; }
     const data = Object.fromEntries(new FormData(form));
     if (data._honey || Date.now() - loaded < 3000) { form.reset(); say("ok", "Demande envoyée."); return; } // robots
     delete data._honey;

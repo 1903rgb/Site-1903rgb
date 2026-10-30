@@ -12,7 +12,7 @@ CAT = {"01":"commerce","02":"commerce","05":"commerce","09":"commerce","11":"com
        "07":"sante","14":"sante","16":"sante","19":"sante","12":"sante",
        "03":"artisans","08":"artisans","10":"artisans","17":"artisans",
        "04":"services","06":"services","15":"services","13":"services","18":"services"}
-E = html.escape
+E = lambda x: html.escape(x.replace("'", "’"), quote=True)
 S = sites()
 
 def card(s):
