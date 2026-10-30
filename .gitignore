@@ -1,2 +1,8 @@
 _artifact.html
+_shot-*.png
+_*.png
 __pycache__/
+.env
+*.pem
+.DS_Store
+node_modules/

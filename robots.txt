@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1903rgb.github.io/Site-1903rgb/sitemap.xml

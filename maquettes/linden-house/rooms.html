@@ -2,12 +2,14 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, follow">
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Rooms &amp; Rates · The Linden House</title>
 <meta name="description" content="Four room types in a 1790 Bath townhouse: sizes, beds, nightly rates in GBP and a booking enquiry.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&family=Spectral:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<link href="../../assets/css/gf-60d0e1436d.css" rel="stylesheet">
 <style>
 
 :root{
@@ -412,9 +414,9 @@ form.enquiry{border:1px solid var(--ink-line);padding:clamp(20px,3vw,36px);backg
   <div class="wrap base"><span>© 2026 The Linden House. Contenu de démonstration, fictional business.</span><span>Photos: Unsplash</span></div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../../assets/vendor/gsap-3.12.5.min.js"></script>
+<script src="../../assets/vendor/ScrollTrigger-3.12.5.min.js"></script>
+<script src="../../assets/vendor/lenis-1.1.13.min.js"></script>
 <script>
 (function(){
   var b=document.querySelector('.burger'),n=document.getElementById('nav');

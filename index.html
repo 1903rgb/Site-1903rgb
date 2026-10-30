@@ -2,18 +2,27 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src https://formsubmit.co; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>1903RGB</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="1903RGB, studio web à Nancy : sites vitrines sur mesure, boutiques en ligne, référencement local et identité visuelle pour les commerces, artisans et indépendants.">
+<title>Création de site web à Nancy · Studio 1903RGB</title>
+<meta name="description" content="1903RGB, studio web à Nancy : sites vitrines sur mesure, boutiques en ligne, référencement local et identité visuelle pour les commerces, artisans et indépendants. Devis sous 48 h après un rendez-vous gratuit.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#121212">
+<link rel="canonical" href="https://1903rgb.github.io/Site-1903rgb/">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="1903RGB">
+<meta property="og:title" content="Création de site web à Nancy · 1903RGB">
+<meta property="og:description" content="Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants à Nancy.">
+<meta property="og:url" content="https://1903rgb.github.io/Site-1903rgb/"><meta property="og:image" content="https://1903rgb.github.io/Site-1903rgb/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/brand/icone-pixel.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Sora:wght@400;500;600&family=Azeret+Mono:wght@500&display=swap">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/gf-edcd27a86c.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"1903RGB","url":"https://1903rgb.github.io/Site-1903rgb/","logo":"https://1903rgb.github.io/Site-1903rgb/assets/brand/avatar-sombre-1080.png","image":"https://1903rgb.github.io/Site-1903rgb/assets/og.jpg","description":"Studio web à Nancy : création de sites vitrines, boutiques en ligne, référencement local et identité visuelle.","email":"1903rgb@gmail.com","founder":{"@type":"Person","name":"Junior Bertrand"},"address":{"@type":"PostalAddress","streetAddress":"Boulevard Jean Jaurès","postalCode":"54000","addressLocality":"Nancy","addressRegion":"Grand Est","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Nancy"},{"@type":"Country","name":"France"}],"sameAs":["https://www.instagram.com/_1903rgb_/"]}</script>
 <style>
-/* Layout : alternance de bandes encre / papier ; grille de maquettes comme preuve centrale ; le pixel RVB comme fil rouge */
+/* Layout : bandes encre / papier ; les maquettes comme preuve ; le pixel RVB comme fil rouge, discret */
 :root{
-  --ink:#121212; --ink-2:#1c1c1b; --paper:#F4F3EF; --paper-2:#E9E7E0; --line:#d8d5cc; --line-d:#2c2c2a;
-  --mute:#5f5d57; --mute-d:#a4a29b; --r:#E8371F; --g:#1F9150; --b:#2549DC;
+  --ink:#121212; --paper:#F4F3EF; --paper-2:#E9E7E0; --line:#d8d5cc; --line-d:#2c2c2a; --field:#85827a;
+  --mute:#5a5852; --mute-d:#a8a69f; --r:#E8371F; --g:#1F9150; --b:#2549DC; --ok:#14713C; --err:#B8290F;
   --disp:"Unbounded",ui-sans-serif,system-ui,sans-serif; --body:"Sora",ui-sans-serif,system-ui,sans-serif; --mono:"Azeret Mono",ui-monospace,Menlo,monospace;
   --gut:max(20px,env(safe-area-inset-left,0px)); --gutr:max(20px,env(safe-area-inset-right,0px));
   color-scheme:light;
@@ -24,59 +33,67 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
 img,video{max-width:100%;display:block}
 a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--paper);color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:600;text-decoration:none}
+.skip:focus{left:max(16px,env(safe-area-inset-left,0px))}
 .wrap{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
 .band{padding-block:clamp(72px,10vw,128px)}
 .dark{background:var(--ink);color:var(--paper)}
 .mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
 .eyebrow{display:flex;align-items:center;gap:12px;color:var(--mute)}
-.dark .eyebrow{color:var(--mute-d)}
+.dark .eyebrow,.hero .eyebrow{color:var(--mute-d)}
 h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
 h2{font-size:clamp(34px,5vw,60px)}
+h3{line-height:1.2}
 p{margin:0}
-.lede{font-size:clamp(17px,1.6vw,20px);max-width:60ch;color:var(--mute)}
-.dark .lede{color:var(--mute-d)}
+.lede{font-size:clamp(17px,1.6vw,20px);max-width:60ch;color:var(--mute);text-wrap:pretty}
+.dark .lede,.hero .lede{color:var(--mute-d)}
 .pix{display:inline-flex;gap:.18em;vertical-align:middle}
 .pix i{display:block;width:.42em;height:1.3em;border-radius:.1em}
 .pix i:nth-child(1){background:var(--r)}.pix i:nth-child(2){background:var(--g)}.pix i:nth-child(3){background:var(--b)}
-.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 15px var(--body);text-decoration:none;border:1.5px solid currentColor;transition:transform .2s,background .2s,color .2s;cursor:pointer;background:transparent;color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 15px var(--body);text-decoration:none;border:1.5px solid currentColor;transition:transform .2s,background .2s,color .2s;cursor:pointer;background:transparent;color:inherit;white-space:nowrap}
 .btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .dark .btn.solid,.hero .btn.solid,header .btn.solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 .btn:hover{transform:translateY(-2px)}
-.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+header :focus-visible,.hero :focus-visible,.dark :focus-visible,footer :focus-visible{outline-color:var(--paper)}
 
 /* en-tête */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(18,18,18,.92);backdrop-filter:blur(10px);color:var(--paper)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(18,18,18,.94);backdrop-filter:blur(10px);color:var(--paper)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em}
 .logo .pix{font-size:14px}
 .links{display:flex;gap:28px;align-items:center;font-size:15px}
-.links a{text-decoration:none;opacity:.8}.links a:hover{opacity:1}
+.links a{text-decoration:none;opacity:.82}.links a:hover{opacity:1}
 .links .btn{height:42px;padding:0 18px;opacity:1;font-size:14px}
-.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer}
+.btn-rdv{display:none}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer;flex:none}
 .burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto}
 
 /* hero */
 .hero{background:var(--ink);color:var(--paper);overflow:hidden;position:relative}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;padding-block:72px 96px}
 .hero h1{font-size:clamp(38px,5.4vw,74px)}
-.hero h1 em{font-style:normal;color:var(--paper);background:linear-gradient(90deg,var(--r) 0 33.3%,var(--g) 33.3% 66.6%,var(--b) 66.6%) no-repeat 0 96%/100% .11em;padding-bottom:.04em}
-.hero .lede{margin-top:28px}
+.hero h1 em{font-style:normal;color:inherit;background:linear-gradient(90deg,var(--r) 0 33.3%,var(--g) 0 66.6%,var(--b) 0) no-repeat 0 93%/100% .05em}
+.hero .lede{margin-top:28px;max-width:46ch}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .hero .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line-d)}
 .hero .facts div{min-width:0}
-.hero .facts b{display:block;font-family:var(--disp);font-size:clamp(20px,2.4vw,28px);font-weight:600}
-.hero .facts span{color:var(--mute-d);font-size:14px}
+.hero .facts b{display:block;font-family:var(--disp);font-size:clamp(20px,2.4vw,28px);font-weight:600;white-space:nowrap}
+.hero .facts span{display:block;color:var(--mute-d);font-size:14px;line-height:1.35;margin-top:4px}
 .wall{position:relative;height:620px;margin-right:calc(-1 * var(--gutr));mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
 .wall .cols{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;transform:rotate(-4deg) translateX(20px)}
-.wall .col{display:flex;flex-direction:column;gap:16px;animation:up 46s linear infinite}
-.wall .col:nth-child(2){animation-direction:reverse;animation-duration:52s}
-.wall img{border-radius:10px;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;box-shadow:0 20px 40px -20px #000}
+.wall .col{display:flex;flex-direction:column;gap:16px;animation:up 70s linear infinite}
+.wall .col:nth-child(2){animation-direction:reverse;animation-duration:80s}
+.wall:hover .col,.wall.paused .col{animation-play-state:paused}
+.wall img{border-radius:10px;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;box-shadow:0 20px 40px -20px #000}
+.wall-toggle{position:absolute;right:calc(var(--gutr) + 8px);bottom:16px;z-index:2;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:rgba(18,18,18,.75);border:1px solid var(--line-d);border-radius:999px;padding:8px 14px;cursor:pointer}
 @keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 
 /* réalisations */
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:48px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.filters button{font:500 14px var(--body);padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filters button{font:500 14px var(--body);min-height:40px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:36px 24px}
 .card{text-decoration:none;display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -87,67 +104,61 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rg
 .card h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
 .card p{color:var(--mute);font-size:14px}
 .card .go{font-family:var(--mono);font-size:12px;color:var(--mute);white-space:nowrap}
-.note{margin-top:40px;color:var(--mute);font-size:14px}
+.nw{white-space:nowrap}
+.more{display:none;margin:32px auto 0}
 
 /* showreel */
 .reel{border-radius:16px;overflow:hidden;border:1px solid var(--line-d);margin-top:48px;background:#000;aspect-ratio:16/9;max-width:100%}
 .reel video{width:100%;height:100%}
+.reel-desc{margin-top:14px;color:var(--mute-d);font-size:14px;max-width:80ch}
 
 /* services */
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line-d);margin-top:56px}
 .svc article{padding:40px 40px 44px 0;border-bottom:1px solid var(--line-d);display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px}
 .svc article:nth-child(odd){border-right:1px solid var(--line-d)}
 .svc article:nth-child(even){padding-left:40px}
-.svc .bar{width:10px;border-radius:3px;align-self:stretch}
+.svc .bar{width:4px;border-radius:2px;align-self:stretch}
 .svc h3{font-size:clamp(22px,2.4vw,28px)}
 .svc p{color:var(--mute-d);margin-top:12px}
 .svc ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
 .svc li{font-size:13px;padding:5px 12px;border:1px solid var(--line-d);border-radius:999px;color:var(--mute-d)}
 
 /* méthode */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px;counter-reset:s}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px}
 .step{border-top:2px solid var(--ink);padding-top:22px;min-width:0}
 .step .n{font-family:var(--mono);font-size:13px;color:var(--mute)}
 .step h3{font-size:20px;margin-top:14px;letter-spacing:-.01em}
 .step p{color:var(--mute);font-size:15px;margin-top:10px}
 
-/* tarifs */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
-.plan{border:1.5px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:18px;background:#fff;min-width:0}
-.plan.hl{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.plan .price{font-family:var(--disp);font-size:36px;font-weight:600;letter-spacing:-.02em}
-.plan .price small{font-family:var(--body);font-size:14px;font-weight:400;color:var(--mute);letter-spacing:0;display:block;margin-top:4px}
-.plan.hl .price small,.plan.hl li{color:var(--mute-d)}
-.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px;color:var(--mute)}
-.plan li{padding-left:22px;position:relative}
-.plan li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:currentColor}
-.plan .btn{margin-top:auto;justify-content:center}
-
 /* rendez-vous */
 .rdv{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}
-.mini{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.mini{list-style:none;padding:0;margin:40px 0 0;border-top:1px solid var(--line)}
 .mini li{display:grid;gap:2px;padding:18px 0;border-bottom:1px solid var(--line)}
 .mini b{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em}
 .mini span{color:var(--mute);font-size:15px}
 .book{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:32px;display:grid;gap:16px;min-width:0}
+.book h3{font-size:22px}
 .book .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .book label{display:grid;gap:6px;font-size:14px;font-weight:500}
 .book small{font-weight:400;color:var(--mute)}
-.book input,.book select,.book textarea{font:16px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
-.book input:focus,.book select:focus,.book textarea:focus{outline:2px solid var(--b);outline-offset:1px;border-color:transparent}
+.book input,.book select,.book textarea{font:16px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--field);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+.book input:focus-visible,.book select:focus-visible,.book textarea:focus-visible{outline:2px solid var(--b);outline-offset:1px}
+.book [aria-invalid="true"]{border-color:var(--err)}
 .book fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .book legend{font-size:14px;font-weight:500;margin-bottom:6px;width:100%}
-.book .chk{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-weight:500;cursor:pointer}
+.book .chk{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1.5px solid var(--field);border-radius:999px;font-weight:500;cursor:pointer}
 .book .chk:has(input:checked){border-color:var(--ink);background:var(--ink);color:var(--paper)}
 .book .chk input{accent-color:var(--b);width:auto;margin:0}
-.book .btn{justify-content:center;width:100%}
-.form-msg{font-size:15px;font-weight:500;min-height:0}
-.form-msg.ok{color:var(--g)}.form-msg.err{color:var(--r)}
-.fine{font-size:13px;color:var(--mute)}
-.ig{display:inline-flex;align-items:center;gap:10px}
+.book .btn{width:100%}
+.form-msg{font-size:15px;font-weight:500}
+.form-msg:empty{display:none}
+.form-msg.ok{color:var(--ok)}.form-msg.err{color:var(--err)}
+.fine{font-size:13px;color:var(--mute);line-height:1.5}
+.fine a{text-underline-offset:2px}
+
 /* à propos */
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
-.about .big{font-family:var(--disp);font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:500;letter-spacing:-.015em}
+.about h2{font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:600;letter-spacing:-.015em}
 .about .txt{display:grid;gap:18px;color:var(--mute-d);max-width:60ch}
 .about dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:12px 0 0;font-size:15px}
 .about dt{color:var(--mute-d);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
@@ -156,20 +167,20 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rg
 /* faq */
 .faq{margin-top:48px;border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line);padding:22px 0}
-.faq summary{cursor:pointer;font-family:var(--disp);font-size:clamp(17px,1.8vw,21px);font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary{cursor:pointer;font-family:var(--disp);font-size:clamp(17px,1.8vw,21px);font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-family:var(--mono);font-size:22px;line-height:1}
 .faq details[open] summary::after{content:"–"}
 .faq p{color:var(--mute);margin-top:12px;max-width:70ch}
 
 /* contact */
-.contact{text-align:left}
 .contact h2{font-size:clamp(44px,8vw,112px)}
-.contact .row{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px;align-items:center}
-.mail{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:16px;padding:14px 18px;border:1.5px solid var(--line-d);border-radius:12px;user-select:all}
-.copy{font:600 14px var(--body);background:var(--paper);color:var(--ink);border:0;border-radius:8px;padding:8px 12px;cursor:pointer}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px;align-items:center}
+.mail{display:inline-flex;align-items:center;height:52px;padding:0 22px;font-family:var(--mono);font-size:15px;border:1.5px solid var(--line-d);border-radius:999px;user-select:all}
+.copy{height:52px;padding:0 20px;border-radius:999px;font:600 14px var(--body);background:transparent;color:var(--paper);border:1.5px solid var(--line-d);cursor:pointer}
 footer{background:var(--ink);color:var(--mute-d);font-size:13.5px;border-top:1px solid var(--line-d)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px}
-footer a{color:var(--paper)}
+footer a{color:var(--paper);display:inline-block;padding:4px 0}
 
 /* responsive */
 @media (max-width:980px){
@@ -179,33 +190,37 @@ footer a{color:var(--paper)}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .rdv{grid-template-columns:1fr;gap:40px}
 }
-@media (max-width:520px){.book{padding:22px}.book .two{grid-template-columns:1fr}}
 @media (max-width:760px){
   .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--ink);padding:12px var(--gutr) 24px var(--gut);border-bottom:1px solid var(--line-d)}
   .links.open{display:flex}
   .links a{padding:10px 0;font-size:17px}
+  .links .btn{display:none}
+  .btn-rdv{display:inline-flex;height:38px;padding:0 14px;font-size:13px;margin-left:auto}
   .burger{display:block}
   .svc{grid-template-columns:1fr}
   .svc article,.svc article:nth-child(even){padding:32px 0;border-right:0}
   .steps{grid-template-columns:1fr}
+  #grid:not(.all) .card:nth-child(n+7){display:none}
+  #grid:not(.all) ~ .more{display:flex}
 }
-@media (prefers-reduced-motion:reduce){.wall .col{animation:none}html{scroll-behavior:auto}.card img,.btn{transition:none}}
+@media (max-width:520px){.book{padding:22px}.book .two{grid-template-columns:1fr}.hero .facts{gap:12px}.hero .facts span{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.wall .col{animation:none}.wall-toggle{display:none}html{scroll-behavior:auto}.card img,.btn{transition:none}}
 </style>
 </head>
 <body>
-
-
+<a class="skip" href="#contenu">Aller au contenu</a>
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="1903RGB, accueil"><span class="pix" aria-hidden="true"><i></i><i></i><i></i></span>1903RGB</a>
+    <a class="logo" href="#top" aria-label="1903RGB, retour en haut"><span class="pix" aria-hidden="true"><i></i><i></i><i></i></span>1903RGB</a>
+    <a class="btn solid btn-rdv" href="#rdv">Rendez&#8209;vous</a>
     <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <nav class="links" id="menu" aria-label="Navigation principale">
       <a href="#realisations">Réalisations</a>
       <a href="#services">Services</a>
       <a href="#methode">Méthode</a>
-      <a href="#rdv">Tarifs</a>
       <a href="#apropos">Le studio</a>
-      <a class="btn solid" href="#rdv">Prendre rendez-vous</a>
+      <a href="#faq">Questions</a>
+      <a class="btn solid" href="#rdv">Prendre rendez&#8209;vous</a>
     </nav>
   </div>
 </header>
@@ -216,28 +231,29 @@ footer a{color:var(--paper)}
     <div>
       <p class="mono eyebrow"><span class="pix" aria-hidden="true" style="font-size:10px"><i></i><i></i><i></i></span>Studio web · Nancy</p>
       <h1 style="margin-top:26px">Des sites qui font <em>venir</em> des clients.</h1>
-      <p class="lede">Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants. Chaque site a sa propre identité, pensée pour votre métier et lisible d'abord sur téléphone.</p>
+      <p class="lede">Sites vitrines, boutiques en ligne et référencement local pour les commerces, artisans et indépendants de Nancy et d’ailleurs.</p>
       <div class="ctas">
-        <a class="btn solid" href="#rdv">Prendre rendez-vous</a>
+        <a class="btn solid" href="#rdv">Prendre rendez&#8209;vous</a>
         <a class="btn" href="#realisations">Voir les 20 maquettes</a>
       </div>
       <div class="facts">
         <div><b>20</b><span>métiers déjà maquettés</span></div>
-        <div><b>Mobile</b><span>conçu d'abord pour le téléphone</span></div>
-        <div><b>48 h</b><span>pour recevoir votre devis</span></div>
+        <div><b>Mobile</b><span>pensé pour le téléphone</span></div>
+        <div><b>48&nbsp;h</b><span>pour recevoir votre devis</span></div>
       </div>
     </div>
-    <div class="wall" aria-hidden="true">
-      <div class="cols"><div class="col"><img src="assets/thumbs/s01.jpg" alt=""><img src="assets/thumbs/s06.jpg" alt=""><img src="assets/thumbs/s05.jpg" alt=""><img src="assets/thumbs/s09.jpg" alt=""><img src="assets/thumbs/s03.jpg" alt=""><img src="assets/thumbs/s02.jpg" alt=""><img src="assets/thumbs/s08.jpg" alt=""><img src="assets/thumbs/s11.jpg" alt=""><img src="assets/thumbs/s04.jpg" alt=""><img src="assets/thumbs/s10.jpg" alt=""><img src="assets/thumbs/s01.jpg" alt=""><img src="assets/thumbs/s06.jpg" alt=""><img src="assets/thumbs/s05.jpg" alt=""><img src="assets/thumbs/s09.jpg" alt=""><img src="assets/thumbs/s03.jpg" alt=""><img src="assets/thumbs/s02.jpg" alt=""><img src="assets/thumbs/s08.jpg" alt=""><img src="assets/thumbs/s11.jpg" alt=""><img src="assets/thumbs/s04.jpg" alt=""><img src="assets/thumbs/s10.jpg" alt=""></div><div class="col"><img src="assets/thumbs/s12.jpg" alt=""><img src="assets/thumbs/s20.jpg" alt=""><img src="assets/thumbs/s16.jpg" alt=""><img src="assets/thumbs/s14.jpg" alt=""><img src="assets/thumbs/s18.jpg" alt=""><img src="assets/thumbs/s19.jpg" alt=""><img src="assets/thumbs/s13.jpg" alt=""><img src="assets/thumbs/s07.jpg" alt=""><img src="assets/thumbs/s17.jpg" alt=""><img src="assets/thumbs/s15.jpg" alt=""><img src="assets/thumbs/s12.jpg" alt=""><img src="assets/thumbs/s20.jpg" alt=""><img src="assets/thumbs/s16.jpg" alt=""><img src="assets/thumbs/s14.jpg" alt=""><img src="assets/thumbs/s18.jpg" alt=""><img src="assets/thumbs/s19.jpg" alt=""><img src="assets/thumbs/s13.jpg" alt=""><img src="assets/thumbs/s07.jpg" alt=""><img src="assets/thumbs/s17.jpg" alt=""><img src="assets/thumbs/s15.jpg" alt=""></div></div>
+    <div class="wall" id="wall">
+      <div class="cols" aria-hidden="true"><div class="col"><img src="assets/thumbs/w/s01.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s06.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s05.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s09.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s03.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s02.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s08.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s11.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s04.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s10.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s01.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s06.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s05.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s09.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s03.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s02.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s08.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s11.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s04.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s10.webp" alt="" width="480" height="300" decoding="async" loading="lazy"></div><div class="col"><img src="assets/thumbs/w/s12.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s20.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s16.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s14.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s18.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s19.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s13.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s07.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s17.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s15.webp" alt="" width="480" height="300" decoding="async"><img src="assets/thumbs/w/s12.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s20.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s16.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s14.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s18.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s19.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s13.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s07.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s17.webp" alt="" width="480" height="300" decoding="async" loading="lazy"><img src="assets/thumbs/w/s15.webp" alt="" width="480" height="300" decoding="async" loading="lazy"></div></div>
+      <button class="wall-toggle" type="button" id="wall-toggle" aria-pressed="false">Pause</button>
     </div>
   </div>
 </section>
 
 <section class="band" id="realisations">
-  <div class="wrap">
+  <div class="wrap" id="contenu">
     <div class="head">
-      <div><p class="mono eyebrow">Réalisations</p><h2 style="margin-top:18px">Une identité par métier.</h2></div>
-      <p class="lede">Vingt maquettes complètes, chacune avec une page d'accueil et une page de travail&nbsp;: carte, tarifs, réservation, fiche produit. Cliquez pour les parcourir comme un vrai site.</p>
+      <h2>Une identité par métier.</h2>
+      <p class="lede">Vingt maquettes de marques fictives, chacune avec une page d’accueil et une page de travail&nbsp;: carte, tarifs, réservation, fiche produit. Ouvrez-les pour les parcourir comme un vrai site.</p>
     </div>
     <div class="filters" role="group" aria-label="Filtrer par secteur">
       <button type="button" id="f-all" data-f="all" aria-pressed="true">Tous</button>
@@ -246,34 +262,34 @@ footer a{color:var(--paper)}
       <button type="button" id="f-artisans" data-f="artisans" aria-pressed="false">Artisans & BTP</button>
       <button type="button" id="f-services" data-f="services" aria-pressed="false">Services & hôtellerie</button>
     </div>
-    <div class="grid" id="grid"><a class="card" data-cat="commerce" href="maquettes/maison-fournil/index.html"><figure><img src="assets/thumbs/s01.jpg" alt="Page d'accueil de la maquette Maison Fournil" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Maison Fournil</h3><p>Boulangerie au levain · Nancy</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/comptoir-des-halles/index.html"><figure><img src="assets/thumbs/s02.jpg" alt="Page d'accueil de la maquette Le Comptoir des Halles" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Le Comptoir des Halles</h3><p>Restaurant bistronomique · Metz</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/hydro-lorraine/index.html"><figure><img src="assets/thumbs/s03.jpg" alt="Page d'accueil de la maquette Hydro Lorraine Services" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Hydro Lorraine Services</h3><p>Plombier-chauffagiste · Grand Nancy</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/ferrand-associes/index.html"><figure><img src="assets/thumbs/s04.jpg" alt="Page d'accueil de la maquette Ferrand &amp; Associés" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Ferrand &amp; Associés</h3><p>Cabinet d&#x27;avocats · Strasbourg</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/atelier-meche/index.html"><figure><img src="assets/thumbs/s05.jpg" alt="Page d'accueil de la maquette Atelier Mèche" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Atelier Mèche</h3><p>Salon de coiffure · Nancy</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/pierre-et-cle/index.html"><figure><img src="assets/thumbs/s06.jpg" alt="Page d'accueil de la maquette Pierre &amp; Clé Immobilier" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Pierre &amp; Clé Immobilier</h3><p>Agence immobilière · Nancy</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/axis-osteo/index.html"><figure><img src="assets/thumbs/s07.jpg" alt="Page d'accueil de la maquette Axis Ostéo" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Axis Ostéo</h3><p>Ostéopathie &amp; kiné du sport · Vandœuvre-lès-Nancy</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/batir-est/index.html"><figure><img src="assets/thumbs/s08.jpg" alt="Page d'accueil de la maquette Bâtir Est" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Bâtir Est</h3><p>Rénovation &amp; gros œuvre · Moselle</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/petale-et-tige/index.html"><figure><img src="assets/thumbs/s09.jpg" alt="Page d'accueil de la maquette Pétale &amp; Tige" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Pétale &amp; Tige</h3><p>Fleuriste artisan · Épinal</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/conduite-plus/index.html"><figure><img src="assets/thumbs/s10.jpg" alt="Page d'accueil de la maquette Conduite Plus" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Conduite Plus</h3><p>Auto-école · Lunéville</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/ember-oak/index.html"><figure><img src="assets/thumbs/s11.jpg" alt="Page d'accueil de la maquette Ember &amp; Oak Coffee" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Ember &amp; Oak Coffee</h3><p>Torréfacteur &amp; café · Bristol</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/forge-strength/index.html"><figure><img src="assets/thumbs/s12.jpg" alt="Page d'accueil de la maquette Forge Strength Studio" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Forge Strength Studio</h3><p>Salle de musculation · Manchester</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/lumen-vow/index.html"><figure><img src="assets/thumbs/s13.jpg" alt="Page d'accueil de la maquette Lumen &amp; Vow" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Lumen &amp; Vow</h3><p>Photographe de mariage · Lake District</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/brightline-dental/index.html"><figure><img src="assets/thumbs/s14.jpg" alt="Page d'accueil de la maquette Brightline Dental" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Brightline Dental</h3><p>Cabinet dentaire · Leeds</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/ledgerly/index.html"><figure><img src="assets/thumbs/s15.jpg" alt="Page d'accueil de la maquette Ledgerly Accountants" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Ledgerly Accountants</h3><p>Cabinet comptable · London</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/still-water/index.html"><figure><img src="assets/thumbs/s16.jpg" alt="Page d'accueil de la maquette Still Water Yoga" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Still Water Yoga</h3><p>Studio de yoga · Brighton</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/greenfold-gardens/index.html"><figure><img src="assets/thumbs/s17.jpg" alt="Page d'accueil de la maquette Greenfold Gardens" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Greenfold Gardens</h3><p>Paysagiste · Cotswolds</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/linden-house/index.html"><figure><img src="assets/thumbs/s18.jpg" alt="Page d'accueil de la maquette The Linden House" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>The Linden House</h3><p>Hôtel de charme · Bath</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/paws-and-co/index.html"><figure><img src="assets/thumbs/s19.jpg" alt="Page d'accueil de la maquette Paws &amp; Co Vets" loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Paws &amp; Co Vets</h3><p>Clinique vétérinaire · Cardiff</p></div><span class="go">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/northside-brewing/index.html"><figure><img src="assets/thumbs/s20.jpg" alt="Page d'accueil de la maquette Northside Brewing Co." loading="lazy" width="960" height="600"></figure><div class="meta"><div><h3>Northside Brewing Co.</h3><p>Brasserie artisanale · Leeds</p></div><span class="go">Voir →</span></div></a></div>
-    <p class="note">Marques fictives, créées pour montrer ce que l'on peut faire pour chaque métier. Les maquettes en anglais ont été pensées pour des clients au Royaume-Uni.</p>
+    <div class="grid" id="grid"><a class="card" data-cat="commerce" href="maquettes/maison-fournil/index.html"><figure><img src="assets/thumbs/s01.webp" alt="Page d’accueil de la maquette Maison Fournil" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Maison Fournil</h3><p>Boulangerie au levain · <span class="nw">Nancy</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/comptoir-des-halles/index.html"><figure><img src="assets/thumbs/s02.webp" alt="Page d’accueil de la maquette Le Comptoir des Halles" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Le Comptoir des Halles</h3><p>Restaurant bistronomique · <span class="nw">Metz</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/hydro-lorraine/index.html"><figure><img src="assets/thumbs/s03.webp" alt="Page d’accueil de la maquette Hydro Lorraine Services" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Hydro Lorraine Services</h3><p>Plombier-chauffagiste · <span class="nw">Grand Nancy</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/ferrand-associes/index.html"><figure><img src="assets/thumbs/s04.webp" alt="Page d’accueil de la maquette Ferrand &amp; Associés" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Ferrand &amp; Associés</h3><p>Cabinet d&#x27;avocats · <span class="nw">Strasbourg</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/atelier-meche/index.html"><figure><img src="assets/thumbs/s05.webp" alt="Page d’accueil de la maquette Atelier Mèche" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Atelier Mèche</h3><p>Salon de coiffure · <span class="nw">Nancy</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/pierre-et-cle/index.html"><figure><img src="assets/thumbs/s06.webp" alt="Page d’accueil de la maquette Pierre &amp; Clé Immobilier" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Pierre &amp; Clé Immobilier</h3><p>Agence immobilière · <span class="nw">Nancy</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/axis-osteo/index.html"><figure><img src="assets/thumbs/s07.webp" alt="Page d’accueil de la maquette Axis Ostéo" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Axis Ostéo</h3><p>Ostéopathie &amp; kiné du sport · <span class="nw">Vandœuvre-lès-Nancy</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/batir-est/index.html"><figure><img src="assets/thumbs/s08.webp" alt="Page d’accueil de la maquette Bâtir Est" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Bâtir Est</h3><p>Rénovation &amp; gros œuvre · <span class="nw">Moselle</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/petale-et-tige/index.html"><figure><img src="assets/thumbs/s09.webp" alt="Page d’accueil de la maquette Pétale &amp; Tige" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Pétale &amp; Tige</h3><p>Fleuriste artisan · <span class="nw">Épinal</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/conduite-plus/index.html"><figure><img src="assets/thumbs/s10.webp" alt="Page d’accueil de la maquette Conduite Plus" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3>Conduite Plus</h3><p>Auto-école · <span class="nw">Lunéville</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/ember-oak/index.html" hreflang="en"><figure><img src="assets/thumbs/s11.webp" alt="Page d’accueil de la maquette Ember &amp; Oak Coffee" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Ember &amp; Oak Coffee</h3><p>Torréfacteur &amp; café · <span class="nw">Bristol</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/forge-strength/index.html" hreflang="en"><figure><img src="assets/thumbs/s12.webp" alt="Page d’accueil de la maquette Forge Strength Studio" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Forge Strength Studio</h3><p>Salle de musculation · <span class="nw">Manchester</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/lumen-vow/index.html" hreflang="en"><figure><img src="assets/thumbs/s13.webp" alt="Page d’accueil de la maquette Lumen &amp; Vow" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Lumen &amp; Vow</h3><p>Photographe de mariage · <span class="nw">Lake District</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/brightline-dental/index.html" hreflang="en"><figure><img src="assets/thumbs/s14.webp" alt="Page d’accueil de la maquette Brightline Dental" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Brightline Dental</h3><p>Cabinet dentaire · <span class="nw">Leeds</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/ledgerly/index.html" hreflang="en"><figure><img src="assets/thumbs/s15.webp" alt="Page d’accueil de la maquette Ledgerly Accountants" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Ledgerly Accountants</h3><p>Cabinet comptable · <span class="nw">London</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/still-water/index.html" hreflang="en"><figure><img src="assets/thumbs/s16.webp" alt="Page d’accueil de la maquette Still Water Yoga" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Still Water Yoga</h3><p>Studio de yoga · <span class="nw">Brighton</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="artisans" href="maquettes/greenfold-gardens/index.html" hreflang="en"><figure><img src="assets/thumbs/s17.webp" alt="Page d’accueil de la maquette Greenfold Gardens" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Greenfold Gardens</h3><p>Paysagiste · <span class="nw">Cotswolds</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="services" href="maquettes/linden-house/index.html" hreflang="en"><figure><img src="assets/thumbs/s18.webp" alt="Page d’accueil de la maquette The Linden House" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">The Linden House</h3><p>Hôtel de charme · <span class="nw">Bath</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="sante" href="maquettes/paws-and-co/index.html" hreflang="en"><figure><img src="assets/thumbs/s19.webp" alt="Page d’accueil de la maquette Paws &amp; Co Vets" loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Paws &amp; Co Vets</h3><p>Clinique vétérinaire · <span class="nw">Cardiff</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a><a class="card" data-cat="commerce" href="maquettes/northside-brewing/index.html" hreflang="en"><figure><img src="assets/thumbs/s20.webp" alt="Page d’accueil de la maquette Northside Brewing Co." loading="lazy" decoding="async" width="960" height="600"></figure><div class="meta"><div><h3 lang="en">Northside Brewing Co.</h3><p>Brasserie artisanale · <span class="nw">Leeds</span></p></div><span class="go" aria-hidden="true">Voir →</span></div></a></div>
+    <button class="btn more" type="button" id="more">Voir les 20 maquettes</button>
   </div>
 </section>
 
 <section class="band dark" id="services">
   <div class="wrap">
-    <p class="mono eyebrow">Services</p>
-    <h2 style="margin-top:18px;max-width:16ch">Tout ce qu'il faut pour être trouvé et choisi.</h2>
+    <h2 style="max-width:16ch">Tout ce qu’il faut pour être trouvé et choisi.</h2>
     <div class="svc">
-      <article><span class="bar" style="background:var(--r)"></span><div><h3>Site vitrine</h3><p>Un site sur mesure qui présente votre activité, rassure vos clients et les pousse à appeler, réserver ou passer.</p><ul><li>Design unique</li><li>Mobile d'abord</li><li>Formulaire & réservation</li><li>Rapide à charger</li></ul></div></article>
+      <article><span class="bar" style="background:var(--r)"></span><div><h3>Site vitrine</h3><p>Un site sur mesure qui présente votre activité, rassure vos clients et les pousse à appeler, réserver ou passer.</p><ul><li>Design unique</li><li>Mobile d’abord</li><li>Formulaire & réservation</li><li>Rapide à charger</li></ul></div></article>
       <article><span class="bar" style="background:var(--g)"></span><div><h3>Boutique en ligne</h3><p>Vendre vos produits en ligne avec une boutique Shopify claire, des fiches produits soignées et un paiement simple.</p><ul><li>Shopify</li><li>Fiches produits</li><li>Paiement sécurisé</li><li>Prise en main</li></ul></div></article>
       <article><span class="bar" style="background:var(--b)"></span><div><h3>Référencement local</h3><p>Apparaître quand on cherche votre métier dans votre ville&nbsp;: fiche Google, pages locales, contenu et suivi.</p><ul><li>Fiche Google</li><li>Pages locales</li><li>Mots-clés</li><li>Suivi des positions</li></ul></div></article>
       <article><span class="bar" style="background:linear-gradient(var(--r),var(--g),var(--b))"></span><div><h3>Identité visuelle</h3><p>Un logo, des couleurs et des visuels cohérents, du site aux réseaux sociaux en passant par vos devis.</p><ul><li>Logo</li><li>Charte</li><li>Visuels réseaux</li><li>Motion design</li></ul></div></article>
     </div>
-    <div class="reel"><video src="assets/video/showreel.mp4" poster="assets/video/poster.jpg" controls muted playsinline preload="none" aria-label="Vidéo de présentation de 1903RGB, 30 secondes"></video></div>
+    <div class="reel"><video src="assets/video/showreel-720.mp4" poster="assets/video/poster.webp" controls muted playsinline preload="none" width="1280" height="720" aria-label="Vidéo de présentation de 1903RGB, 30 secondes" aria-describedby="reel-desc"></video></div>
+    <p class="reel-desc" id="reel-desc">En 30 secondes&nbsp;: le logo 1903RGB, quatre maquettes de sites qui défilent (boulangerie, salle de sport, agence immobilière, brasserie), leurs versions mobiles, le mur des 20 maquettes, puis les services&nbsp;: site vitrine, boutique en ligne, référencement, identité visuelle. Musique d’ambiance, sans voix.</p>
   </div>
 </section>
 
 <section class="band" id="methode">
   <div class="wrap">
     <div class="head">
-      <div><p class="mono eyebrow">Méthode</p><h2 style="margin-top:18px">Simple, du premier appel à la mise en ligne.</h2></div>
+      <h2>Simple, du premier appel à la mise en ligne.</h2>
       <p class="lede">Vous savez à chaque étape ce qui se passe et ce que vous allez recevoir.</p>
     </div>
     <div class="steps">
-      <div class="step"><span class="n">Étape 1</span><h3>On fait le point</h3><p>Un appel de 20 minutes pour comprendre votre activité, vos clients et ce que le site doit leur faire faire.</p></div>
-      <div class="step"><span class="n">Étape 2</span><h3>Vous voyez la maquette</h3><p>Vous recevez la direction visuelle et la page d'accueil avant que l'on construise le reste.</p></div>
+      <div class="step"><span class="n">Étape 1</span><h3>On fait le point</h3><p>Un rendez-vous de 20&nbsp;minutes pour comprendre votre activité, vos clients et ce que le site doit leur faire faire.</p></div>
+      <div class="step"><span class="n">Étape 2</span><h3>Vous voyez la maquette</h3><p>Vous recevez la direction visuelle et la page d’accueil avant que l’on construise le reste.</p></div>
       <div class="step"><span class="n">Étape 3</span><h3>On construit</h3><p>Pages, textes, photos, formulaires. Vous relisez et on ajuste ensemble.</p></div>
       <div class="step"><span class="n">Étape 4</span><h3>En ligne, et suivi</h3><p>Mise en ligne, fiche Google, prise en main. On reste disponibles pour les évolutions.</p></div>
     </div>
@@ -283,24 +299,24 @@ footer a{color:var(--paper)}
 <section class="band" id="rdv" style="background:var(--paper-2)">
   <div class="wrap rdv">
     <div>
-      <p class="mono eyebrow">Tarifs & rendez-vous</p>
+      <p class="mono eyebrow">Tarifs & rendez&#8209;vous</p>
       <h2 style="margin-top:18px">Un prix juste, après un vrai échange.</h2>
-      <p class="lede" style="margin-top:24px">Chaque site est différent, alors chaque tarif est calculé sur devis. On commence par un rendez-vous de 20 minutes, gratuit et sans engagement, pour comprendre votre activité.</p>
+      <p class="lede" style="margin-top:24px">Chaque site est différent, alors chaque tarif est calculé sur devis. On commence par un rendez&#8209;vous de 20&nbsp;minutes, gratuit et sans engagement, pour comprendre votre activité.</p>
       <ol class="mini">
-        <li><b>Rendez-vous de 20 min</b><span>en visio, par téléphone ou à Nancy</span></li>
+        <li><b>Rendez&#8209;vous de 20&nbsp;min</b><span>en visio, par téléphone ou à Nancy</span></li>
         <li><b>Devis sous 48&nbsp;h</b><span>clair, détaillé, envoyé par email</span></li>
         <li><b>Vous décidez</b><span>aucun engagement avant votre accord</span></li>
       </ol>
     </div>
-    <form class="book" id="book" novalidate>
-      <p class="mono eyebrow">Prendre rendez-vous</p>
+    <form class="book" id="book" novalidate aria-labelledby="book-title">
+      <h3 id="book-title">Demander un rendez&#8209;vous</h3>
       <div class="two">
-        <label>Nom et prénom<input id="f-nom" name="nom" autocomplete="name" required></label>
-        <label>Entreprise ou activité<input id="f-activite" name="activite" required placeholder="ex. boulangerie"></label>
+        <label>Nom et prénom<input id="f-nom" name="nom" autocomplete="name" required aria-required="true" maxlength="80"></label>
+        <label>Entreprise ou activité<input id="f-activite" name="activite" required aria-required="true" maxlength="80" placeholder="ex. boulangerie"></label>
       </div>
       <div class="two">
-        <label>Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
-        <label><span>Téléphone <small>(facultatif)</small></span><input id="f-tel" name="telephone" type="tel" autocomplete="tel"></label>
+        <label>Email<input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" maxlength="120"></label>
+        <label><span>Téléphone <small>(facultatif)</small></span><input id="f-tel" name="telephone" type="tel" autocomplete="tel" maxlength="20" pattern="[0-9 +().\-]{6,20}"></label>
       </div>
       <label>Votre besoin
         <select id="f-besoin" name="besoin">
@@ -316,36 +332,36 @@ footer a{color:var(--paper)}
         <label class="chk"><input type="radio" name="format" value="Téléphone" id="f-telformat">Téléphone</label>
         <label class="chk"><input type="radio" name="format" value="À Nancy" id="f-nancy">À Nancy</label>
       </fieldset>
-      <label><span>Un mot sur votre projet <small>(facultatif)</small></span><textarea id="f-msg" name="message" rows="3" placeholder="Avez-vous déjà un site ? Une date en tête ?"></textarea></label>
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <button class="btn solid" type="submit" id="f-send">Demander mon rendez-vous</button>
+      <label><span>Un mot sur votre projet <small>(facultatif)</small></span><textarea id="f-msg" name="message" rows="3" maxlength="2000" placeholder="Avez-vous déjà un site ? Une date en tête ?"></textarea></label>
+      <div class="sr" aria-hidden="true"><label>Ne pas remplir<input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off"></label></div>
+      <p class="fine">Les champs nom, activité et email sont obligatoires. Vos informations servent uniquement à vous répondre et à préparer votre devis&nbsp;; elles transitent par le service FormSubmit jusqu’à notre boîte mail. <a href="mentions-legales.html#donnees">Vos données et vos droits</a>.</p>
+      <button class="btn solid" type="submit" id="f-send">Demander mon rendez&#8209;vous</button>
       <p class="form-msg" id="f-out" role="status" aria-live="polite"></p>
-      <p class="fine">Votre demande arrive directement à 1903rgb@gmail.com. On vous confirme le créneau par email.</p>
     </form>
   </div>
 </section>
 
 <section class="band dark" id="apropos">
   <div class="wrap about">
-    <div><p class="mono eyebrow">Le studio</p><p class="big" style="margin-top:22px">Un studio indépendant à Nancy, avec un regard de graphiste.</p></div>
+    <h2>Un studio indépendant à Nancy, avec un regard de graphiste.</h2>
     <div class="txt">
-      <p>1903RGB, c'est un studio web fondé par Junior Bertrand, graphiste de formation. Le nom vient des trois couleurs de chaque pixel d'écran&nbsp;: rouge, vert, bleu. C'est notre façon de dire que tout se joue dans le détail.</p>
+      <p>1903RGB est un studio web fondé par Junior Bertrand, graphiste de formation. Le nom vient des trois couleurs de chaque pixel d’écran&nbsp;: rouge, vert, bleu. C’est notre façon de dire que tout se joue dans le détail.</p>
       <p>On travaille avec des commerces, des artisans et des indépendants qui veulent un site à leur image, pas un modèle de plus. Vous avez un interlocuteur unique, du premier appel au suivi après la mise en ligne.</p>
-      <dl><dt>Basé à</dt><dd>Nancy, Grand Est</dd><dt>Clients</dt><dd>Partout en France, en visio ou en rendez-vous</dd><dt>SIRET</dt><dd>923 060 743 00013</dd></dl>
+      <dl><dt>Basé à</dt><dd>Nancy, Lorraine</dd><dt>Clients</dt><dd>Partout en France, en visio ou en rendez&#8209;vous</dd><dt>SIRET</dt><dd>923 060 743 00013</dd></dl>
     </div>
   </div>
 </section>
 
 <section class="band" id="faq">
   <div class="wrap">
-    <p class="mono eyebrow">Questions fréquentes</p>
-    <h2 style="margin-top:18px">Ce qu'on nous demande souvent.</h2>
+    <h2>Ce qu’on nous demande souvent.</h2>
     <div class="faq">
-      <details><summary>Combien de temps faut-il pour créer mon site&nbsp;?</summary><p>Cela dépend du nombre de pages et de la rapidité des échanges. On vous donne un planning précis avec le devis, et vous voyez la maquette avant que l'on construise le reste.</p></details>
-      <details><summary>Est-ce que le site m'appartient&nbsp;?</summary><p>Oui. Le site, ses textes et ses visuels sont à vous une fois le projet réglé. Vous pouvez le faire évoluer avec nous ou avec quelqu'un d'autre.</p></details>
-      <details><summary>Je n'ai ni textes ni photos, c'est un problème&nbsp;?</summary><p>Non. On vous aide à écrire les textes, et on vous conseille pour les photos&nbsp;: séance, banque d'images libres de droits ou visuels créés pour vous.</p></details>
+      <details><summary>Combien coûte un site&nbsp;?</summary><p>Le prix dépend du nombre de pages, des fonctions (réservation, boutique) et des contenus à créer. Après un rendez&#8209;vous de 20&nbsp;minutes, vous recevez un devis détaillé sous 48&nbsp;h, sans engagement.</p></details>
+      <details><summary>Combien de temps faut-il pour créer mon site&nbsp;?</summary><p>Cela dépend du nombre de pages et de la rapidité des échanges. On vous donne un planning précis avec le devis, et vous voyez la maquette avant que l’on construise le reste.</p></details>
+      <details><summary>Est-ce que le site m’appartient&nbsp;?</summary><p>Oui. Le site, ses textes et ses visuels sont à vous une fois le projet réglé. Vous pouvez le faire évoluer avec nous ou avec quelqu’un d’autre.</p></details>
+      <details><summary>Je n’ai ni textes ni photos, c’est un problème&nbsp;?</summary><p>Non. On vous aide à écrire les textes, et on vous conseille pour les photos&nbsp;: séance, banque d’images libres de droits ou visuels créés pour vous.</p></details>
       <details><summary>Pourrai-je modifier mon site moi-même&nbsp;?</summary><p>Oui, pour les contenus courants comme les horaires, les tarifs ou les actualités. On vous montre comment faire à la livraison.</p></details>
-      <details><summary>Vous travaillez seulement à Nancy&nbsp;?</summary><p>Non. Le studio est à Nancy, mais on accompagne des clients partout en France, en visio.</p></details>
+      <details><summary>Vous travaillez seulement à Nancy&nbsp;?</summary><p>Non. Le studio est à Nancy, en Lorraine, mais on accompagne des clients partout en France, en visio.</p></details>
     </div>
   </div>
 </section>
@@ -353,15 +369,15 @@ footer a{color:var(--paper)}
 <section class="band dark contact" id="contact">
   <div class="wrap">
     <p class="mono eyebrow"><span class="pix" aria-hidden="true" style="font-size:10px"><i></i><i></i><i></i></span>Contact</p>
-    <h2 style="margin-top:22px">Votre projet&nbsp;?<br>Passez en DM.</h2>
-    <p class="lede" style="margin-top:28px">Écrivez-nous sur Instagram ou par email. Dites-nous votre métier, votre ville et si vous avez déjà un site&nbsp;: on vous répond sous 48&nbsp;h.</p>
+    <h2 style="margin-top:22px">Votre projet&nbsp;?<br>Parlons&#8209;en.</h2>
+    <p class="lede" style="margin-top:28px">Réservez 20&nbsp;minutes avec nous, ou passez en DM sur Instagram. Dites-nous votre métier, votre ville et si vous avez déjà un site&nbsp;: réponse sous 48&nbsp;h.</p>
     <div class="row">
-      <a class="btn solid ig" href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@_1903rgb_</a>
-      <a class="btn" href="#rdv">Prendre rendez-vous</a>
+      <a class="btn solid" href="#rdv">Prendre rendez&#8209;vous</a>
+      <a class="btn" href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@_1903rgb_<span class="sr"> (Instagram, nouvel onglet)</span></a>
     </div>
-    <div class="row" style="margin-top:20px">
+    <div class="row" style="margin-top:12px">
       <span class="mail" id="mail">1903rgb@gmail.com</span>
-      <button class="copy" type="button" id="copy">Copier l'adresse</button>
+      <button class="copy" type="button" id="copy">Copier l’adresse</button>
       <span id="copied" class="mono" style="color:var(--mute-d)" aria-live="polite"></span>
     </div>
   </div>
@@ -371,43 +387,9 @@ footer a{color:var(--paper)}
 <footer>
   <div class="wrap">
     <span>© 1903RGB · Studio web à Nancy · SIRET 923 060 743 00013</span>
-    <span><a href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener">Instagram</a> · <a href="mentions-legales.html">Mentions légales</a></span>
+    <span><a href="https://www.instagram.com/_1903rgb_/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="mentions-legales.html">Mentions légales</a></span>
   </div>
 </footer>
-
-<script>
-(()=>{
-  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}));
-  const btns=[...document.querySelectorAll('.filters button')],cards=[...document.querySelectorAll('.card')];
-  btns.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;btns.forEach(x=>x.setAttribute('aria-pressed',x===b));cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.cat===f));}));
-  const form=document.getElementById('book'),fo=document.getElementById('f-out'),send=document.getElementById('f-send');
-  const d=document.getElementById('f-jour');const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
-  form.addEventListener('submit',async e=>{
-    e.preventDefault();fo.className='form-msg';
-    const req=['f-nom','f-activite','f-email'].map(id=>document.getElementById(id));
-    const bad=req.find(i=>!i.value.trim()||(i.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value)));
-    if(bad){fo.classList.add('err');fo.textContent=bad.type==='email'?"Vérifiez votre adresse email, elle semble incomplète.":"Indiquez votre nom, votre activité et votre email pour qu'on puisse vous répondre.";bad.focus();return;}
-    const data=Object.fromEntries(new FormData(form));
-    data._subject='Demande de rendez-vous : '+data.activite;data._template='table';data._captcha='false';
-    send.disabled=true;send.textContent='Envoi…';
-    try{
-      const r=await fetch('https://formsubmit.co/ajax/1903rgb@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
-      if(!r.ok)throw 0;
-      form.reset();fo.classList.add('ok');fo.textContent="Demande envoyée. On vous confirme le créneau par email sous 48 h.";
-    }catch(_){fo.classList.add('err');fo.textContent="L'envoi n'a pas fonctionné. Écrivez-nous directement à 1903rgb@gmail.com ou en DM sur Instagram.";}
-    send.disabled=false;send.textContent='Demander mon rendez-vous';
-  });
-  const out=document.getElementById('copied');
-  document.getElementById('copy').addEventListener('click',()=>{
-    const t='1903rgb@gmail.com';
-    const done=()=>{out.textContent='Adresse copiée';setTimeout(()=>out.textContent='',2400)};
-    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done).catch(sel)}else sel();
-    function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Adresse sélectionnée, copiez-la'}
-  });
-})();
-</script>
-
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
